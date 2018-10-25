@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840) (preloaded format=pdflatex 2018.10.25)  25 OCT 2018 23:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840) (preloaded format=pdflatex 2018.10.25)  26 OCT 2018 00:07
 entering extended mode
 **./notebook.tex
 (notebook.tex
@@ -333,7 +333,9 @@ Package hyperref Info: Option `breaklinks' set `true' on input line 58.
 Package hyperref Info: Option `linktocpage' set `true' on input line 58.
 Package hyperref Info: Option `colorlinks' set `true' on input line 58.
 )
-(notebook.aux (Chapter1/chapter1.aux) (AppendixA/appendixA.aux))
+(notebook.aux (Chapter01/chapter1.aux) (Chapter02/chapter2.aux)
+(Chapter03/chapter3.aux) (Chapter04/chapter4.aux) (Chapter05/chapter5.aux)
+(AppendixA/appendixA.aux))
 \openout1 = `notebook.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
@@ -415,16 +417,52 @@ Package lastpage Info: Please have a look at the pageslts package at
 
 
 ]
-\openout2 = `Chapter1/chapter1.aux'.
+\openout2 = `Chapter01/chapter1.aux'.
 
- (Chapter1/chapter1.tex
+ (Chapter01/chapter1.tex
 Chapter 1.
 )pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.22 	\include{Chapter1/chapter1}
-                                  [1
+l.22 	\include{Chapter01/chapter1}
+                                   [1
+
+
+
+]
+\openout2 = `Chapter02/chapter2.aux'.
+
+ (Chapter02/chapter2.tex
+Chapter 2.
+) [2
+
+
+
+]
+\openout2 = `Chapter03/chapter3.aux'.
+
+ (Chapter03/chapter3.tex
+Chapter 3.
+) [3
+
+
+
+]
+\openout2 = `Chapter04/chapter4.aux'.
+
+ (Chapter04/chapter4.tex
+Chapter 4.
+) [4
+
+
+
+]
+\openout2 = `Chapter05/chapter5.aux'.
+
+ (Chapter05/chapter5.tex
+Chapter 5.
+) [5
 
 
 
@@ -432,7 +470,7 @@ l.22 	\include{Chapter1/chapter1}
 
 Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
-) [2
+) [6
 
 
 ]
@@ -440,33 +478,35 @@ Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
  (AppendixA/appendixA.tex
 Appendix A.
-) [3
+) [7
 
 
 ] 
 AED: lastpage setting LastPage
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 34.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 34.
-(notebook.aux (Chapter1/chapter1.aux) (AppendixA/appendixA.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 34.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 34.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 38.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 38.
+(notebook.aux (Chapter01/chapter1.aux) (Chapter02/chapter2.aux)
+(Chapter03/chapter3.aux) (Chapter04/chapter4.aux) (Chapter05/chapter5.aux)
+(AppendixA/appendixA.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 38.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 38.
 Package rerunfilecheck Info: File `notebook.out' has not changed.
-(rerunfilecheck)             Checksum: F732EC6DCB9280152C86C161ACEEAAFE;269.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 34.
+(rerunfilecheck)             Checksum: 66CD095D8439A8F4CA1D53110A4C65B3;996.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 38.
  ) 
 Here is how much of TeX's memory you used:
- 8096 strings out of 494889
- 120093 string characters out of 3178923
- 213270 words of memory out of 3000000
- 11620 multiletter control sequences out of 15000+200000
+ 8176 strings out of 494889
+ 121882 string characters out of 3178923
+ 215928 words of memory out of 3000000
+ 11648 multiletter control sequences out of 15000+200000
  10539 words of font info for 38 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
  38i,6n,43p,244b,347s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on notebook.pdf (5 pages, 33514 bytes).
+Output written on notebook.pdf (9 pages, 47294 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 11 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 144 PDF objects out of 1000 (max. 8388607)
+ 27 named destinations out of 1000 (max. 500000)
+ 137 words of extra memory for PDF output out of 10000 (max. 10000000)
 

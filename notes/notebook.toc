@@ -1,5 +1,17 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}About this Notebook}{1}{section.1.1}
-\contentsline {section}{\numberline {1.2}Policy of Usage}{1}{section.1.2}
-\contentsline {chapter}{Bibliography}{2}{section.1.2}
-\contentsline {chapter}{\numberline {A}Test}{3}{appendix.A}
+\contentsline {section}{\numberline {1.2}Policy of Use}{1}{section.1.2}
+\contentsline {chapter}{\numberline {2}Mathematics Basics}{2}{chapter.2}
+\contentsline {section}{\numberline {2.1}Probability}{2}{section.2.1}
+\contentsline {section}{\numberline {2.2}Linear Algebra}{2}{section.2.2}
+\contentsline {section}{\numberline {2.3}Calculus}{2}{section.2.3}
+\contentsline {section}{\numberline {2.4}Informatics}{2}{section.2.4}
+\contentsline {section}{\numberline {2.5}Optimization}{2}{section.2.5}
+\contentsline {chapter}{\numberline {3}Machine Learning Basics}{3}{chapter.3}
+\contentsline {chapter}{\numberline {4}Regression}{4}{chapter.4}
+\contentsline {section}{\numberline {4.1}Linear Regression}{4}{section.4.1}
+\contentsline {section}{\numberline {4.2}Non-linear Regression}{4}{section.4.2}
+\contentsline {section}{\numberline {4.3}Logistic Regression}{4}{section.4.3}
+\contentsline {chapter}{\numberline {5}Support Vector Machines}{5}{chapter.5}
+\contentsline {chapter}{Bibliography}{6}{chapter.5}
+\contentsline {chapter}{\numberline {A}Test}{7}{appendix.A}
