@@ -1,0 +1,31 @@
+%!TEX root = ./notebook.tex
+% File: preamble.tex
+% Author: Cong Bao
+
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{multirow}
+\usepackage{threeparttable}
+
+\newcommand{\TITLE}{Machine Learning Notebook}
+\newcommand{\AUTHOR}{Cong Bao}
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\headheight=15pt
+\linespread{1.1}
+\renewcommand{\floatpagefraction}{.9}
+
+\pagestyle{fancy}
+\lhead{\AUTHOR}
+\chead{\TITLE}
+\rhead{\thepage}
+\cfoot{Page \thepage\ of \pageref{LastPage}}
