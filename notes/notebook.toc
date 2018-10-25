@@ -1,2 +1,5 @@
-\contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {section}{\numberline {1.1}Test}{1}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}About this Notebook}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Policy of Usage}{1}{section.1.2}
+\contentsline {chapter}{Bibliography}{2}{section.1.2}
+\contentsline {chapter}{\numberline {A}Test}{3}{appendix.A}

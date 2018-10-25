@@ -2,14 +2,20 @@
 % File: preamble.tex
 % Author: Cong Bao
 
+\usepackage{amsmath}
+\usepackage{booktabs}
 \usepackage{caption}
 \usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage{float}
 \usepackage{graphicx}
+\usepackage{hyperref}
 \usepackage{lastpage}
 \usepackage{multirow}
+\usepackage{natbib}
 \usepackage{threeparttable}
+\usepackage{url}
+\usepackage{xcolor}
 
 \newcommand{\TITLE}{Machine Learning Notebook}
 \newcommand{\AUTHOR}{Cong Bao}
@@ -25,7 +31,28 @@
 \renewcommand{\floatpagefraction}{.9}
 
 \pagestyle{fancy}
-\lhead{\AUTHOR}
-\chead{\TITLE}
-\rhead{\thepage}
-\cfoot{Page \thepage\ of \pageref{LastPage}}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\fancyhf{}
+\fancyhead[L]{\thesection~\rightmark}
+\fancyhead[R]{\chaptername~\thechapter~\leftmark}
+\fancyfoot[C]{\thepage}
+
+\definecolor{darkblue}{rgb}{0, 0, 0.5}
+\hypersetup{
+	final=true,
+	plainpages=false,
+	pdfstartview=FitV,
+	pdftoolbar=true,
+	pdfmenubar=true,
+	bookmarksopen=true,
+	bookmarksnumbered=true,
+	breaklinks=true,
+	linktocpage,
+	colorlinks=true,
+	citecolor=blue,
+	anchorcolor=green,
+	citecolor=darkblue,
+	linkcolor=darkblue,
+	urlcolor=darkblue
+}

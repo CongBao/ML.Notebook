@@ -21,4 +21,14 @@
 	\mainmatter
 	\include{Chapter1/chapter1}
 	
+	\addcontentsline{toc}{chapter}{Bibliography}
+	\bibliographystyle{plain}
+	\bibliography{References/reference}
+	
+	\appendix
+	\fancyhf{}
+	\fancyhead[R]{Appendix~\thechapter~\leftmark}
+	\fancyfoot[C]{\thepage}
+	\include{AppendixA/appendixA}
+	
 \end{document}
