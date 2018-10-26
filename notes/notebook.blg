@@ -1,5 +1,9 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: notebook.aux
-A level-1 auxiliary file: Chapter1/chapter1.aux
+A level-1 auxiliary file: Chapter01/chapter1.aux
+A level-1 auxiliary file: Chapter02/chapter2.aux
+A level-1 auxiliary file: Chapter03/chapter3.aux
+A level-1 auxiliary file: Chapter04/chapter4.aux
+A level-1 auxiliary file: Chapter05/chapter5.aux
 The style file: plain.bst
 A level-1 auxiliary file: AppendixA/appendixA.aux
 I found no \citation commands---while reading file notebook.aux

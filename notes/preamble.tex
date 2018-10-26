@@ -2,7 +2,10 @@
 % File: preamble.tex
 % Author: Cong Bao
 
+\usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{enumitem}
@@ -11,6 +14,7 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{lastpage}
+\usepackage{latexsym}
 \usepackage{multirow}
 \usepackage{natbib}
 \usepackage{threeparttable}
@@ -27,14 +31,14 @@
 \textheight=9.0in
 \headsep=0.25in
 \headheight=15pt
-\linespread{1.1}
+\linespread{1.2}
 \renewcommand{\floatpagefraction}{.9}
 
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
 \fancyhf{}
-\fancyhead[L]{\thesection~\rightmark}
+\fancyhead[L]{\rightmark}
 \fancyhead[R]{\chaptername~\thechapter~\leftmark}
 \fancyfoot[C]{\thepage}
 
@@ -56,3 +60,141 @@
 	linkcolor=darkblue,
 	urlcolor=darkblue
 }
+
+% mathcal letters
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+
+% greek letters
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\ga}{\gamma}
+\newcommand{\de}{\delta}
+\newcommand{\ep}{\epsilon}
+\newcommand{\ze}{\zeta}
+\newcommand{\et}{\eta}
+\renewcommand{\th}{\theta}
+\newcommand{\io}{\iota}
+\newcommand{\ka}{\kappa}
+\newcommand{\la}{\lambda}
+\newcommand{\rh}{\rho}
+\newcommand{\si}{\sigma}
+\newcommand{\ta}{\tau}
+\newcommand{\up}{\upsilon}
+\newcommand{\ph}{\phi}
+\newcommand{\ch}{\chi}
+\newcommand{\ps}{\psi}
+\newcommand{\om}{\ometa}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\De}{\Delta}
+\newcommand{\Th}{\Theta}
+\newcommand{\La}{\Lambda}
+\newcommand{\Si}{\Sigma}
+\newcommand{\Up}{\Upsilon}
+\newcommand{\Ph}{\Phi}
+\newcommand{\Ps}{\Psi}
+\newcommand{\Om}{\Omega}
+\renewcommand{\digamma}{\Psi}
+
+% some definitions
+\newcommand{\defeq}{\triangleq}
+\newcommand{\order}{\cO}
+\newcommand{\ud}{\textrm{d}}
+\renewcommand{\|}{\textrm{~}\arrowvert\textrm{~}}
+\newcommand{\dbar}{\textrm{~}\arrowvert\arrowvert\textrm{~}}
+\newcommand{\bars}{\textrm{~}\arrowvert\arrowvert\textrm{~}}
+\renewcommand{\;}{\textrm{~}{\boldsymbol ;}\textrm{~}}
+\newcommand{\by}{\sim}
+\newcommand{\impl}{\Longrightarrow}
+\newcommand{\fto}{\rightarrow}
+\newcommand{\from}{\leftarrow}
+\newcommand{\restricted}{\upharpoonright}
+\newcommand{\inv}{^{-1}}
+\renewcommand{\brack}[1]{\left\{\begin{array}{ll}#1\end{array}\right.}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\newcommand{\mat}[1]{\text{\bf #1}}
+\newcommand{\missing}{\bullet}
+\newcommand{\T}{{}^\top}
+\newcommand{\TT}{^\top}
+\newcommand{\prop}{\varpropto}
+\newcommand{\norm}[1]{\left\vert\left\vert #1 \right\vert\right\vert}
+\newcommand{\p}[1]{p\left(#1\right)}
+\newcommand{\pprime}[1]{p'\left(#1\right)}
+\newcommand{\pleft}[1]{p\left(#1\right.}
+\newcommand{\pright}[1]{p\left.#1\right)}
+\newcommand{\prob}[1]{\mathcal{P}\left\{{#1}\right\}}
+\renewcommand{\P}[1]{P\left(#1\right)}
+\newcommand{\E}[1]{\mathbf{E}\left[#1\right]}
+\newcommand{\V}[1]{\mathbf{Var}\left[#1\right]}
+\newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
+\newcommand{\dep}{\rotatebox[origin=c]{-90}{$\models$}}
+
+% sets/functions
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\ran}{\textrm{ran}}
+\newcommand{\sgn}{\textrm{sgn}}
+\newcommand{\sign}{\textrm{sign}}
+
+% distributions
+\newcommand{\Uni}{\mathcal{U}\hspace{-0.5mm}\textit{ni}}
+\newcommand{\Nor}{\mathcal{N}\hspace{-0.5mm}\textit{or}}
+\newcommand{\Gam}{\mathcal{G}\hspace{-0.5mm}\textit{am}}
+\newcommand{\Dir}{\mathcal{D}\hspace{-0.5mm}\textit{ir}}
+\newcommand{\Exp}{\mathcal{E}\hspace{-0.5mm}\textit{xp}}
+\newcommand{\Mult}{\mathcal{M}\hspace{-0.5mm}\textit{ult}}
+\newcommand{\Stu}{\mathcal{S}\hspace{-0.5mm}\textit{tu}}
+\newcommand{\Bet}{\mathcal{B}\hspace{-0.5mm}\textit{et}}
+\newcommand{\Bin}{\mathcal{B}\hspace{-0.5mm}\textit{in}}
+\newcommand{\Ber}{\mathcal{B}\hspace{-0.5mm}\textit{er}}
+\newcommand{\Wish}{\mathcal{W}\hspace{-0.5mm}\textit{ish}}
+\newcommand{\Disc}{\mathcal{D}\hspace{-0.5mm}\textit{isc}}
+\newcommand{\DP}{\mathcal{DP}}
+\newcommand{\Poi}{\mathcal{PS}}
+
+% expectations, variances, etc.
+\newcommand{\Ep}{\mathbb{E}}
+\newcommand{\Var}{\mathbb{V}}
+\newcommand{\KL}{\textrm{KL}}
+\newcommand{\divr}{\vert\vert}
+
+% complexity
+\renewcommand{\O}{\mathcal{O}}
+
+% min, max
+\def\argmax{\qopname\relax n{argmax}}
+\def\argmin{\qopname\relax n{argmin}}
+
+% matrix
+\def\Tr{\qopname\relax n{Tr}}
+\def\abs{\qopname\relax n{abs}}
+\newcommand{\ab}[1]{\left\vert #1 \right\vert}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\def\tr{\qopname\relax n{tr}}
+\def\diag{\qopname\relax n{diag}}
+
+% gradient
+\newcommand{\grad}{\nabla}

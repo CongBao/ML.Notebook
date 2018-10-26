@@ -7,6 +7,103 @@
 \section{Probability}
 \label{section2.1}
 
+\subsection{Basic Rules}
+
+\begin{description}[leftmargin=0cm]
+\item[Three Axioms of Probability] Let $\Om$ be a sample space. A probability assigns a real number $\P{X}$ to each event $X \subseteq \Om$ in such a way that
+	\begin{enumerate}[nosep]
+	\item $\P{X} \geq 0, \forall X$
+	\item If $X_1, X_2, \dotsc$ are pairwise disjoint events ($X_1 \cap X_2=\emptyset,\ i \ne j,\ i,j=1,2,\dotsc$), then $\P{\bigcup_{i=1}^{\infty}X_i}=\sum_{i=1}^{\infty}\P{X_i}$. (This property is called countable additivity.)
+	\item $\P{\Om}=1$
+	\end{enumerate}
+\item[Joint Probability] The probability both event A and B occur. $\P{X,Y}=\P{X \cap Y}$.
+\item[Marginalization] The probability distribution of any variable in a joint distribution can be recovered by integrating (or summing) over the other variables.
+	\begin{enumerate}
+	\item For continuous r.v. $\P{x}=\int\P{x,y}dy$ ; $\P{y}=\int\P{x,y}dx$.
+	\item For discrete r.v. $\P{x}=\sum_y\P{x,y}$ ; $\P{y}=\sum_x\P{x,y}$.
+	\item For mixed r.v. $\P{x,y}=\sum_w\int\P{w,x,y,z}dz$, where $w$ is discrete and $z$ is continuous.
+	\end{enumerate}
+\item[Conditional Probibility] $\P{X=x|Y=y}$ is the probability $X=x$ occurs given the knowledge $Y=y$ occurs. Conditional probability can be extracted from joint probability that
+	\begin{align*}
+	\P{x|y=y^{*}}=\frac{\P{x,y=y^{*}}}{\int\P{x,y=y^{*}}dx}=\frac{\P{x,y=y^{*}}}{\P{y=y^{*}}}
+	\end{align*}
+
+Usually, the formula is written as $\P{x|y}=\frac{\P{x,y}}{\P{y}}$.
+\item[Product Rule] The formula can be rearranged as $\P{x,y}=\P{x|y}\P{y}=\P{y|x}\P{x}$. In case of multiple variables
+	\begin{align*}
+	\P{w,x,y,z}&=\P{w,x,y|z}\P{z} \\
+			   &=\P{w,x|y,z}\P{y|z}\P{z} \\
+			   &=\P{w|x,y,z}\P{x|y,z}\P{y|z}\P{z}
+	\end{align*}
+\item[Independence] If two variables $x$ and $y$ are independent, then r.v. $x$ tells nothing about r.v. $y$ (and vice-versa)
+	\begin{align*}
+	&\P{x|y}=\P{x} \\
+	&\P{y|x}=\P{y} \\
+	&\P{x,y}=\P{x}\P{y}
+	\end{align*}
+\item[Baye's Rule] By rearranging formula in Product Rule, we have
+	\begin{align*}
+	\P{y|x}&=\frac{\P{x|y}\P{y}}{\P{x}} \\
+		   &=\frac{\P{x|y}\P{y}}{\int\P{x,y}dy} \\
+		   &=\frac{\P{x|y}\P{y}}{\int\P{x|y}\P{y}dy}
+	\end{align*}
+\item[Expectation] Expectation tells us the excepted or average value of some function $f(x)$, taking into account the distribution of $x$.
+	\begin{align*}
+	&\E{f(x)}=\sum_x f(x)\P{x} \\
+	&\E{f(x)}=\int f(x)\P{x}dx
+	\end{align*}
+Definition in two dimensions: $\E{f(x,y)}=\iint f(x,y)\P{x,y}dx\ dy$
+	\begin{table*}[!h]
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			Function $f(\bullet)$ & Expectation \\
+			\hline
+			$x^k$ & $k^{th}$ moment about zero \\
+			\hline
+			$(x-\mu_x)^k$ & $k^{th}$ moment about the mean \\
+			\hline
+		\end{tabular}
+		\
+		\begin{tabular}{|c|c|}
+			\hline
+			Function $f(\bullet)$ & Expectation \\
+			\hline
+			$x$ & mean, $\mu_x$ \\
+			\hline
+			$(x-\mu_x)^2$ & variance \\
+			\hline
+			$(x-\mu_x)^3$ & skew \\
+			\hline
+			$(x-\mu_x)^4$ & kurtosis \\
+			\hline
+			$(x-\mu_x)(x-\mu_y)$ & covariance of $x$ and $y$ \\
+			\hline
+		\end{tabular}
+	\end{table*}
+
+Besides, Expectation has the following four rules
+	\begin{enumerate}
+		\item Expected value of a constant is the constant $\E{\kappa}=\kappa$.
+		\item Expected value of constant times function is constant times excepted value of function $\E{kf(x)}=k\E{f(x)}$.
+		\item Expectation of sum of functions is sum of expectation of functions \\ $\E{f(x)+g(y)}=\E{f(x)}+\E{g(x)}$.
+		\item Expectation of product of functions in variables $x$ and $y$ is product of expectations of functions if $x$ and $y$ are independent $\E{f(x)g(y)}=\E{f(x)}\E{g(y)}, x \indep y$.
+	\end{enumerate}
+\end{description}
+
+\subsection{Common Probability Distributions}
+
+\begin{description}[leftmargin=0cm]
+\item[Bernoulli]
+\item[Beta]
+\item[Categorical]
+\item[Dirichlet]
+\item[Univariable Normal]
+\item[Normal Inverse Gamma]
+\item[Multivariate Normal]
+\item[Normal inverse Wishart]
+\end{description}
+
 \section{Linear Algebra}
 \label{section2.2}
 
