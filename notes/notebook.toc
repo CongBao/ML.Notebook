@@ -5,15 +5,15 @@
 \contentsline {section}{\numberline {2.1}Probability}{2}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Basic Rules}{2}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}Common Probability Distributions}{4}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}Linear Algebra}{4}{section.2.2}
-\contentsline {section}{\numberline {2.3}Calculus}{4}{section.2.3}
-\contentsline {section}{\numberline {2.4}Informatics}{4}{section.2.4}
-\contentsline {section}{\numberline {2.5}Optimization}{4}{section.2.5}
-\contentsline {chapter}{\numberline {3}Machine Learning Basics}{5}{chapter.3}
-\contentsline {chapter}{\numberline {4}Regression}{6}{chapter.4}
-\contentsline {section}{\numberline {4.1}Linear Regression}{6}{section.4.1}
-\contentsline {section}{\numberline {4.2}Non-linear Regression}{6}{section.4.2}
-\contentsline {section}{\numberline {4.3}Logistic Regression}{6}{section.4.3}
-\contentsline {chapter}{\numberline {5}Support Vector Machines}{7}{chapter.5}
-\contentsline {chapter}{Bibliography}{8}{chapter.5}
-\contentsline {chapter}{\numberline {A}Test}{9}{appendix.A}
+\contentsline {section}{\numberline {2.2}Linear Algebra}{5}{section.2.2}
+\contentsline {section}{\numberline {2.3}Calculus}{5}{section.2.3}
+\contentsline {section}{\numberline {2.4}Informatics}{5}{section.2.4}
+\contentsline {section}{\numberline {2.5}Optimization}{5}{section.2.5}
+\contentsline {chapter}{\numberline {3}Machine Learning Basics}{6}{chapter.3}
+\contentsline {chapter}{\numberline {4}Regression}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Linear Regression}{7}{section.4.1}
+\contentsline {section}{\numberline {4.2}Non-linear Regression}{7}{section.4.2}
+\contentsline {section}{\numberline {4.3}Logistic Regression}{7}{section.4.3}
+\contentsline {chapter}{\numberline {5}Support Vector Machines}{8}{chapter.5}
+\contentsline {chapter}{Bibliography}{9}{chapter.5}
+\contentsline {chapter}{\numberline {A}Test}{10}{appendix.A}

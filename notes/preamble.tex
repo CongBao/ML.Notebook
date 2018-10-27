@@ -61,6 +61,34 @@
 	urlcolor=darkblue
 }
 
+% mathbb letters
+\newcommand{\bA}{\mathbb{A}}
+\newcommand{\bB}{\mathbb{B}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bD}{\mathbb{D}}
+\newcommand{\bE}{\mathbb{E}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bG}{\mathbb{G}}
+\newcommand{\bH}{\mathbb{H}}
+\newcommand{\bI}{\mathbb{I}}
+\newcommand{\bJ}{\mathbb{J}}
+\newcommand{\bK}{\mathbb{K}}
+\newcommand{\bL}{\mathbb{L}}
+\newcommand{\bM}{\mathbb{M}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bO}{\mathbb{O}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bT}{\mathbb{T}}
+\newcommand{\bU}{\mathbb{U}}
+\newcommand{\bV}{\mathbb{V}}
+\newcommand{\bW}{\mathbb{W}}
+\newcommand{\bX}{\mathbb{X}}
+\newcommand{\bY}{\mathbb{Y}}
+\newcommand{\bZ}{\mathbb{Z}}
+
 % mathcal letters
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cB}{\mathcal{B}}
@@ -150,8 +178,10 @@
 \renewcommand{\P}[1]{P\left(#1\right)}
 \newcommand{\E}[1]{\mathbf{E}\left[#1\right]}
 \newcommand{\V}[1]{\mathbf{Var}\left[#1\right]}
+\newcommand{\C}[1]{\mathbf{Cov}\left[#1\right]}
 \newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
 \newcommand{\dep}{\rotatebox[origin=c]{-90}{$\models$}}
+\newcommand{\e}[1]{exp\left(#1\right)}
 
 % sets/functions
 \newcommand{\dom}{\textrm{dom}}
@@ -160,20 +190,11 @@
 \newcommand{\sign}{\textrm{sign}}
 
 % distributions
-\newcommand{\Uni}{\mathcal{U}\hspace{-0.5mm}\textit{ni}}
-\newcommand{\Nor}{\mathcal{N}\hspace{-0.5mm}\textit{or}}
-\newcommand{\Gam}{\mathcal{G}\hspace{-0.5mm}\textit{am}}
-\newcommand{\Dir}{\mathcal{D}\hspace{-0.5mm}\textit{ir}}
-\newcommand{\Exp}{\mathcal{E}\hspace{-0.5mm}\textit{xp}}
-\newcommand{\Mult}{\mathcal{M}\hspace{-0.5mm}\textit{ult}}
-\newcommand{\Stu}{\mathcal{S}\hspace{-0.5mm}\textit{tu}}
-\newcommand{\Bet}{\mathcal{B}\hspace{-0.5mm}\textit{et}}
-\newcommand{\Bin}{\mathcal{B}\hspace{-0.5mm}\textit{in}}
-\newcommand{\Ber}{\mathcal{B}\hspace{-0.5mm}\textit{er}}
-\newcommand{\Wish}{\mathcal{W}\hspace{-0.5mm}\textit{ish}}
-\newcommand{\Disc}{\mathcal{D}\hspace{-0.5mm}\textit{isc}}
-\newcommand{\DP}{\mathcal{DP}}
-\newcommand{\Poi}{\mathcal{PS}}
+\newcommand{\Bern}{\mathbf{Bern}}
+\newcommand{\Beta}{\mathbf{Beta}}
+\newcommand{\Cat}{\mathbf{Cat}}
+\newcommand{\Dir}{\mathbf{Dir}}
+\newcommand{\Norm}{\mathbf{Norm}}
 
 % expectations, variances, etc.
 \newcommand{\Ep}{\mathbb{E}}

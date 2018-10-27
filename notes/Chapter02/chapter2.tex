@@ -11,7 +11,7 @@
 
 \begin{description}[leftmargin=0cm]
 \item[Three Axioms of Probability] Let $\Om$ be a sample space. A probability assigns a real number $\P{X}$ to each event $X \subseteq \Om$ in such a way that
-	\begin{enumerate}[nosep]
+	\begin{enumerate}
 	\item $\P{X} \geq 0, \forall X$
 	\item If $X_1, X_2, \dotsc$ are pairwise disjoint events ($X_1 \cap X_2=\emptyset,\ i \ne j,\ i,j=1,2,\dotsc$), then $\P{\bigcup_{i=1}^{\infty}X_i}=\sum_{i=1}^{\infty}\P{X_i}$. (This property is called countable additivity.)
 	\item $\P{\Om}=1$
@@ -94,11 +94,41 @@ Besides, Expectation has the following four rules
 \subsection{Common Probability Distributions}
 
 \begin{description}[leftmargin=0cm]
-\item[Bernoulli]
-\item[Beta]
-\item[Categorical]
-\item[Dirichlet]
-\item[Univariable Normal]
+\item[Bernoulli] Bernoulli distribution describes situation where only two possible outcomes $y=0 / y=1$ or failure/success.
+	\begin{enumerate}[nosep]
+		\item $\P{x}=\Bern_x[\la]=\la^x(1-\la)^{1-x}$
+		\item univariate, discrete, binary
+		\item $x \in \{0,1\}$; $\la \in [0,1]$
+		\item $\E{x}=\la$, $\V{x}=\la(1-\la)$
+	\end{enumerate}
+\item[Beta] Beta distribution is the conjugate distribution to Bernoulli distribution.
+	\begin{enumerate}
+		\item $\P{\la}=\Beta_\la[\al,\be]=\frac{\Ga(\al+\be)}{\Ga(\al)\Ga(\be)}\la^{\al-1}(1-\la)^{\be-1}$
+		\item univariate, continuous, unbounded
+		\item $\la \in \bR$; $\al \in \bR^+$,  $\be \in \bR^+$
+		\item $\E{\la}=\frac{\al}{\al+\be}$, $\V{\la}=\frac{\al\be}{(\al+\be)^2(\al+\be+1)}$
+	\end{enumerate}
+\item[Categorical] Categorical distribution describes situation with K possible outcomes.
+	\begin{enumerate}
+		\item $\P{x}=\Cat_x[\vec{\la}]$, $\P{x=k}=\la_k$,  $\P{\vec{x}=\vec{e}_k}=\prod_{j=1}^K\la_j^{x_j}=\la_k$
+		\item univariable, discrete, multi-valued
+		\item $x \in \{1,2,\dotsc,K\}$; $\la_k \in [0,1]$ where $\sum_k\la_k=1$
+		\item $\E{x_i}=\la_i$, $\V{x_i}=\la_i(1-\la_i)$, $\C{x_i,x_j}=-\la_i\la_j\ (i \neq j)$
+	\end{enumerate}
+\item[Dirichlet] Dirichlet distribution is the conjugate distribution to categorical distribution.
+	\begin{enumerate}
+		\item $\P{\vec{\la}}=\Dir_{\vec{\la}}[\vec{\al}]=\frac{\Ga(\sum_{k=1}^K\al_k)}{\prod_{k=1}^K\Ga(\al_k)}\prod_{k=1}^K\la_k^{\al_k-1}$
+		\item multivariable, continuous, bounded, sums to one
+		\item $\vec{x}=[x_1,x_2,\dotsc,x_K]\T$, $x_k \in [0,1]$, $\sum_{k=1}^Kx_k=1$; $\vec{\al}=[\al_1,\al_2,\dotsc,\al_K]$, $\al_k \in \bR^+$
+		\item $\E{\la_i}=\frac{\al_i}{\sum_k\al_k}$, $\V{\la_i}=\frac{\al_i(\sum_k\al_k-\al_i)}{(\sum_k\al_k)^2(\sum_k\al_k+1)}$, $\C{\la_i,\la_j}=\frac{-\al_i\al_j}{(\sum_k\al_k)^2(\sum_k\al_k+1)}\ (i \neq j)$
+	\end{enumerate}
+\item[Univariable Normal] Univariable normal distribution describes single continuous variable.
+	\begin{enumerate}
+		\item $\P{x}=\Norm_x[\mu,\si^2]=\frac{1}{\sqrt{2\pi\si^2}}\e{-\frac{(x-\mu)^2}{2\si^2}}$
+		\item univariable, continuous, unbounded
+		\item $x \in \bR$; $\mu \in \bR$, $\si^2 \in \bR^+$
+		\item $\E{x}=\mu$, $\V{x}=\si^2$
+	\end{enumerate}
 \item[Normal Inverse Gamma]
 \item[Multivariate Normal]
 \item[Normal inverse Wishart]
