@@ -32,9 +32,9 @@
 
 In linear regression, the residual vector is $\vec{\ep}=\vec{y}-\vec{\Ps}\vec{w}$. The loss function is $L(\vec{w})=\vec{\ep}\T\vec{\ep}$. We add a complexity term $R(\vec{w})=\norm{\vec{w}}_2=\vec{w}\T\vec{w}$ to the loss function. Hence, the original loss function becomes $L(\vec{w})=\vec{\ep}\T\vec{\ep}+\la\vec{w}\T\vec{w}$.
 
-Without regularization, the loss function is $L(\vec{w})=\vec{\ep}\T\vec{\ep}$. Let $\grad L(w^*)=0$, we have $w^*=(\mat{X}\T\mat{X})\inv\mat{X}\T\vec{y}$.
+Without regularization, the loss function is $L(\vec{w})=\vec{\ep}\T\vec{\ep}$. Let $\grad L(\vec{w}^*)=0$, we have $\vec{w}^*=(\mat{X}\T\mat{X})\inv\mat{X}\T\vec{y}$.
 
-With L2-regularization, the loss function is $L(\vec{w})=\vec{\ep}\T\vec{\ep}+\la\vec{w}\T\vec{w}$. Let $\grad L(w^*)=0$, we have $w^*=(\mat{X}\T\mat{X}+\la\mat{I})\inv\mat{X}\T\vec{y}$. The additional $\la\mat{I}$ makes the data matrix more robust to calculate inversion.
+With L2-regularization, the loss function is $L(\vec{w})=\vec{\ep}\T\vec{\ep}+\la\vec{w}\T\vec{w}$. Let $\grad L(\vec{w}^*)=0$, we have $\vec{w}^*=(\mat{X}\T\mat{X}+\la\mat{I})\inv\mat{X}\T\vec{y}$. The additional $\la\mat{I}$ makes the data matrix more robust to calculate inversion.
 
 \section{Cross-Validation}
 
