@@ -105,33 +105,50 @@ Besides, Expectation has the following four rules
 	\begin{enumerate}
 		\item $\P{\la}=\Beta_\la[\al,\be]=\frac{\Ga(\al+\be)}{\Ga(\al)\Ga(\be)}\la^{\al-1}(1-\la)^{\be-1}$
 		\item univariate, continuous, unbounded
-		\item $\la \in \bR$; $\al \in \bR^+$,  $\be \in \bR^+$
+		\item $\la \in \bR$; $\al \in \bR_+$,  $\be \in \bR_+$
 		\item $\E{\la}=\frac{\al}{\al+\be}$, $\V{\la}=\frac{\al\be}{(\al+\be)^2(\al+\be+1)}$
 	\end{enumerate}
 \item[Categorical] Categorical distribution describes situation with K possible outcomes.
 	\begin{enumerate}
 		\item $\P{x}=\Cat_x[\vec{\la}]$, $\P{x=k}=\la_k$,  $\P{\vec{x}=\vec{e}_k}=\prod_{j=1}^K\la_j^{x_j}=\la_k$
-		\item univariable, discrete, multi-valued
+		\item univariate, discrete, multi-valued
 		\item $x \in \{1,2,\dotsc,K\}$; $\la_k \in [0,1]$ where $\sum_k\la_k=1$
 		\item $\E{x_i}=\la_i$, $\V{x_i}=\la_i(1-\la_i)$, $\C{x_i,x_j}=-\la_i\la_j\ (i \neq j)$
 	\end{enumerate}
 \item[Dirichlet] Dirichlet distribution is the conjugate distribution to categorical distribution.
 	\begin{enumerate}
 		\item $\P{\vec{\la}}=\Dir_{\vec{\la}}[\vec{\al}]=\frac{\Ga(\sum_{k=1}^K\al_k)}{\prod_{k=1}^K\Ga(\al_k)}\prod_{k=1}^K\la_k^{\al_k-1}$
-		\item multivariable, continuous, bounded, sums to one
-		\item $\vec{x}=[x_1,x_2,\dotsc,x_K]\T$, $x_k \in [0,1]$, $\sum_{k=1}^Kx_k=1$; $\vec{\al}=[\al_1,\al_2,\dotsc,\al_K]$, $\al_k \in \bR^+$
+		\item multivariate, continuous, bounded, sums to one
+		\item $\vec{\la}=[\la_1,\la_2,\dotsc,\la_K]\T$, $\la_k \in [0,1]$, $\sum_{k=1}^K\la_k=1$; $\vec{\al}=[\al_1,\al_2,\dotsc,\al_K]$, $\al_k \in \bR_+$
 		\item $\E{\la_i}=\frac{\al_i}{\sum_k\al_k}$, $\V{\la_i}=\frac{\al_i(\sum_k\al_k-\al_i)}{(\sum_k\al_k)^2(\sum_k\al_k+1)}$, $\C{\la_i,\la_j}=\frac{-\al_i\al_j}{(\sum_k\al_k)^2(\sum_k\al_k+1)}\ (i \neq j)$
 	\end{enumerate}
-\item[Univariable Normal] Univariable normal distribution describes single continuous variable.
+\item[Univariate Normal] Univariate normal distribution describes single continuous variable.
 	\begin{enumerate}
 		\item $\P{x}=\Norm_x[\mu,\si^2]=\frac{1}{\sqrt{2\pi\si^2}}\e{-\frac{(x-\mu)^2}{2\si^2}}$
-		\item univariable, continuous, unbounded
-		\item $x \in \bR$; $\mu \in \bR$, $\si^2 \in \bR^+$
+		\item univariate, continuous, unbounded
+		\item $x \in \bR$; $\mu \in \bR$, $\si^2 \in \bR_+$
 		\item $\E{x}=\mu$, $\V{x}=\si^2$
 	\end{enumerate}
-\item[Normal Inverse Gamma]
-\item[Multivariate Normal]
-\item[Normal inverse Wishart]
+\item[Normal Inverse Gamma] Normal inverse gamma distribution is a conjugate distribution to univariate normal distribution.
+	\begin{enumerate}
+		\item $\P{\mu,\si^2}=\NIG_{\mu,\si^2}[\al,\be,\ga,\de]=\frac{\sqrt{\ga}}{\sqrt{2\pi\si^2}}\frac{\be^\al}{\Ga(\al)}(\frac{1}{\si^2})^{\al+1}\e{-\frac{2\be+\ga(\de-\mu)^2}{2\si^2}}$
+		\item bivariate, continuous, $\mu$ unbounded, $\si^2$ bounded below
+		\item $\mu \in \bR$, $\si^2 \in \bR_+$; $\al \in \bR_+$, $\be \in \bR_+$, $\ga \in \bR_+$, $\de \in \bR$
+		\item $\E{\mu}=\de$, $\E{\si^2}=\frac{\be}{\al-1}\ (\al>1)$, $\V{\mu}=\frac{\be}{(\al-1)\ga}\ (\al>1)$, $\V{\si^2}=\frac{\be^2}{(\al-1)^2(\al-2)}\ (\al>2)$, $\C{\mu,\si^2}=0\ (\al>1)$
+	\end{enumerate}
+\item[Multivariate Normal] Multivariate normal distribution describes multiple continuous variables. It takes two parameters: a vector containing mean position $\vec{\mu}$, and a symmetric positive definite covariance matrix $\cov$.
+	\begin{enumerate}
+		\item $\P{\vec{x}}=\Norm_{\vec{x}}[\vec{\mu},\cov]=\frac{1}{\sqrt{det(2\pi\cov)}}\e{-\frac{1}{2}(\vec{x}-\vec{\mu})\T\cov\inv(\vec{x}-\vec{\mu})}$
+		\item multivariate, continuous, unbounded
+		\item $\vec{x} \in \bR^K$; $\vec{\mu} \in \bR^K$, $\cov \in \bR^{K \times K}$ (positive semi-definite matrix)
+		\item $\E{\vec{x}}=\vec{\mu}$, $\V{\vec{x}}=\cov$
+	\end{enumerate}
+\item[Normal Inverse Wishart] Normal inverse wishart distribution is a conjugate distribution to multivariate normal distribution.
+	\begin{enumerate}
+		\item $\P{\vec{\mu},\cov}=\NIW_{\vec{\mu},\cov}[\al,\vec{\Ps},\ga,\vec{\de}] \\ =\frac{\ga^{D/2}\det{\vec{\Ps}}^{\al/2}\det{\cov}^{-\frac{\al+D+2}{2}}}{(2\pi)^{D/2}2^{(\al\cov)/2}\Ga_D(\al/2)}\e{-\frac{1}{2}(\Tr(\vec{\Ps}\cov\inv)+\ga(\vec{\mu}-\vec{\de})\T\cov\inv(\vec{\mu}-\vec{\de})}$
+		\item multivariate, $\vec{\mu}$ unbounded, $\cov$ square, positive definite
+		\item $\vec{\mu} \in \bR^K$, $\cov \in \bR^{K \times K}$; $\al \in \bR_{>D-1}$, $\vec{\Ps} \in \bR^{K \times K}$, $\ga \in \bR_+$, $\vec{\de} \in \bR^K$
+	\end{enumerate}
 \end{description}
 
 \section{Linear Algebra}

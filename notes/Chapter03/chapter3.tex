@@ -3,3 +3,64 @@
 
 \chapter{Machine Learning Basics}
 \label{chapter3}
+
+\section{Regularization}
+
+\subsection{Under-fitting \& Over-fitting}
+
+\begin{description}[leftmargin=0cm]
+	\item[Under-fitting] If $N>D$ (e.g. 30 data points, 2 dimensions) we have more equations than unknowns: over-determined system. Input-output relations can only hold approximately.
+	\item[Over-fitting] If $N<D$ (e.g. 30points, 15265 dimensions) we have more unknowns than equations: under-determined system. Input-output equations hold exactly, but we are simply memorizing data.
+\end{description}
+
+\subsection{Bias \& Variance}
+
+\begin{description}[leftmargin=0cm]
+	\item[High Bias \& Low Variance] A rigid model's (low complexity) performance is more predictable in the test set but the model may not be good even on the training set.
+	\item[Low Bias \& High Variance] A flexible model (high complexity) approximates the target function well in the training set but can ``overtrain'' and have poor performance on the test set.
+\end{description}
+
+\subsection{Vector Norm}
+
+\begin{description}[leftmargin=0cm]
+	\item[L1, (``Manhattan'') norm] $\norm{\vec{w}}_1=\sum_{d=1}^D|w_d|$
+	\item[L2, (``Euclidean'') norm] $\norm{\vec{w}}_2=\sqrt{\sum_{d=1}^Dw_d^2}=\sqrt{\matmul{\vec{w},\vec{w}}}=\sqrt{\vec{w}\T\vec{w}}$
+	\item[Lp norm, p$>$1] $\norm{\vec{w}}_p=\left(\sum_{d=1}^Dw_d^p\right)^{1/p}$
+\end{description}
+
+\subsection{Penalize Complexity}
+
+In linear regression, the residual vector is $\vec{\ep}=\vec{y}-\vec{\Ps}\vec{w}$. The loss function is $L(\vec{w})=\vec{\ep}\T\vec{\ep}$. We add a complexity term $R(\vec{w})=\norm{\vec{w}}_2=\vec{w}\T\vec{w}$ to the loss function. Hence, the original loss function becomes $L(\vec{w})=\vec{\ep}\T\vec{\ep}+\la\vec{w}\T\vec{w}$.
+
+Without regularization, the loss function is $L(\vec{w})=\vec{\ep}\T\vec{\ep}$. Let $\grad L(w^*)=0$, we have $w^*=(\mat{X}\T\mat{X})\inv\mat{X}\T\vec{y}$.
+
+With L2-regularization, the loss function is $L(\vec{w})=\vec{\ep}\T\vec{\ep}+\la\vec{w}\T\vec{w}$. Let $\grad L(w^*)=0$, we have $w^*=(\mat{X}\T\mat{X}+\la\mat{I})\inv\mat{X}\T\vec{y}$. The additional $\la\mat{I}$ makes the data matrix more robust to calculate inversion.
+
+\section{Cross-Validation}
+
+We can select hyperparameters with (cross-)validation. Cross-validation excludes part of the training data from parameter estimation, and use them only to predict the test error.
+
+K-fold cross validation: split data set into K folds and each time train on (K-1) folds and valid on the remaining fold until all folds have been used as validation fold. The cross-validation error is the average of K validation errors. We pick hyperparameters that minimize cross-validation error.
+
+\section{Bayesian Learning}
+
+\subsection{Bayes' Rule Terminology}
+
+Bayes' Rule:
+	\begin{align*}
+	\P{y|x}=\frac{\P{x|y}\P{y}}{\int\P{x|y}\P{y}dy}
+	\end{align*}
+\begin{description}[leftmargin=0cm]
+	\item[Prior] $\P{y}$ what we know about $y$ before seeing $x$. In parameters learning we choose prior that is conjugate to likelihood.
+	\item[Likelihood] $\P{x|y}$ propensity for observing a certain value of $x$ given a certain value of $y$.
+	\item[Posterior] $\P{y|x}$ what we know about $y$ after seeing $x$. Posterior must have same form as conjugate prior distribution.
+	\item[Evidence] $\int\P{x|y}\P{y}dy$ a constant to ensure that the LHS is a valid distribution. Posterior must be a distribution which implies that evidence equals to a constant $\ka$ from conjugate relation.
+\end{description}
+
+\subsection{Maximum Likelihood}
+
+\subsection{Maximum a Posterior}
+
+\subsection{Bayesian Approach}
+
+\section{Machine Learning Models}
