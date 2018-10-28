@@ -39,7 +39,7 @@
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
 \fancyhf{}
 \fancyhead[L]{\rightmark}
-\fancyhead[R]{\chaptername~\thechapter~\leftmark}
+\fancyhead[R]{\ifnum\value{chapter}>0\chaptername~\thechapter~\leftmark\fi}
 \fancyfoot[C]{\thepage}
 
 \definecolor{darkblue}{rgb}{0, 0, 0.5}
