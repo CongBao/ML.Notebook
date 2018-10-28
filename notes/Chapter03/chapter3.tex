@@ -9,23 +9,23 @@
 \subsection{Under-fitting \& Over-fitting}
 
 \begin{description}[leftmargin=0cm]
-	\item[Under-fitting] If $N>D$ (e.g. 30 data points, 2 dimensions) we have more equations than unknowns: over-determined system. Input-output relations can only hold approximately.
-	\item[Over-fitting] If $N<D$ (e.g. 30points, 15265 dimensions) we have more unknowns than equations: under-determined system. Input-output equations hold exactly, but we are simply memorizing data.
+\item[Under-fitting] If $N>D$ (e.g. 30 data points, 2 dimensions) we have more equations than unknowns: over-determined system. Input-output relations can only hold approximately.
+\item[Over-fitting] If $N<D$ (e.g. 30points, 15265 dimensions) we have more unknowns than equations: under-determined system. Input-output equations hold exactly, but we are simply memorizing data.
 \end{description}
 
 \subsection{Bias \& Variance}
 
 \begin{description}[leftmargin=0cm]
-	\item[High Bias \& Low Variance] A rigid model's (low complexity) performance is more predictable in the test set but the model may not be good even on the training set.
-	\item[Low Bias \& High Variance] A flexible model (high complexity) approximates the target function well in the training set but can ``overtrain'' and have poor performance on the test set.
+\item[High Bias \& Low Variance] A rigid model's (low complexity) performance is more predictable in the test set but the model may not be good even on the training set.
+\item[Low Bias \& High Variance] A flexible model (high complexity) approximates the target function well in the training set but can ``overtrain'' and have poor performance on the test set.
 \end{description}
 
 \subsection{Vector Norm}
 
 \begin{description}[leftmargin=0cm]
-	\item[L1, (``Manhattan'') norm] $\norm{\vec{w}}_1=\sum_{d=1}^D|w_d|$
-	\item[L2, (``Euclidean'') norm] $\norm{\vec{w}}_2=\sqrt{\sum_{d=1}^Dw_d^2}=\sqrt{\matmul{\vec{w},\vec{w}}}=\sqrt{\vec{w}\T\vec{w}}$
-	\item[Lp norm, p$>$1] $\norm{\vec{w}}_p=\left(\sum_{d=1}^Dw_d^p\right)^{1/p}$
+\item[L1, (``Manhattan'') norm] $\norm{\vec{w}}_1=\sum_{d=1}^D|w_d|$
+\item[L2, (``Euclidean'') norm] $\norm{\vec{w}}_2=\sqrt{\sum_{d=1}^Dw_d^2}=\sqrt{\matmul{\vec{w},\vec{w}}}=\sqrt{\vec{w}\T\vec{w}}$
+\item[Lp norm, p$>$1] $\norm{\vec{w}}_p=\left(\sum_{d=1}^Dw_d^p\right)^{1/p}$
 \end{description}
 
 \subsection{Penalize Complexity}
@@ -59,8 +59,47 @@ Bayes' Rule:
 
 \subsection{Maximum Likelihood}
 
-\subsection{Maximum a Posterior}
+\begin{description}[leftmargin=0cm]
+\item[Fitting] As the name suggests we find the parameters under which the data $\vec{x}_{1\dots I}$ are most likely. Here, we have assumed that data was independent.
+	\begin{align*}
+	\hat{\vec{\th}}&=\argmax_{\vec{\th}}\P{\vec{x}_{1\dots I}|\vec{\th}} \\
+				   &=\argmax_{\vec{\th}}\prod_{i=1}^I\P{\vec{x}_i|\vec{\th}}
+	\end{align*}
+\item[Predictive Density] Evaluate new data point $\vec{x}^*$ under probability distribution $\P{\vec{x}^*|\hat{\vec{\th}}}$ with best parameters.
+\end{description}
+
+\subsection{Maximum a Posterior (MAP)}
+
+\begin{description}[leftmargin=0cm]
+\item[Fitting] As the name suggests we find the parameters which maximize the posterior probability $\P{\vec{\th}|\vec{x}_{1\dots I}}$. Again we have assumed that data was independent.
+	\begin{align*}
+	\hat{\vec{\th}}&=\argmax_{\vec{\th}}\P{\vec{\th}|\vec{x}_{1\dots I}} \\
+				   &=\argmax_{\vec{\th}}\frac{\P{\vec{x}_{1\dots I}|\vec{\th}}\P{\vec{\th}}}{\P{\vec{x}_{1\dots I}}} \\
+				   &=\argmax_{\vec{\th}}\frac{\prod_{i=1}^I\P{\vec{x}_i|\vec{\th}}\ \P{\vec{\th}}}{\P{\vec{x}_{1\dots I}}}
+	\end{align*}
+Since the denominator does not depend on the parameters we can instead maximize
+	\begin{align*}
+	\hat{\vec{\th}}=\argmax_{\vec{\th}}\prod_{i=1}^I\P{\vec{x}_i|\vec{\th}}\ \P{\vec{\th}}
+	\end{align*}
+\item[Predictive Density] Evaluate new data point $\vec{x}^*$ under probability distribution with MAP parameters $\P{\vec{x}^*|\hat{\vec{\th}}}$
+\end{description}
 
 \subsection{Bayesian Approach}
+
+\begin{description}[leftmargin=0cm]
+\item[Fitting] Compute the posterior distribution over possible parameter values using Bayes' rule. Principle: There are many values that could have explained the data. Instead of picking one set of parameters, try to capture all of the possibilities.
+	\begin{align*}
+	\P{\vec{\th}|\vec{x}_{1\dots I}}=\frac{\prod_{i=1}^I\P{\vec{x}_i|\vec{\th}}\ \P{\vec{\th}}}{\P{\vec{x}_{1\dots I}}}
+	\end{align*}
+\item[Predictive Density] (a) Each possible parameter value makes a prediction. (b) Some parameters more probable than others.
+	\begin{align*}
+	\P{\vec{x}^*|\vec{x}_{1\dots I}}=\int\P{\vec{x}^*|\vec{\th}}\P{\vec{\th}|\vec{x}_{1\dots I}}d\vec{\th}
+	\end{align*}
+Make a prediction that is an infinite weighted sum (integral) of the predictions for each parameter value ($\P{\vec{x}^*|\vec{\th}}$), where weights are the probabilities ($\P{\vec{\th}|\vec{x}_{1\dots I}}$).
+\end{description}
+
+\subsection{Example: Normal Distribution}
+
+\subsection{Example: Categorical Distribution}
 
 \section{Machine Learning Models}
