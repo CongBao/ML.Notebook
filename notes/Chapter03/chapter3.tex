@@ -63,7 +63,7 @@ Bayes' Rule:
 \item[Fitting] As the name suggests we find the parameters under which the data $\vec{x}_{1\dots I}$ are most likely. Here, we have assumed that data was independent.
 	\begin{align*}
 	\hat{\vec{\th}}&=\argmax_{\vec{\th}}\P{\vec{x}_{1\dots I}|\vec{\th}} \\
-				   &=\argmax_{\vec{\th}}\prod_{i=1}^I\P{\vec{x}_i|\vec{\th}}
+	&=\argmax_{\vec{\th}}\prod_{i=1}^I\P{\vec{x}_i|\vec{\th}}
 	\end{align*}
 \item[Predictive Density] Evaluate new data point $\vec{x}^*$ under probability distribution $\P{\vec{x}^*|\hat{\vec{\th}}}$ with best parameters.
 \end{description}
@@ -74,8 +74,8 @@ Bayes' Rule:
 \item[Fitting] As the name suggests we find the parameters which maximize the posterior probability $\P{\vec{\th}|\vec{x}_{1\dots I}}$. Again we have assumed that data was independent.
 	\begin{align*}
 	\hat{\vec{\th}}&=\argmax_{\vec{\th}}\P{\vec{\th}|\vec{x}_{1\dots I}} \\
-				   &=\argmax_{\vec{\th}}\frac{\P{\vec{x}_{1\dots I}|\vec{\th}}\P{\vec{\th}}}{\P{\vec{x}_{1\dots I}}} \\
-				   &=\argmax_{\vec{\th}}\frac{\prod_{i=1}^I\P{\vec{x}_i|\vec{\th}}\ \P{\vec{\th}}}{\P{\vec{x}_{1\dots I}}}
+	&=\argmax_{\vec{\th}}\frac{\P{\vec{x}_{1\dots I}|\vec{\th}}\P{\vec{\th}}}{\P{\vec{x}_{1\dots I}}} \\
+	&=\argmax_{\vec{\th}}\frac{\prod_{i=1}^I\P{\vec{x}_i|\vec{\th}}\ \P{\vec{\th}}}{\P{\vec{x}_{1\dots I}}}
 	\end{align*}
 Since the denominator does not depend on the parameters we can instead maximize
 	\begin{align*}
@@ -98,7 +98,78 @@ Since the denominator does not depend on the parameters we can instead maximize
 Make a prediction that is an infinite weighted sum (integral) of the predictions for each parameter value ($\P{\vec{x}^*|\vec{\th}}$), where weights are the probabilities ($\P{\vec{\th}|\vec{x}_{1\dots I}}$).
 \end{description}
 
-\subsection{Example: Normal Distribution}
+\subsection{Example: Univariate Normal Distribution}
+
+\subsubsection*{Maximum Likelihood}
+Likelihood given by normal distribution pdf:
+	\begin{align*}
+	\P{x|\mu,\si^2}=\Norm_x[\mu,\si^2]=\frac{1}{\sqrt{2\pi\si^2}}\e{-\frac{(x-\mu)^2}{2\si^2}}
+	\end{align*}
+Apply maximum likelihood:
+	\begin{align*}
+	\hat{\mu},\hat{\si}^2&=\argmax_{\mu,\si^2}\P{x_{1\dots I}|\mu,\si^2} \\
+	&=\argmax_{\mu,\si^2}\prod_{i=1}^I\P{x_i|\mu,\si^2} \\
+	&=\argmax_{\mu,\si^2}\prod_{i=1}^I\Norm_{x_i}[\mu,\si^2] \\
+	&=\argmax_{\mu,\si^2}\sum_{i=1}^I\log\Norm_{x_i}[\mu,\si^2] \\
+	&=\argmax_{\mu,\si^2}\left(-\frac{I}{2}\log 2\pi-\frac{I}{2}\log\si^2-\frac{1}{2}\sum_{i=1}^I\frac{(x_i-\mu)^2}{\si^2}\right)
+	\end{align*}
+Let $\grad L(\hat{\mu},\hat{\si}^2)=0$, we have the solution:
+	\begin{align*}
+	\hat{\mu}&=\frac{\sum_{i=1}^Ix_i}{I} \\
+	\hat{\si}^2&=\sum_{i=1}^I\frac{(x_i-\hat{\mu})^2}{I}
+	\end{align*}
+
+\subsubsection*{Maximum a Posterior}
+Likelihood given by normal distribution pdf:
+	\begin{align*}
+	\P{x|\mu,\si^2}=\Norm_x[\mu,\si^2]=\frac{1}{\sqrt{2\pi\si^2}}\e{-\frac{(x-\mu)^2}{2\si^2}}
+	\end{align*}
+Prior given by normal inverse gamma distribution pdf:
+	\begin{align*}
+	\P{\mu,\si^2}=\NIG_{\mu,\si^2}[\al,\be,\ga,\de]=\frac{\sqrt{\ga}}{\sqrt{2\pi\si^2}}\frac{\be^\al}{\Ga(\al)}\left(\frac{1}{\si^2}\right)^{\al+1}\e{-\frac{2\be+\ga(\de-\mu)^2}{2\si^2}}
+	\end{align*}
+Apply maximum a posterior:
+	\begin{align*}
+	\hat{\mu},\hat{\si}^2&=\argmax_{\mu,\si^2}\prod_{i=1}^I\P{x_i|\mu,\si^2}\ \P{\mu,\si^2} \\
+	&=\argmax_{\mu,\si^2}\prod_{i=1}^I\Norm_{x_i}[\mu,\si^2]\ \NIG_{\mu,\si^2}[\al,\be,\ga,\de] \\
+	&=\argmax_{\mu,\si^2}\left(\sum_{i=1}^I\log\Norm_{x_i}[\mu,\si^2]+\log\NIG_{\mu,\si^2}[\al,\be,\ga,\de]\right)
+	\end{align*}
+Let $\grad L(\hat{\mu},\hat{\si}^2)=0$, we have the solution:
+	\begin{align*}
+	\hat{\mu}&=\frac{\sum_{i=1}^Ix_i+\ga\de}{I+\ga} \\
+	\hat{\si}^2&=\frac{\sum_{i=1}^I(x_i-\mu)^2+2\be+\ga(\de-\mu)^2}{I+3+2\al}
+	\end{align*}
+
+\subsubsection*{Bayesian Approach}
+Compute the posterior distribution using Bayes' rule:
+	\begin{align*}
+	\P{\mu,\si^2|x_{1\dots I}}&=\frac{\prod_{i=1}^I\P{x_i|\mu,\si^2}\ \P{\mu,\si^2}}{\P{x_{1\dots I}}} \\
+	&=\frac{\prod_{i=1}^I\Norm_{x_i}[\mu,\si^2]\ \NIG_{\mu,\si^2}[\al,\be,\ga,\de]}{\P{x_{1\dots I}}} \\
+	&=\frac{\ka(\al,\be,\ga,\de,x_{1\dots I})\NIG_{\mu,\si^2}[\ti{\al},\ti{\be},\ti{\ga},\ti{\de}]}{\P{x_{1\dots I}}} \\
+	&=\NIG_{\mu,\si^2}[\ti{\al},\ti{\be},\ti{\ga},\ti{\de}]
+	\end{align*}
+where
+	\begin{align*}
+	\ti{\al}&=\al+\frac{I}{2} \\
+	\ti{\be}&=\frac{\sum_ix_i^2}{2}+\be+\frac{\ga\de^2}{2}-\frac{(\ga\de+\sum_ix_i)^2}{2(\ga+I)} \\
+	\ti{\ga}&=\ga+I \\
+	\ti{\de}&=\frac{\ga\de+\sum_ix_i}{\ga+I}
+	\end{align*}
+Take weighted sum of predictions from different parameter values:
+	\begin{align*}
+	\P{x^*|x_{1\dots I}}&=\iint\P{x^*|\mu,\si^2}\P{\mu,\si^2|x_{1\dots I}}d\mu d\si \\
+	&=\iint\Norm_{x^*}[\mu,\si^2]\NIG_{\mu,\si^2}[\ti{\al},\ti{\be},\ti{\ga},\ti{\de}]d\mu d\si \\
+	&=\iint\ka(\al,\be,\ga,\de,x_{1\dots I})\NIG_{\mu,\si^2}[\br{\al},\br{\be},\br{\ga},\br{\de}]d\mu d\si \\
+	&=\ka(\al,\be,\ga,\de,x_{1\dots I})\iint\NIG_{\mu,\si^2}[\br{\al},\br{\be},\br{\ga},\br{\de}]d\mu d\si \\
+	&=\ka(\al,\be,\ga,\de,x_{1\dots I}) \\
+	&=\frac{1}{\sqrt{2\pi}}\frac{\sqrt{\ti{\ga}}\ti{\be}^{\ti{\al}}}{\sqrt{\br{\ga}}\br{\be}^{\br{\al}}}\frac{\Ga(\br{\al})}{\Ga(\ti{\al})}
+	\end{align*}
+where
+	\begin{align*}
+	\br{\al}&=\ti{\al}+\frac{1}{2} \\
+	\br{\be}&=\frac{{x^*}^2}{2}+\ti{\be}+\frac{\ti{\ga}^{\ti{\de}^2}}{2}-\frac{(\ti{\ga}^{\ti{\de}}+x^*)^2}{2(\ti{\ga}+1)} \\
+	\br{\ga}&=\ti{\ga}+1
+	\end{align*}
 
 \subsection{Example: Categorical Distribution}
 

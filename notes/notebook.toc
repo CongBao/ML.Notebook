@@ -21,13 +21,13 @@
 \contentsline {subsection}{\numberline {3.3.2}Maximum Likelihood}{9}{subsection.3.3.2}
 \contentsline {subsection}{\numberline {3.3.3}Maximum a Posterior (MAP)}{9}{subsection.3.3.3}
 \contentsline {subsection}{\numberline {3.3.4}Bayesian Approach}{9}{subsection.3.3.4}
-\contentsline {subsection}{\numberline {3.3.5}Example: Normal Distribution}{10}{subsection.3.3.5}
-\contentsline {subsection}{\numberline {3.3.6}Example: Categorical Distribution}{10}{subsection.3.3.6}
-\contentsline {section}{\numberline {3.4}Machine Learning Models}{10}{section.3.4}
-\contentsline {chapter}{\numberline {4}Regression}{11}{chapter.4}
-\contentsline {section}{\numberline {4.1}Linear Regression}{11}{section.4.1}
-\contentsline {section}{\numberline {4.2}Non-linear Regression}{11}{section.4.2}
-\contentsline {section}{\numberline {4.3}Logistic Regression}{11}{section.4.3}
-\contentsline {chapter}{\numberline {5}Support Vector Machines}{12}{chapter.5}
-\contentsline {chapter}{Bibliography}{13}{chapter.5}
-\contentsline {chapter}{\numberline {A}Test}{14}{appendix.A}
+\contentsline {subsection}{\numberline {3.3.5}Example: Univariate Normal Distribution}{10}{subsection.3.3.5}
+\contentsline {subsection}{\numberline {3.3.6}Example: Categorical Distribution}{12}{subsection.3.3.6}
+\contentsline {section}{\numberline {3.4}Machine Learning Models}{12}{section.3.4}
+\contentsline {chapter}{\numberline {4}Regression}{13}{chapter.4}
+\contentsline {section}{\numberline {4.1}Linear Regression}{13}{section.4.1}
+\contentsline {section}{\numberline {4.2}Non-linear Regression}{13}{section.4.2}
+\contentsline {section}{\numberline {4.3}Logistic Regression}{13}{section.4.3}
+\contentsline {chapter}{\numberline {5}Support Vector Machines}{14}{chapter.5}
+\contentsline {chapter}{Bibliography}{15}{chapter.5}
+\contentsline {chapter}{\numberline {A}Test}{16}{appendix.A}
