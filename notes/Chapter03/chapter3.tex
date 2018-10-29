@@ -173,4 +173,30 @@ where
 
 \subsection{Example: Categorical Distribution}
 
+\subsubsection*{Maximum Likelihood}
+
+Likelihood given by categorical distribution pdf:
+	\begin{align*}
+	\P{x|\vec{\la}}=\Cat_x[\vec{\la}]=\prod_{j=1}^K\la_j^{x_j}=\la_k
+	\end{align*}
+Apply maximum likelihood:
+	\begin{align*}
+	\hat{\vec{\la}}&=\argmax_{\vec{\la}}\prod_{i=1}^I\P{x_i|\vec{\la}} && \text{$s.t. \sum_k\la_k=1$} \\
+	&=\argmax_{\vec{\la}}\prod_{i=1}^I\Cat_{x_i}[\vec{\la}] && \text{$s.t. \sum_k\la_k=1$} \\
+	&=\argmax_{\vec{\la}}\prod_{k=1}^K\la_k^{N_k} && \text{$s.t. \sum_k\la_k=1$} \\
+	&=\argmax_{\vec{\la}}\sum_{k=1}^KN_k\log\la_k && \text{$s.t. \sum_k\la_k=1$}
+	\end{align*}
+Here, $N_k$ represents the number of times the data is classified in class $k$. As before, we will instead optimize log probability. Since there is a constraint $s.t. \sum_k\la_k=1$, we use Lagrange multiplier to reconstruct the loss function.
+	\begin{align*}
+	L(\vec{\la})=\sum_{k=1}^KN_k\log\la_k+v\left(\sum_{k=1}^K\la_k-1\right)
+	\end{align*}
+Let $\grad L(\vec{\la},v)=0$, we have the solution:
+	\begin{align*}
+	\hat{\la}_k=\frac{N_k}{\sum_{m=1}^KN_m}
+	\end{align*}
+
+\subsubsection*{Maximum a Posterior}
+
+\subsubsection*{Bayesian Approach}
+
 \section{Machine Learning Models}
