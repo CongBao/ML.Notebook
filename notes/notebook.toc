@@ -31,13 +31,45 @@
 \contentsline {chapter}{\numberline {4}Regression}{18}{chapter.4}
 \contentsline {section}{\numberline {4.1}Linear Regression}{18}{section.4.1}
 \contentsline {section}{\numberline {4.2}Non-linear Regression}{18}{section.4.2}
-\contentsline {section}{\numberline {4.3}Logistic Regression}{18}{section.4.3}
-\contentsline {chapter}{\numberline {5}Support Vector Machines}{19}{chapter.5}
-\contentsline {chapter}{\numberline {6}EM Algorithm}{20}{chapter.6}
-\contentsline {chapter}{\numberline {7}Boosting}{21}{chapter.7}
-\contentsline {chapter}{\numberline {8}Decision Tree \& Random Forest}{22}{chapter.8}
-\contentsline {chapter}{\numberline {9}Graphical Models \& Markov Network}{23}{chapter.9}
-\contentsline {chapter}{Bibliography}{24}{chapter.9}
-\contentsline {chapter}{\numberline {A}Statistical Assessment}{25}{appendix.A}
-\contentsline {section}{\numberline {A.1}Hypothesis Testing}{25}{section.A.1}
-\contentsline {section}{\numberline {A.2}Confidence Intervals}{25}{section.A.2}
+\contentsline {section}{\numberline {4.3}Kernel Trick \& Gaussian Processes}{18}{section.4.3}
+\contentsline {section}{\numberline {4.4}Sparse Linear Regression}{18}{section.4.4}
+\contentsline {section}{\numberline {4.5}Dual Linear Regression}{18}{section.4.5}
+\contentsline {section}{\numberline {4.6}Relevance Vector Regression}{18}{section.4.6}
+\contentsline {chapter}{\numberline {5}Classification}{19}{chapter.5}
+\contentsline {section}{\numberline {5.1}Logistic Regression}{19}{section.5.1}
+\contentsline {section}{\numberline {5.2}Non-linear Logistic Regression}{19}{section.5.2}
+\contentsline {section}{\numberline {5.3}Kernel Trick \& Gaussian Process Classification}{19}{section.5.3}
+\contentsline {section}{\numberline {5.4}Multi-class Classification}{19}{section.5.4}
+\contentsline {chapter}{\numberline {6}Support Vector Machines}{20}{chapter.6}
+\contentsline {section}{\numberline {6.1}Geometric Margins}{20}{section.6.1}
+\contentsline {section}{\numberline {6.2}Primal \& Dual Problems}{20}{section.6.2}
+\contentsline {section}{\numberline {6.3}Support Vectors}{20}{section.6.3}
+\contentsline {section}{\numberline {6.4}Slack Variables}{20}{section.6.4}
+\contentsline {section}{\numberline {6.5}Hinge Loss}{20}{section.6.5}
+\contentsline {section}{\numberline {6.6}Non-linear SVMs}{20}{section.6.6}
+\contentsline {section}{\numberline {6.7}Kernel Trick}{20}{section.6.7}
+\contentsline {chapter}{\numberline {7}EM Algorithm}{21}{chapter.7}
+\contentsline {section}{\numberline {7.1}Expectation Maximization}{21}{section.7.1}
+\contentsline {section}{\numberline {7.2}Example: Mixture of Gaussians}{21}{section.7.2}
+\contentsline {section}{\numberline {7.3}Example: t-distributions}{21}{section.7.3}
+\contentsline {section}{\numberline {7.4}Example: Factor Analysis}{21}{section.7.4}
+\contentsline {chapter}{\numberline {8}Boosting}{22}{chapter.8}
+\contentsline {section}{\numberline {8.1}Ensemble Methods}{22}{section.8.1}
+\contentsline {section}{\numberline {8.2}Bagging}{22}{section.8.2}
+\contentsline {section}{\numberline {8.3}Boosting}{22}{section.8.3}
+\contentsline {section}{\numberline {8.4}Adaboost}{22}{section.8.4}
+\contentsline {chapter}{\numberline {9}Decision Tree \& Random Forest}{23}{chapter.9}
+\contentsline {section}{\numberline {9.1}CART}{23}{section.9.1}
+\contentsline {section}{\numberline {9.2}ID3}{23}{section.9.2}
+\contentsline {section}{\numberline {9.3}C4.5}{23}{section.9.3}
+\contentsline {section}{\numberline {9.4}Random Forest}{23}{section.9.4}
+\contentsline {chapter}{\numberline {10}Graphical Models \& Markov Network}{24}{chapter.10}
+\contentsline {section}{\numberline {10.1}Graph Definitions}{24}{section.10.1}
+\contentsline {section}{\numberline {10.2}Belief Networks}{24}{section.10.2}
+\contentsline {section}{\numberline {10.3}Markov Networks}{24}{section.10.3}
+\contentsline {section}{\numberline {10.4}Markov Chains}{24}{section.10.4}
+\contentsline {section}{\numberline {10.5}Hidden Markov Models}{24}{section.10.5}
+\contentsline {chapter}{Bibliography}{25}{section.10.5}
+\contentsline {chapter}{\numberline {A}Statistical Assessment}{26}{appendix.A}
+\contentsline {section}{\numberline {A.1}Hypothesis Testing}{26}{section.A.1}
+\contentsline {section}{\numberline {A.2}Confidence Intervals}{26}{section.A.2}

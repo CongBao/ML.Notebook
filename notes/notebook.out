@@ -31,13 +31,45 @@
 \BOOKMARK [0][]{chapter.4}{4 Regression}{}% 31
 \BOOKMARK [1][]{section.4.1}{4.1 Linear Regression}{chapter.4}% 32
 \BOOKMARK [1][]{section.4.2}{4.2 Non-linear Regression}{chapter.4}% 33
-\BOOKMARK [1][]{section.4.3}{4.3 Logistic Regression}{chapter.4}% 34
-\BOOKMARK [0][]{chapter.5}{5 Support Vector Machines}{}% 35
-\BOOKMARK [0][]{chapter.6}{6 EM Algorithm}{}% 36
-\BOOKMARK [0][]{chapter.7}{7 Boosting}{}% 37
-\BOOKMARK [0][]{chapter.8}{8 Decision Tree \046 Random Forest}{}% 38
-\BOOKMARK [0][]{chapter.9}{9 Graphical Models \046 Markov Network}{}% 39
-\BOOKMARK [0][]{chapter.9}{Bibliography}{}% 40
-\BOOKMARK [0][]{appendix.A}{A Statistical Assessment}{}% 41
-\BOOKMARK [1][]{section.A.1}{A.1 Hypothesis Testing}{appendix.A}% 42
-\BOOKMARK [1][]{section.A.2}{A.2 Confidence Intervals}{appendix.A}% 43
+\BOOKMARK [1][]{section.4.3}{4.3 Kernel Trick \046 Gaussian Processes}{chapter.4}% 34
+\BOOKMARK [1][]{section.4.4}{4.4 Sparse Linear Regression}{chapter.4}% 35
+\BOOKMARK [1][]{section.4.5}{4.5 Dual Linear Regression}{chapter.4}% 36
+\BOOKMARK [1][]{section.4.6}{4.6 Relevance Vector Regression}{chapter.4}% 37
+\BOOKMARK [0][]{chapter.5}{5 Classification}{}% 38
+\BOOKMARK [1][]{section.5.1}{5.1 Logistic Regression}{chapter.5}% 39
+\BOOKMARK [1][]{section.5.2}{5.2 Non-linear Logistic Regression}{chapter.5}% 40
+\BOOKMARK [1][]{section.5.3}{5.3 Kernel Trick \046 Gaussian Process Classification}{chapter.5}% 41
+\BOOKMARK [1][]{section.5.4}{5.4 Multi-class Classification}{chapter.5}% 42
+\BOOKMARK [0][]{chapter.6}{6 Support Vector Machines}{}% 43
+\BOOKMARK [1][]{section.6.1}{6.1 Geometric Margins}{chapter.6}% 44
+\BOOKMARK [1][]{section.6.2}{6.2 Primal \046 Dual Problems}{chapter.6}% 45
+\BOOKMARK [1][]{section.6.3}{6.3 Support Vectors}{chapter.6}% 46
+\BOOKMARK [1][]{section.6.4}{6.4 Slack Variables}{chapter.6}% 47
+\BOOKMARK [1][]{section.6.5}{6.5 Hinge Loss}{chapter.6}% 48
+\BOOKMARK [1][]{section.6.6}{6.6 Non-linear SVMs}{chapter.6}% 49
+\BOOKMARK [1][]{section.6.7}{6.7 Kernel Trick}{chapter.6}% 50
+\BOOKMARK [0][]{chapter.7}{7 EM Algorithm}{}% 51
+\BOOKMARK [1][]{section.7.1}{7.1 Expectation Maximization}{chapter.7}% 52
+\BOOKMARK [1][]{section.7.2}{7.2 Example: Mixture of Gaussians}{chapter.7}% 53
+\BOOKMARK [1][]{section.7.3}{7.3 Example: t-distributions}{chapter.7}% 54
+\BOOKMARK [1][]{section.7.4}{7.4 Example: Factor Analysis}{chapter.7}% 55
+\BOOKMARK [0][]{chapter.8}{8 Boosting}{}% 56
+\BOOKMARK [1][]{section.8.1}{8.1 Ensemble Methods}{chapter.8}% 57
+\BOOKMARK [1][]{section.8.2}{8.2 Bagging}{chapter.8}% 58
+\BOOKMARK [1][]{section.8.3}{8.3 Boosting}{chapter.8}% 59
+\BOOKMARK [1][]{section.8.4}{8.4 Adaboost}{chapter.8}% 60
+\BOOKMARK [0][]{chapter.9}{9 Decision Tree \046 Random Forest}{}% 61
+\BOOKMARK [1][]{section.9.1}{9.1 CART}{chapter.9}% 62
+\BOOKMARK [1][]{section.9.2}{9.2 ID3}{chapter.9}% 63
+\BOOKMARK [1][]{section.9.3}{9.3 C4.5}{chapter.9}% 64
+\BOOKMARK [1][]{section.9.4}{9.4 Random Forest}{chapter.9}% 65
+\BOOKMARK [0][]{chapter.10}{10 Graphical Models \046 Markov Network}{}% 66
+\BOOKMARK [1][]{section.10.1}{10.1 Graph Definitions}{chapter.10}% 67
+\BOOKMARK [1][]{section.10.2}{10.2 Belief Networks}{chapter.10}% 68
+\BOOKMARK [1][]{section.10.3}{10.3 Markov Networks}{chapter.10}% 69
+\BOOKMARK [1][]{section.10.4}{10.4 Markov Chains}{chapter.10}% 70
+\BOOKMARK [1][]{section.10.5}{10.5 Hidden Markov Models}{chapter.10}% 71
+\BOOKMARK [0][]{section.10.5}{Bibliography}{}% 72
+\BOOKMARK [0][]{appendix.A}{A Statistical Assessment}{}% 73
+\BOOKMARK [1][]{section.A.1}{A.1 Hypothesis Testing}{appendix.A}% 74
+\BOOKMARK [1][]{section.A.2}{A.2 Confidence Intervals}{appendix.A}% 75
