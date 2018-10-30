@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840) (preloaded format=pdflatex 2018.10.25)  30 OCT 2018 20:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840) (preloaded format=pdflatex 2018.10.25)  30 OCT 2018 22:05
 entering extended mode
 **./notebook.tex
 (notebook.tex
@@ -516,12 +516,44 @@ Overfull \hbox (9.70435pt too wide) in paragraph at lines 74--75
 e posterior probability
  []
 
-[9] [10] [11] [12] [13]) [14]
+[9] [10] [11] [12] [13] [14]
+Overfull \hbox (0.39732pt too wide) in paragraph at lines 287--288
+[]\OT1/cmr/m/n/12 Define prior $\OML/cmm/m/it/12 P []$ \OT1/cmr/m/n/12 and then
+ compute $\OML/cmm/m/it/12 P []$ \OT1/cmr/m/n/12 using Bayes' rule $\OML/cmm/m/
+it/12 P [] \OT1/cmr/m/n/12 = []$. 
+ []
+
+[15] [16]
+Overfull \hbox (4.64105pt too wide) in paragraph at lines 339--340
+[]\OT1/cmr/m/n/12 Learning algorithm: Learning by standard methods, e.g. ML, MA
+P, Bayesian Approach. 
+ []
+
+
+Overfull \hbox (4.74008pt too wide) in paragraph at lines 347--348
+[]\OT1/cmr/m/n/12 No obvious probability distribution to model joint probabilit
+y of discrete and continuous. 
+ []
+
+
+Overfull \hbox (4.64105pt too wide) in paragraph at lines 354--355
+[]\OT1/cmr/m/n/12 Learning algorithm: Learning by standard methods, e.g. ML, MA
+P, Bayesian Approach. 
+ []
+
+
+Overfull \hbox (0.39732pt too wide) in paragraph at lines 355--356
+[]\OT1/cmr/m/n/12 Define prior $\OML/cmm/m/it/12 P []$ \OT1/cmr/m/n/12 and then
+ compute $\OML/cmm/m/it/12 P []$ \OT1/cmr/m/n/12 using Bayes' rule $\OML/cmm/m/
+it/12 P [] \OT1/cmr/m/n/12 = []$. 
+ []
+
+) [17]
 \openout2 = `Chapter04/chapter4.aux'.
 
  (Chapter04/chapter4.tex
 Chapter 4.
-) [15
+) [18
 
 
 
@@ -530,7 +562,7 @@ Chapter 4.
 
  (Chapter05/chapter5.tex
 Chapter 5.
-) [16
+) [19
 
 
 
@@ -539,7 +571,7 @@ Chapter 5.
 
  (Chapter06/chapter6.tex
 Chapter 6.
-) [17
+) [20
 
 
 
@@ -548,7 +580,7 @@ Chapter 6.
 
  (Chapter07/chapter7.tex
 Chapter 7.
-) [18
+) [21
 
 
 
@@ -557,7 +589,7 @@ Chapter 7.
 
  (Chapter08/chapter8.tex
 Chapter 8.
-) [19
+) [22
 
 
 
@@ -566,7 +598,7 @@ Chapter 8.
 
  (Chapter09/chapter9.tex
 Chapter 9.
-) [20
+) [23
 
 
 
@@ -574,7 +606,7 @@ Chapter 9.
 
 Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
-) [21
+) [24
 
 
 ]
@@ -582,7 +614,7 @@ Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
  (AppendixA/appendixA.tex
 Appendix A.
-) [22
+) [25
 
 
 ] 
@@ -596,17 +628,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 42.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 42.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 42.
 Package rerunfilecheck Info: File `notebook.out' has not changed.
-(rerunfilecheck)             Checksum: D435E05E5B8324ADC1139D32913A59AD;2647.
+(rerunfilecheck)             Checksum: 98FBD34B37D9F3C8F83EFF261EC08B36;2967.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 42.
  ) 
 Here is how much of TeX's memory you used:
- 8868 strings out of 494889
- 129601 string characters out of 3178923
- 230384 words of memory out of 3000000
- 12174 multiletter control sequences out of 15000+200000
- 17580 words of font info for 71 fonts, out of 3000000 for 9000
+ 8939 strings out of 494889
+ 130192 string characters out of 3178923
+ 230405 words of memory out of 3000000
+ 12180 multiletter control sequences out of 15000+200000
+ 17927 words of font info for 72 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
- 38i,14n,43p,392b,548s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,14n,43p,392b,546s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local
 /share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/share/
@@ -622,10 +654,11 @@ cm/cmr6.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmr8.
 pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
 usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/loc
 al/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/shar
-e/miktex-texmf/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on notebook.pdf (25 pages, 257382 bytes).
+e/miktex-texmf/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/share/mikt
+ex-texmf/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on notebook.pdf (28 pages, 290038 bytes).
 PDF statistics:
- 447 PDF objects out of 1000 (max. 8388607)
- 113 named destinations out of 1000 (max. 500000)
- 313 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 552 PDF objects out of 1000 (max. 8388607)
+ 177 named destinations out of 1000 (max. 500000)
+ 345 words of extra memory for PDF output out of 10000 (max. 10000000)
 

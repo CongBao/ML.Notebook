@@ -24,16 +24,20 @@
 \BOOKMARK [2][]{subsection.3.3.5}{3.3.5 Example: Univariate Normal Distribution}{section.3.3}% 24
 \BOOKMARK [2][]{subsection.3.3.6}{3.3.6 Example: Categorical Distribution}{section.3.3}% 25
 \BOOKMARK [1][]{section.3.4}{3.4 Machine Learning Models}{chapter.3}% 26
-\BOOKMARK [0][]{chapter.4}{4 Regression}{}% 27
-\BOOKMARK [1][]{section.4.1}{4.1 Linear Regression}{chapter.4}% 28
-\BOOKMARK [1][]{section.4.2}{4.2 Non-linear Regression}{chapter.4}% 29
-\BOOKMARK [1][]{section.4.3}{4.3 Logistic Regression}{chapter.4}% 30
-\BOOKMARK [0][]{chapter.5}{5 Support Vector Machines}{}% 31
-\BOOKMARK [0][]{chapter.6}{6 EM Algorithm}{}% 32
-\BOOKMARK [0][]{chapter.7}{7 Boosting}{}% 33
-\BOOKMARK [0][]{chapter.8}{8 Decision Tree \046 Random Forest}{}% 34
-\BOOKMARK [0][]{chapter.9}{9 Graphical Models \046 Markov Network}{}% 35
-\BOOKMARK [0][]{chapter.9}{Bibliography}{}% 36
-\BOOKMARK [0][]{appendix.A}{A Statistical Assessment}{}% 37
-\BOOKMARK [1][]{section.A.1}{A.1 Hypothesis Testing}{appendix.A}% 38
-\BOOKMARK [1][]{section.A.2}{A.2 Confidence Intervals}{appendix.A}% 39
+\BOOKMARK [2][]{subsection.3.4.1}{3.4.1 Learning and Inference}{section.3.4}% 27
+\BOOKMARK [2][]{subsection.3.4.2}{3.4.2 Three Types of Model}{section.3.4}% 28
+\BOOKMARK [2][]{subsection.3.4.3}{3.4.3 Example: Regression}{section.3.4}% 29
+\BOOKMARK [2][]{subsection.3.4.4}{3.4.4 Example: Classification}{section.3.4}% 30
+\BOOKMARK [0][]{chapter.4}{4 Regression}{}% 31
+\BOOKMARK [1][]{section.4.1}{4.1 Linear Regression}{chapter.4}% 32
+\BOOKMARK [1][]{section.4.2}{4.2 Non-linear Regression}{chapter.4}% 33
+\BOOKMARK [1][]{section.4.3}{4.3 Logistic Regression}{chapter.4}% 34
+\BOOKMARK [0][]{chapter.5}{5 Support Vector Machines}{}% 35
+\BOOKMARK [0][]{chapter.6}{6 EM Algorithm}{}% 36
+\BOOKMARK [0][]{chapter.7}{7 Boosting}{}% 37
+\BOOKMARK [0][]{chapter.8}{8 Decision Tree \046 Random Forest}{}% 38
+\BOOKMARK [0][]{chapter.9}{9 Graphical Models \046 Markov Network}{}% 39
+\BOOKMARK [0][]{chapter.9}{Bibliography}{}% 40
+\BOOKMARK [0][]{appendix.A}{A Statistical Assessment}{}% 41
+\BOOKMARK [1][]{section.A.1}{A.1 Hypothesis Testing}{appendix.A}% 42
+\BOOKMARK [1][]{section.A.2}{A.2 Confidence Intervals}{appendix.A}% 43
