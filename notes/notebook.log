@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840) (preloaded format=pdflatex 2018.10.25)  30 OCT 2018 23:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840) (preloaded format=pdflatex 2018.10.25)  30 OCT 2018 23:32
 entering extended mode
 **./notebook.tex
 (notebook.tex
@@ -637,14 +637,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 43.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 43.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 43.
 Package rerunfilecheck Info: File `notebook.out' has not changed.
-(rerunfilecheck)             Checksum: 16308322500DE3496D53710040DF7B10;5155.
+(rerunfilecheck)             Checksum: E9165DBAE33FE769608E829709F6F259;5940.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 43.
  ) 
 Here is how much of TeX's memory you used:
- 9013 strings out of 494889
- 131303 string characters out of 3178923
+ 9033 strings out of 494889
+ 131643 string characters out of 3178923
  230723 words of memory out of 3000000
- 12211 multiletter control sequences out of 15000+200000
+ 12221 multiletter control sequences out of 15000+200000
  17927 words of font info for 72 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
  38i,14n,43p,392b,546s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -665,9 +665,9 @@ usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/loc
 al/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/shar
 e/miktex-texmf/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/share/mikt
 ex-texmf/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on notebook.pdf (30 pages, 310618 bytes).
+Output written on notebook.pdf (30 pages, 317960 bytes).
 PDF statistics:
- 727 PDF objects out of 1000 (max. 8388607)
- 211 named destinations out of 1000 (max. 500000)
- 601 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 781 PDF objects out of 1000 (max. 8388607)
+ 221 named destinations out of 1000 (max. 500000)
+ 681 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -6,9 +6,19 @@
 \contentsline {subsection}{\numberline {2.1.1}Basic Rules}{2}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}Common Probability Distributions}{4}{subsection.2.1.2}
 \contentsline {section}{\numberline {2.2}Linear Algebra}{6}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Basic Rules}{6}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Square Matrices}{6}{subsection.2.2.2}
 \contentsline {section}{\numberline {2.3}Calculus}{6}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Differentiation \& Integration}{6}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Multivariate Calculus}{6}{subsection.2.3.2}
 \contentsline {section}{\numberline {2.4}Informatics}{6}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Entropy}{6}{subsection.2.4.1}
 \contentsline {section}{\numberline {2.5}Optimization}{6}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}One-dimensional Minimization}{6}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Gradient Descent}{6}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Quadratic Functions}{6}{subsection.2.5.3}
+\contentsline {subsection}{\numberline {2.5.4}General Functions}{6}{subsection.2.5.4}
+\contentsline {subsection}{\numberline {2.5.5}Optimization with Constraints}{6}{subsection.2.5.5}
 \contentsline {chapter}{\numberline {3}Machine Learning Basics}{7}{chapter.3}
 \contentsline {section}{\numberline {3.1}Regularization}{7}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Under-fitting \& Over-fitting}{7}{subsection.3.1.1}
