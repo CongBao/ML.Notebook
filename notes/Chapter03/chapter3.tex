@@ -174,7 +174,6 @@ where
 \subsection{Example: Categorical Distribution}
 
 \subsubsection*{Maximum Likelihood}
-
 Likelihood given by categorical distribution pdf:
 	\begin{align*}
 	\P{x|\vec{\la}}=\Cat_x[\vec{\la}]=\prod_{j=1}^K\la_j^{x_j}=\la_k
@@ -196,7 +195,41 @@ Let $\grad L(\vec{\la},v)=0$, we have the solution:
 	\end{align*}
 
 \subsubsection*{Maximum a Posterior}
+Likelihood given by categorical distribution pdf:
+	\begin{align*}
+	\P{x|\vec{\la}}=\Cat_x[\vec{\la}]=\prod_{j=1}^K\la_j^{x_j}=\la_k
+	\end{align*}
+Prior given by Dirichlet distribution pdf:
+	\begin{align*}
+	\P{\vec{\la}}=\Dir_{\vec{\la}}[\vec{\al}]=\frac{\Ga(\sum_{k=1}^K\al_k)}{\prod_{k=1}^K\Ga(\al_k)}\prod_{k=1}^K\la_k^{\al_k-1}
+	\end{align*}
+Apply maximum a posterior:
+	\begin{align*}
+	\hat{\vec{\la}}&=\argmax_{\vec{\la}}\prod_{i=1}^I\P{x_i|\vec{\la}}\ \P{\vec{\la}} && \text{$s.t. \sum_k\la_k=1$} \\
+	&=\argmax_{\vec{\la}}\Cat_{x_i}[\vec{\la}]\ \Dir_{\vec{\la}}[\vec{\al}] && \text{$s.t. \sum_k\la_k=1$} \\
+	&=\argmax_{\vec{\la}}\prod_{k=1}^K\la_k^{N_k}\prod_{k=1}^K\la_k^{\al_k-1} && \text{$s.t. \sum_k\la_k=1$} \\
+	&=\argmax_{\vec{\la}}\prod_{k=1}^K\la_k^{N_k+\al_k-1} && \text{$s.t. \sum_k\la_k=1$} \\
+	&=\argmax_{\vec{\la}}\sum_{k=1}^K(N_k+\al_k-1)\log\la_k && \text{$s.t. \sum_k\la_k=1$}
+	\end{align*}
+The loss function is very similar to maximum likelihood (same when the prior is uniform, i.e. $\al_{1\dots k}=1$). Take derivative with Lagrange multiplier, we have the solution:
+	\begin{align*}
+	\hat{\la}_k=\frac{N_k+\al_k-1}{\sum_{m=1}^K(N_m+\al_m-1)}
+	\end{align*}
 
 \subsubsection*{Bayesian Approach}
+Compute the posterior distribution using Bayes' rule:
+	\begin{align*}
+	\P{\vec{\la}|x_{1\dots I}}&=\frac{\prod_{i=1}^I\P{x_i|\vec{\la}}\ \P{\vec{\la}}}{\P{x_{1\dots I}}} \\
+	&=\frac{\prod_{i=1}^I\Cat_{x_i}[\vec{\la}]\ \Dir_{\vec{\la}}[\vec{\al}]}{\P{x_{1\dots I}}} \\
+	&=\frac{\ka(\vec{\al},x_{1\dots I})\Dir_{\vec{\la}}[\ti{\vec{\al}}]}{\P{x_{1\dots I}}} \\
+	&=\Dir_{\vec{\la}}[\ti{\vec{\al}}]
+	\end{align*}
+Compute predictive distribution:
+	\begin{align*}
+	\P{x^*|x_{1\dots I}}&=\int\P{x^*|\vec{\la}}\P{\vec{\la}|x_{1\dots I}}d\vec{\la} \\
+	&=\int\Cat_{x^*}[\vec{\la}]\Dir_{\vec{\la}}[\ti{\vec{\al}}]d\vec{\la} \\
+	&=\int\ka(x^*,\ti{\vec{\al}})\Dir_{\vec{\la}}[\br{\vec{\al}}]d\vec{\la} \\
+	&=\ka(x^*,\vec{\al})
+	\end{align*}
 
 \section{Machine Learning Models}

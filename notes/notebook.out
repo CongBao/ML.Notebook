@@ -29,5 +29,11 @@
 \BOOKMARK [1][]{section.4.2}{4.2 Non-linear Regression}{chapter.4}% 29
 \BOOKMARK [1][]{section.4.3}{4.3 Logistic Regression}{chapter.4}% 30
 \BOOKMARK [0][]{chapter.5}{5 Support Vector Machines}{}% 31
-\BOOKMARK [0][]{chapter.5}{Bibliography}{}% 32
-\BOOKMARK [0][]{appendix.A}{A Test}{}% 33
+\BOOKMARK [0][]{chapter.6}{6 EM Algorithm}{}% 32
+\BOOKMARK [0][]{chapter.7}{7 Boosting}{}% 33
+\BOOKMARK [0][]{chapter.8}{8 Decision Tree \046 Random Forest}{}% 34
+\BOOKMARK [0][]{chapter.9}{9 Graphical Models \046 Markov Network}{}% 35
+\BOOKMARK [0][]{chapter.9}{Bibliography}{}% 36
+\BOOKMARK [0][]{appendix.A}{A Statistical Assessment}{}% 37
+\BOOKMARK [1][]{section.A.1}{A.1 Hypothesis Testing}{appendix.A}% 38
+\BOOKMARK [1][]{section.A.2}{A.2 Confidence Intervals}{appendix.A}% 39
