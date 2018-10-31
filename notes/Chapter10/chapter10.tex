@@ -1,12 +1,112 @@
 %!TEX root = ../notebook.tex
 % Chapter 10
 
+\graphicspath{{Chapter10/Figs/}}
+
 \chapter{Graphical Models \& Markov Network}
 \label{chapter10}
 
 \section{Graph Definitions}
 
+\subsection{Graph}
+
+\begin{description}[leftmargin=0cm]
+	\item[Graph] A graph consists of nodes (vertices) and undirected or directed links (edges) between nodes.
+	\item[Path] A path from $X_i$ to $X_j$ is a sequence of connected nodes starting at $X_i$ and ending at $X_j$.
+\end{description}
+
+\subsection{Directed Graph}
+
+\begin{description}[leftmargin=0cm]
+	\item[Directed Graphs] Graphs that all the edges are directed.
+		\begin{figure*}[h]
+			\centering
+			\includegraphics*[width=0.5\textwidth]{fig1.png}
+		\end{figure*}
+	\item[Directed Acyclic Graph] Graph in which by following the direction of the arrows a node will never be visited more than once.
+	\item[Parents and Children] $X_i$ is a parent of $X_j$ if there is a link from $X_i$ to $X_j$. $X_i$ is a child of $X_j$ if there is a link from $X_j$ to $X_i$.
+	\item[Ancestors and Descendants] The ancestors of a node $X_i$ are the nodes with a directed path ending at $X_i$. The descendants of $X_i$ are the nodes with a directed path beginning at $X_i$.
+\end{description}
+
+\subsection{Undirected Graph}
+
+\begin{description}[leftmargin=0cm]	
+	\item[Undirected Graph] Graph that all the edges are undirected.
+		\begin{figure*}[h]
+			\centering
+			\includegraphics*[width=0.25\textwidth]{fig2.png}
+		\end{figure*}
+	\item[Clique] A clique is a fully connected subset of nodes. ($X_1$, $X_2$, $X_4$) forms a (non-maximal) clique.
+	\item[Maximal Clique] Clique which is not a subset of a larger clique. ($X_1$, $X_2$, $X_3$, $X_4$) and ($X_2$, $X_3$, $X_5$) are both maximal cliques.
+\end{description}
+
+\subsection{Connectivity}
+
+\begin{description}[leftmargin=0cm]	
+	\item[Connected Graph] There is a path between every pair of vertices.
+	\item[Connected Components] In a non-connected graph, the connected components are the connected-subgraphs. ($X_1$, $X_2$, $X_4$) and ($X_3$, $X_5$) are the two connected components.
+		\begin{figure*}[h]
+			\centering
+			\begin{subfigure}[b]{0.45\textwidth}
+				\centering
+				\includegraphics*[width=0.5\textwidth]{fig3.png}
+				\caption*{Connected Graph}
+			\end{subfigure}
+			\begin{subfigure}[b]{0.45\textwidth}
+				\centering
+				\includegraphics*[width=0.5\textwidth]{fig4.png}
+				\caption*{Connected Components}
+			\end{subfigure}
+		\end{figure*}
+\end{description}
+
+\subsection{Connectedness}
+
+\begin{description}[leftmargin=0cm]	
+	\item[Singly-connected] There is only one path from any node $a$ to another node $b$.
+	\item[Multiply-connected] A graph is multiply-connected if it is not singly-connected.
+		\begin{figure*}[h]
+			\centering
+			\begin{subfigure}[b]{0.45\textwidth}
+				\centering
+				\includegraphics*[width=0.5\textwidth]{fig5.png}
+				\caption*{Singly-connected}
+			\end{subfigure}
+			\begin{subfigure}[b]{0.45\textwidth}
+				\centering
+				\includegraphics*[width=0.5\textwidth]{fig6.png}
+				\caption*{Multiply-connected}
+			\end{subfigure}
+		\end{figure*}
+\end{description}
+
 \section{Belief Networks}
+
+\subsection{Definition}
+
+A belief network is a directed acyclic graph in which each node is associated with the conditional probability of the node given its parents. The joint distribution is obtained by taking the product of the conditional probabilities.
+	\begin{align*}
+	\P{A,B,C,D,E}=\P{A}\P{B}\P{C|A,B}\P{D|C}\P{E|B,C}
+	\end{align*}
+	\begin{figure*}[h]
+		\centering
+		\includegraphics*[width=0.25\textwidth]{fig7.png}
+	\end{figure*}
+
+\subsection{Uncertain Evidence}
+
+\begin{description}[leftmargin=0cm]	
+	\item[Definition] In soft/uncertain evidence the variable is in more than one state, with the strength of out belief about each state being given by probabilities. For example, if $y$ has the states $\dom(y)=\{red,blue,green\}$, the vector (0.6, 0.1, 0.3) could represent the probabilities of the respective states.
+	\item[Hard Evidence] We are certain that a variable is in a particular state. In this state, all the probability mass is in one of the vector components, (0, 0, 1).
+	\item[Inference] Inference with soft-evidence can be achieved using Bayes' rule. Writing the soft-evidence as $\ti{y}$, we have $\P{x|\ti{y}}=\sum_y\P{x|y}\P{y|\ti{y}}$, where $\P{y=i|\ti{y}}$ represents the probability that $y$ is in state $i$ under the soft-evidence.
+	\item[Jeffrey's Rule] For variables $x$, $y$ and $P_1(x,y)$, how do we form a joint distribution given soft-evidence $\ti{y}$? (a) From the conditional we first define $P_1(x|y)=\frac{P_1(x,y)}{\sum_xP_1(x,y)}$. (b) Define the joint. The soft-evidence $\P{y|\ti{y}}$ then defines a new joint distribution $P_2(x,y|\ti{y})=P_1(x|y)P_1(y|\ti{y})$. One can therefore view soft-evidence as defining a new joint distribution. We use a dashed circle to represent a variable in an uncertain state.
+		\begin{figure*}[h]
+			\centering
+			\includegraphics*[width=0.25\textwidth]{fig8.png}
+		\end{figure*}
+\end{description}
+
+\subsection{Independence}
 
 \section{Markov Networks}
 

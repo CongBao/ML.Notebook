@@ -75,11 +75,18 @@
 \BOOKMARK [1][]{section.9.4}{9.4 Random Forest}{chapter.9}% 75
 \BOOKMARK [0][]{chapter.10}{10 Graphical Models \046 Markov Network}{}% 76
 \BOOKMARK [1][]{section.10.1}{10.1 Graph Definitions}{chapter.10}% 77
-\BOOKMARK [1][]{section.10.2}{10.2 Belief Networks}{chapter.10}% 78
-\BOOKMARK [1][]{section.10.3}{10.3 Markov Networks}{chapter.10}% 79
-\BOOKMARK [1][]{section.10.4}{10.4 Markov Chains}{chapter.10}% 80
-\BOOKMARK [1][]{section.10.5}{10.5 Hidden Markov Models}{chapter.10}% 81
-\BOOKMARK [0][]{section.10.5}{Bibliography}{}% 82
-\BOOKMARK [0][]{appendix.A}{A Statistical Assessment}{}% 83
-\BOOKMARK [1][]{section.A.1}{A.1 Hypothesis Testing}{appendix.A}% 84
-\BOOKMARK [1][]{section.A.2}{A.2 Confidence Intervals}{appendix.A}% 85
+\BOOKMARK [2][]{subsection.10.1.1}{10.1.1 Graph}{section.10.1}% 78
+\BOOKMARK [2][]{subsection.10.1.2}{10.1.2 Directed Graph}{section.10.1}% 79
+\BOOKMARK [2][]{subsection.10.1.3}{10.1.3 Undirected Graph}{section.10.1}% 80
+\BOOKMARK [2][]{subsection.10.1.4}{10.1.4 Connectivity}{section.10.1}% 81
+\BOOKMARK [2][]{subsection.10.1.5}{10.1.5 Connectedness}{section.10.1}% 82
+\BOOKMARK [1][]{section.10.2}{10.2 Belief Networks}{chapter.10}% 83
+\BOOKMARK [2][]{subsection.10.2.1}{10.2.1 Definition}{section.10.2}% 84
+\BOOKMARK [2][]{subsection.10.2.2}{10.2.2 Uncertain Evidence}{section.10.2}% 85
+\BOOKMARK [2][]{subsection.10.2.3}{10.2.3 Independence}{section.10.2}% 86
+\BOOKMARK [1][]{section.10.3}{10.3 Markov Networks}{chapter.10}% 87
+\BOOKMARK [1][]{section.10.4}{10.4 Markov Chains}{chapter.10}% 88
+\BOOKMARK [1][]{section.10.5}{10.5 Hidden Markov Models}{chapter.10}% 89
+\BOOKMARK [0][]{appendix.A}{A Statistical Assessment}{}% 90
+\BOOKMARK [1][]{section.A.1}{A.1 Hypothesis Testing}{appendix.A}% 91
+\BOOKMARK [1][]{section.A.2}{A.2 Confidence Intervals}{appendix.A}% 92

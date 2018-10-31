@@ -75,11 +75,18 @@
 \contentsline {section}{\numberline {9.4}Random Forest}{23}{section.9.4}
 \contentsline {chapter}{\numberline {10}Graphical Models \& Markov Network}{24}{chapter.10}
 \contentsline {section}{\numberline {10.1}Graph Definitions}{24}{section.10.1}
-\contentsline {section}{\numberline {10.2}Belief Networks}{24}{section.10.2}
-\contentsline {section}{\numberline {10.3}Markov Networks}{24}{section.10.3}
-\contentsline {section}{\numberline {10.4}Markov Chains}{24}{section.10.4}
-\contentsline {section}{\numberline {10.5}Hidden Markov Models}{24}{section.10.5}
-\contentsline {chapter}{Bibliography}{25}{section.10.5}
-\contentsline {chapter}{\numberline {A}Statistical Assessment}{26}{appendix.A}
-\contentsline {section}{\numberline {A.1}Hypothesis Testing}{26}{section.A.1}
-\contentsline {section}{\numberline {A.2}Confidence Intervals}{26}{section.A.2}
+\contentsline {subsection}{\numberline {10.1.1}Graph}{24}{subsection.10.1.1}
+\contentsline {subsection}{\numberline {10.1.2}Directed Graph}{24}{subsection.10.1.2}
+\contentsline {subsection}{\numberline {10.1.3}Undirected Graph}{25}{subsection.10.1.3}
+\contentsline {subsection}{\numberline {10.1.4}Connectivity}{25}{subsection.10.1.4}
+\contentsline {subsection}{\numberline {10.1.5}Connectedness}{25}{subsection.10.1.5}
+\contentsline {section}{\numberline {10.2}Belief Networks}{26}{section.10.2}
+\contentsline {subsection}{\numberline {10.2.1}Definition}{26}{subsection.10.2.1}
+\contentsline {subsection}{\numberline {10.2.2}Uncertain Evidence}{26}{subsection.10.2.2}
+\contentsline {subsection}{\numberline {10.2.3}Independence}{27}{subsection.10.2.3}
+\contentsline {section}{\numberline {10.3}Markov Networks}{27}{section.10.3}
+\contentsline {section}{\numberline {10.4}Markov Chains}{27}{section.10.4}
+\contentsline {section}{\numberline {10.5}Hidden Markov Models}{27}{section.10.5}
+\contentsline {chapter}{\numberline {A}Statistical Assessment}{28}{appendix.A}
+\contentsline {section}{\numberline {A.1}Hypothesis Testing}{28}{section.A.1}
+\contentsline {section}{\numberline {A.2}Confidence Intervals}{28}{section.A.2}
