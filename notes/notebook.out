@@ -84,9 +84,16 @@
 \BOOKMARK [2][]{subsection.10.2.1}{10.2.1 Definition}{section.10.2}% 84
 \BOOKMARK [2][]{subsection.10.2.2}{10.2.2 Uncertain Evidence}{section.10.2}% 85
 \BOOKMARK [2][]{subsection.10.2.3}{10.2.3 Independence}{section.10.2}% 86
-\BOOKMARK [1][]{section.10.3}{10.3 Markov Networks}{chapter.10}% 87
-\BOOKMARK [1][]{section.10.4}{10.4 Markov Chains}{chapter.10}% 88
-\BOOKMARK [1][]{section.10.5}{10.5 Hidden Markov Models}{chapter.10}% 89
-\BOOKMARK [0][]{appendix.A}{A Statistical Assessment}{}% 90
-\BOOKMARK [1][]{section.A.1}{A.1 Hypothesis Testing}{appendix.A}% 91
-\BOOKMARK [1][]{section.A.2}{A.2 Confidence Intervals}{appendix.A}% 92
+\BOOKMARK [2][]{subsection.10.2.4}{10.2.4 General Rule for Independence in Belief Networks}{section.10.2}% 87
+\BOOKMARK [2][]{subsection.10.2.5}{10.2.5 Markov Equivalence}{section.10.2}% 88
+\BOOKMARK [1][]{section.10.3}{10.3 Markov Networks}{chapter.10}% 89
+\BOOKMARK [2][]{subsection.10.3.1}{10.3.1 Definition}{section.10.3}% 90
+\BOOKMARK [2][]{subsection.10.3.2}{10.3.2 Examples}{section.10.3}% 91
+\BOOKMARK [2][]{subsection.10.3.3}{10.3.3 Independence}{section.10.3}% 92
+\BOOKMARK [2][]{subsection.10.3.4}{10.3.4 Expressiveness of Markov and Belief Networks}{section.10.3}% 93
+\BOOKMARK [2][]{subsection.10.3.5}{10.3.5 Factor Graphs}{section.10.3}% 94
+\BOOKMARK [1][]{section.10.4}{10.4 Markov Chains}{chapter.10}% 95
+\BOOKMARK [1][]{section.10.5}{10.5 Hidden Markov Models}{chapter.10}% 96
+\BOOKMARK [0][]{appendix.A}{A Statistical Assessment}{}% 97
+\BOOKMARK [1][]{section.A.1}{A.1 Hypothesis Testing}{appendix.A}% 98
+\BOOKMARK [1][]{section.A.2}{A.2 Confidence Intervals}{appendix.A}% 99

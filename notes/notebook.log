@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840) (preloaded format=pdflatex 2018.10.25)  31 OCT 2018 23:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840) (preloaded format=pdflatex 2018.10.25)  1 NOV 2018 23:32
 entering extended mode
 **./notebook.tex
 (notebook.tex
@@ -461,11 +461,11 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 {/home/baocong/.miktex/texmfs/data/pdftex/config/pdftex.map}] (notebook.toc [1
 
 
-] [2])
+] [2] [3])
 \tf@toc=\write4
 \openout4 = `notebook.toc'.
 
- [3]
+ [4]
 \openout2 = `Chapter01/chapter1.aux'.
 
 
@@ -612,7 +612,7 @@ Chapter 9.
 
  (Chapter10/chapter10.tex
 Chapter 10.
-<Chapter10/Figs/fig1.png, id=694, 633.86812pt x 279.29344pt>
+<Chapter10/Figs/fig1.png, id=738, 633.86812pt x 279.29344pt>
 File: Chapter10/Figs/fig1.png Graphic file (type png)
 <use Chapter10/Figs/fig1.png>
 Package pdftex.def Info: Chapter10/Figs/fig1.png  used on input line 24.
@@ -622,27 +622,27 @@ Package pdftex.def Info: Chapter10/Figs/fig1.png  used on input line 24.
 
 
  <./Chapter10/Figs/fig1.png (PNG copy)>]
-<Chapter10/Figs/fig2.png, id=702, 305.64188pt x 220.57407pt>
+<Chapter10/Figs/fig2.png, id=746, 305.64188pt x 220.57407pt>
 File: Chapter10/Figs/fig2.png Graphic file (type png)
 <use Chapter10/Figs/fig2.png>
 Package pdftex.def Info: Chapter10/Figs/fig2.png  used on input line 37.
 (pdftex.def)             Requested size: 117.43874pt x 84.7513pt.
-<Chapter10/Figs/fig3.png, id=704, 291.33844pt x 213.04594pt>
+<Chapter10/Figs/fig3.png, id=748, 291.33844pt x 213.04594pt>
 File: Chapter10/Figs/fig3.png Graphic file (type png)
 <use Chapter10/Figs/fig3.png>
 Package pdftex.def Info: Chapter10/Figs/fig3.png  used on input line 52.
 (pdftex.def)             Requested size: 105.69415pt x 77.28812pt.
-<Chapter10/Figs/fig4.png, id=706, 293.59688pt x 210.7875pt>
+<Chapter10/Figs/fig4.png, id=750, 293.59688pt x 210.7875pt>
 File: Chapter10/Figs/fig4.png Graphic file (type png)
 <use Chapter10/Figs/fig4.png>
 Package pdftex.def Info: Chapter10/Figs/fig4.png  used on input line 57.
 (pdftex.def)             Requested size: 105.69415pt x 75.88344pt.
-<Chapter10/Figs/fig5.png, id=708, 289.08pt x 213.04594pt>
+<Chapter10/Figs/fig5.png, id=752, 289.08pt x 213.04594pt>
 File: Chapter10/Figs/fig5.png Graphic file (type png)
 <use Chapter10/Figs/fig5.png>
 Package pdftex.def Info: Chapter10/Figs/fig5.png  used on input line 72.
 (pdftex.def)             Requested size: 105.69415pt x 77.89278pt.
-<Chapter10/Figs/fig6.png, id=710, 288.3272pt x 211.54031pt>
+<Chapter10/Figs/fig6.png, id=754, 288.3272pt x 211.54031pt>
 File: Chapter10/Figs/fig6.png Graphic file (type png)
 <use Chapter10/Figs/fig6.png>
 Package pdftex.def Info: Chapter10/Figs/fig6.png  used on input line 77.
@@ -653,24 +653,103 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [25 <./Chapter10/Figs/fig2.png (PNG copy)> <./Chapter10/Figs/fig3.png (PNG copy
 )> <./Chapter10/Figs/fig4.png (PNG copy)>]
-<Chapter10/Figs/fig7.png, id=722, 387.69844pt x 317.68687pt>
+<Chapter10/Figs/fig7.png, id=766, 387.69844pt x 317.68687pt>
 File: Chapter10/Figs/fig7.png Graphic file (type png)
 <use Chapter10/Figs/fig7.png>
-Package pdftex.def Info: Chapter10/Figs/fig7.png  used on input line 93.
-(pdftex.def)             Requested size: 117.43874pt x 96.22781pt.
-<Chapter10/Figs/fig8.png, id=724, 338.01282pt x 165.61874pt>
+Package pdftex.def Info: Chapter10/Figs/fig7.png  used on input line 91.
+(pdftex.def)             Requested size: 112.74062pt x 92.37889pt.
+
+Overfull \hbox (20.23589pt too wide) in paragraph at lines 89--96
+[]$[]$ $[]$ 
+ []
+
+<Chapter10/Figs/fig8.png, id=768, 338.01282pt x 165.61874pt>
 File: Chapter10/Figs/fig8.png Graphic file (type png)
 <use Chapter10/Figs/fig8.png>
-Package pdftex.def Info: Chapter10/Figs/fig8.png  used on input line 105.
+Package pdftex.def Info: Chapter10/Figs/fig8.png  used on input line 106.
 (pdftex.def)             Requested size: 117.43874pt x 57.54286pt.
- [26 <./Chapter10/Figs/fig5.png (PNG copy)> <./Chapter10/Figs/fig6.png (PNG cop
-y)> <./Chapter10/Figs/fig7.png (PNG copy)>]) [27 <./Chapter10/Figs/fig8.png (PN
-G copy)>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Chapter10/Figs/fig9.png, id=770, 1113.40968pt x 281.55188pt>
+File: Chapter10/Figs/fig9.png Graphic file (type png)
+<use Chapter10/Figs/fig9.png>
+Package pdftex.def Info: Chapter10/Figs/fig9.png  used on input line 115.
+(pdftex.def)             Requested size: 469.75499pt x 118.788pt.
+[26 <./Chapter10/Figs/fig5.png (PNG copy)> <./Chapter10/Figs/fig6.png (PNG copy
+)> <./Chapter10/Figs/fig7.png (PNG copy)>]
+Overfull \hbox (35.59346pt too wide) in paragraph at lines 123--124
+\OT1/cmr/m/n/12 In (d) the variables A, B are conditionally dependent given C, 
+$\OML/cmm/m/it/12 P [] \U/msa/m/n/12 _ \OML/cmm/m/it/12 P [] P [] P []$\OT1/cmr
+/m/n/12 . 
+ []
+
+<Chapter10/Figs/fig10.png, id=781, 1110.39844pt x 272.51813pt>
+File: Chapter10/Figs/fig10.png Graphic file (type png)
+<use Chapter10/Figs/fig10.png>
+Package pdftex.def Info: Chapter10/Figs/fig10.png  used on input line 128.
+(pdftex.def)             Requested size: 469.75499pt x 115.28848pt.
+<Chapter10/Figs/fig11.png, id=783, 238.64156pt x 150.5625pt>
+File: Chapter10/Figs/fig11.png Graphic file (type png)
+<use Chapter10/Figs/fig11.png>
+Package pdftex.def Info: Chapter10/Figs/fig11.png  used on input line 139.
+(pdftex.def)             Requested size: 112.74062pt x 71.12965pt.
+<Chapter10/Figs/fig12.png, id=785, 236.38312pt x 149.05687pt>
+File: Chapter10/Figs/fig12.png Graphic file (type png)
+<use Chapter10/Figs/fig12.png>
+Package pdftex.def Info: Chapter10/Figs/fig12.png  used on input line 146.
+(pdftex.def)             Requested size: 112.74062pt x 71.0916pt.
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 137--151
+$[]$ $[]$
+ []
+
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 137--151
+[]$ $[]$ 
+ []
+
+[27 <./Chapter10/Figs/fig8.png (PNG copy)> <./Chapter10/Figs/fig9.png (PNG copy
+)> <./Chapter10/Figs/fig10.png (PNG copy)>]
+Overfull \hbox (7.67755pt too wide) in paragraph at lines 168--169
+\OT1/cmr/m/n/12 Note first that d-separation and connection are properties of t
+he graph (not of the distribution).
+ []
+
+[28 <./Chapter10/Figs/fig11.png (PNG copy)> <./Chapter10/Figs/fig12.png (PNG co
+py)>]
+<Chapter10/Figs/fig13.png, id=815, 269.50688pt x 292.84406pt>
+File: Chapter10/Figs/fig13.png Graphic file (type png)
+<use Chapter10/Figs/fig13.png>
+Package pdftex.def Info: Chapter10/Figs/fig13.png  used on input line 189.
+(pdftex.def)             Requested size: 93.94955pt x 102.08585pt.
+
+Overfull \hbox (20.23589pt too wide) in paragraph at lines 187--197
+[]$[]$ $[]$ 
+ []
+
+<Chapter10/Figs/fig14.png, id=817, 286.82156pt x 281.55188pt>
+File: Chapter10/Figs/fig14.png Graphic file (type png)
+<use Chapter10/Figs/fig14.png>
+Package pdftex.def Info: Chapter10/Figs/fig14.png  used on input line 203.
+(pdftex.def)             Requested size: 150.31987pt x 147.55917pt.
+
+Overfull \hbox (2.8135pt too wide) detected at line 212
+[]
+ []
+
+
+Overfull \hbox (5.42458pt too wide) in paragraph at lines 201--214
+$[]$ $[]$ 
+ []
+
+) [29 <./Chapter10/Figs/fig13.png (PNG copy)> <./Chapter10/Figs/fig14.png (PNG 
+copy)>] [30]
 \openout2 = `AppendixA/appendixA.aux'.
 
  (AppendixA/appendixA.tex
 Appendix A.
-) [28
+) [31
 
 
 
@@ -684,25 +763,18 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 43.
 (Chapter09/chapter9.aux) (Chapter10/chapter10.aux) (AppendixA/appendixA.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 43.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 43.
-
-
-Package rerunfilecheck Warning: File `notebook.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `notebook.out':
-(rerunfilecheck)             Before: 830B2108CBBC1A7106317052DBDEDBF7;6412
-(rerunfilecheck)             After:  670DB7097037520CAC515881B301209F;6486.
+Package rerunfilecheck Info: File `notebook.out' has not changed.
+(rerunfilecheck)             Checksum: 3A0F7F151F5CA74B6B6DF92AEC49550B;7073.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 43.
  ) 
 Here is how much of TeX's memory you used:
- 9151 strings out of 494889
- 133888 string characters out of 3178923
- 231968 words of memory out of 3000000
- 12315 multiletter control sequences out of 15000+200000
+ 9220 strings out of 494889
+ 135144 string characters out of 3178923
+ 231994 words of memory out of 3000000
+ 12349 multiletter control sequences out of 15000+200000
  18227 words of font info for 73 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
- 38i,14n,43p,555b,596s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,15n,43p,555b,596s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local
 /share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/share/
@@ -720,10 +792,11 @@ sr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loc
 al/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/shar
 e/miktex-texmf/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/share/mikte
 x-texmf/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/share/miktex-texm
-f/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on notebook.pdf (32 pages, 489642 bytes).
+f/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/share/miktex-texmf
+/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on notebook.pdf (36 pages, 654090 bytes).
 PDF statistics:
- 858 PDF objects out of 1000 (max. 8388607)
- 236 named destinations out of 1000 (max. 500000)
- 817 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 959 PDF objects out of 1000 (max. 8388607)
+ 265 named destinations out of 1000 (max. 500000)
+ 947 words of extra memory for PDF output out of 10000 (max. 10000000)
 

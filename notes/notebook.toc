@@ -84,9 +84,16 @@
 \contentsline {subsection}{\numberline {10.2.1}Definition}{26}{subsection.10.2.1}
 \contentsline {subsection}{\numberline {10.2.2}Uncertain Evidence}{26}{subsection.10.2.2}
 \contentsline {subsection}{\numberline {10.2.3}Independence}{27}{subsection.10.2.3}
-\contentsline {section}{\numberline {10.3}Markov Networks}{27}{section.10.3}
-\contentsline {section}{\numberline {10.4}Markov Chains}{27}{section.10.4}
-\contentsline {section}{\numberline {10.5}Hidden Markov Models}{27}{section.10.5}
-\contentsline {chapter}{\numberline {A}Statistical Assessment}{28}{appendix.A}
-\contentsline {section}{\numberline {A.1}Hypothesis Testing}{28}{section.A.1}
-\contentsline {section}{\numberline {A.2}Confidence Intervals}{28}{section.A.2}
+\contentsline {subsection}{\numberline {10.2.4}General Rule for Independence in Belief Networks}{28}{subsection.10.2.4}
+\contentsline {subsection}{\numberline {10.2.5}Markov Equivalence}{29}{subsection.10.2.5}
+\contentsline {section}{\numberline {10.3}Markov Networks}{29}{section.10.3}
+\contentsline {subsection}{\numberline {10.3.1}Definition}{29}{subsection.10.3.1}
+\contentsline {subsection}{\numberline {10.3.2}Examples}{29}{subsection.10.3.2}
+\contentsline {subsection}{\numberline {10.3.3}Independence}{30}{subsection.10.3.3}
+\contentsline {subsection}{\numberline {10.3.4}Expressiveness of Markov and Belief Networks}{30}{subsection.10.3.4}
+\contentsline {subsection}{\numberline {10.3.5}Factor Graphs}{30}{subsection.10.3.5}
+\contentsline {section}{\numberline {10.4}Markov Chains}{30}{section.10.4}
+\contentsline {section}{\numberline {10.5}Hidden Markov Models}{30}{section.10.5}
+\contentsline {chapter}{\numberline {A}Statistical Assessment}{31}{appendix.A}
+\contentsline {section}{\numberline {A.1}Hypothesis Testing}{31}{section.A.1}
+\contentsline {section}{\numberline {A.2}Confidence Intervals}{31}{section.A.2}
