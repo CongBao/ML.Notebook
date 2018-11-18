@@ -5,4 +5,45 @@
 
 \section{Hypothesis Testing}
 
+\subsection{Testing Basics}
+
+\begin{description}[leftmargin=0cm]
+	\item[Null Hypothesis $H_0$] The hypothesis we would like to test.
+	\item[Alternative Hypothesis $H_1$] An alternative result when $H_0$ is rejected. In most cases the alternative hypothesis is simply the negation of the null hypothesis.
+	\item[P-value]  The p-value is the probability of observing a test statistic, $X$, as or more extreme than the value $x$ seen in the data, under the assumption that the null hypothesis, $H_0$, is true. The p-value is most certainly not the probability of $H_0$ being true.
+	\item[False Positives (Type I Error)] Rejecting $H_0$ when it is true.
+	\item[False Negatives (Type II Error)] Not rejecting $H_0$ when it is false. (N.B. Not rejecting $H_0$ is not the same as accepting $H_0$)
+	\item[Power] The power of a hypothesis test is the probability of avoiding a false negative.
+\end{description}
+
+\subsection{Testing Procedure}
+
+A common testing procedure includes the following steps:
+	\begin{enumerate}
+		\item Specify a null hypothesis ($H_0$) and alternative hypothesis ($H_1$). \\ e.g. \\
+		$H_0:\th=0.5$ The proportion of males and females is identical. \\
+		$H_1:\th<0.5$ There is a smaller proportion of females than males.
+		\item Specify the level of the test. \\ e.g. a common level=0.05
+		\begin{itemize}[leftmargin=0.4cm,nosep]
+			\item Bearing in mind the need to balance probabilities of Type I and Type II errors.
+			\item Reducing the level reduces the probability of a Type I error.
+			\item Increasing the level reduces the probability of a Type II error.
+		\end{itemize}
+		\item Specify a suitable test statistic. \\ e.g. $X=$ The number of females $=15$.
+		\item Determine the distribution of the test statistic under $H_0$. \\ e.g. $X\by\Bin(40,0.5)$
+		\item Determine what it means to be ``more extreme'' by considering $H_0$ and $H_1$. \\ e.g. $H_1:\th<0.5$, so smaller values of $X$ are more extreme.
+		\item Determine the corresponding p-value. \\ e.g. $p=\p{X\leq15}=0.077$
+		\item Reject $H_0$ if the p-value is less than the level of the test. \\ e.g. $p>0.05$, so we fail to reject $H_0$ in this instance. Conclude that the proportion of females and males is identical.
+	\end{enumerate}
+
+An alternative procedure is that rather than determining a p-value, we may determine a critical region for the test statistic -- the set of all test statistic values which would cause us to reject $H_0$. \\ e.g. level $=0.05$, $\p{X\leq15}=0.077$, $\p{X\leq14}=0.04 \impl CR=\{0,1,2,\dotsc,14\}$.
+
+We may therefore simply compare our observed value to the critical region to judge whether to reject $H_0$.
+
+\subsection{Power Investigation}
+
+\subsection{Useful Tests}
+
 \section{Confidence Intervals}
+
+\section{Bootstrap}
