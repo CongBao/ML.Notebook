@@ -1,10 +1,52 @@
 %!TEX root = ../notebook.tex
 % Chapter 4
 
-\chapter{Regression}
+\chapter{Linear Regression}
 \label{chapter4}
 
-\section{Linear Regression}
+\section{Basic Model}
+	\begin{enumerate}
+		\item Discriminative, Regression
+		\item $\P{w_i|\mat{X}_i,\vec{\th}}=\Norm_{w_i}[\ph_0+\vec{\ph}\T\mat{X}_i,\si^2]$
+		\item (Neater Notation) $\mat{X}_i\gets[1\quad\mat{X}\T_i]\T$, $\vec{\ph}\gets[\ph_0\quad\vec{\ph}\T]\T$ \\ $\P{w_i|\mat{X}_i,\vec{\th}}=\Norm_{w_i}[\vec{\ph}\T\mat{X}_i,\si^2]$
+		\item (Combining Equations) $\mat{X}=[\mat{X}_1,\mat{X}_2,\dotsc,\mat{X}_I]$ \\ $\P{\vec{w}|\mat{X},\vec{\th}}=\Norm_{\vec{w}}[\mat{X}\T\vec{\ph},\si^2\mat{I}]$
+		\item Learning with Maximum Likelihood: $\hat{\vec{\th}}=\argmax_{\vec{\th}}\P{\vec{w}|\mat{X},\vec{\th}}=\argmax_{\vec{\th}}\log\P{\vec{w}|\mat{X},\vec{\th}}$, result:
+		\begin{align*}
+			\hat{\vec{\ph}}&=(\mat{X}\mat{X}\T)\inv\mat{X}\vec{w} \\
+			\hat{\si}^2&=\frac{(\vec{w}-\mat{X}\T\vec{\ph})\T(\vec{w}-\mat{X}\T\vec{\ph})}{\mat{I}}
+		\end{align*}
+	\end{enumerate}
+
+\section{Bayesian Regression}
+
+\subsection*{Parameter $\vec{\ph}$}
+	\begin{description}
+		\item[Likelihood] $\P{\vec{w}|\mat{X},\vec{\th}}=\Norm_{\vec{w}}[\mat{X}\T\vec{\ph},\si^2\mat{I}]$
+		\item[Prior] $\P{\vec{\ph}}=\Norm_{\vec{\ph}}[\vec{0},\si_p^2\mat{I}]$
+		\item[Posterior] 
+		\begin{align*}
+			\P{\vec{\ph}|\mat{X},\vec{w}}&=\frac{\P{\vec{w}|\mat{X},\vec{\ph}}\P{\vec{\ph}|\mat{X}}}{\P{\vec{w}|\mat{X}}} \\
+			&=\Norm_{\vec{\ph}}\left[\frac{1}{\si^2}\mat{A}\inv\mat{X}\vec{w},\mat{A}\inv\right]
+		\end{align*}
+		where
+		\begin{align*}
+			\mat{A}&=\frac{1}{\si^2}\mat{X}\mat{X}\T+\frac{1}{\si_p^2}\mat{I} \\
+			\mat{A}\inv&=\si_p^2\mat{I}_D-\si_p^2\mat{X}\left(\mat{X}\T\mat{X}+\frac{\si^2}{\si_p^2}\mat{I}_I\right)\inv\mat{X}\T
+		\end{align*}
+		\item[Inference (Bayesian Approach)]
+		\begin{align*}
+			\P{w^*|\vec{x}^*,\mat{X},\vec{w}}&=\int\P{w^*|\vec{x}^*,\vec{\ph}}\P{\vec{\ph|\mat{X},\vec{w}}}d\vec{\ph} \\
+			&=\int\Norm_{w^*}[\vec{\ph}\T\vec{x}^*,\si^2]\Norm_{\vec{\ph}}\left[\frac{1}{\si^2}\mat{A}\inv\mat{X}\vec{w},\mat{A}\inv\right]d\vec{\ph} \\
+			&=\Norm_{w^*}\left[\frac{1}{\si^2}\vec{x}^*\T\mat{A}\inv\mat{X}\vec{w},\vec{x}^*\T\mat{A}\inv\vec{x}^*+\si^2\right]
+		\end{align*}
+	\end{description}
+
+\subsection*{Parameter $\si^2$}
+\begin{align*}
+	\P{\vec{w}|\mat{X},\si^2}&=\int\P{\vec{w}|\mat{X},\vec{\ph},\si^2}\P{\vec{\ph}}d\vec{\ph} \\
+	&=\int\Norm_{\vec{w}}[\mat{X}\T\vec{\ph},\si^2\mat{I}]\Norm_{\vec{\ph}}[\vec{0},\si_p^2\mat{I}]d\vec{\ph} \\
+	&=\Norm_{\vec{w}}[\vec{0},\si_p^2\mat{X}\T\mat{X}+\si^2\mat{I}]
+\end{align*}
 
 \section{Non-linear Regression}
 
