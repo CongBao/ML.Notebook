@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.12.11)  11 DEC 2018 13:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840) (preloaded format=pdflatex 2018.10.25)  11 DEC 2018 20:09
 entering extended mode
 **./notebook.tex
 (notebook.tex
 LaTeX2e <2018-04-01> patch level 5
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\book.cls"
+(/usr/local/share/miktex-texmf/tex/latex/base/book.cls
 Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\bk12.clo"
+(/usr/local/share/miktex-texmf/tex/latex/base/bk12.clo
 File: bk12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count80
@@ -21,7 +21,7 @@ File: bk12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 ) (preamble.tex
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+(/usr/local/share/miktex-texmf/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks14
 \symAMSa=\mathgroup4
@@ -29,24 +29,24 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+(/usr/local/share/miktex-texmf/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2017/09/02 v2.17a AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+(/usr/local/share/miktex-texmf/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+(/usr/local/share/miktex-texmf/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks15
 \ex@=\dimen103
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+(/usr/local/share/miktex-texmf/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen104
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+(/usr/local/share/miktex-texmf/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count89
@@ -87,10 +87,10 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+(/usr/local/share/miktex-texmf/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amscls\amsthm.sty"
+(/usr/local/share/miktex-texmf/tex/latex/amscls/amsthm.sty
 Package: amsthm 2017/10/31 v2.20.4
 \thm@style=\toks20
 \thm@bodyfont=\toks21
@@ -102,7 +102,7 @@ Package: amsthm 2017/10/31 v2.20.4
 \thm@headsep=\skip48
 \dth@everypar=\toks25
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
+(/home/baocong/.miktex/texmfs/install/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \heavyrulewidth=\dimen112
 \lightrulewidth=\dimen113
@@ -122,14 +122,14 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@lastruleclass=\count104
 \@thisrulewidth=\dimen124
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+(/home/baocong/.miktex/texmfs/install/tex/latex/caption/caption.sty
 Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+(/home/baocong/.miktex/texmfs/install/tex/latex/caption/caption3.sty
 Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 64.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(/usr/local/share/miktex-texmf/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks26
 )
@@ -144,15 +144,15 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \c@caption@flags=\count105
 \c@ContinuedFloat=\count106
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
-Package: enumitem 2018/11/30 v3.6 Customized lists
+(/home/baocong/.miktex/texmfs/install/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip49
 \enit@outerparindent=\dimen132
 \enit@toks=\toks27
 \enit@inbox=\box28
 \enitdp@description=\count107
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
+(/home/baocong/.miktex/texmfs/install/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
 s
 \f@nch@headwidth=\skip50
@@ -165,7 +165,7 @@ s
 \f@nch@O@olf=\skip57
 \f@nch@O@orf=\skip58
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+(/usr/local/share/miktex-texmf/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count108
 \float@exts=\toks28
@@ -173,34 +173,34 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks29
 \@floatcapt=\box30
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(/usr/local/share/miktex-texmf/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+(/usr/local/share/miktex-texmf/tex/latex/graphics/graphics.sty
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(/usr/local/share/miktex-texmf/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+(/usr/local/share/miktex-texmf/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+(/usr/local/share/miktex-texmf/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen133
 \Gin@req@width=\dimen134
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
-Package: hyperref 2018/11/30 v6.88e Hypertext links for LaTeX
+(/usr/local/share/miktex-texmf/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2018/09/30 v6.88a Hypertext links for LaTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+(/usr/local/share/miktex-texmf/tex/generic/oberdiek/hobsub-hyperref.sty
 Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
 
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+(/usr/local/share/miktex-texmf/tex/generic/oberdiek/hobsub-generic.sty
 Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
@@ -212,6 +212,10 @@ Package ifvtex Info: VTeX not detected.
 Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
 Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
@@ -236,110 +240,110 @@ Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+(/usr/local/share/miktex-texmf/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+(/usr/local/share/miktex-texmf/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+(/usr/local/share/miktex-texmf/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen135
 \Hy@linkcounter=\count109
 \Hy@pagecounter=\count110
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
-File: pd1enc.def 2018/11/30 v6.88e Hyperref: PDFDocEncoding definition (HO)
+(/usr/local/share/miktex-texmf/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2018/09/30 v6.88a Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
 \Hy@SavedSpaceFactor=\count111
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+(/usr/local/share/miktex-texmf/tex/latex/00miktex/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Hyper figures OFF on input line 4519.
-Package hyperref Info: Link nesting OFF on input line 4524.
-Package hyperref Info: Hyper index ON on input line 4527.
-Package hyperref Info: Plain pages OFF on input line 4534.
-Package hyperref Info: Backreferencing OFF on input line 4539.
+Package hyperref Info: Hyper figures OFF on input line 4535.
+Package hyperref Info: Link nesting OFF on input line 4540.
+Package hyperref Info: Hyper index ON on input line 4543.
+Package hyperref Info: Plain pages OFF on input line 4550.
+Package hyperref Info: Backreferencing OFF on input line 4555.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4772.
+Package hyperref Info: Bookmarks ON on input line 4788.
 \c@Hy@tempcnt=\count112
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
+(/home/baocong/.miktex/texmfs/install/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5125.
+LaTeX Info: Redefining \url on input line 5141.
 \XeTeXLinkMargin=\dimen136
 \Fld@menulength=\count113
 \Field@Width=\dimen137
 \Fld@charsize=\dimen138
-Package hyperref Info: Hyper figures OFF on input line 6380.
-Package hyperref Info: Link nesting OFF on input line 6385.
-Package hyperref Info: Hyper index ON on input line 6388.
-Package hyperref Info: backreferencing OFF on input line 6395.
-Package hyperref Info: Link coloring OFF on input line 6400.
-Package hyperref Info: Link coloring with OCG OFF on input line 6405.
-Package hyperref Info: PDF/A mode OFF on input line 6410.
-LaTeX Info: Redefining \ref on input line 6450.
-LaTeX Info: Redefining \pageref on input line 6454.
+Package hyperref Info: Hyper figures OFF on input line 6396.
+Package hyperref Info: Link nesting OFF on input line 6401.
+Package hyperref Info: Hyper index ON on input line 6404.
+Package hyperref Info: backreferencing OFF on input line 6411.
+Package hyperref Info: Link coloring OFF on input line 6416.
+Package hyperref Info: Link coloring with OCG OFF on input line 6421.
+Package hyperref Info: PDF/A mode OFF on input line 6426.
+LaTeX Info: Redefining \ref on input line 6466.
+LaTeX Info: Redefining \pageref on input line 6470.
 \Hy@abspage=\count114
 \c@Item=\count115
 \c@Hfootnote=\count116
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
-File: hpdftex.def 2018/11/30 v6.88e Hyperref driver for pdfTeX
+(/usr/local/share/miktex-texmf/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2018/09/30 v6.88a Hyperref driver for pdfTeX
 \Fld@listcount=\count117
 \c@bookmark@seq@number=\count118
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+(/usr/local/share/miktex-texmf/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip59
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\lastpage\lastpage.sty"
+(/home/baocong/.miktex/texmfs/install/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\latexsym.sty"
+(/usr/local/share/miktex-texmf/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
+(/usr/local/share/miktex-texmf/tex/latex/multirow/multirow.sty
 Package: multirow 2018/08/03 v2.3 Span multiple rows of a table
 \multirow@colwidth=\skip60
 \multirow@cntb=\count119
 \multirow@dima=\skip61
 \bigstrutjot=\dimen139
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
+(/home/baocong/.miktex/texmfs/install/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip62
 \bibsep=\skip63
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count120
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty"
+(/home/baocong/.miktex/texmfs/install/tex/latex/caption/subcaption.sty
 Package: subcaption 2018/05/01 v1.1-162 Sub-captions (AR)
 \c@subfigure=\count121
 \c@subtable=\count122
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\threeparttable\threeparttable.sty"
+(/home/baocong/.miktex/texmfs/install/tex/latex/threeparttable/threeparttable.s
+ty
 Package: threeparttable 2003/06/13  v 3.0
 \@tempboxb=\box31
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+) (/home/baocong/.miktex/texmfs/install/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
+(/usr/local/share/miktex-texmf/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -389,7 +393,7 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+(/home/baocong/.miktex/texmfs/install/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count123
 \scratchdimen=\dimen140
@@ -402,10 +406,10 @@ Package caption Info: End \AtBeginDocument code.
 \MPnumerator=\count127
 \makeMPintoPDFobject=\count128
 \everyMPtoPDFconversion=\toks31
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+) (/usr/local/share/miktex-texmf/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+(/usr/local/share/miktex-texmf/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 )
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -418,10 +422,10 @@ G,.JBIG2,.JB2,.eps]
 \AtBeginShipoutBox=\box33
 Package hyperref Info: Link coloring ON on input line 12.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+(/usr/local/share/miktex-texmf/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+(/usr/local/share/miktex-texmf/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count129
@@ -439,34 +443,33 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             ! on input line 12.
 LaTeX Font Info:    Try loading font information for U+msa on input line 15.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+(/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 15.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+(/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for U+lasy on input line 15.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
+(/usr/local/share/miktex-texmf/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ) [1
 
 
-{C:/Users/bao_c/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (notebook.t
-oc [1
+{/home/baocong/.miktex/texmfs/data/pdftex/config/pdftex.map}] (notebook.toc [1
 
 
 ] [2] [3])
 \tf@toc=\write4
 \openout4 = `notebook.toc'.
 
-
-[4]
+ [4]
 \openout2 = `Chapter01/chapter1.aux'.
 
- (Chapter01/chapter1.tex
+
+(Chapter01/chapter1.tex
 Chapter 1.
 )pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
  been already used, duplicate ignored
@@ -491,43 +494,74 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 113.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 113.
- [4]) [5] [6]
+ [4]
+Overfull \hbox (24.43147pt too wide) in paragraph at lines 139--141
+[]\OT1/cmr/m/n/12 Multivariate normal distribution describes multiple continuou
+s variables.
+ []
+
+) [5] [6]
 \openout2 = `Chapter03/chapter3.aux'.
 
  (Chapter03/chapter3.tex
 Chapter 3.
+
+Overfull \hbox (21.58057pt too wide) in paragraph at lines 19--20
+[]\OT1/cmr/m/n/12 A rigid model's (low complexity) performance is more predicta
+ble
+ []
+
 [7
 
 
 
-] [8] [9] [10] [11] [12] [13] [14]
+] [8]
+Overfull \hbox (9.70435pt too wide) in paragraph at lines 74--75
+[]\OT1/cmr/m/n/12 As the name suggests we find the parameters which maximize th
+e posterior probability
+ []
+
+[9] [10] [11] [12] [13] [14]
 Overfull \hbox (0.39732pt too wide) in paragraph at lines 287--288
 []\OT1/cmr/m/n/12 Define prior $\OML/cmm/m/it/12 P []$ \OT1/cmr/m/n/12 and then
- com-pute $\OML/cmm/m/it/12 P []$ \OT1/cmr/m/n/12 us-ing Bayes' rule $\OML/cmm/
-m/it/12 P [] \OT1/cmr/m/n/12 = []$. 
+ compute $\OML/cmm/m/it/12 P []$ \OT1/cmr/m/n/12 using Bayes' rule $\OML/cmm/m/
+it/12 P [] \OT1/cmr/m/n/12 = []$. 
  []
 
 [15] [16]
+Overfull \hbox (4.64105pt too wide) in paragraph at lines 339--340
+[]\OT1/cmr/m/n/12 Learning algorithm: Learning by standard methods, e.g. ML, MA
+P, Bayesian Approach. 
+ []
+
+
+Overfull \hbox (4.74008pt too wide) in paragraph at lines 347--348
+[]\OT1/cmr/m/n/12 No obvious probability distribution to model joint probabilit
+y of discrete and continuous. 
+ []
+
+
+Overfull \hbox (4.64105pt too wide) in paragraph at lines 354--355
+[]\OT1/cmr/m/n/12 Learning algorithm: Learning by standard methods, e.g. ML, MA
+P, Bayesian Approach. 
+ []
+
+
 Overfull \hbox (0.39732pt too wide) in paragraph at lines 355--356
 []\OT1/cmr/m/n/12 Define prior $\OML/cmm/m/it/12 P []$ \OT1/cmr/m/n/12 and then
- com-pute $\OML/cmm/m/it/12 P []$ \OT1/cmr/m/n/12 us-ing Bayes' rule $\OML/cmm/
-m/it/12 P [] \OT1/cmr/m/n/12 = []$. 
+ compute $\OML/cmm/m/it/12 P []$ \OT1/cmr/m/n/12 using Bayes' rule $\OML/cmm/m/
+it/12 P [] \OT1/cmr/m/n/12 = []$. 
  []
 
-
-Overfull \hbox (38.37524pt too wide) in paragraph at lines 362--370
- [][] 
- []
-
-[17]) [18]
+) [17] [18]
 \openout2 = `Chapter04/chapter4.aux'.
 
  (Chapter04/chapter4.tex
 Chapter 4.
 
 Overfull \hbox (12.63712pt too wide) in paragraph at lines 13--14
-[]\OT1/cmr/m/n/12 Learning with Max-i-mum Like-li-hood: $[] = [][] \OML/cmm/m/i
-t/12 P [] \OT1/cmr/m/n/12 = [][] [] \OML/cmm/m/it/12 P []$\OT1/cmr/m/n/12 ,
+[]\OT1/cmr/m/n/12 Learning with Maximum Likelihood: $[] = [][] \OML/cmm/m/it/12
+ P [] \OT1/cmr/m/n/12 = [][] [] \OML/cmm/m/it/12 P []$\OT1/cmr/m/n/12 ,
  []
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
@@ -586,7 +620,7 @@ Chapter 9.
 
  (Chapter10/chapter10.tex
 Chapter 10.
-<Chapter10/Figs/fig1.png, id=791, 633.86812pt x 279.29344pt>
+<Chapter10/Figs/fig1.png, id=792, 633.86812pt x 279.29344pt>
 File: Chapter10/Figs/fig1.png Graphic file (type png)
 <use Chapter10/Figs/fig1.png>
 Package pdftex.def Info: Chapter10/Figs/fig1.png  used on input line 24.
@@ -596,27 +630,27 @@ Package pdftex.def Info: Chapter10/Figs/fig1.png  used on input line 24.
 
 
  <./Chapter10/Figs/fig1.png (PNG copy)>]
-<Chapter10/Figs/fig2.png, id=800, 305.64188pt x 220.57407pt>
+<Chapter10/Figs/fig2.png, id=801, 305.64188pt x 220.57407pt>
 File: Chapter10/Figs/fig2.png Graphic file (type png)
 <use Chapter10/Figs/fig2.png>
 Package pdftex.def Info: Chapter10/Figs/fig2.png  used on input line 37.
 (pdftex.def)             Requested size: 117.43874pt x 84.7513pt.
-<Chapter10/Figs/fig3.png, id=802, 291.33844pt x 213.04594pt>
+<Chapter10/Figs/fig3.png, id=803, 291.33844pt x 213.04594pt>
 File: Chapter10/Figs/fig3.png Graphic file (type png)
 <use Chapter10/Figs/fig3.png>
 Package pdftex.def Info: Chapter10/Figs/fig3.png  used on input line 52.
 (pdftex.def)             Requested size: 105.69415pt x 77.28812pt.
-<Chapter10/Figs/fig4.png, id=804, 293.59688pt x 210.7875pt>
+<Chapter10/Figs/fig4.png, id=805, 293.59688pt x 210.7875pt>
 File: Chapter10/Figs/fig4.png Graphic file (type png)
 <use Chapter10/Figs/fig4.png>
 Package pdftex.def Info: Chapter10/Figs/fig4.png  used on input line 57.
 (pdftex.def)             Requested size: 105.69415pt x 75.88344pt.
-<Chapter10/Figs/fig5.png, id=806, 289.08pt x 213.04594pt>
+<Chapter10/Figs/fig5.png, id=807, 289.08pt x 213.04594pt>
 File: Chapter10/Figs/fig5.png Graphic file (type png)
 <use Chapter10/Figs/fig5.png>
 Package pdftex.def Info: Chapter10/Figs/fig5.png  used on input line 72.
 (pdftex.def)             Requested size: 105.69415pt x 77.89278pt.
-<Chapter10/Figs/fig6.png, id=808, 288.3272pt x 211.54031pt>
+<Chapter10/Figs/fig6.png, id=809, 288.3272pt x 211.54031pt>
 File: Chapter10/Figs/fig6.png Graphic file (type png)
 <use Chapter10/Figs/fig6.png>
 Package pdftex.def Info: Chapter10/Figs/fig6.png  used on input line 77.
@@ -627,7 +661,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [27 <./Chapter10/Figs/fig2.png (PNG copy)> <./Chapter10/Figs/fig3.png (PNG copy
 )> <./Chapter10/Figs/fig4.png (PNG copy)>]
-<Chapter10/Figs/fig7.png, id=819, 387.69844pt x 317.68687pt>
+<Chapter10/Figs/fig7.png, id=820, 387.69844pt x 317.68687pt>
 File: Chapter10/Figs/fig7.png Graphic file (type png)
 <use Chapter10/Figs/fig7.png>
 Package pdftex.def Info: Chapter10/Figs/fig7.png  used on input line 91.
@@ -637,7 +671,7 @@ Overfull \hbox (20.23589pt too wide) in paragraph at lines 89--96
 []$[]$ $[]$ 
  []
 
-<Chapter10/Figs/fig8.png, id=821, 338.01282pt x 165.61874pt>
+<Chapter10/Figs/fig8.png, id=822, 338.01282pt x 165.61874pt>
 File: Chapter10/Figs/fig8.png Graphic file (type png)
 <use Chapter10/Figs/fig8.png>
 Package pdftex.def Info: Chapter10/Figs/fig8.png  used on input line 106.
@@ -645,7 +679,7 @@ Package pdftex.def Info: Chapter10/Figs/fig8.png  used on input line 106.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Chapter10/Figs/fig9.png, id=823, 1113.40968pt x 281.55188pt>
+<Chapter10/Figs/fig9.png, id=824, 1113.40968pt x 281.55188pt>
 File: Chapter10/Figs/fig9.png Graphic file (type png)
 <use Chapter10/Figs/fig9.png>
 Package pdftex.def Info: Chapter10/Figs/fig9.png  used on input line 115.
@@ -653,22 +687,22 @@ Package pdftex.def Info: Chapter10/Figs/fig9.png  used on input line 115.
 [28 <./Chapter10/Figs/fig5.png (PNG copy)> <./Chapter10/Figs/fig6.png (PNG copy
 )> <./Chapter10/Figs/fig7.png (PNG copy)>]
 Overfull \hbox (35.59346pt too wide) in paragraph at lines 123--124
-\OT1/cmr/m/n/12 In (d) the vari-ables A, B are con-di-tion-ally de-pen-dent giv
-en C, $\OML/cmm/m/it/12 P [] \U/msa/m/n/12 _ \OML/cmm/m/it/12 P [] P [] P []$\O
-T1/cmr/m/n/12 . 
+\OT1/cmr/m/n/12 In (d) the variables A, B are conditionally dependent given C, 
+$\OML/cmm/m/it/12 P [] \U/msa/m/n/12 _ \OML/cmm/m/it/12 P [] P [] P []$\OT1/cmr
+/m/n/12 . 
  []
 
-<Chapter10/Figs/fig10.png, id=833, 1110.39844pt x 272.51813pt>
+<Chapter10/Figs/fig10.png, id=834, 1110.39844pt x 272.51813pt>
 File: Chapter10/Figs/fig10.png Graphic file (type png)
 <use Chapter10/Figs/fig10.png>
 Package pdftex.def Info: Chapter10/Figs/fig10.png  used on input line 128.
 (pdftex.def)             Requested size: 469.75499pt x 115.28848pt.
-<Chapter10/Figs/fig11.png, id=835, 238.64156pt x 150.5625pt>
+<Chapter10/Figs/fig11.png, id=836, 238.64156pt x 150.5625pt>
 File: Chapter10/Figs/fig11.png Graphic file (type png)
 <use Chapter10/Figs/fig11.png>
 Package pdftex.def Info: Chapter10/Figs/fig11.png  used on input line 139.
 (pdftex.def)             Requested size: 112.74062pt x 71.12965pt.
-<Chapter10/Figs/fig12.png, id=837, 236.38312pt x 149.05687pt>
+<Chapter10/Figs/fig12.png, id=838, 236.38312pt x 149.05687pt>
 File: Chapter10/Figs/fig12.png Graphic file (type png)
 <use Chapter10/Figs/fig12.png>
 Package pdftex.def Info: Chapter10/Figs/fig12.png  used on input line 146.
@@ -684,9 +718,15 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 137--151
  []
 
 [29 <./Chapter10/Figs/fig8.png (PNG copy)> <./Chapter10/Figs/fig9.png (PNG copy
-)> <./Chapter10/Figs/fig10.png (PNG copy)>] [30 <./Chapter10/Figs/fig11.png (PN
-G copy)> <./Chapter10/Figs/fig12.png (PNG copy)>]
-<Chapter10/Figs/fig13.png, id=867, 269.50688pt x 292.84406pt>
+)> <./Chapter10/Figs/fig10.png (PNG copy)>]
+Overfull \hbox (7.67755pt too wide) in paragraph at lines 168--169
+\OT1/cmr/m/n/12 Note first that d-separation and connection are properties of t
+he graph (not of the distribution).
+ []
+
+[30 <./Chapter10/Figs/fig11.png (PNG copy)> <./Chapter10/Figs/fig12.png (PNG co
+py)>]
+<Chapter10/Figs/fig13.png, id=868, 269.50688pt x 292.84406pt>
 File: Chapter10/Figs/fig13.png Graphic file (type png)
 <use Chapter10/Figs/fig13.png>
 Package pdftex.def Info: Chapter10/Figs/fig13.png  used on input line 189.
@@ -696,7 +736,7 @@ Overfull \hbox (20.23589pt too wide) in paragraph at lines 187--197
 []$[]$ $[]$ 
  []
 
-<Chapter10/Figs/fig14.png, id=869, 286.82156pt x 281.55188pt>
+<Chapter10/Figs/fig14.png, id=870, 286.82156pt x 281.55188pt>
 File: Chapter10/Figs/fig14.png Graphic file (type png)
 <use Chapter10/Figs/fig14.png>
 Package pdftex.def Info: Chapter10/Figs/fig14.png  used on input line 203.
@@ -723,7 +763,7 @@ Appendix A.
 
 ]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 28.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+ (/usr/local/share/miktex-texmf/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
@@ -740,40 +780,40 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 44.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 44.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 44.
 Package rerunfilecheck Info: File `notebook.out' has not changed.
-(rerunfilecheck)             Checksum: 2A813723BD6E0116BF11A39C45114F9F;7698.
+(rerunfilecheck)             Checksum: 6BC22A8D7F0F0E003F06C631EC277F1E;7592.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 44.
  ) 
 Here is how much of TeX's memory you used:
- 9327 strings out of 492969
- 136858 string characters out of 3135846
- 237435 words of memory out of 3000000
- 12670 multiletter control sequences out of 15000+200000
- 20893 words of font info for 83 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 38i,17n,43p,555b,598s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cmextra/cmex8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti
-12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb
->
-Output written on notebook.pdf (39 pages, 676072 bytes).
+ 9301 strings out of 494889
+ 136261 string characters out of 3178923
+ 233016 words of memory out of 3000000
+ 12397 multiletter control sequences out of 15000+200000
+ 22555 words of font info for 90 fonts, out of 3000000 for 9000
+ 0 hyphenation exceptions out of 8191
+ 38i,17n,43p,555b,584s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
+sr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/loc
+al/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/shar
+e/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/share/mikte
+x-texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/share/miktex-texm
+f/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/share/miktex-texmf/
+fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/share/miktex-texmf/fonts/
+type1/public/amsfonts/cm/cmmi6.pfb></usr/local/share/miktex-texmf/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb></usr/local/share/miktex-texmf/fonts/type1/public/a
+msfonts/cm/cmmib10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfon
+ts/cmextra/cmmib8.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfont
+s/cm/cmr10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cm
+r12.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmr6.pfb>
+</usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/lo
+cal/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/sh
+are/miktex-texmf/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/share/mik
+tex-texmf/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/share/miktex-tex
+mf/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/share/miktex-texmf/fon
+ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/share/miktex-texmf/font
+s/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on notebook.pdf (39 pages, 684847 bytes).
 PDF statistics:
- 1033 PDF objects out of 1200 (max. 8388607)
- 290 named destinations out of 1000 (max. 500000)
+ 1034 PDF objects out of 1200 (max. 8388607)
+ 291 named destinations out of 1000 (max. 500000)
  1003 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -357,14 +357,42 @@ Can't build this mode very easily:
 
 \section{Overview of Common Algorithms}
 
+Properties of common machine learning methods:
 \begin{table*}[!h]
 	\centering
-	\begin{tabular}{|c|c|c|c|c|c|}
-		\hline
-		Method & Problem & Model & Learning & Loss & Algorithm \\
-		\hline
-		Perceptron & Binary Classification & Discriminative & & & SGD \\
-		\hline
-		K-NN & Multiclass Classification, Regression & Discriminative & & & \\
-	\end{tabular}
+	\begin{threeparttable}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Method$^1$ & Problem$^2$ & Model$^3$ & Learning$^4$ & Loss Function & Algorithm$^5$ \\
+			\hline
+			Perceptron & BC & D & & & SGD \\
+			\hline
+			K-NN & MC, R & D & & & \\
+			\hline
+			Naive Bayes & MC & G & ML, MAP & $-\log\P{w|x}$ & Bayes, EM \\
+			\hline
+			Decision Tree & MC, R & D & NML & $-\log\P{w|x}$ & \\
+			\hline
+			LR & MC & D & ML, NML & $\log\left(1+\e{-wf(x)}\right)$ & SGD, QN \\
+			\hline
+			SVM & BC & D & & $\left[1-wf(x)\right]_+$ & SMO \\
+			\hline
+			Boosting & BC & D & & $\e{-wf(x)}$ & \\
+			\hline
+			EM & & & ML, MAP & $-\log\P{w|x}$ & Iteration \\
+			\hline
+			HMM & T & G & ML, MAP & $-\log\P{w|x}$ & Bayes, EM \\
+			\hline
+			CRF & T & D & ML, NML & $-\log\P{w|x}$ & SGD, QN \\
+			\hline
+		\end{tabular}
+		\begin{tablenotes}
+			\small
+			\item[1] K-NN=K-Nearest Neighbors, LR=Logistic Regression, SVM=Support Vector Machine, HMM=Hidden Markov Model, CRF=Conditional Random Field
+			\item[2] BC=Binary Classification, MC=Multi-class Classification, R=Regression, T=Tagging
+			\item[3] D=Discriminative Model, G=Generative Model
+			\item[4] ML=Maximum Likelihood, NML=Normalized ML MAP=Maximum a Posterior
+			\item[5] SGD=Stochastic Gradient Descent, QN=Quasi-Newton
+		\end{tablenotes}
+	\end{threeparttable}
 \end{table*}
