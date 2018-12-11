@@ -354,3 +354,17 @@ Can't build this mode very easily:
 		\item Learning algorithm: Learning by standard methods, e.g. ML, MAP, Bayesian Approach.
 		\item Define prior $\P{w}$ and then compute $\P{w|x}$ using Bayes' rule $\P{w|x}=\frac{\P{x|w}\P{w}}{\int\P{x|w}\P{w}dw}$.
 	\end{enumerate}
+
+\section{Overview of Common Algorithms}
+
+\begin{table*}[!h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		Method & Problem & Model & Learning & Loss & Algorithm \\
+		\hline
+		Perceptron & Binary Classification & Discriminative & & & SGD \\
+		\hline
+		K-NN & Multiclass Classification, Regression & Discriminative & & & \\
+	\end{tabular}
+\end{table*}
