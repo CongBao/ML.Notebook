@@ -154,9 +154,68 @@ Besides, Expectation has the following four rules
 \section{Linear Algebra}
 \label{section2.2}
 
-\subsection{Basic Rules}
+\subsection{Vectors}
 
-\subsection{Square Matrices}
+\subsubsection*{Vectors Addition}
+
+\begin{align*}
+	\vec{v}+\vec{w}=\begin{pmatrix}
+	v_1 \\ v_2 \\ \vdots \\ v_n
+	\end{pmatrix}+\begin{pmatrix}
+	w_1 \\ w_2 \\ \vdots \\ w_n
+	\end{pmatrix}=\begin{pmatrix}
+	v_1+w_1 \\ v_2+w_2 \\ \vdots \\ v_n+w_n
+	\end{pmatrix}
+\end{align*}
+
+\subsubsection*{Vectors Scaling}
+
+\begin{align*}
+	a\vec{v}=a\begin{pmatrix}
+	v_1 \\ v_2 \\ \vdots \\ v_n
+	\end{pmatrix}=\begin{pmatrix}
+	av_1 \\ av_2 \\ \vdots \\ av_n
+	\end{pmatrix}
+\end{align*}
+
+\subsubsection*{Rules for Vectors Addition and Scaling}
+
+\begin{enumerate}
+	\item $\vec{u}+\left(\vec{v}+\vec{w}\right)=\left(\vec{u}+\vec{v}\right)+\vec{w}$
+	\item $\vec{v}+\vec{w}=\vec{w}+\vec{v}$
+	\item There is a vector $\vec{0}$ such that $\vec{0}+\vec{v}=\vec{v}$ for all $\vec{v}$
+	\item For every vector $\vec{v}$ there is a vector $-\vec{v}$ so that $\vec{v}+\left(-\vec{v}\right)=\vec{0}$
+	\item $a\left(b\vec{v}\right)=\left(ab\right)\vec{v}$
+	\item $1\vec{v}=\vec{v}$
+	\item $a\left(\vec{v}+\vec{w}\right)=a\vec{v}+a\vec{w}$
+	\item $\left(a+b\right)\vec{v}=a\vec{v}+b\vec{v}$
+\end{enumerate}
+
+\subsubsection*{Representation of Basis}
+
+In Euclidean:
+\begin{align*}
+\begin{pmatrix}
+v_1 \\ v_2 \\ \vdots \\ v_n
+\end{pmatrix}=v_1\begin{pmatrix}
+1 \\ 0 \\ \vdots \\ 0
+\end{pmatrix}+v_2\begin{pmatrix}
+0 \\ 1 \\ \vdots \\ 0
+\end{pmatrix}+\dots+v_n\begin{pmatrix}
+0 \\ 0 \\ \vdots \\ 1
+\end{pmatrix}
+\end{align*}
+We can write this as
+\begin{align*}
+	\vec{v}=v_1\vec{e}^1+v_2\vec{e}^2+\dots+v_n\vec{e}^n
+\end{align*}
+In different basis, we choose other basis vector and then write the same vector
+\begin{align*}
+	\vec{v}=w_1\vec{b}^1+w_2\vec{b}^2+\dots+w_n\vec{b}^n
+\end{align*}
+If these basis vectors are orthonormal, $w_i=\vec{v}\T\vec{b}^i$
+
+\subsection{Matrices}
 
 \section{Calculus}
 \label{section2.3}
