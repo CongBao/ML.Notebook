@@ -191,6 +191,14 @@ Besides, Expectation has the following four rules
 	\item $\left(a+b\right)\vec{v}=a\vec{v}+b\vec{v}$
 \end{enumerate}
 
+\subsubsection*{Linear Combination \& Span}
+
+Linear combination (e.g. in 2D space):
+\begin{align*}
+	a\vec{v}+b\vec{w}
+\end{align*}
+The span of $\vec{v}$ and $\vec{w}$ is the set of all their linear combinations.
+
 \subsubsection*{Representation of Basis}
 
 In Euclidean:
@@ -214,6 +222,28 @@ In different basis, we choose other basis vector and then write the same vector
 	\vec{v}=w_1\vec{b}^1+w_2\vec{b}^2+\dots+w_n\vec{b}^n
 \end{align*}
 If these basis vectors are orthonormal, $w_i=\vec{v}\T\vec{b}^i$
+
+\subsubsection*{Linear Dependence}
+
+\begin{enumerate}
+	\item Linearly dependent: A set of vectors $\vec{v}^1,\dotsc,\vec{v}^n$ is linearly dependent if there exists a vector $\vec{v}^j$ that can be expressed as a linear combination of the other vectors. (The vector $\vec{v}^j$ is already located in the span of other vectors)
+	\item Linearly Independent: Each vector really does add another dimension to the span. And the only solution to $\sum_{i=1}^na_i\vec{v}^i=\vec{0}$ is for all $a_i=0, i=1,\dotsc,n$.
+\end{enumerate}
+
+\subsubsection*{Dot Products}
+
+\begin{align*}
+	\vec{v}\cdot\vec{w}=\sum_{i=1}^nv_iw_i=\vec{v}\T\vec{w}
+\end{align*}
+The length of a vector is denoted as $\norm{\vec{v}}$, the squared length is given by
+\begin{align*}
+	\norm{\vec{v}}^2=\vec{v}\T\vec{v}=\vec{v}^2=v_1^2+v_2^2+\dots+v_n^2
+\end{align*}
+A natural geometric interpretation of dot products is
+\begin{align*}
+	\vec{v}\cdot\vec{w}=\norm{\vec{v}}\norm{\vec{w}}\cos\th
+\end{align*}
+where $\th$ is the angle between two vectors.
 
 \subsection{Matrices}
 
