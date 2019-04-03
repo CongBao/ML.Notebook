@@ -8,100 +8,105 @@
 \BOOKMARK [1][]{section.2.2}{2.2 Linear Algebra}{chapter.2}% 8
 \BOOKMARK [2][]{subsection.2.2.1}{2.2.1 Vectors}{section.2.2}% 9
 \BOOKMARK [2][]{subsection.2.2.2}{2.2.2 Matrices \(Square Matrices\)}{section.2.2}% 10
-\BOOKMARK [2][]{subsection.2.2.3}{2.2.3 Singular Value Decomposition \(SVD\)}{section.2.2}% 11
-\BOOKMARK [1][]{section.2.3}{2.3 Calculus}{chapter.2}% 12
-\BOOKMARK [2][]{subsection.2.3.1}{2.3.1 Differentiation \046 Integration}{section.2.3}% 13
-\BOOKMARK [2][]{subsection.2.3.2}{2.3.2 Multivariate Calculus}{section.2.3}% 14
-\BOOKMARK [1][]{section.2.4}{2.4 Informatics}{chapter.2}% 15
-\BOOKMARK [2][]{subsection.2.4.1}{2.4.1 Entropy}{section.2.4}% 16
-\BOOKMARK [1][]{section.2.5}{2.5 Optimization}{chapter.2}% 17
-\BOOKMARK [2][]{subsection.2.5.1}{2.5.1 One-dimensional Minimization}{section.2.5}% 18
-\BOOKMARK [2][]{subsection.2.5.2}{2.5.2 Gradient Descent}{section.2.5}% 19
-\BOOKMARK [2][]{subsection.2.5.3}{2.5.3 Quadratic Functions}{section.2.5}% 20
-\BOOKMARK [2][]{subsection.2.5.4}{2.5.4 General Functions}{section.2.5}% 21
-\BOOKMARK [2][]{subsection.2.5.5}{2.5.5 Optimization with Constraints}{section.2.5}% 22
-\BOOKMARK [0][]{chapter.3}{3 Machine Learning Basics}{}% 23
-\BOOKMARK [1][]{section.3.1}{3.1 Regularization}{chapter.3}% 24
-\BOOKMARK [2][]{subsection.3.1.1}{3.1.1 Under-fitting \046 Over-fitting}{section.3.1}% 25
-\BOOKMARK [2][]{subsection.3.1.2}{3.1.2 Bias \046 Variance}{section.3.1}% 26
-\BOOKMARK [2][]{subsection.3.1.3}{3.1.3 Vector Norm}{section.3.1}% 27
-\BOOKMARK [2][]{subsection.3.1.4}{3.1.4 Penalize Complexity}{section.3.1}% 28
-\BOOKMARK [1][]{section.3.2}{3.2 Cross-Validation}{chapter.3}% 29
-\BOOKMARK [1][]{section.3.3}{3.3 Bayesian Learning}{chapter.3}% 30
-\BOOKMARK [2][]{subsection.3.3.1}{3.3.1 Bayes' Rule Terminology}{section.3.3}% 31
-\BOOKMARK [2][]{subsection.3.3.2}{3.3.2 Maximum Likelihood}{section.3.3}% 32
-\BOOKMARK [2][]{subsection.3.3.3}{3.3.3 Maximum a Posterior \(MAP\)}{section.3.3}% 33
-\BOOKMARK [2][]{subsection.3.3.4}{3.3.4 Bayesian Approach}{section.3.3}% 34
-\BOOKMARK [2][]{subsection.3.3.5}{3.3.5 Example: Univariate Normal Distribution}{section.3.3}% 35
-\BOOKMARK [2][]{subsection.3.3.6}{3.3.6 Example: Categorical Distribution}{section.3.3}% 36
-\BOOKMARK [1][]{section.3.4}{3.4 Machine Learning Models}{chapter.3}% 37
-\BOOKMARK [2][]{subsection.3.4.1}{3.4.1 Learning and Inference}{section.3.4}% 38
-\BOOKMARK [2][]{subsection.3.4.2}{3.4.2 Three Types of Model}{section.3.4}% 39
-\BOOKMARK [2][]{subsection.3.4.3}{3.4.3 Example: Regression}{section.3.4}% 40
-\BOOKMARK [2][]{subsection.3.4.4}{3.4.4 Example: Classification}{section.3.4}% 41
-\BOOKMARK [1][]{section.3.5}{3.5 Overview of Common Algorithms}{chapter.3}% 42
-\BOOKMARK [0][]{chapter.4}{4 Linear Regression}{}% 43
-\BOOKMARK [1][]{section.4.1}{4.1 Basic Model}{chapter.4}% 44
-\BOOKMARK [1][]{section.4.2}{4.2 Bayesian Regression}{chapter.4}% 45
-\BOOKMARK [1][]{section.4.3}{4.3 Non-linear Regression}{chapter.4}% 46
-\BOOKMARK [1][]{section.4.4}{4.4 Kernel Trick \046 Gaussian Processes}{chapter.4}% 47
-\BOOKMARK [1][]{section.4.5}{4.5 Sparse Linear Regression}{chapter.4}% 48
-\BOOKMARK [1][]{section.4.6}{4.6 Dual Linear Regression}{chapter.4}% 49
-\BOOKMARK [1][]{section.4.7}{4.7 Relevance Vector Regression}{chapter.4}% 50
-\BOOKMARK [0][]{chapter.5}{5 Logistic Regression}{}% 51
-\BOOKMARK [1][]{section.5.1}{5.1 Logistic Regression}{chapter.5}% 52
-\BOOKMARK [1][]{section.5.2}{5.2 Non-linear Logistic Regression}{chapter.5}% 53
-\BOOKMARK [1][]{section.5.3}{5.3 Kernel Trick \046 Gaussian Process Classification}{chapter.5}% 54
-\BOOKMARK [1][]{section.5.4}{5.4 Multi-class Classification}{chapter.5}% 55
-\BOOKMARK [0][]{chapter.6}{6 Support Vector Machines}{}% 56
-\BOOKMARK [1][]{section.6.1}{6.1 Geometric Margins}{chapter.6}% 57
-\BOOKMARK [1][]{section.6.2}{6.2 Primal \046 Dual Problems}{chapter.6}% 58
-\BOOKMARK [1][]{section.6.3}{6.3 Support Vectors}{chapter.6}% 59
-\BOOKMARK [1][]{section.6.4}{6.4 Slack Variables}{chapter.6}% 60
-\BOOKMARK [1][]{section.6.5}{6.5 Hinge Loss}{chapter.6}% 61
-\BOOKMARK [1][]{section.6.6}{6.6 Non-linear SVMs}{chapter.6}% 62
-\BOOKMARK [1][]{section.6.7}{6.7 Kernel Trick}{chapter.6}% 63
-\BOOKMARK [0][]{chapter.7}{7 EM Algorithm}{}% 64
-\BOOKMARK [1][]{section.7.1}{7.1 Expectation Maximization}{chapter.7}% 65
-\BOOKMARK [1][]{section.7.2}{7.2 Example: Mixture of Gaussians}{chapter.7}% 66
-\BOOKMARK [1][]{section.7.3}{7.3 Example: t-distributions}{chapter.7}% 67
-\BOOKMARK [1][]{section.7.4}{7.4 Example: Factor Analysis}{chapter.7}% 68
-\BOOKMARK [0][]{chapter.8}{8 Boosting}{}% 69
-\BOOKMARK [1][]{section.8.1}{8.1 Ensemble Methods}{chapter.8}% 70
-\BOOKMARK [1][]{section.8.2}{8.2 Bagging}{chapter.8}% 71
-\BOOKMARK [1][]{section.8.3}{8.3 Boosting}{chapter.8}% 72
-\BOOKMARK [1][]{section.8.4}{8.4 Adaboost}{chapter.8}% 73
-\BOOKMARK [0][]{chapter.9}{9 Decision Tree \046 Random Forest}{}% 74
-\BOOKMARK [1][]{section.9.1}{9.1 CART}{chapter.9}% 75
-\BOOKMARK [1][]{section.9.2}{9.2 ID3}{chapter.9}% 76
-\BOOKMARK [1][]{section.9.3}{9.3 C4.5}{chapter.9}% 77
-\BOOKMARK [1][]{section.9.4}{9.4 Random Forest}{chapter.9}% 78
-\BOOKMARK [0][]{chapter.10}{10 Graphical Models \046 Markov Network}{}% 79
-\BOOKMARK [1][]{section.10.1}{10.1 Graph Definitions}{chapter.10}% 80
-\BOOKMARK [2][]{subsection.10.1.1}{10.1.1 Graph}{section.10.1}% 81
-\BOOKMARK [2][]{subsection.10.1.2}{10.1.2 Directed Graph}{section.10.1}% 82
-\BOOKMARK [2][]{subsection.10.1.3}{10.1.3 Undirected Graph}{section.10.1}% 83
-\BOOKMARK [2][]{subsection.10.1.4}{10.1.4 Connectivity}{section.10.1}% 84
-\BOOKMARK [2][]{subsection.10.1.5}{10.1.5 Connectedness}{section.10.1}% 85
-\BOOKMARK [1][]{section.10.2}{10.2 Belief Networks}{chapter.10}% 86
-\BOOKMARK [2][]{subsection.10.2.1}{10.2.1 Definition}{section.10.2}% 87
-\BOOKMARK [2][]{subsection.10.2.2}{10.2.2 Uncertain Evidence}{section.10.2}% 88
-\BOOKMARK [2][]{subsection.10.2.3}{10.2.3 Independence}{section.10.2}% 89
-\BOOKMARK [2][]{subsection.10.2.4}{10.2.4 General Rule for Independence in Belief Networks}{section.10.2}% 90
-\BOOKMARK [2][]{subsection.10.2.5}{10.2.5 Markov Equivalence}{section.10.2}% 91
-\BOOKMARK [1][]{section.10.3}{10.3 Markov Networks}{chapter.10}% 92
-\BOOKMARK [2][]{subsection.10.3.1}{10.3.1 Definition}{section.10.3}% 93
-\BOOKMARK [2][]{subsection.10.3.2}{10.3.2 Examples}{section.10.3}% 94
-\BOOKMARK [2][]{subsection.10.3.3}{10.3.3 Independence}{section.10.3}% 95
-\BOOKMARK [2][]{subsection.10.3.4}{10.3.4 Expressiveness of Markov and Belief Networks}{section.10.3}% 96
-\BOOKMARK [2][]{subsection.10.3.5}{10.3.5 Factor Graphs}{section.10.3}% 97
-\BOOKMARK [1][]{section.10.4}{10.4 Markov Chains}{chapter.10}% 98
-\BOOKMARK [1][]{section.10.5}{10.5 Hidden Markov Models}{chapter.10}% 99
-\BOOKMARK [0][]{appendix.A}{A Statistical Assessment}{}% 100
-\BOOKMARK [1][]{section.A.1}{A.1 Hypothesis Testing}{appendix.A}% 101
-\BOOKMARK [2][]{subsection.A.1.1}{A.1.1 Testing Basics}{section.A.1}% 102
-\BOOKMARK [2][]{subsection.A.1.2}{A.1.2 Testing Procedure}{section.A.1}% 103
-\BOOKMARK [2][]{subsection.A.1.3}{A.1.3 Power Investigation}{section.A.1}% 104
-\BOOKMARK [2][]{subsection.A.1.4}{A.1.4 Useful Tests}{section.A.1}% 105
-\BOOKMARK [1][]{section.A.2}{A.2 Confidence Intervals}{appendix.A}% 106
-\BOOKMARK [1][]{section.A.3}{A.3 Bootstrap}{appendix.A}% 107
+\BOOKMARK [1][]{section.2.3}{2.3 Calculus}{chapter.2}% 11
+\BOOKMARK [2][]{subsection.2.3.1}{2.3.1 Differentiation \046 Integration}{section.2.3}% 12
+\BOOKMARK [2][]{subsection.2.3.2}{2.3.2 Multivariate Calculus}{section.2.3}% 13
+\BOOKMARK [1][]{section.2.4}{2.4 Informatics}{chapter.2}% 14
+\BOOKMARK [2][]{subsection.2.4.1}{2.4.1 Entropy}{section.2.4}% 15
+\BOOKMARK [1][]{section.2.5}{2.5 Optimization}{chapter.2}% 16
+\BOOKMARK [2][]{subsection.2.5.1}{2.5.1 One-dimensional Minimization}{section.2.5}% 17
+\BOOKMARK [2][]{subsection.2.5.2}{2.5.2 Gradient Descent}{section.2.5}% 18
+\BOOKMARK [2][]{subsection.2.5.3}{2.5.3 Quadratic Functions}{section.2.5}% 19
+\BOOKMARK [2][]{subsection.2.5.4}{2.5.4 General Functions}{section.2.5}% 20
+\BOOKMARK [2][]{subsection.2.5.5}{2.5.5 Optimization with Constraints}{section.2.5}% 21
+\BOOKMARK [0][]{chapter.3}{3 Machine Learning Basics}{}% 22
+\BOOKMARK [1][]{section.3.1}{3.1 Regularization}{chapter.3}% 23
+\BOOKMARK [2][]{subsection.3.1.1}{3.1.1 Under-fitting \046 Over-fitting}{section.3.1}% 24
+\BOOKMARK [2][]{subsection.3.1.2}{3.1.2 Bias \046 Variance}{section.3.1}% 25
+\BOOKMARK [2][]{subsection.3.1.3}{3.1.3 Vector Norm}{section.3.1}% 26
+\BOOKMARK [2][]{subsection.3.1.4}{3.1.4 Penalize Complexity}{section.3.1}% 27
+\BOOKMARK [1][]{section.3.2}{3.2 Cross-Validation}{chapter.3}% 28
+\BOOKMARK [1][]{section.3.3}{3.3 Bayesian Learning}{chapter.3}% 29
+\BOOKMARK [2][]{subsection.3.3.1}{3.3.1 Bayes' Rule Terminology}{section.3.3}% 30
+\BOOKMARK [2][]{subsection.3.3.2}{3.3.2 Maximum Likelihood}{section.3.3}% 31
+\BOOKMARK [2][]{subsection.3.3.3}{3.3.3 Maximum a Posterior \(MAP\)}{section.3.3}% 32
+\BOOKMARK [2][]{subsection.3.3.4}{3.3.4 Bayesian Approach}{section.3.3}% 33
+\BOOKMARK [2][]{subsection.3.3.5}{3.3.5 Example: Univariate Normal Distribution}{section.3.3}% 34
+\BOOKMARK [2][]{subsection.3.3.6}{3.3.6 Example: Categorical Distribution}{section.3.3}% 35
+\BOOKMARK [1][]{section.3.4}{3.4 Machine Learning Models}{chapter.3}% 36
+\BOOKMARK [2][]{subsection.3.4.1}{3.4.1 Learning and Inference}{section.3.4}% 37
+\BOOKMARK [2][]{subsection.3.4.2}{3.4.2 Three Types of Model}{section.3.4}% 38
+\BOOKMARK [2][]{subsection.3.4.3}{3.4.3 Example: Regression}{section.3.4}% 39
+\BOOKMARK [2][]{subsection.3.4.4}{3.4.4 Example: Classification}{section.3.4}% 40
+\BOOKMARK [1][]{section.3.5}{3.5 Overview of Common Algorithms}{chapter.3}% 41
+\BOOKMARK [0][]{chapter.4}{4 Matrix Factorization}{}% 42
+\BOOKMARK [1][]{section.4.1}{4.1 SVD}{chapter.4}% 43
+\BOOKMARK [1][]{section.4.2}{4.2 PCA}{chapter.4}% 44
+\BOOKMARK [1][]{section.4.3}{4.3 \(N\)NMF}{chapter.4}% 45
+\BOOKMARK [0][]{chapter.5}{5 K-Nearest Neighbors}{}% 46
+\BOOKMARK [1][]{section.5.1}{5.1 Simple K-NN}{chapter.5}% 47
+\BOOKMARK [1][]{section.5.2}{5.2 Fast K-NN Computation}{chapter.5}% 48
+\BOOKMARK [0][]{chapter.6}{6 Linear Regression}{}% 49
+\BOOKMARK [1][]{section.6.1}{6.1 Basic Model}{chapter.6}% 50
+\BOOKMARK [1][]{section.6.2}{6.2 Bayesian Regression}{chapter.6}% 51
+\BOOKMARK [1][]{section.6.3}{6.3 Non-linear Regression}{chapter.6}% 52
+\BOOKMARK [1][]{section.6.4}{6.4 Kernel Trick \046 Gaussian Processes}{chapter.6}% 53
+\BOOKMARK [1][]{section.6.5}{6.5 Sparse Linear Regression}{chapter.6}% 54
+\BOOKMARK [1][]{section.6.6}{6.6 Dual Linear Regression}{chapter.6}% 55
+\BOOKMARK [1][]{section.6.7}{6.7 Relevance Vector Regression}{chapter.6}% 56
+\BOOKMARK [0][]{chapter.7}{7 Logistic Regression}{}% 57
+\BOOKMARK [1][]{section.7.1}{7.1 Logistic Regression}{chapter.7}% 58
+\BOOKMARK [1][]{section.7.2}{7.2 Non-linear Logistic Regression}{chapter.7}% 59
+\BOOKMARK [1][]{section.7.3}{7.3 Kernel Trick \046 Gaussian Process Classification}{chapter.7}% 60
+\BOOKMARK [1][]{section.7.4}{7.4 Multi-class Classification}{chapter.7}% 61
+\BOOKMARK [0][]{chapter.8}{8 Support Vector Machines}{}% 62
+\BOOKMARK [1][]{section.8.1}{8.1 Geometric Margins}{chapter.8}% 63
+\BOOKMARK [1][]{section.8.2}{8.2 Primal \046 Dual Problems}{chapter.8}% 64
+\BOOKMARK [1][]{section.8.3}{8.3 Support Vectors}{chapter.8}% 65
+\BOOKMARK [1][]{section.8.4}{8.4 Slack Variables}{chapter.8}% 66
+\BOOKMARK [1][]{section.8.5}{8.5 Hinge Loss}{chapter.8}% 67
+\BOOKMARK [1][]{section.8.6}{8.6 Non-linear SVMs}{chapter.8}% 68
+\BOOKMARK [1][]{section.8.7}{8.7 Kernel Trick}{chapter.8}% 69
+\BOOKMARK [0][]{chapter.9}{9 EM Algorithm}{}% 70
+\BOOKMARK [1][]{section.9.1}{9.1 Expectation Maximization}{chapter.9}% 71
+\BOOKMARK [1][]{section.9.2}{9.2 Example: Mixture of Gaussians}{chapter.9}% 72
+\BOOKMARK [1][]{section.9.3}{9.3 Example: t-distributions}{chapter.9}% 73
+\BOOKMARK [1][]{section.9.4}{9.4 Example: Factor Analysis}{chapter.9}% 74
+\BOOKMARK [0][]{chapter.10}{10 Bagging \046 Boosting}{}% 75
+\BOOKMARK [1][]{section.10.1}{10.1 Ensemble Methods}{chapter.10}% 76
+\BOOKMARK [1][]{section.10.2}{10.2 Bagging}{chapter.10}% 77
+\BOOKMARK [1][]{section.10.3}{10.3 CART}{chapter.10}% 78
+\BOOKMARK [1][]{section.10.4}{10.4 ID3}{chapter.10}% 79
+\BOOKMARK [1][]{section.10.5}{10.5 C4.5}{chapter.10}% 80
+\BOOKMARK [1][]{section.10.6}{10.6 Random Forest}{chapter.10}% 81
+\BOOKMARK [1][]{section.10.7}{10.7 Boosting}{chapter.10}% 82
+\BOOKMARK [1][]{section.10.8}{10.8 Adaboost}{chapter.10}% 83
+\BOOKMARK [0][]{chapter.11}{11 Graphical Models \046 Markov Network}{}% 84
+\BOOKMARK [1][]{section.11.1}{11.1 Graph Definitions}{chapter.11}% 85
+\BOOKMARK [2][]{subsection.11.1.1}{11.1.1 Graph}{section.11.1}% 86
+\BOOKMARK [2][]{subsection.11.1.2}{11.1.2 Directed Graph}{section.11.1}% 87
+\BOOKMARK [2][]{subsection.11.1.3}{11.1.3 Undirected Graph}{section.11.1}% 88
+\BOOKMARK [2][]{subsection.11.1.4}{11.1.4 Connectivity}{section.11.1}% 89
+\BOOKMARK [2][]{subsection.11.1.5}{11.1.5 Connectedness}{section.11.1}% 90
+\BOOKMARK [1][]{section.11.2}{11.2 Belief Networks}{chapter.11}% 91
+\BOOKMARK [2][]{subsection.11.2.1}{11.2.1 Definition}{section.11.2}% 92
+\BOOKMARK [2][]{subsection.11.2.2}{11.2.2 Uncertain Evidence}{section.11.2}% 93
+\BOOKMARK [2][]{subsection.11.2.3}{11.2.3 Independence}{section.11.2}% 94
+\BOOKMARK [2][]{subsection.11.2.4}{11.2.4 General Rule for Independence in Belief Networks}{section.11.2}% 95
+\BOOKMARK [2][]{subsection.11.2.5}{11.2.5 Markov Equivalence}{section.11.2}% 96
+\BOOKMARK [1][]{section.11.3}{11.3 Markov Networks}{chapter.11}% 97
+\BOOKMARK [2][]{subsection.11.3.1}{11.3.1 Definition}{section.11.3}% 98
+\BOOKMARK [2][]{subsection.11.3.2}{11.3.2 Examples}{section.11.3}% 99
+\BOOKMARK [2][]{subsection.11.3.3}{11.3.3 Independence}{section.11.3}% 100
+\BOOKMARK [2][]{subsection.11.3.4}{11.3.4 Expressiveness of Markov and Belief Networks}{section.11.3}% 101
+\BOOKMARK [2][]{subsection.11.3.5}{11.3.5 Factor Graphs}{section.11.3}% 102
+\BOOKMARK [1][]{section.11.4}{11.4 Markov Chains}{chapter.11}% 103
+\BOOKMARK [1][]{section.11.5}{11.5 Hidden Markov Models}{chapter.11}% 104
+\BOOKMARK [0][]{appendix.A}{A Statistical Assessment}{}% 105
+\BOOKMARK [1][]{section.A.1}{A.1 Hypothesis Testing}{appendix.A}% 106
+\BOOKMARK [2][]{subsection.A.1.1}{A.1.1 Testing Basics}{section.A.1}% 107
+\BOOKMARK [2][]{subsection.A.1.2}{A.1.2 Testing Procedure}{section.A.1}% 108
+\BOOKMARK [2][]{subsection.A.1.3}{A.1.3 Power Investigation}{section.A.1}% 109
+\BOOKMARK [2][]{subsection.A.1.4}{A.1.4 Useful Tests}{section.A.1}% 110
+\BOOKMARK [1][]{section.A.2}{A.2 Confidence Intervals}{appendix.A}% 111
+\BOOKMARK [1][]{section.A.3}{A.3 Bootstrap}{appendix.A}% 112

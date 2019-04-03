@@ -327,7 +327,33 @@ where $\mat{Q}$ is an orthogonal matrix composed of eigenvectors of $\mat{M}$, a
 
 A matrix is {\bf singular} if and only if any of the eigenvalues are zero ($\det{\mat{M}}=0$). A matrix whose eigenvalues are all positive is called {\bf positive definite}. A matrix whose eigenvalues are all positive or zero-valued (non-negative) is called {\bf positive semi-definite}. Likewise, if all eigenvalues are negative, the matrix is {\bf negative definite}, and if all eigenvalues are negative or zero-valued (non-positive), it is {\bf negative semi-definite}. Positive semi-definite matrices guarantee that $\forall\vec{v}, \vec{v}\T\mat{M}\vec{v}\geq0$. Positive definite matrices additionally guarantee that $\vec{v}\T\mat{M}\vec{v}=0\impl\vec{v}=\vec{0}$.
 
-\subsection{Singular Value Decomposition (SVD)}
+\subsubsection*{Singular Value Decomposition (SVD)}
+
+The singular value decomposition of a $m\times n$ matrix $\mat{M}$ can be formed as
+\begin{align*}
+	\mat{M}=\mat{U}\mat{\Si}\mat{V}\T
+\end{align*}
+where $\mat{U}$ is a $m\times m$ orthogonal matrix, $\mat{\Si}$ is a $m\times n$ diagonal matrix, and $\mat{V}$ is a $n\times n$ orthogonal matrix. The elements along the diagonal of $\mat{\Si}$ are known as the {\bf singular values} of the matrix $\mat{M}$. The columns of $\mat{U}$ are known as the {\bf left-singular vectors}. The columns of $\mat{V}$ are known as as the {\bf right-singular vectors}.
+
+There are relations between SVD and eigendecomposition. According to the definition of SVD, we have
+\begin{align*}
+	\mat{M}\T\mat{M}&=\mat{V}\mat{\Si}\T\mat{U}\T\mat{U}\mat{\Si}\mat{V}\T=\mat{V}(\mat{\Si}\T\mat{\Si})\mat{V}\T \\
+	\mat{M}\mat{M}\T&=\mat{U}\mat{\Si}\mat{V}\T\mat{V}\mat{\Si}\T\mat{U}\T=\mat{U}(\mat{\Si}\mat{\Si}\T)\mat{U}\T
+\end{align*}
+Hence, we can conclude that
+\begin{enumerate}
+	\item The right-singular vectors of $\mat{M}$ are the eigenvectors of $\mat{M}\T\mat{M}$.
+	\item The left-singular vectors of $\mat{M}$ are the eigenvectors of $\mat{M}\mat{M}\T$.
+	\item The non-zero singular values of $\mat{M}$ are the square roots of the eigenvalues of $\mat{M}\T\mat{M}$ or $\mat{M}\mat{M}\T$.
+\end{enumerate}
+
+\subsubsection*{Moore-Penrose Pseudoinverse}
+
+SVD can be applied to compute the pseudoinverse of a matrix $\mat{M}=\mat{U}\mat{\Si}\mat{V}\T$, given by
+\begin{align*}
+	\mat{M}\pinv=\mat{V}\mat{\Si}\pinv\mat{U}\T
+\end{align*}
+where $\mat{\Si}\pinv$ is the pseudoinverse of $\mat{\Si}$, which is formed by replacing every non-zero diagonal entry by its reciprocal and transposing the resulting matrix.
 
 \section{Calculus}
 \label{section2.3}
