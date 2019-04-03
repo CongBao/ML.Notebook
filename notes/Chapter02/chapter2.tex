@@ -245,7 +245,89 @@ A natural geometric interpretation of dot products is
 \end{align*}
 where $\th$ is the angle between two vectors.
 
-\subsection{Matrices}
+\subsection{Matrices (Square Matrices)}
+
+\subsubsection*{Linear Transformation}
+
+\begin{align*}
+	\vec{v}'=\left(\mat{M}_n\dots\mat{M}_2\mat{M}_1\right)\vec{v}
+\end{align*}
+Linear transformation always maps linear subspaces onto linear subspaces (possibly of a lower dimension). Intuitively, linear transformation keeps the grid lines stay parallel and evenly spaced, and so that the origin remains fixed.
+
+\subsubsection*{Basic Formulae}
+
+\begin{enumerate}
+	\item $\mat{A}(\mat{B}+\mat{C})=\mat{A}\mat{B}+\mat{A}\mat{C}$
+	\item $(\mat{A}+\mat{B})\T=\mat{A}\T+\mat{B}\T$
+	\item $(\mat{A}\mat{B})\T=\mat{B}\T\mat{A}\T$
+	\item[] if individual inverses exist:
+	\item $(\mat{A}\mat{B})\inv=\mat{B}\inv\mat{A}\inv$
+	\item $(\mat{A}\inv)\T=(\mat{A}\T)\inv$
+\end{enumerate}
+
+\subsubsection*{Trace}
+
+Trace is the sum of diagonal elements of matrix $\mat{M}$,
+\begin{align*}
+	\Tr(\mat{M})=\Tr(\mat{M}\T)=\sum_{i=1}^n\mat{M}_{ii}=\sum\text{eigenvalues of $\mat{M}$}
+\end{align*}
+Cyclic permutations in trace,
+\begin{align*}
+	\Tr(\mat{A}\mat{B}\mat{C})=\Tr(\mat{C}\mat{A}\mat{B})=\Tr(\mat{B}\mat{C}\mat{A})
+\end{align*}
+
+\subsubsection*{Determinants}
+
+The determinant of a matrix $\mat{M}$, denoted as $\det{\mat{M}}$, is a function mapping matrices to scalars, measuring how much multiplication by the matrix expands or contracts space. If the determinant is 0, then space is contracted completely along at least one dimension, causing it to lose all of its volume. If the determinant is 1, then the transformation preserves volume.
+
+Some properties of determinant:
+\begin{enumerate}
+	\item $\det{\mat{M}}=\prod\text{eigenvalues of $\mat{M}$}$
+	\item $\det{\mat{A}\mat{B}}=\det{\mat{A}}\det{\mat{B}}$
+	\item $\det{a}=a$
+	\item $\det{a\mat{M}}=a^n\det{\mat{M}}$
+	\item $\det{\mat{M}\inv}=\det{\mat{M}}^{-1}$
+\end{enumerate}
+
+\subsubsection*{Symmetric Matrix}
+
+\begin{align*}
+	\mat{M}=\mat{M}\T
+\end{align*}
+
+\subsubsection*{Orthogonal Matrix}
+
+\begin{align*}
+	\mat{M}\T\mat{M}&=\mat{M}\mat{M}\T=\mat{I} \\
+	\mat{M}\inv&=\mat{M}\T
+\end{align*}
+
+\subsubsection*{Eigendecomposition}
+
+If a matrix $\mat{M}$ satisfies
+\begin{align*}
+	\mat{M}\vec{v}=\la\vec{v}
+\end{align*}
+then $\vec{v}$ is the eigenvector of $\mat{M}$, and $\la$ is the eigenvalue of $\mat{M}$ (The vector $\vec{v}$ is just scaled by value $\la$ after a linear transformation $\mat{M}$). To solve the equation, we can rewrite it as
+\begin{align*}
+	(\mat{M}-\la\mat{I})\vec{v}=\vec{0}
+\end{align*}
+When $\det{\mat{M}-\la\mat{I}}=0$, it means at least one dimension is contracted by the linear transformation $\mat{M}-\la\mat{I}$ so that there exists at least one non-zero vector to be transformed to zero, which gives us a solution to $\la$.
+
+Suppose matrix $\mat{M}$ has $n$ linearly independent eigenvectors, $\{\vec{v}^{(1)},\dotsc,\vec{v}^{(n)}\}$, with corresponding eigenvalues $\{\la_1,\dotsc,\la_n\}$. We may concatenate all of the eigenvectors to form a matrix $\mat{V}$ with one eigenvector per column: $\mat{V}=[\vec{v}^{(1)},\dotsc,\vec{v}^{(n)}]$. Likewise, we can concatenate the eigenvalues to form a vector $\vec{\la}=[\la_1,\dotsc,\la_n]$. The eigendecomposition of $\mat{M}$ is then given by
+\begin{align*}
+	\mat{M}=\mat{V}\diag(\vec{\la})\mat{V}\inv
+\end{align*}
+
+Specifically, every real symmetric matrix can be decomposed into an expression using only real-valued eigenvectors and eigenvalues:
+\begin{align*}
+	\mat{M}=\mat{Q}\mat{\La}\mat{Q}\T
+\end{align*}
+where $\mat{Q}$ is an orthogonal matrix composed of eigenvectors of $\mat{M}$, and $\mat{\La}$ is a diagonal matrix.
+
+A matrix is {\bf singular} if and only if any of the eigenvalues are zero ($\det{\mat{M}}=0$). A matrix whose eigenvalues are all positive is called {\bf positive definite}. A matrix whose eigenvalues are all positive or zero-valued (non-negative) is called {\bf positive semi-definite}. Likewise, if all eigenvalues are negative, the matrix is {\bf negative definite}, and if all eigenvalues are negative or zero-valued (non-positive), it is {\bf negative semi-definite}. Positive semi-definite matrices guarantee that $\forall\vec{v}, \vec{v}\T\mat{M}\vec{v}\geq0$. Positive definite matrices additionally guarantee that $\vec{v}\T\mat{M}\vec{v}=0\impl\vec{v}=\vec{0}$.
+
+\subsection{Singular Value Decomposition (SVD)}
 
 \section{Calculus}
 \label{section2.3}
