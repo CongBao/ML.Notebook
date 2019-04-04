@@ -431,6 +431,51 @@ Additionally, is $X$ is an integrable real-valued random variable, then
 
 \subsection{Multivariate Calculus}
 
+\subsubsection*{Partial Derivatives}
+
+Partial derivatives are simply holding all other variables constant (and act like constants for the derivative) and only taking the derivative with respect to a given variable.
+\begin{align*}
+	f_x(x,y)=f_x=\frac{\pa f}{\pa x}=\frac{\pa}{\pa x}f(x,y)=D_x f
+\end{align*}
+
+\subsubsection*{Clairaut's Theorem}
+
+If the function $f_{xy}$ and $f_{yx}$ are both continuous, then $f_{xy}(a,b)=f_{yx}(a,b)$.
+
+\subsubsection*{Chain Rule}
+
+If $z=f(x,y)$, $x=g(t)$, and $y=h(t)$, then
+\begin{align*}
+	\frac{dz}{dt}=\frac{\pa z}{\pa x}\frac{dx}{dt}+\frac{\pa z}{\pa y}\frac{dy}{dt}
+\end{align*}
+
+\subsubsection*{Gradient}
+
+\begin{align*}
+	\grad f(x,y)=\vecx{f_x(x,y),f_y(x,y)}
+\end{align*}
+
+\subsubsection*{Directional Derivative}
+
+\begin{align*}
+	D_{\vec{u}}f(x,y)=\grad f(x,y)\cdot\vec{u}
+\end{align*}
+where $\vec{u}$ is an unit vector. The maximum value of the directional derivative $D_{\vec{u}}f(x,y)$ is $\ab{\grad f(x,y)}$, and it occurs when $\vec{u}$ has the same direction as the gradient vector $\grad f(x,y)$.
+
+\subsubsection*{Lagrange Multipliers}
+
+To find the maximum and minimum values of $f(x,y,z)$ subject to the constraint $g(x,y,z)=k$,
+\begin{enumerate}
+	\item Find all values of $x,y,z$ and $\la$ such that
+	\begin{align*}
+		\grad f(x,y,z)&=\la\grad g(x,y,z) \\
+		g(x,y,z)&=k
+	\end{align*}
+	\item Evaluate $f$ at all of these points. The largest is the maximum value, and the smallest is the minimum value of $f$ subject to the constraint $g$.
+\end{enumerate}
+
+\subsection{Matrix Calculus}
+
 \section{Informatics}
 \label{section2.4}
 
