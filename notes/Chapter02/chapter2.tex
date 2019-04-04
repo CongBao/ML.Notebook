@@ -358,7 +358,76 @@ where $\mat{\Si}\pinv$ is the pseudoinverse of $\mat{\Si}$, which is formed by r
 \section{Calculus}
 \label{section2.3}
 
-\subsection{Differentiation \& Integration}
+\subsection{Differentiation}
+
+\subsubsection*{Basic Formulae}
+
+Here, $f(x)$ and $g(x)$ are differentiable functions (the derivative exists), $c$ and $n$ are any real numbers.
+\begin{enumerate}
+	\item $(cf)'=cf'(x)$
+	\item $(f\pm g)'=f'(x)\pm g'(x)$
+	\item $(fg)'=f'g+fg'$ (Product Rule)
+	\item $(\frac{f}{g})'=\frac{f'g-fg'}{g^2}$ (Quotient Rule)
+	\item $\der{x}(c)=0$
+	\item $\der{x}(x^n)=nx^{n-1}$ (Power Rule)
+	\item $\der{x}(f(g(x)))=f'(g(x))g'(x)$ (Chain Rule)
+\end{enumerate}
+
+\subsubsection*{Mean Value Theorem}
+
+If $f(x)$ is continuous on the closed interval $[a,b]$ and differentiable on the open interval $(a,b)$ then there is a number $a<c<b$ such that $f'(c)=\frac{f(b)-f(a)}{b-a}$.
+
+\subsubsection*{Newton's Method}
+
+If $x_n$ is the $n^\text{th}$ guess for the root/solution of $f(x)=0$ then $(n+1)^\text{st}$ guess is $x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}$ provided $f'(x_n)$ exists.
+
+\subsubsection*{Taylor Series}
+
+The Taylor series of a real or complex-valued function $f(x)$ that is infinitely differentiable at a real or complex number a is the power series
+\begin{align*}
+	f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\dots+\frac{f^{(n)}(a)}{n!}(x-a)^n
+\end{align*}
+where $n!$ denotes the factorial of $n$ and $f^{n}(a)$ denotes the $n^\text{th}$ derivative of $f$ evaluated at the point $a$. In the more compact sigma notation, this can be written as 
+\begin{align*}
+	\sum_{n=0}^\infty\frac{f^{(n)}(a)}{n!}(x-a)^n
+\end{align*}
+
+\subsection{Integration}
+
+\subsubsection*{Properties}
+
+\begin{enumerate}
+	\item $\int f(x)\pm g(x)\ds{x}=\int f(x)\ds{x}\pm\int g(x)\ds{x}$
+	\item $\int_a^b f(x)\pm g(x)\ds{x}=\int_a^b f(x)\ds{x}\pm\int_a^b g(x)\ds{x}$
+	\item $\int_a^a f(x)\ds{x}=0$
+	\item $\int_a^b=-\int_b^a f(x)\ds{x}$
+	\item $\int_a^b f(x)\ds{x}=\int_a^c f(x)\ds{x}+\int_c^b f(x)\ds{x}$
+	\item $\int kf(x)\ds{x}=k\int f(x)\ds{x}$
+	\item $\int_a^b kf(x)\ds{x}=k\int_a^b f(x)\ds{x}$
+	\item $\int_a^b k\ds{x}=k(b-a)$
+	\item $\ab{\int_a^b f(x)\ds{x}}\leq\int_a^b\ab{f(x)}\ds{x}$
+	\item If $f(x)\geq g(x)$ on $a\leq x\leq b$ then $\int_a^b f(x)\ds{x}\geq\int_a^b g(x)\ds{x}$
+	\item If $f(x)\geq0$ on $a\leq x\leq b$ then $\int_a^b f(x)\ds{x}\geq0$
+	\item If $m\leq f(x)\leq M$ on $a\leq x\leq b$ then $m(b-a)\leq\int_a^b f(x)\ds{x}\leq M(b-a)$
+\end{enumerate}
+
+\subsubsection*{Average Function Value}
+
+The average value of $f(x)$ on $a\leq x\leq b$ is
+\begin{align*}
+	f_{avg}=\frac{1}{b-a}\int_a^b f(x)\ds{x}
+\end{align*}
+
+\subsubsection*{Jensen's inequality}
+
+If $\vph$ is a convex function,
+\begin{align*}
+	\vph\left(\frac{1}{b-a}\int_a^b f(x)\ds{x}\right)\leq\frac{1}{b-a}\int_a^b\vph\left(f(x)\right)\ds{x}
+\end{align*}
+Additionally, is $X$ is an integrable real-valued random variable, then
+\begin{align*}
+	\vph\left(\E{X}\right)\leq\E{\vph(X)}
+\end{align*}
 
 \subsection{Multivariate Calculus}
 

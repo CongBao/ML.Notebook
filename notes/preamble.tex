@@ -135,6 +135,7 @@
 \newcommand{\ta}{\tau}
 \newcommand{\up}{\upsilon}
 \newcommand{\ph}{\phi}
+\newcommand{\vph}{\varphi}
 \newcommand{\ch}{\chi}
 \newcommand{\ps}{\psi}
 \newcommand{\om}{\ometa}
@@ -166,38 +167,34 @@
 \newcommand{\fto}{\rightarrow}
 \newcommand{\from}{\leftarrow}
 \newcommand{\restricted}{\upharpoonright}
-\newcommand{\inv}{^{-1}}
-\newcommand{\pinv}{^+}
 \renewcommand{\brack}[1]{\left\{\begin{array}{ll}#1\end{array}\right.}
-\renewcommand{\vec}[1]{\boldsymbol{#1}}
-\newcommand{\mat}[1]{\mathbf{#1}}
 \newcommand{\missing}{\bullet}
-\newcommand{\T}{{}^\top}
-\newcommand{\TT}{^\top}
-\newcommand{\prop}{\varpropto}
 \newcommand{\norm}[1]{\left\vert\left\vert #1 \right\vert\right\vert}
-\newcommand{\p}[1]{p\left(#1\right)}
 \newcommand{\pprime}[1]{p'\left(#1\right)}
 \newcommand{\pleft}[1]{p\left(#1\right.}
 \newcommand{\pright}[1]{p\left.#1\right)}
 \newcommand{\prob}[1]{\mathcal{P}\left\{{#1}\right\}}
-\renewcommand{\P}[1]{P\left(#1\right)}
-\newcommand{\E}[1]{\mathbf{E}\left[#1\right]}
-\newcommand{\V}[1]{\mathbf{Var}\left[#1\right]}
-\newcommand{\C}[1]{\mathbf{Cov}\left[#1\right]}
-\newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
-\newcommand{\nindep}{\reflectbox{\rotatebox[origin=c]{90}{$\not\models$}}}
-\newcommand{\dep}{\rotatebox[origin=c]{-90}{$\models$}}
-\newcommand{\e}[1]{exp\left(#1\right)}
-\newcommand{\cov}{\mathbf{\Sigma}}
-\renewcommand{\det}[1]{\left\vert #1 \right\vert}
-\newcommand{\sig}[1]{\sigma\left(#1\right)}
 
 % sets/functions
 \newcommand{\dom}{\textrm{dom}}
 \newcommand{\ran}{\textrm{ran}}
 \newcommand{\sgn}{\textrm{sgn}}
 \newcommand{\sign}{\textrm{sign}}
+
+% statistics
+\newcommand{\p}[1]{p\left(#1\right)}
+\renewcommand{\P}[1]{P\left(#1\right)}
+\newcommand{\E}[1]{\mathbf{E}\left[#1\right]}
+\newcommand{\V}[1]{\mathbf{Var}\left[#1\right]}
+\newcommand{\C}[1]{\mathbf{Cov}\left[#1\right]}
+\newcommand{\e}[1]{exp\left(#1\right)}
+\newcommand{\cov}{\mathbf{\Sigma}}
+\renewcommand{\det}[1]{\left\vert #1 \right\vert}
+\newcommand{\sig}[1]{\sigma\left(#1\right)}
+\newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
+\newcommand{\nindep}{\reflectbox{\rotatebox[origin=c]{90}{$\not\models$}}}
+\newcommand{\dep}{\rotatebox[origin=c]{-90}{$\models$}}
+\newcommand{\prop}{\varpropto}
 
 % distributions
 \newcommand{\Dis}{\mathbf{Distrib}}
@@ -224,13 +221,23 @@
 \def\argmin{\qopname\relax n{argmin}}
 
 % matrix
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\inv}{^{-1}}
+\newcommand{\pinv}{^+}
+\newcommand{\T}{{}^\top}
+\newcommand{\TT}{^\top}
 \def\Tr{\qopname\relax n{Tr}}
 \def\abs{\qopname\relax n{abs}}
-\newcommand{\ab}[1]{\left\vert #1 \right\vert}
+\newcommand{\ab}[1]{\left\vert\ #1\ \right\vert}
 \newcommand{\card}[1]{\left\vert #1 \right\vert}
 \def\tr{\qopname\relax n{tr}}
 \def\diag{\qopname\relax n{diag}}
 \newcommand{\matmul}[1]{\langle#1\rangle}
+
+% calculus
+\newcommand{\der}[1]{\frac{d}{d#1}}
+\newcommand{\ds}[1]{\ d#1}
 
 % gradient
 \newcommand{\grad}{\nabla}
