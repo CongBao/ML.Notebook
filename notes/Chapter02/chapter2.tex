@@ -476,6 +476,105 @@ To find the maximum and minimum values of $f(x,y,z)$ subject to the constraint $
 
 \subsection{Matrix Calculus}
 
+\subsubsection*{Vector by Scalar}
+
+The derivative of a vector $\vec{y}=[y_1\ y_2\ \cdots\ y_n]\T$, by a scalar $x$:
+\begin{align*}
+	\frac{\pa\vec{y}}{\pa x}=\left[\frac{\pa y_1}{\pa x}\ \frac{\pa y_2}{\pa x}\ \cdots\ \frac{\pa y_n}{\pa x}\right]\T
+\end{align*}
+
+\subsubsection*{Scalar by Vector (Gradient)}
+
+The derivative of a scalar $y$, by a vector $\vec{x}=[x_1\ x_2\ \cdots\ x_n]\T$:
+\begin{align*}
+	\frac{\pa y}{\pa\vec{x}}=\left[\frac{\pa y}{\pa x_1}\ \frac{\pa y}{\pa x_2}\ \cdots\ \frac{\pa y}{\pa x_n}\right]\T
+\end{align*}
+
+\subsubsection*{Vector by Vector (Jacobian Matrix)}
+
+The derivative of a vector $\vec{y}=[y_1\ y_2\ \cdots\ y_m]\T$, by another vector $\vec{x}=[x_1\ x_2\ \cdots\ x_n]\T$:
+\begin{align*}
+	\frac{\pa\vec{y}}{\pa\vec{x}}=\matfill{
+		\frac{\pa y_1}{\pa x_1}&\frac{\pa y_1}{\pa x_2}&\cdots&\frac{\pa y_1}{\pa x_n} \\
+		\frac{\pa y_2}{\pa x_1}&\frac{\pa y_2}{\pa x_2}&\cdots&\frac{\pa y_2}{\pa x_n} \\
+		\vdots&\vdots&\ddots&\vdots \\
+		\frac{\pa y_m}{\pa x_1}&\frac{\pa y_m}{\pa x_2}&\cdots&\frac{\pa y_m}{\pa x_n}
+	}
+\end{align*}
+
+\subsubsection*{Matrix by Scalar}
+
+The derivative of a matrix $\mat{Y}\in\bR^{m\times n}$, by a scalar $x$:
+\begin{align*}
+	\frac{\pa\mat{Y}}{\pa x}=\matfill{
+	\frac{\pa y_{11}}{\pa x}&\frac{\pa y_{12}}{\pa x}&\cdots&\frac{\pa y_{1n}}{\pa x} \\
+	\frac{\pa y_{21}}{\pa x}&\frac{\pa y_{22}}{\pa x}&\cdots&\frac{\pa y_{2n}}{\pa x} \\
+	\vdots&\vdots&\ddots&\vdots \\
+	\frac{\pa y_{m1}}{\pa x}&\frac{\pa y_{m2}}{\pa x}&\cdots&\frac{\pa y_{mn}}{\pa x}
+}
+\end{align*}
+
+\subsubsection*{Scalar by Matrix (Gradient Matrix)}
+
+The derivative of a scalar $y$, by a matrix $\mat{X}\in\bR^{m\times n}$:
+\begin{align*}
+	\frac{\pa y}{\pa\mat{X}}=\matfill{
+	\frac{\pa y}{\pa x_{11}}&\frac{\pa y}{\pa x_{21}}&\cdots&\frac{\pa y}{\pa x_{m1}} \\
+	\frac{\pa y}{\pa x_{12}}&\frac{\pa y}{\pa x_{22}}&\cdots&\frac{\pa y}{\pa x_{m2}} \\
+	\vdots&\vdots&\ddots&\vdots \\
+	\frac{\pa y}{\pa x_{1n}}&\frac{\pa y}{\pa x_{2n}}&\cdots&\frac{\pa y}{\pa x_{mn}}
+}
+\end{align*}
+
+\subsection{Backpropagation Modules}
+
+\subsubsection*{Backpropagation}
+
+An application of chain rule. For a simple nested function: $y=f(g(x))$:
+\begin{align*}
+	\frac{dy}{dx}=\frac{df}{dg}\frac{dg}{dx}
+\end{align*}
+For multivariate function $y=f\left(g^{(1)}(x),\dotsc,g^{(n)}(x)\right)$:
+\begin{align*}
+	\frac{\pa y}{\pa x}=\sum_{i=1}^n\frac{\pa f}{\pa g^{(i)}}\frac{\pa g^{(i)}}{\pa x}
+\end{align*}
+
+\subsubsection*{Linear Module}
+
+\begin{enumerate}
+	\item Forward pass: $\vec{y}=\mat{W}\vec{x}+\vec{b}$
+	\item Backward pass: $\pfrac{\pa L}{\pa\vec{x}}=\ppfrac{\pa L}{\pa\vec{y}}\mat{W}$
+	\item Parameter gradient: $\pfrac{\pa L}{\pa\mat{W}}=\ppfrac{\pa L}{\pa\vec{y}}\T\vec{x}\T$, $\pfrac{\pa L}{\pa\vec{b}}=\pfrac{\pa L}{\pa\vec{y}}$
+\end{enumerate}
+
+\subsubsection*{ReLU Module}
+
+\begin{enumerate}
+	\item Forward pass: $\vec{y}=relu(\vec{x})$, $y_i=max(0,x_i)$
+	\item backward pass: $\pfrac{\pa L}{\pa x_i}=(y_i>0)\ppfrac{\pa L}{\pa y_i}$
+\end{enumerate}
+
+\subsubsection*{Softmax Module}
+
+\begin{enumerate}
+	\item Forward pass: $\vec{y}=softmax(\vec{x})$, $y_n=\pfrac{e^{x_n}}{\sum_m e^{x_m}}$
+	\item Backward pass: $\pfrac{\pa L}{\pa\vec{x}}=\vec{s}-\vec{y}\sum_i s_i$, where $s_i=\ppfrac{\pa L}{\pa y_i}y_i$
+\end{enumerate}
+
+\subsubsection*{Cross-entropy Module}
+
+\begin{enumerate}
+	\item Forward pass: $y=L=crossentropy(\vec{p},\vec{x})$, $y=-\sum_i^C p_i\log x_i$
+	\item Backward pass: $\pfrac{\pa L}{\pa x_i}=-\pfrac{p_i}{x_i}$
+\end{enumerate}
+
+\subsubsection*{Cross-entropy with Logits Module}
+
+\begin{enumerate}
+	\item Forward pass: $y=L=crossentropy(\vec{p},softmax(\vec{x}))$, $y=-\sum_i^Cp_i\log\ppfrac{e^{x_i}}{\sum_m e^{x_m}}$
+	\item Backward pass: $\pfrac{\pa L}{\pa\vec{x}}=\vec{y}-\vec{p}$
+\end{enumerate}
+
 \section{Informatics}
 \label{section2.4}
 
