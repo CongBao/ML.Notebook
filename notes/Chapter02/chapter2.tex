@@ -424,7 +424,7 @@ If $\vph$ is a convex function,
 \begin{align*}
 	\vph\left(\frac{1}{b-a}\int_a^b f(x)\ds{x}\right)\leq\frac{1}{b-a}\int_a^b\vph\left(f(x)\right)\ds{x}
 \end{align*}
-Additionally, is $X$ is an integrable real-valued random variable, then
+Additionally, if $X$ is an integrable real-valued random variable, then
 \begin{align*}
 	\vph\left(\E{X}\right)\leq\E{\vph(X)}
 \end{align*}
@@ -575,10 +575,39 @@ For multivariate function $y=f\left(g^{(1)}(x),\dotsc,g^{(n)}(x)\right)$:
 	\item Backward pass: $\pfrac{\pa L}{\pa\vec{x}}=\vec{y}-\vec{p}$
 \end{enumerate}
 
-\section{Informatics}
+\section{Information Theory}
 \label{section2.4}
 
+\subsection{Self-information}
+
+Properties of information quantification:
+\begin{enumerate}
+	\item Likely events should have low information content, and in the extreme case, events that are guaranteed to happen should have no information content whatsoever.
+	\item Less likely events should have higher information content.
+	\item Independent events should have additive information.
+\end{enumerate}
+In order to satisfy all three of these properties, we define the self-information of an event $\mathtt{x}=x$ to be $I(x)=-\log\P{x}$.
+
 \subsection{Entropy}
+Self-information deals only with a single outcome. We can quantify the amount of uncertainty in an entire probability distribution using the Shannon entropy:
+\begin{align*}
+	\H{x}=\Ep{x\sim P}{I(x)}=-\Ep{x\sim P}{\log\P{x}}=-\sum_i p_i\log p_i
+\end{align*}
+
+\subsection{Kullback-Leibler (KL) Divergence}
+
+If we have two separate probability distributions $\P{x}$ and $Q\left(x\right)$ over the same random variable $x$, we can measure how different these two distribution are using the Kullback-Leibler (KL) divergence:
+\begin{align*}
+	\KL{P}{Q}=\Ep{x\sim P}{\log\frac{\P{x}}{Q\left(x\right)}}=\Ep{x\sim P}{\log\P{x}-\log Q\left(x\right)}
+\end{align*}
+KL divergence is non-negative, and it is not symmetric for some $P$ and $Q$: $\KL{P}{Q}\neq\KL{Q}{P}$. The KL divergence is 0 if and only if $P$ and $Q$ are the same distribution in the case of discrete variables, or equal ``almost everywhere'' in the case of continuous variables.
+
+\subsection{Cross-entropy}
+
+A quantity that is closely related to the KL divergence is the cross-entropy, which is similar to the KL divergence but lacking the term on the left:
+\begin{align*}
+	\H{P,Q}=\H{P}+\KL{P}{Q}=-\Ep{x\sim P}{\log Q\left(x\right)}
+\end{align*}
 
 \section{Optimization}
 \label{section2.5}

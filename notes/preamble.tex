@@ -184,10 +184,15 @@
 \newcommand{\sgn}{\textrm{sgn}}
 \newcommand{\sign}{\textrm{sign}}
 
+% Information Theory
+\renewcommand{\H}[1]{H\left(#1\right)}
+\newcommand{\KL}[2]{KL\left(#1||#2\right)}
+
 % statistics
 \newcommand{\p}[1]{p\left(#1\right)}
 \renewcommand{\P}[1]{P\left(#1\right)}
 \newcommand{\E}[1]{\mathbf{E}\left[#1\right]}
+\newcommand{\Ep}[2]{\mathbf{E}_{#1}\left[#2\right]}
 \newcommand{\V}[1]{\mathbf{Var}\left[#1\right]}
 \newcommand{\C}[1]{\mathbf{Cov}\left[#1\right]}
 \newcommand{\e}[1]{exp\left(#1\right)}
@@ -209,12 +214,6 @@
 \newcommand{\Norm}{\mathbf{Norm}}
 \newcommand{\NIG}{\mathbf{NormInvGam}}
 \newcommand{\NIW}{\mathbf{NormInvWis}}
-
-% expectations, variances, etc.
-\newcommand{\Ep}{\mathbb{E}}
-\newcommand{\Var}{\mathbb{V}}
-\newcommand{\KL}{\textrm{KL}}
-\newcommand{\divr}{\vert\vert}
 
 % complexity
 \renewcommand{\O}{\mathcal{O}}
