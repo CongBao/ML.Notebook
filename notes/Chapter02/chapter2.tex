@@ -4,54 +4,79 @@
 \chapter{Mathematics Basics}
 \label{chapter2}
 
+
+
+
 \section{Probability}
 \label{section2.1}
 
 \subsection{Basic Rules}
 
-\begin{description}[leftmargin=0cm]
-\item[Three Axioms of Probability] Let $\Om$ be a sample space. A probability assigns a real number $\P{X}$ to each event $X \subseteq \Om$ in such a way that
-	\begin{enumerate}
+\paragraph{Three Axioms of Probability}
+
+Let $\Om$ be a sample space. A probability assigns a real number $\P{X}$ to each event $X \subseteq \Om$ in such a way that
+\begin{enumerate}
 	\item $\P{X} \geq 0, \forall X$
 	\item If $X_1, X_2, \dotsc$ are pairwise disjoint events ($X_1 \cap X_2=\emptyset,\ i \ne j,\ i,j=1,2,\dotsc$), then $\P{\bigcup_{i=1}^{\infty}X_i}=\sum_{i=1}^{\infty}\P{X_i}$. (This property is called countable additivity.)
 	\item $\P{\Om}=1$
-	\end{enumerate}
-\item[Joint Probability] The probability both event A and B occur. $\P{X,Y}=\P{X \cap Y}$.
-\item[Marginalization] The probability distribution of any variable in a joint distribution can be recovered by integrating (or summing) over the other variables.
-	\begin{enumerate}
+\end{enumerate}
+
+\paragraph{Joint Probability}
+
+The probability both event A and B occur. $\P{X,Y}=\P{X \cap Y}$.
+
+\paragraph{Marginalization}
+
+The probability distribution of any variable in a joint distribution can be recovered by integrating (or summing) over the other variables.
+\begin{enumerate}
 	\item For continuous r.v. $\P{x}=\int\P{x,y}dy$ ; $\P{y}=\int\P{x,y}dx$.
 	\item For discrete r.v. $\P{x}=\sum_y\P{x,y}$ ; $\P{y}=\sum_x\P{x,y}$.
 	\item For mixed r.v. $\P{x,y}=\sum_w\int\P{w,x,y,z}dz$, where $w$ is discrete and $z$ is continuous.
-	\end{enumerate}
-\item[Conditional Probibility] $\P{X=x|Y=y}$ is the probability $X=x$ occurs given the knowledge $Y=y$ occurs. Conditional probability can be extracted from joint probability that
-	\begin{align*}
+\end{enumerate}
+
+\paragraph{Conditional Probibility}
+
+$\P{X=x|Y=y}$ is the probability $X=x$ occurs given the knowledge $Y=y$ occurs. Conditional probability can be extracted from joint probability that
+\begin{align*}
 	\P{x|y=y^{*}}=\frac{\P{x,y=y^{*}}}{\int\P{x,y=y^{*}}dx}=\frac{\P{x,y=y^{*}}}{\P{y=y^{*}}}
-	\end{align*}
+\end{align*}
 
 Usually, the formula is written as $\P{x|y}=\frac{\P{x,y}}{\P{y}}$.
-\item[Product Rule] The formula can be rearranged as $\P{x,y}=\P{x|y}\P{y}=\P{y|x}\P{x}$. In case of multiple variables
-	\begin{align*}
+
+\paragraph{Product Rule}
+
+The formula can be rearranged as $\P{x,y}=\P{x|y}\P{y}=\P{y|x}\P{x}$. In case of multiple variables
+\begin{align*}
 	\P{w,x,y,z}&=\P{w,x,y|z}\P{z} \\
 			   &=\P{w,x|y,z}\P{y|z}\P{z} \\
 			   &=\P{w|x,y,z}\P{x|y,z}\P{y|z}\P{z}
-	\end{align*}
-\item[Independence] If two variables $x$ and $y$ are independent, then r.v. $x$ tells nothing about r.v. $y$ (and vice-versa)
-	\begin{align*}
+\end{align*}
+
+\paragraph{Independence}
+
+If two variables $x$ and $y$ are independent, then r.v. $x$ tells nothing about r.v. $y$ (and vice-versa)
+\begin{align*}
 	\P{x|y}&=\P{x} \\
 	\P{y|x}&=\P{y} \\
 	\P{x,y}&=\P{x}\P{y}
-	\end{align*}
-\item[Baye's Rule] By rearranging formula in Product Rule, we have
-	\begin{align*}
+\end{align*}
+
+\paragraph{Baye's Rule}
+
+By rearranging formula in Product Rule, we have
+\begin{align*}
 	\P{y|x}&=\frac{\P{x|y}\P{y}}{\P{x}} \\
 		   &=\frac{\P{x|y}\P{y}}{\int\P{x,y}dy} \\
 		   &=\frac{\P{x|y}\P{y}}{\int\P{x|y}\P{y}dy}
-	\end{align*}
-\item[Expectation] Expectation tells us the expected or average value of some function $f(x)$, taking into account the distribution of $x$.
-	\begin{align*}
+\end{align*}
+
+\paragraph{Expectation}
+
+Expectation tells us the expected or average value of some function $f(x)$, taking into account the distribution of $x$.
+\begin{align*}
 	\E{f(x)}&=\sum_x f(x)\P{x} \\
 	\E{f(x)}&=\int f(x)\P{x}dx
-	\end{align*}
+\end{align*}
 Definition in two dimensions: $\E{f(x,y)}=\iint f(x,y)\P{x,y}dx\ dy$
 	\begin{table*}[!h]
 		\centering
@@ -89,74 +114,96 @@ Besides, Expectation has the following four rules
 		\item Expectation of sum of functions is sum of expectation of functions \\ $\E{f(x)+g(y)}=\E{f(x)}+\E{g(x)}$.
 		\item Expectation of product of functions in variables $x$ and $y$ is product of expectations of functions if $x$ and $y$ are independent $\E{f(x)g(y)}=\E{f(x)}\E{g(y)}, x \indep y$.
 	\end{enumerate}
-\end{description}
 
 \subsection{Common Probability Distributions}
 
-\begin{description}[leftmargin=0cm]
-\item[Bernoulli] Bernoulli distribution describes situation where only two possible outcomes $y=0 / y=1$ or failure/success.
-	\begin{enumerate}
-		\item $\P{x}=\Bern_x[\la]=\la^x(1-\la)^{1-x}$
-		\item univariate, discrete, binary
-		\item $x \in \{0,1\}$; $\la \in [0,1]$
-		\item $\E{x}=\la$, $\V{x}=\la(1-\la)$
-	\end{enumerate}
-\item[Beta] Beta distribution is the conjugate distribution to Bernoulli distribution.
-	\begin{enumerate}
-		\item $\P{\la}=\Beta_\la[\al,\be]=\frac{\Ga(\al+\be)}{\Ga(\al)\Ga(\be)}\la^{\al-1}(1-\la)^{\be-1}$
-		\item univariate, continuous, unbounded
-		\item $\la \in \bR$; $\al \in \bR_+$,  $\be \in \bR_+$
-		\item $\E{\la}=\frac{\al}{\al+\be}$, $\V{\la}=\frac{\al\be}{(\al+\be)^2(\al+\be+1)}$
-	\end{enumerate}
-\item[Categorical] Categorical distribution describes situation with K possible outcomes.
-	\begin{enumerate}
-		\item $\P{x}=\Cat_x[\vec{\la}]$, $\P{x=k}=\la_k$,  $\P{\vec{x}=\vec{e}_k}=\prod_{j=1}^K\la_j^{x_j}=\la_k$
-		\item univariate, discrete, multi-valued
-		\item $x \in \{1,2,\dotsc,K\}$; $\la_k \in [0,1]$ where $\sum_k\la_k=1$
-		\item $\E{x_i}=\la_i$, $\V{x_i}=\la_i(1-\la_i)$, $\C{x_i,x_j}=-\la_i\la_j\ (i \neq j)$
-	\end{enumerate}
-\item[Dirichlet] Dirichlet distribution is the conjugate distribution to categorical distribution.
-	\begin{enumerate}
-		\item $\P{\vec{\la}}=\Dir_{\vec{\la}}[\vec{\al}]=\frac{\Ga(\sum_{k=1}^K\al_k)}{\prod_{k=1}^K\Ga(\al_k)}\prod_{k=1}^K\la_k^{\al_k-1}$
-		\item multivariate, continuous, bounded, sums to one
-		\item $\vec{\la}=[\la_1,\la_2,\dotsc,\la_K]\T$, $\la_k \in [0,1]$, $\sum_{k=1}^K\la_k=1$; $\vec{\al}=[\al_1,\al_2,\dotsc,\al_K]$, $\al_k \in \bR_+$
-		\item $\E{\la_i}=\frac{\al_i}{\sum_k\al_k}$, $\V{\la_i}=\frac{\al_i(\sum_k\al_k-\al_i)}{(\sum_k\al_k)^2(\sum_k\al_k+1)}$, $\C{\la_i,\la_j}=\frac{-\al_i\al_j}{(\sum_k\al_k)^2(\sum_k\al_k+1)}\ (i \neq j)$
-	\end{enumerate}
-\item[Univariate Normal] Univariate normal distribution describes single continuous variable.
-	\begin{enumerate}
-		\item $\P{x}=\Norm_x[\mu,\si^2]=\frac{1}{\sqrt{2\pi\si^2}}\e{-\frac{(x-\mu)^2}{2\si^2}}$
-		\item univariate, continuous, unbounded
-		\item $x \in \bR$; $\mu \in \bR$, $\si^2 \in \bR_+$
-		\item $\E{x}=\mu$, $\V{x}=\si^2$
-	\end{enumerate}
-\item[Normal Inverse Gamma] Normal inverse gamma distribution is a conjugate distribution to univariate normal distribution.
-	\begin{enumerate}
-		\item $\P{\mu,\si^2}=\NIG_{\mu,\si^2}[\al,\be,\ga,\de]=\frac{\sqrt{\ga}}{\sqrt{2\pi\si^2}}\frac{\be^\al}{\Ga(\al)}\left(\frac{1}{\si^2}\right)^{\al+1}\e{-\frac{2\be+\ga(\de-\mu)^2}{2\si^2}}$
-		\item bivariate, continuous, $\mu$ unbounded, $\si^2$ bounded below
-		\item $\mu \in \bR$, $\si^2 \in \bR_+$; $\al \in \bR_+$, $\be \in \bR_+$, $\ga \in \bR_+$, $\de \in \bR$
-		\item $\E{\mu}=\de$, $\E{\si^2}=\frac{\be}{\al-1}\ (\al>1)$, $\V{\mu}=\frac{\be}{(\al-1)\ga}\ (\al>1)$, $\V{\si^2}=\frac{\be^2}{(\al-1)^2(\al-2)}\ (\al>2)$, $\C{\mu,\si^2}=0\ (\al>1)$
-	\end{enumerate}
-\item[Multivariate Normal] Multivariate normal distribution describes multiple continuous variables. It takes two parameters: a vector containing mean position $\vec{\mu}$, and a symmetric positive definite covariance matrix $\cov$.
-	\begin{enumerate}
-		\item $\P{\vec{x}}=\Norm_{\vec{x}}[\vec{\mu},\cov]=\frac{1}{\sqrt{det(2\pi\cov)}}\e{-\frac{1}{2}(\vec{x}-\vec{\mu})\T\cov\inv(\vec{x}-\vec{\mu})}$
-		\item multivariate, continuous, unbounded
-		\item $\vec{x} \in \bR^K$; $\vec{\mu} \in \bR^K$, $\cov \in \bR^{K \times K}$ (positive semi-definite matrix)
-		\item $\E{\vec{x}}=\vec{\mu}$, $\V{\vec{x}}=\cov$
-	\end{enumerate}
-\item[Normal Inverse Wishart] Normal inverse wishart distribution is a conjugate distribution to multivariate normal distribution.
-	\begin{enumerate}
-		\item $\P{\vec{\mu},\cov}=\NIW_{\vec{\mu},\cov}[\al,\vec{\Ps},\ga,\vec{\de}] \\ =\frac{\ga^{D/2}\det{\vec{\Ps}}^{\al/2}\det{\cov}^{-\frac{\al+D+2}{2}}}{(2\pi)^{D/2}2^{(\al\cov)/2}\Ga_D(\al/2)}\e{-\frac{1}{2}(\Tr(\vec{\Ps}\cov\inv)+\ga(\vec{\mu}-\vec{\de})\T\cov\inv(\vec{\mu}-\vec{\de})}$
-		\item multivariate, $\vec{\mu}$ unbounded, $\cov$ square, positive definite
-		\item $\vec{\mu} \in \bR^K$, $\cov \in \bR^{K \times K}$; $\al \in \bR_{>D-1}$, $\vec{\Ps} \in \bR^{K \times K}$, $\ga \in \bR_+$, $\vec{\de} \in \bR^K$
-	\end{enumerate}
-\end{description}
+\paragraph{Bernoulli}
+
+Bernoulli distribution describes situation where only two possible outcomes $y=0 / y=1$ or failure/success.
+\begin{enumerate}
+	\item $\P{x}=\Bern_x[\la]=\la^x(1-\la)^{1-x}$
+	\item univariate, discrete, binary
+	\item $x \in \{0,1\}$; $\la \in [0,1]$
+	\item $\E{x}=\la$, $\V{x}=\la(1-\la)$
+\end{enumerate}
+
+\paragraph{Beta}
+
+Beta distribution is the conjugate distribution to Bernoulli distribution.
+\begin{enumerate}
+	\item $\P{\la}=\Beta_\la[\al,\be]=\frac{\Ga(\al+\be)}{\Ga(\al)\Ga(\be)}\la^{\al-1}(1-\la)^{\be-1}$
+	\item univariate, continuous, unbounded
+	\item $\la \in \bR$; $\al \in \bR_+$,  $\be \in \bR_+$
+	\item $\E{\la}=\frac{\al}{\al+\be}$, $\V{\la}=\frac{\al\be}{(\al+\be)^2(\al+\be+1)}$
+\end{enumerate}
+
+\paragraph{Categorical}
+
+Categorical distribution describes situation with K possible outcomes.
+\begin{enumerate}
+	\item $\P{x}=\Cat_x[\vec{\la}]$, $\P{x=k}=\la_k$,  $\P{\vec{x}=\vec{e}_k}=\prod_{j=1}^K\la_j^{x_j}=\la_k$
+	\item univariate, discrete, multi-valued
+	\item $x \in \{1,2,\dotsc,K\}$; $\la_k \in [0,1]$ where $\sum_k\la_k=1$
+	\item $\E{x_i}=\la_i$, $\V{x_i}=\la_i(1-\la_i)$, $\C{x_i,x_j}=-\la_i\la_j\ (i \neq j)$
+\end{enumerate}
+
+\paragraph{Dirichlet}
+
+Dirichlet distribution is the conjugate distribution to categorical distribution.
+\begin{enumerate}
+	\item $\P{\vec{\la}}=\Dir_{\vec{\la}}[\vec{\al}]=\frac{\Ga(\sum_{k=1}^K\al_k)}{\prod_{k=1}^K\Ga(\al_k)}\prod_{k=1}^K\la_k^{\al_k-1}$
+	\item multivariate, continuous, bounded, sums to one
+	\item $\vec{\la}=[\la_1,\la_2,\dotsc,\la_K]\T$, $\la_k \in [0,1]$, $\sum_{k=1}^K\la_k=1$; $\vec{\al}=[\al_1,\al_2,\dotsc,\al_K]$, $\al_k \in \bR_+$
+	\item $\E{\la_i}=\frac{\al_i}{\sum_k\al_k}$, $\V{\la_i}=\frac{\al_i(\sum_k\al_k-\al_i)}{(\sum_k\al_k)^2(\sum_k\al_k+1)}$, $\C{\la_i,\la_j}=\frac{-\al_i\al_j}{(\sum_k\al_k)^2(\sum_k\al_k+1)}\ (i \neq j)$
+\end{enumerate}
+
+\paragraph{Univariate Normal}
+
+Univariate normal distribution describes single continuous variable.
+\begin{enumerate}
+	\item $\P{x}=\Norm_x[\mu,\si^2]=\frac{1}{\sqrt{2\pi\si^2}}\e{-\frac{(x-\mu)^2}{2\si^2}}$
+	\item univariate, continuous, unbounded
+	\item $x \in \bR$; $\mu \in \bR$, $\si^2 \in \bR_+$
+	\item $\E{x}=\mu$, $\V{x}=\si^2$
+\end{enumerate}
+
+\paragraph{Normal Inverse Gamma}
+
+Normal inverse gamma distribution is a conjugate distribution to univariate normal distribution.
+\begin{enumerate}
+	\item $\P{\mu,\si^2}=\NIG_{\mu,\si^2}[\al,\be,\ga,\de]=\frac{\sqrt{\ga}}{\sqrt{2\pi\si^2}}\frac{\be^\al}{\Ga(\al)}\left(\frac{1}{\si^2}\right)^{\al+1}\e{-\frac{2\be+\ga(\de-\mu)^2}{2\si^2}}$
+	\item bivariate, continuous, $\mu$ unbounded, $\si^2$ bounded below
+	\item $\mu \in \bR$, $\si^2 \in \bR_+$; $\al \in \bR_+$, $\be \in \bR_+$, $\ga \in \bR_+$, $\de \in \bR$
+	\item $\E{\mu}=\de$, $\E{\si^2}=\frac{\be}{\al-1}\ (\al>1)$, $\V{\mu}=\frac{\be}{(\al-1)\ga}\ (\al>1)$, $\V{\si^2}=\frac{\be^2}{(\al-1)^2(\al-2)}\ (\al>2)$, $\C{\mu,\si^2}=0\ (\al>1)$
+\end{enumerate}
+
+\paragraph{Multivariate Normal}
+
+Multivariate normal distribution describes multiple continuous variables. It takes two parameters: a vector containing mean position $\vec{\mu}$, and a symmetric positive definite covariance matrix $\cov$.
+\begin{enumerate}
+	\item $\P{\vec{x}}=\Norm_{\vec{x}}[\vec{\mu},\cov]=\frac{1}{\sqrt{det(2\pi\cov)}}\e{-\frac{1}{2}(\vec{x}-\vec{\mu})\T\cov\inv(\vec{x}-\vec{\mu})}$
+	\item multivariate, continuous, unbounded
+	\item $\vec{x} \in \bR^K$; $\vec{\mu} \in \bR^K$, $\cov \in \bR^{K \times K}$ (positive semi-definite matrix)
+	\item $\E{\vec{x}}=\vec{\mu}$, $\V{\vec{x}}=\cov$
+\end{enumerate}
+
+\paragraph{Normal Inverse Wishart}
+
+Normal inverse wishart distribution is a conjugate distribution to multivariate normal distribution.
+\begin{enumerate}
+	\item $\P{\vec{\mu},\cov}=\NIW_{\vec{\mu},\cov}[\al,\vec{\Ps},\ga,\vec{\de}] \\ =\frac{\ga^{D/2}\det{\vec{\Ps}}^{\al/2}\det{\cov}^{-\frac{\al+D+2}{2}}}{(2\pi)^{D/2}2^{(\al\cov)/2}\Ga_D(\al/2)}\e{-\frac{1}{2}(\Tr(\vec{\Ps}\cov\inv)+\ga(\vec{\mu}-\vec{\de})\T\cov\inv(\vec{\mu}-\vec{\de})}$
+	\item multivariate, $\vec{\mu}$ unbounded, $\cov$ square, positive definite
+	\item $\vec{\mu} \in \bR^K$, $\cov \in \bR^{K \times K}$; $\al \in \bR_{>D-1}$, $\vec{\Ps} \in \bR^{K \times K}$, $\ga \in \bR_+$, $\vec{\de} \in \bR^K$
+\end{enumerate}
+
+
 
 \section{Linear Algebra}
 \label{section2.2}
 
 \subsection{Vectors}
 
-\subsubsection*{Vectors Addition}
+\paragraph{Vectors Addition}
 
 \begin{align*}
 	\vec{v}+\vec{w}=\begin{pmatrix}
@@ -168,7 +215,7 @@ Besides, Expectation has the following four rules
 	\end{pmatrix}
 \end{align*}
 
-\subsubsection*{Vectors Scaling}
+\paragraph{Vectors Scaling}
 
 \begin{align*}
 	a\vec{v}=a\begin{pmatrix}
@@ -178,7 +225,7 @@ Besides, Expectation has the following four rules
 	\end{pmatrix}
 \end{align*}
 
-\subsubsection*{Rules for Vectors Addition and Scaling}
+\paragraph{Rules for Vectors Addition and Scaling}
 
 \begin{enumerate}
 	\item $\vec{u}+\left(\vec{v}+\vec{w}\right)=\left(\vec{u}+\vec{v}\right)+\vec{w}$
@@ -191,7 +238,7 @@ Besides, Expectation has the following four rules
 	\item $\left(a+b\right)\vec{v}=a\vec{v}+b\vec{v}$
 \end{enumerate}
 
-\subsubsection*{Linear Combination \& Span}
+\paragraph{Linear Combination \& Span}
 
 Linear combination (e.g. in 2D space):
 \begin{align*}
@@ -199,7 +246,7 @@ Linear combination (e.g. in 2D space):
 \end{align*}
 The span of $\vec{v}$ and $\vec{w}$ is the set of all their linear combinations.
 
-\subsubsection*{Representation of Basis}
+\paragraph{Representation of Basis}
 
 In Euclidean:
 \begin{align*}
@@ -223,14 +270,14 @@ In different basis, we choose other basis vector and then write the same vector
 \end{align*}
 If these basis vectors are orthonormal, $w_i=\vec{v}\T\vec{b}^i$
 
-\subsubsection*{Linear Dependence}
+\paragraph{Linear Dependence}
 
 \begin{enumerate}
 	\item Linearly dependent: A set of vectors $\vec{v}^1,\dotsc,\vec{v}^n$ is linearly dependent if there exists a vector $\vec{v}^j$ that can be expressed as a linear combination of the other vectors. (The vector $\vec{v}^j$ is already located in the span of other vectors)
 	\item Linearly Independent: Each vector really does add another dimension to the span. And the only solution to $\sum_{i=1}^na_i\vec{v}^i=\vec{0}$ is for all $a_i=0, i=1,\dotsc,n$.
 \end{enumerate}
 
-\subsubsection*{Dot Products}
+\paragraph{Dot Products}
 
 \begin{align*}
 	\vec{v}\cdot\vec{w}=\sum_{i=1}^nv_iw_i=\vec{v}\T\vec{w}
@@ -247,14 +294,14 @@ where $\th$ is the angle between two vectors.
 
 \subsection{Matrices (Square Matrices)}
 
-\subsubsection*{Linear Transformation}
+\paragraph{Linear Transformation}
 
 \begin{align*}
 	\vec{v}'=\left(\mat{M}_n\dots\mat{M}_2\mat{M}_1\right)\vec{v}
 \end{align*}
 Linear transformation always maps linear subspaces onto linear subspaces (possibly of a lower dimension). Intuitively, linear transformation keeps the grid lines stay parallel and evenly spaced, and so that the origin remains fixed.
 
-\subsubsection*{Basic Formulae}
+\paragraph{Basic Formulae}
 
 \begin{enumerate}
 	\item $\mat{A}(\mat{B}+\mat{C})=\mat{A}\mat{B}+\mat{A}\mat{C}$
@@ -265,7 +312,7 @@ Linear transformation always maps linear subspaces onto linear subspaces (possib
 	\item $(\mat{A}\inv)\T=(\mat{A}\T)\inv$
 \end{enumerate}
 
-\subsubsection*{Trace}
+\paragraph{Trace}
 
 Trace is the sum of diagonal elements of matrix $\mat{M}$,
 \begin{align*}
@@ -276,7 +323,7 @@ Cyclic permutations in trace,
 	\Tr(\mat{A}\mat{B}\mat{C})=\Tr(\mat{C}\mat{A}\mat{B})=\Tr(\mat{B}\mat{C}\mat{A})
 \end{align*}
 
-\subsubsection*{Determinants}
+\paragraph{Determinants}
 
 The determinant of a matrix $\mat{M}$, denoted as $\det{\mat{M}}$, is a function mapping matrices to scalars, measuring how much multiplication by the matrix expands or contracts space. If the determinant is 0, then space is contracted completely along at least one dimension, causing it to lose all of its volume. If the determinant is 1, then the transformation preserves volume.
 
@@ -289,20 +336,20 @@ Some properties of determinant:
 	\item $\det{\mat{M}\inv}=\det{\mat{M}}^{-1}$
 \end{enumerate}
 
-\subsubsection*{Symmetric Matrix}
+\paragraph{Symmetric Matrix}
 
 \begin{align*}
 	\mat{M}=\mat{M}\T
 \end{align*}
 
-\subsubsection*{Orthogonal Matrix}
+\paragraph{Orthogonal Matrix}
 
 \begin{align*}
 	\mat{M}\T\mat{M}&=\mat{M}\mat{M}\T=\mat{I} \\
 	\mat{M}\inv&=\mat{M}\T
 \end{align*}
 
-\subsubsection*{Eigendecomposition}
+\paragraph{Eigendecomposition}
 
 If a matrix $\mat{M}$ satisfies
 \begin{align*}
@@ -327,7 +374,7 @@ where $\mat{Q}$ is an orthogonal matrix composed of eigenvectors of $\mat{M}$, a
 
 A matrix is {\bf singular} if and only if any of the eigenvalues are zero ($\det{\mat{M}}=0$). A matrix whose eigenvalues are all positive is called {\bf positive definite}. A matrix whose eigenvalues are all positive or zero-valued (non-negative) is called {\bf positive semi-definite}. Likewise, if all eigenvalues are negative, the matrix is {\bf negative definite}, and if all eigenvalues are negative or zero-valued (non-positive), it is {\bf negative semi-definite}. Positive semi-definite matrices guarantee that $\forall\vec{v}, \vec{v}\T\mat{M}\vec{v}\geq0$. Positive definite matrices additionally guarantee that $\vec{v}\T\mat{M}\vec{v}=0\impl\vec{v}=\vec{0}$.
 
-\subsubsection*{Singular Value Decomposition (SVD)}
+\paragraph{Singular Value Decomposition (SVD)}
 
 The singular value decomposition of a $m\times n$ matrix $\mat{M}$ can be formed as
 \begin{align*}
@@ -347,7 +394,7 @@ Hence, we can conclude that
 	\item The non-zero singular values of $\mat{M}$ are the square roots of the eigenvalues of $\mat{M}\T\mat{M}$ or $\mat{M}\mat{M}\T$.
 \end{enumerate}
 
-\subsubsection*{Moore-Penrose Pseudoinverse}
+\paragraph{Moore-Penrose Pseudoinverse}
 
 SVD can be applied to compute the pseudoinverse of a matrix $\mat{M}=\mat{U}\mat{\Si}\mat{V}\T$, given by
 \begin{align*}
@@ -355,12 +402,15 @@ SVD can be applied to compute the pseudoinverse of a matrix $\mat{M}=\mat{U}\mat
 \end{align*}
 where $\mat{\Si}\pinv$ is the pseudoinverse of $\mat{\Si}$, which is formed by replacing every non-zero diagonal entry by its reciprocal and transposing the resulting matrix.
 
+
+
+
 \section{Calculus}
 \label{section2.3}
 
 \subsection{Differentiation}
 
-\subsubsection*{Basic Formulae}
+\paragraph{Basic Formulae}
 
 Here, $f(x)$ and $g(x)$ are differentiable functions (the derivative exists), $c$ and $n$ are any real numbers.
 \begin{enumerate}
@@ -373,28 +423,33 @@ Here, $f(x)$ and $g(x)$ are differentiable functions (the derivative exists), $c
 	\item $\der{x}(f(g(x)))=f'(g(x))g'(x)$ (Chain Rule)
 \end{enumerate}
 
-\subsubsection*{Mean Value Theorem}
+\paragraph{Mean Value Theorem}
 
 If $f(x)$ is continuous on the closed interval $[a,b]$ and differentiable on the open interval $(a,b)$ then there is a number $a<c<b$ such that $f'(c)=\frac{f(b)-f(a)}{b-a}$.
 
-\subsubsection*{Newton's Method}
+\paragraph{Newton's Method}
 
 If $x_n$ is the $n^\text{th}$ guess for the root/solution of $f(x)=0$ then $(n+1)^\text{st}$ guess is $x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}$ provided $f'(x_n)$ exists.
 
-\subsubsection*{Taylor Series}
+\paragraph{Taylor Series}
 
 The Taylor series of a real or complex-valued function $f(x)$ that is infinitely differentiable at a real or complex number a is the power series
 \begin{align*}
 	f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\dots+\frac{f^{(n)}(a)}{n!}(x-a)^n
 \end{align*}
-where $n!$ denotes the factorial of $n$ and $f^{n}(a)$ denotes the $n^\text{th}$ derivative of $f$ evaluated at the point $a$. In the more compact sigma notation, this can be written as 
+where $n!$ denotes the factorial of $n$ and $f^{n}(a)$ denotes the $n^\text{th}$ derivative of $f$ evaluated at the point $a$. Sometimes, we can represent it as
 \begin{align*}
-	\sum_{n=0}^\infty\frac{f^{(n)}(a)}{n!}(x-a)^n
+	f(x+h)=f(x)+hf'(x)+\frac{h^2}{2}f''(x)+\cdots+\frac{h^{r-1}}{(r-1)!}f^{(r-1)}(x)+\O{h^r}
 \end{align*}
+If we set the function as $f(\vec{x}+h\vec{v})$ for some vector $\vec{v}$, then
+\begin{align*}
+	f(\vec{x}+h\vec{v})=f(\vec{x})+h\grad f\T\vec{v}+\frac{h^2}{2}\vec{v}\T H_f\vec{v}+\O{h^3}
+\end{align*}
+where $\grad f$ is the gradient vector and $H_f$ is the Hessian matrix.
 
 \subsection{Integration}
 
-\subsubsection*{Properties}
+\paragraph{Properties}
 
 \begin{enumerate}
 	\item $\int f(x)\pm g(x)\ds{x}=\int f(x)\ds{x}\pm\int g(x)\ds{x}$
@@ -411,14 +466,14 @@ where $n!$ denotes the factorial of $n$ and $f^{n}(a)$ denotes the $n^\text{th}$
 	\item If $m\leq f(x)\leq M$ on $a\leq x\leq b$ then $m(b-a)\leq\int_a^b f(x)\ds{x}\leq M(b-a)$
 \end{enumerate}
 
-\subsubsection*{Average Function Value}
+\paragraph{Average Function Value}
 
 The average value of $f(x)$ on $a\leq x\leq b$ is
 \begin{align*}
 	f_{avg}=\frac{1}{b-a}\int_a^b f(x)\ds{x}
 \end{align*}
 
-\subsubsection*{Jensen's Inequality}
+\paragraph{Jensen's Inequality}
 
 If $\vph$ is a convex function,
 \begin{align*}
@@ -431,38 +486,38 @@ Additionally, if $X$ is an integrable real-valued random variable, then
 
 \subsection{Multivariate Calculus}
 
-\subsubsection*{Partial Derivatives}
+\paragraph{Partial Derivatives}
 
 Partial derivatives are simply holding all other variables constant (and act like constants for the derivative) and only taking the derivative with respect to a given variable.
 \begin{align*}
 	f_x(x,y)=f_x=\frac{\pa f}{\pa x}=\frac{\pa}{\pa x}f(x,y)=D_x f
 \end{align*}
 
-\subsubsection*{Clairaut's Theorem}
+\paragraph{Clairaut's Theorem}
 
 If the function $f_{xy}$ and $f_{yx}$ are both continuous, then $f_{xy}(a,b)=f_{yx}(a,b)$.
 
-\subsubsection*{Chain Rule}
+\paragraph{Chain Rule}
 
 If $z=f(x,y)$, $x=g(t)$, and $y=h(t)$, then
 \begin{align*}
 	\frac{dz}{dt}=\frac{\pa z}{\pa x}\frac{dx}{dt}+\frac{\pa z}{\pa y}\frac{dy}{dt}
 \end{align*}
 
-\subsubsection*{Gradient}
+\paragraph{Gradient}
 
 \begin{align*}
 	\grad f(x,y)=\left[f_x(x,y)\ f_y(x,y)\right]\T
 \end{align*}
 
-\subsubsection*{Directional Derivative}
+\paragraph{Directional Derivative}
 
 \begin{align*}
 	D_{\vec{u}}f(x,y)=\grad f(x,y)\cdot\vec{u}
 \end{align*}
 where $\vec{u}$ is an unit vector. The maximum value of the directional derivative $D_{\vec{u}}f(x,y)$ is $\ab{\grad f(x,y)}$, and it occurs when $\vec{u}$ has the same direction as the gradient vector $\grad f(x,y)$.
 
-\subsubsection*{Lagrange Multipliers}
+\paragraph{Lagrange Multipliers}
 
 To find the maximum and minimum values of $f(x,y,z)$ subject to the constraint $g(x,y,z)=k$,
 \begin{enumerate}
@@ -476,21 +531,21 @@ To find the maximum and minimum values of $f(x,y,z)$ subject to the constraint $
 
 \subsection{Matrix Calculus}
 
-\subsubsection*{Vector by Scalar}
+\paragraph{Vector by Scalar}
 
 The derivative of a vector $\vec{y}=[y_1\ y_2\ \cdots\ y_n]\T$, by a scalar $x$:
 \begin{align*}
 	\frac{\pa\vec{y}}{\pa x}=\left[\frac{\pa y_1}{\pa x}\ \frac{\pa y_2}{\pa x}\ \cdots\ \frac{\pa y_n}{\pa x}\right]\T
 \end{align*}
 
-\subsubsection*{Scalar by Vector (Gradient)}
+\paragraph{Scalar by Vector (Gradient)}
 
 The derivative of a scalar $y$, by a vector $\vec{x}=[x_1\ x_2\ \cdots\ x_n]\T$:
 \begin{align*}
 	\frac{\pa y}{\pa\vec{x}}=\left[\frac{\pa y}{\pa x_1}\ \frac{\pa y}{\pa x_2}\ \cdots\ \frac{\pa y}{\pa x_n}\right]\T
 \end{align*}
 
-\subsubsection*{Vector by Vector (Jacobian Matrix)}
+\paragraph{Vector by Vector (Jacobian Matrix)}
 
 The derivative of a vector $\vec{y}=[y_1\ y_2\ \cdots\ y_m]\T$, by another vector $\vec{x}=[x_1\ x_2\ \cdots\ x_n]\T$:
 \begin{align*}
@@ -502,7 +557,7 @@ The derivative of a vector $\vec{y}=[y_1\ y_2\ \cdots\ y_m]\T$, by another vecto
 	}
 \end{align*}
 
-\subsubsection*{Matrix by Scalar}
+\paragraph{Matrix by Scalar}
 
 The derivative of a matrix $\mat{Y}\in\bR^{m\times n}$, by a scalar $x$:
 \begin{align*}
@@ -514,7 +569,7 @@ The derivative of a matrix $\mat{Y}\in\bR^{m\times n}$, by a scalar $x$:
 }
 \end{align*}
 
-\subsubsection*{Scalar by Matrix (Gradient Matrix)}
+\paragraph{Scalar by Matrix (Gradient Matrix)}
 
 The derivative of a scalar $y$, by a matrix $\mat{X}\in\bR^{m\times n}$:
 \begin{align*}
@@ -528,7 +583,7 @@ The derivative of a scalar $y$, by a matrix $\mat{X}\in\bR^{m\times n}$:
 
 \subsection{Backpropagation Modules}
 
-\subsubsection*{Backpropagation}
+\paragraph{Backpropagation}
 
 An application of chain rule. For a simple nested function: $y=f(g(x))$:
 \begin{align*}
@@ -539,7 +594,7 @@ For multivariate function $y=f\left(g^{(1)}(x),\dotsc,g^{(n)}(x)\right)$:
 	\frac{\pa y}{\pa x}=\sum_{i=1}^n\frac{\pa f}{\pa g^{(i)}}\frac{\pa g^{(i)}}{\pa x}
 \end{align*}
 
-\subsubsection*{Linear Module}
+\paragraph{Linear Module}
 
 \begin{enumerate}
 	\item Forward pass: $\vec{y}=\mat{W}\vec{x}+\vec{b}$
@@ -547,33 +602,36 @@ For multivariate function $y=f\left(g^{(1)}(x),\dotsc,g^{(n)}(x)\right)$:
 	\item Parameter gradient: $\pfrac{\pa L}{\pa\mat{W}}=\ppfrac{\pa L}{\pa\vec{y}}\T\vec{x}\T$, $\pfrac{\pa L}{\pa\vec{b}}=\pfrac{\pa L}{\pa\vec{y}}$
 \end{enumerate}
 
-\subsubsection*{ReLU Module}
+\paragraph{ReLU Module}
 
 \begin{enumerate}
 	\item Forward pass: $\vec{y}=relu(\vec{x})$, $y_i=max(0,x_i)$
 	\item backward pass: $\pfrac{\pa L}{\pa x_i}=(y_i>0)\ppfrac{\pa L}{\pa y_i}$
 \end{enumerate}
 
-\subsubsection*{Softmax Module}
+\paragraph{Softmax Module}
 
 \begin{enumerate}
 	\item Forward pass: $\vec{y}=softmax(\vec{x})$, $y_n=\pfrac{e^{x_n}}{\sum_m e^{x_m}}$
 	\item Backward pass: $\pfrac{\pa L}{\pa\vec{x}}=\vec{s}-\vec{y}\sum_i s_i$, where $s_i=\ppfrac{\pa L}{\pa y_i}y_i$
 \end{enumerate}
 
-\subsubsection*{Cross-entropy Module}
+\paragraph{Cross-entropy Module}
 
 \begin{enumerate}
 	\item Forward pass: $y=L=crossentropy(\vec{p},\vec{x})$, $y=-\sum_i^C p_i\log x_i$
 	\item Backward pass: $\pfrac{\pa L}{\pa x_i}=-\pfrac{p_i}{x_i}$
 \end{enumerate}
 
-\subsubsection*{Cross-entropy with Logits Module}
+\paragraph{Cross-entropy with Logits Module}
 
 \begin{enumerate}
 	\item Forward pass: $y=L=crossentropy(\vec{p},softmax(\vec{x}))$, $y=-\sum_i^Cp_i\log\ppfrac{e^{x_i}}{\sum_m e^{x_m}}$
 	\item Backward pass: $\pfrac{\pa L}{\pa\vec{x}}=\vec{y}-\vec{p}$
 \end{enumerate}
+
+
+
 
 \section{Information Theory}
 \label{section2.4}
@@ -608,6 +666,9 @@ A quantity that is closely related to the KL divergence is the cross-entropy, wh
 \begin{align*}
 	\H{P,Q}=\H{P}+\KL{P}{Q}=-\Ep{x\sim P}{\log Q\left(x\right)}
 \end{align*}
+
+
+
 
 \section{Optimization}
 \label{section2.5}
