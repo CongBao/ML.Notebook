@@ -6,7 +6,6 @@
 
 
 
-
 \section{Probability}
 \label{section2.1}
 
@@ -404,7 +403,6 @@ where $\mat{\Si}\pinv$ is the pseudoinverse of $\mat{\Si}$, which is formed by r
 
 
 
-
 \section{Calculus}
 \label{section2.3}
 
@@ -535,14 +533,14 @@ To find the maximum and minimum values of $f(x,y,z)$ subject to the constraint $
 
 The derivative of a vector $\vec{y}=[y_1\ y_2\ \cdots\ y_n]\T$, by a scalar $x$:
 \begin{align*}
-	\frac{\pa\vec{y}}{\pa x}=\left[\frac{\pa y_1}{\pa x}\ \frac{\pa y_2}{\pa x}\ \cdots\ \frac{\pa y_n}{\pa x}\right]\T
+	\frac{\pa\vec{y}}{\pa x}=\left[\frac{\pa y_1}{\pa x}\ \frac{\pa y_2}{\pa x}\ \cdots\ \frac{\pa y_n}{\pa x}\right]\TT
 \end{align*}
 
 \paragraph{Scalar by Vector (Gradient)}
 
 The derivative of a scalar $y$, by a vector $\vec{x}=[x_1\ x_2\ \cdots\ x_n]\T$:
 \begin{align*}
-	\frac{\pa y}{\pa\vec{x}}=\left[\frac{\pa y}{\pa x_1}\ \frac{\pa y}{\pa x_2}\ \cdots\ \frac{\pa y}{\pa x_n}\right]\T
+	\frac{\pa y}{\pa\vec{x}}=\left[\frac{\pa y}{\pa x_1}\ \frac{\pa y}{\pa x_2}\ \cdots\ \frac{\pa y}{\pa x_n}\right]\TT
 \end{align*}
 
 \paragraph{Vector by Vector (Jacobian Matrix)}
@@ -669,11 +667,28 @@ A quantity that is closely related to the KL divergence is the cross-entropy, wh
 
 
 
-
 \section{Optimization}
 \label{section2.5}
 
 \subsection{One-dimensional Minimization}
+
+\paragraph{Sufficient Conditions for a Minimum}
+
+For $x^*$ to be a local minimum of a univariate function $f(x)$, we require that $f(x^*)\leq f(x)$ for all $x$ which are sufficiently close to $x^*$. More precisely, for $x^*$ to be a local minimum, there must exist a positive constant $\De$ such that the inequality holds for all $x$ satisfying $\ab{x-x^*}<\De$. Further, $x^*$ is a global minimum if the inequality holds for all $x$, i.e. one can choose $\De=\infty$.
+
+Now assume that $f(x)$ can be differentiated three times at some point $x^*$. Then we have the Taylor expansion:
+\begin{align*}
+	f(x^*+h)=f(x^*)+f'(x^*)h+\frac{f''(x^*)}{2}h^2+\O{h^3}
+\end{align*}
+Choosing a small positive $\ep$ and setting $h=-f'(x^*)\ep$, we get $f(x^*+h)\approx f(x^*)-f'(x^*)^2\ep$ and thus $f(x^*+h)<f(x^*)$ unless $f'(x^*)=0$. Consequently $x^*$ can only be a local minimum if $f'(x^*)=0$. Let us assume that $f'(x^*)=0$ and that further $f''(x^*)$ is greater than zero. Then for small values of $h$ the Taylor expansion yields,
+\begin{align*}
+	f(x^*+h)\approx f(x^*)+\frac{f''(x^*)}{2}h^2
+\end{align*}
+and thus $f(x^*+h)>f(x^*)$. So in this case $x^*$ is a local minimum of $f$. In case that also $f''(x^*)=0$, one has to take into account the behavior of the higher order term $\O{h^3}$. To summarize, $f'(x^*)=0$, $f''(x^*)>0$ is a sufficient condition for $x^*$ to be a local minimum.
+
+\paragraph{Rate of Convergence}
+
+
 
 \subsection{Gradient Descent}
 

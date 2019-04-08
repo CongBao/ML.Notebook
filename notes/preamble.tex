@@ -4,6 +4,7 @@
 
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{amsopn}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{booktabs}
@@ -17,6 +18,7 @@
 \usepackage{latexsym}
 \usepackage{multirow}
 \usepackage{natbib}
+\usepackage{setspace}
 \usepackage{subcaption}
 \usepackage{threeparttable}
 \usepackage{url}
@@ -32,7 +34,7 @@
 \textheight=9.0in
 \headsep=0.25in
 \headheight=15pt
-\linespread{1.2}
+\setstretch{1.2}
 \renewcommand{\floatpagefraction}{.9}
 
 \pagestyle{fancy}
@@ -148,7 +150,6 @@
 \newcommand{\Ph}{\Phi}
 \newcommand{\Ps}{\Psi}
 \newcommand{\Om}{\Omega}
-\renewcommand{\digamma}{\Psi}
 
 % accents
 \newcommand{\ti}[1]{\tilde{#1}}
@@ -157,25 +158,11 @@
 % some definitions
 \newcommand{\pfrac}[2]{#1/#2}
 \newcommand{\ppfrac}[2]{\left(#1/#2\right)}
-\newcommand{\defeq}{\triangleq}
-\newcommand{\order}{\cO}
-\newcommand{\ud}{\textrm{d}}
-\renewcommand{\|}{\textrm{~}\arrowvert\textrm{~}}
-\newcommand{\dbar}{\textrm{~}\arrowvert\arrowvert\textrm{~}}
-\newcommand{\bars}{\textrm{~}\arrowvert\arrowvert\textrm{~}}
-\renewcommand{\;}{\textrm{~}{\boldsymbol ;}\textrm{~}}
-\newcommand{\by}{\sim}
 \newcommand{\impl}{\Rightarrow}
 \newcommand{\fto}{\rightarrow}
 \newcommand{\from}{\leftarrow}
-\newcommand{\restricted}{\upharpoonright}
-\renewcommand{\brack}[1]{\left\{\begin{array}{ll}#1\end{array}\right.}
 \newcommand{\missing}{\bullet}
 \newcommand{\norm}[1]{\left\vert\left\vert #1 \right\vert\right\vert}
-\newcommand{\pprime}[1]{p'\left(#1\right)}
-\newcommand{\pleft}[1]{p\left(#1\right.}
-\newcommand{\pright}[1]{p\left.#1\right)}
-\newcommand{\prob}[1]{\mathcal{P}\left\{{#1}\right\}}
 \newcommand{\ab}[1]{\left\vert#1\right\vert}
 
 % sets/functions
@@ -186,7 +173,7 @@
 
 % Information Theory
 \renewcommand{\H}[1]{H\left(#1\right)}
-\newcommand{\KL}[2]{KL\left(#1||#2\right)}
+\newcommand{\KL}[2]{KL\left(#1\|#2\right)}
 
 % statistics
 \newcommand{\p}[1]{p\left(#1\right)}
