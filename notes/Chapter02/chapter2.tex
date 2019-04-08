@@ -688,7 +688,21 @@ and thus $f(x^*+h)>f(x^*)$. So in this case $x^*$ is a local minimum of $f$. In 
 
 \paragraph{Rate of Convergence}
 
+In the sequel we shall consider algorithms which compute a sequence of improving approximation $x_k$ to $x^*$. So, numerical considerations aside, $\lim_{k\to\infty}x_k=x^*$. One way of comparing different algorithms, is to consider the rate of convergence $p$ of the sequence $x_k$. The rate of convergence $p$ is defined to be the largest number for which it is possible to find a bount $C_p$ so that the following inequality holds for all $k$:
+\begin{align*}
+	\frac{\ab{x_{k+1}-x^*}}{\ab{x_k-x^*}^p}\leq C_p
+\end{align*}
+For example, the sequence $x_k=2^{-k}$ has rate of convergence $p=1$. Obviously $x^*=0$ and
+\begin{align*}
+	\frac{\ab{x_{k+1}-x^*}}{\ab{x_k-x^*}^p}=\frac{2^{-k-1}}{2^{-kp}}=2^{-k-1+kp}=2^{-1}2^{k(p-1)}
+\end{align*}
+So for $p=1$ we can use $C_1=2^{-1}$ whereas $2^{k(p-1)}$ diverges for $p>1$.
 
+\paragraph{Brackets}
+
+A bracket for minimizing a function $f$, is a triple $\{a,b,c\}$ of real numbers, such that $a<b<c$ and $f(a)\geq f(b)\leq f(c)$. Since the value of $f$ on the interior point $b$ is smaller or equal to the value on the boundary points $a$ and $c$, one will expect that there is a local minimum somewhere inside the interval $[a,c]$. Once we have bracket, it is straightforward to obtain a better approximation, by picking a point $x\neq b$ in the interval $(a,c)$ and comparing $f(x)$ to $f(b)$.
+
+Assume we pick $x$ such that $a<x<b$, then either $f(x)\geq f(b)$, so $\{x,b,c\}$ is a new bracket; or $f(x)<f(b)$, so $\{a,x,b\}$ is a new bracket. In the first case, it is obvious that $\{x,b,c\}$ is a bracket. For the second case, $f(x)<f(b)$, note that $f(a)\geq f(b)$, since $\{a,b,c\}$ is a bracket. So $f(a)>f(x)$ and $\{a,x,b\}$ is indeed a bracket. In the case that we choose to pick $x$ such that $b<x<c$, it is either $f(x)\geq f(b)$, so $\{a,b,x\}$ is a new bracket; or $f(x)<f(b)$, so $\{b,x,c\}$ is a new bracket. So, by choosing an interior point $x$ in the current bracket and obtaining a new bracket, we arrive at better and better approximations to the location of the minimum.
 
 \subsection{Gradient Descent}
 

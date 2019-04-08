@@ -79,98 +79,99 @@
 \contentsline {subsection}{\numberline {2.5.1}One-dimensional Minimization}{17}{subsection.2.5.1}% 
 \contentsline {paragraph}{Sufficient Conditions for a Minimum}{17}{section*.59}% 
 \contentsline {paragraph}{Rate of Convergence}{18}{section*.60}% 
-\contentsline {subsection}{\numberline {2.5.2}Gradient Descent}{18}{subsection.2.5.2}% 
-\contentsline {subsection}{\numberline {2.5.3}Quadratic Functions}{18}{subsection.2.5.3}% 
-\contentsline {subsection}{\numberline {2.5.4}General Functions}{18}{subsection.2.5.4}% 
-\contentsline {subsection}{\numberline {2.5.5}Optimization with Constraints}{18}{subsection.2.5.5}% 
-\contentsline {chapter}{\numberline {3}Machine Learning Basics}{19}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Regularization}{19}{section.3.1}% 
-\contentsline {subsection}{\numberline {3.1.1}Under-fitting \& Over-fitting}{19}{subsection.3.1.1}% 
-\contentsline {subsection}{\numberline {3.1.2}Bias \& Variance}{19}{subsection.3.1.2}% 
-\contentsline {subsection}{\numberline {3.1.3}Vector Norm}{19}{subsection.3.1.3}% 
-\contentsline {subsection}{\numberline {3.1.4}Penalize Complexity}{20}{subsection.3.1.4}% 
-\contentsline {section}{\numberline {3.2}Cross-Validation}{20}{section.3.2}% 
-\contentsline {section}{\numberline {3.3}Bayesian Learning}{20}{section.3.3}% 
-\contentsline {subsection}{\numberline {3.3.1}Bayes' Rule Terminology}{20}{subsection.3.3.1}% 
-\contentsline {subsection}{\numberline {3.3.2}Maximum Likelihood}{21}{subsection.3.3.2}% 
-\contentsline {subsection}{\numberline {3.3.3}Maximum a Posterior (MAP)}{21}{subsection.3.3.3}% 
-\contentsline {subsection}{\numberline {3.3.4}Bayesian Approach}{21}{subsection.3.3.4}% 
-\contentsline {subsection}{\numberline {3.3.5}Example: Univariate Normal Distribution}{22}{subsection.3.3.5}% 
-\contentsline {subsection}{\numberline {3.3.6}Example: Categorical Distribution}{24}{subsection.3.3.6}% 
-\contentsline {section}{\numberline {3.4}Machine Learning Models}{27}{section.3.4}% 
-\contentsline {subsection}{\numberline {3.4.1}Learning and Inference}{27}{subsection.3.4.1}% 
-\contentsline {subsection}{\numberline {3.4.2}Three Types of Model}{27}{subsection.3.4.2}% 
-\contentsline {subsection}{\numberline {3.4.3}Example: Regression}{28}{subsection.3.4.3}% 
-\contentsline {subsection}{\numberline {3.4.4}Example: Classification}{30}{subsection.3.4.4}% 
-\contentsline {section}{\numberline {3.5}Overview of Common Algorithms}{31}{section.3.5}% 
-\contentsline {chapter}{\numberline {4}Matrix Factorization}{32}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}SVD}{32}{section.4.1}% 
-\contentsline {section}{\numberline {4.2}PCA}{32}{section.4.2}% 
-\contentsline {section}{\numberline {4.3}(N)NMF}{32}{section.4.3}% 
-\contentsline {chapter}{\numberline {5}K-Nearest Neighbors}{33}{chapter.5}% 
-\contentsline {section}{\numberline {5.1}Simple K-NN}{33}{section.5.1}% 
-\contentsline {section}{\numberline {5.2}Fast K-NN Computation}{33}{section.5.2}% 
-\contentsline {chapter}{\numberline {6}Linear Regression}{34}{chapter.6}% 
-\contentsline {section}{\numberline {6.1}Basic Model}{34}{section.6.1}% 
-\contentsline {section}{\numberline {6.2}Bayesian Regression}{34}{section.6.2}% 
-\contentsline {section}{\numberline {6.3}Non-linear Regression}{36}{section.6.3}% 
-\contentsline {section}{\numberline {6.4}Kernel Trick \& Gaussian Processes}{36}{section.6.4}% 
-\contentsline {section}{\numberline {6.5}Sparse Linear Regression}{36}{section.6.5}% 
-\contentsline {section}{\numberline {6.6}Dual Linear Regression}{36}{section.6.6}% 
-\contentsline {section}{\numberline {6.7}Relevance Vector Regression}{36}{section.6.7}% 
-\contentsline {chapter}{\numberline {7}Logistic Regression}{37}{chapter.7}% 
-\contentsline {section}{\numberline {7.1}Logistic Regression}{37}{section.7.1}% 
-\contentsline {section}{\numberline {7.2}Non-linear Logistic Regression}{37}{section.7.2}% 
-\contentsline {section}{\numberline {7.3}Kernel Trick \& Gaussian Process Classification}{37}{section.7.3}% 
-\contentsline {section}{\numberline {7.4}Multi-class Classification}{37}{section.7.4}% 
-\contentsline {chapter}{\numberline {8}Support Vector Machines}{38}{chapter.8}% 
-\contentsline {section}{\numberline {8.1}Geometric Margins}{38}{section.8.1}% 
-\contentsline {section}{\numberline {8.2}Primal \& Dual Problems}{38}{section.8.2}% 
-\contentsline {section}{\numberline {8.3}Support Vectors}{38}{section.8.3}% 
-\contentsline {section}{\numberline {8.4}Slack Variables}{38}{section.8.4}% 
-\contentsline {section}{\numberline {8.5}Hinge Loss}{38}{section.8.5}% 
-\contentsline {section}{\numberline {8.6}Non-linear SVMs}{38}{section.8.6}% 
-\contentsline {section}{\numberline {8.7}Kernel Trick}{38}{section.8.7}% 
-\contentsline {chapter}{\numberline {9}EM Algorithm}{39}{chapter.9}% 
-\contentsline {section}{\numberline {9.1}Expectation Maximization}{39}{section.9.1}% 
-\contentsline {section}{\numberline {9.2}Example: Mixture of Gaussians}{39}{section.9.2}% 
-\contentsline {section}{\numberline {9.3}Example: t-distributions}{39}{section.9.3}% 
-\contentsline {section}{\numberline {9.4}Example: Factor Analysis}{39}{section.9.4}% 
-\contentsline {chapter}{\numberline {10}Bagging \& Boosting}{40}{chapter.10}% 
-\contentsline {section}{\numberline {10.1}Ensemble Methods}{40}{section.10.1}% 
-\contentsline {section}{\numberline {10.2}Bagging}{40}{section.10.2}% 
-\contentsline {section}{\numberline {10.3}CART}{40}{section.10.3}% 
-\contentsline {section}{\numberline {10.4}ID3}{40}{section.10.4}% 
-\contentsline {section}{\numberline {10.5}C4.5}{40}{section.10.5}% 
-\contentsline {section}{\numberline {10.6}Random Forest}{40}{section.10.6}% 
-\contentsline {section}{\numberline {10.7}Boosting}{40}{section.10.7}% 
-\contentsline {section}{\numberline {10.8}Adaboost}{40}{section.10.8}% 
-\contentsline {chapter}{\numberline {11}Graphical Models \& Markov Network}{41}{chapter.11}% 
-\contentsline {section}{\numberline {11.1}Graph Definitions}{41}{section.11.1}% 
-\contentsline {subsection}{\numberline {11.1.1}Graph}{41}{subsection.11.1.1}% 
-\contentsline {subsection}{\numberline {11.1.2}Directed Graph}{41}{subsection.11.1.2}% 
-\contentsline {subsection}{\numberline {11.1.3}Undirected Graph}{42}{subsection.11.1.3}% 
-\contentsline {subsection}{\numberline {11.1.4}Connectivity}{42}{subsection.11.1.4}% 
-\contentsline {subsection}{\numberline {11.1.5}Connectedness}{42}{subsection.11.1.5}% 
-\contentsline {section}{\numberline {11.2}Belief Networks}{43}{section.11.2}% 
-\contentsline {subsection}{\numberline {11.2.1}Definition}{43}{subsection.11.2.1}% 
-\contentsline {subsection}{\numberline {11.2.2}Uncertain Evidence}{43}{subsection.11.2.2}% 
-\contentsline {subsection}{\numberline {11.2.3}Independence}{44}{subsection.11.2.3}% 
-\contentsline {subsection}{\numberline {11.2.4}General Rule for Independence in Belief Networks}{45}{subsection.11.2.4}% 
-\contentsline {subsection}{\numberline {11.2.5}Markov Equivalence}{46}{subsection.11.2.5}% 
-\contentsline {section}{\numberline {11.3}Markov Networks}{46}{section.11.3}% 
-\contentsline {subsection}{\numberline {11.3.1}Definition}{46}{subsection.11.3.1}% 
-\contentsline {subsection}{\numberline {11.3.2}Examples}{46}{subsection.11.3.2}% 
-\contentsline {subsection}{\numberline {11.3.3}Independence}{47}{subsection.11.3.3}% 
-\contentsline {subsection}{\numberline {11.3.4}Expressiveness of Markov and Belief Networks}{47}{subsection.11.3.4}% 
-\contentsline {subsection}{\numberline {11.3.5}Factor Graphs}{47}{subsection.11.3.5}% 
-\contentsline {section}{\numberline {11.4}Markov Chains}{47}{section.11.4}% 
-\contentsline {section}{\numberline {11.5}Hidden Markov Models}{47}{section.11.5}% 
-\contentsline {chapter}{\numberline {A}Statistical Assessment}{48}{appendix.A}% 
-\contentsline {section}{\numberline {A.1}Hypothesis Testing}{48}{section.A.1}% 
-\contentsline {subsection}{\numberline {A.1.1}Testing Basics}{48}{subsection.A.1.1}% 
-\contentsline {subsection}{\numberline {A.1.2}Testing Procedure}{48}{subsection.A.1.2}% 
-\contentsline {subsection}{\numberline {A.1.3}Power Investigation}{49}{subsection.A.1.3}% 
-\contentsline {subsection}{\numberline {A.1.4}Useful Tests}{49}{subsection.A.1.4}% 
-\contentsline {section}{\numberline {A.2}Confidence Intervals}{49}{section.A.2}% 
-\contentsline {section}{\numberline {A.3}Bootstrap}{49}{section.A.3}% 
+\contentsline {paragraph}{Brackets}{18}{section*.61}% 
+\contentsline {subsection}{\numberline {2.5.2}Gradient Descent}{19}{subsection.2.5.2}% 
+\contentsline {subsection}{\numberline {2.5.3}Quadratic Functions}{19}{subsection.2.5.3}% 
+\contentsline {subsection}{\numberline {2.5.4}General Functions}{19}{subsection.2.5.4}% 
+\contentsline {subsection}{\numberline {2.5.5}Optimization with Constraints}{19}{subsection.2.5.5}% 
+\contentsline {chapter}{\numberline {3}Machine Learning Basics}{20}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Regularization}{20}{section.3.1}% 
+\contentsline {subsection}{\numberline {3.1.1}Under-fitting \& Over-fitting}{20}{subsection.3.1.1}% 
+\contentsline {subsection}{\numberline {3.1.2}Bias \& Variance}{20}{subsection.3.1.2}% 
+\contentsline {subsection}{\numberline {3.1.3}Vector Norm}{20}{subsection.3.1.3}% 
+\contentsline {subsection}{\numberline {3.1.4}Penalize Complexity}{21}{subsection.3.1.4}% 
+\contentsline {section}{\numberline {3.2}Cross-Validation}{21}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}Bayesian Learning}{21}{section.3.3}% 
+\contentsline {subsection}{\numberline {3.3.1}Bayes' Rule Terminology}{21}{subsection.3.3.1}% 
+\contentsline {subsection}{\numberline {3.3.2}Maximum Likelihood}{22}{subsection.3.3.2}% 
+\contentsline {subsection}{\numberline {3.3.3}Maximum a Posterior (MAP)}{22}{subsection.3.3.3}% 
+\contentsline {subsection}{\numberline {3.3.4}Bayesian Approach}{22}{subsection.3.3.4}% 
+\contentsline {subsection}{\numberline {3.3.5}Example: Univariate Normal Distribution}{23}{subsection.3.3.5}% 
+\contentsline {subsection}{\numberline {3.3.6}Example: Categorical Distribution}{25}{subsection.3.3.6}% 
+\contentsline {section}{\numberline {3.4}Machine Learning Models}{28}{section.3.4}% 
+\contentsline {subsection}{\numberline {3.4.1}Learning and Inference}{28}{subsection.3.4.1}% 
+\contentsline {subsection}{\numberline {3.4.2}Three Types of Model}{28}{subsection.3.4.2}% 
+\contentsline {subsection}{\numberline {3.4.3}Example: Regression}{29}{subsection.3.4.3}% 
+\contentsline {subsection}{\numberline {3.4.4}Example: Classification}{31}{subsection.3.4.4}% 
+\contentsline {section}{\numberline {3.5}Overview of Common Algorithms}{32}{section.3.5}% 
+\contentsline {chapter}{\numberline {4}Matrix Factorization}{33}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}SVD}{33}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}PCA}{33}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}(N)NMF}{33}{section.4.3}% 
+\contentsline {chapter}{\numberline {5}K-Nearest Neighbors}{34}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Simple K-NN}{34}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Fast K-NN Computation}{34}{section.5.2}% 
+\contentsline {chapter}{\numberline {6}Linear Regression}{35}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}Basic Model}{35}{section.6.1}% 
+\contentsline {section}{\numberline {6.2}Bayesian Regression}{35}{section.6.2}% 
+\contentsline {section}{\numberline {6.3}Non-linear Regression}{37}{section.6.3}% 
+\contentsline {section}{\numberline {6.4}Kernel Trick \& Gaussian Processes}{37}{section.6.4}% 
+\contentsline {section}{\numberline {6.5}Sparse Linear Regression}{37}{section.6.5}% 
+\contentsline {section}{\numberline {6.6}Dual Linear Regression}{37}{section.6.6}% 
+\contentsline {section}{\numberline {6.7}Relevance Vector Regression}{37}{section.6.7}% 
+\contentsline {chapter}{\numberline {7}Logistic Regression}{38}{chapter.7}% 
+\contentsline {section}{\numberline {7.1}Logistic Regression}{38}{section.7.1}% 
+\contentsline {section}{\numberline {7.2}Non-linear Logistic Regression}{38}{section.7.2}% 
+\contentsline {section}{\numberline {7.3}Kernel Trick \& Gaussian Process Classification}{38}{section.7.3}% 
+\contentsline {section}{\numberline {7.4}Multi-class Classification}{38}{section.7.4}% 
+\contentsline {chapter}{\numberline {8}Support Vector Machines}{39}{chapter.8}% 
+\contentsline {section}{\numberline {8.1}Geometric Margins}{39}{section.8.1}% 
+\contentsline {section}{\numberline {8.2}Primal \& Dual Problems}{39}{section.8.2}% 
+\contentsline {section}{\numberline {8.3}Support Vectors}{39}{section.8.3}% 
+\contentsline {section}{\numberline {8.4}Slack Variables}{39}{section.8.4}% 
+\contentsline {section}{\numberline {8.5}Hinge Loss}{39}{section.8.5}% 
+\contentsline {section}{\numberline {8.6}Non-linear SVMs}{39}{section.8.6}% 
+\contentsline {section}{\numberline {8.7}Kernel Trick}{39}{section.8.7}% 
+\contentsline {chapter}{\numberline {9}EM Algorithm}{40}{chapter.9}% 
+\contentsline {section}{\numberline {9.1}Expectation Maximization}{40}{section.9.1}% 
+\contentsline {section}{\numberline {9.2}Example: Mixture of Gaussians}{40}{section.9.2}% 
+\contentsline {section}{\numberline {9.3}Example: t-distributions}{40}{section.9.3}% 
+\contentsline {section}{\numberline {9.4}Example: Factor Analysis}{40}{section.9.4}% 
+\contentsline {chapter}{\numberline {10}Bagging \& Boosting}{41}{chapter.10}% 
+\contentsline {section}{\numberline {10.1}Ensemble Methods}{41}{section.10.1}% 
+\contentsline {section}{\numberline {10.2}Bagging}{41}{section.10.2}% 
+\contentsline {section}{\numberline {10.3}CART}{41}{section.10.3}% 
+\contentsline {section}{\numberline {10.4}ID3}{41}{section.10.4}% 
+\contentsline {section}{\numberline {10.5}C4.5}{41}{section.10.5}% 
+\contentsline {section}{\numberline {10.6}Random Forest}{41}{section.10.6}% 
+\contentsline {section}{\numberline {10.7}Boosting}{41}{section.10.7}% 
+\contentsline {section}{\numberline {10.8}Adaboost}{41}{section.10.8}% 
+\contentsline {chapter}{\numberline {11}Graphical Models \& Markov Network}{42}{chapter.11}% 
+\contentsline {section}{\numberline {11.1}Graph Definitions}{42}{section.11.1}% 
+\contentsline {subsection}{\numberline {11.1.1}Graph}{42}{subsection.11.1.1}% 
+\contentsline {subsection}{\numberline {11.1.2}Directed Graph}{42}{subsection.11.1.2}% 
+\contentsline {subsection}{\numberline {11.1.3}Undirected Graph}{43}{subsection.11.1.3}% 
+\contentsline {subsection}{\numberline {11.1.4}Connectivity}{43}{subsection.11.1.4}% 
+\contentsline {subsection}{\numberline {11.1.5}Connectedness}{43}{subsection.11.1.5}% 
+\contentsline {section}{\numberline {11.2}Belief Networks}{44}{section.11.2}% 
+\contentsline {subsection}{\numberline {11.2.1}Definition}{44}{subsection.11.2.1}% 
+\contentsline {subsection}{\numberline {11.2.2}Uncertain Evidence}{44}{subsection.11.2.2}% 
+\contentsline {subsection}{\numberline {11.2.3}Independence}{45}{subsection.11.2.3}% 
+\contentsline {subsection}{\numberline {11.2.4}General Rule for Independence in Belief Networks}{46}{subsection.11.2.4}% 
+\contentsline {subsection}{\numberline {11.2.5}Markov Equivalence}{47}{subsection.11.2.5}% 
+\contentsline {section}{\numberline {11.3}Markov Networks}{47}{section.11.3}% 
+\contentsline {subsection}{\numberline {11.3.1}Definition}{47}{subsection.11.3.1}% 
+\contentsline {subsection}{\numberline {11.3.2}Examples}{47}{subsection.11.3.2}% 
+\contentsline {subsection}{\numberline {11.3.3}Independence}{48}{subsection.11.3.3}% 
+\contentsline {subsection}{\numberline {11.3.4}Expressiveness of Markov and Belief Networks}{48}{subsection.11.3.4}% 
+\contentsline {subsection}{\numberline {11.3.5}Factor Graphs}{48}{subsection.11.3.5}% 
+\contentsline {section}{\numberline {11.4}Markov Chains}{48}{section.11.4}% 
+\contentsline {section}{\numberline {11.5}Hidden Markov Models}{48}{section.11.5}% 
+\contentsline {chapter}{\numberline {A}Statistical Assessment}{49}{appendix.A}% 
+\contentsline {section}{\numberline {A.1}Hypothesis Testing}{49}{section.A.1}% 
+\contentsline {subsection}{\numberline {A.1.1}Testing Basics}{49}{subsection.A.1.1}% 
+\contentsline {subsection}{\numberline {A.1.2}Testing Procedure}{49}{subsection.A.1.2}% 
+\contentsline {subsection}{\numberline {A.1.3}Power Investigation}{50}{subsection.A.1.3}% 
+\contentsline {subsection}{\numberline {A.1.4}Useful Tests}{50}{subsection.A.1.4}% 
+\contentsline {section}{\numberline {A.2}Confidence Intervals}{50}{section.A.2}% 
+\contentsline {section}{\numberline {A.3}Bootstrap}{50}{section.A.3}% 
