@@ -47,7 +47,7 @@ Usually, the formula is written as $\P{x|y}=\frac{\P{x,y}}{\P{y}}$.
 		   &=\frac{\P{x|y}\P{y}}{\int\P{x,y}dy} \\
 		   &=\frac{\P{x|y}\P{y}}{\int\P{x|y}\P{y}dy}
 	\end{align*}
-\item[Expectation] Expectation tells us the excepted or average value of some function $f(x)$, taking into account the distribution of $x$.
+\item[Expectation] Expectation tells us the expected or average value of some function $f(x)$, taking into account the distribution of $x$.
 	\begin{align*}
 	\E{f(x)}&=\sum_x f(x)\P{x} \\
 	\E{f(x)}&=\int f(x)\P{x}dx
@@ -418,7 +418,7 @@ The average value of $f(x)$ on $a\leq x\leq b$ is
 	f_{avg}=\frac{1}{b-a}\int_a^b f(x)\ds{x}
 \end{align*}
 
-\subsubsection*{Jensen's inequality}
+\subsubsection*{Jensen's Inequality}
 
 If $\vph$ is a convex function,
 \begin{align*}
@@ -452,7 +452,7 @@ If $z=f(x,y)$, $x=g(t)$, and $y=h(t)$, then
 \subsubsection*{Gradient}
 
 \begin{align*}
-	\grad f(x,y)=\vecx{f_x(x,y),f_y(x,y)}
+	\grad f(x,y)=\left[f_x(x,y)\ f_y(x,y)\right]\T
 \end{align*}
 
 \subsubsection*{Directional Derivative}
