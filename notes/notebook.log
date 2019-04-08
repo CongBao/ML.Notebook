@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.4)  8 APR 2019 20:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.4)  9 APR 2019 00:24
 entering extended mode
 **./notebook.tex
 (notebook.tex
@@ -514,35 +514,35 @@ Overfull \hbox (0.71486pt too wide) in paragraph at lines 691--692
 -sid-er-a-tions aside, $[][] \OML/cmm/m/it/12 x[] \OT1/cmr/m/n/12 =
  []
 
-[18]) [19]
+[18] [19] [20]) [21]
 \openout2 = `Chapter03/chapter3.aux'.
 
  (Chapter03/chapter3.tex
 Chapter 3.
-[20
+[22
 
 
 
-] [21] [22] [23] [24] [25] [26] [27] [28]
+] [23] [24] [25] [26] [27] [28] [29] [30]
 Overfull \hbox (0.39732pt too wide) in paragraph at lines 287--288
 []\OT1/cmr/m/n/12 Define prior $\OML/cmm/m/it/12 P []$ \OT1/cmr/m/n/12 and then
  com-pute $\OML/cmm/m/it/12 P []$ \OT1/cmr/m/n/12 us-ing Bayes' rule $\OML/cmm/
 m/it/12 P [] \OT1/cmr/m/n/12 = []$. 
  []
 
-[29] [30]
+[31] [32]
 Overfull \hbox (0.39732pt too wide) in paragraph at lines 355--356
 []\OT1/cmr/m/n/12 Define prior $\OML/cmm/m/it/12 P []$ \OT1/cmr/m/n/12 and then
  com-pute $\OML/cmm/m/it/12 P []$ \OT1/cmr/m/n/12 us-ing Bayes' rule $\OML/cmm/
 m/it/12 P [] \OT1/cmr/m/n/12 = []$. 
  []
 
-) [31] [32]
+) [33] [34]
 \openout2 = `Chapter04/chapter4.aux'.
 
  (Chapter04/chapter4.tex
 Chapter 4.
-) [33
+) [35
 
 
 
@@ -551,7 +551,7 @@ Chapter 4.
 
  (Chapter05/chapter5.tex
 Chapter 5.
-) [34
+) [36
 
 
 
@@ -568,16 +568,16 @@ t/12 P [] \OT1/cmr/m/n/12 = [][] [] \OML/cmm/m/it/12 P []$\OT1/cmr/m/n/12 ,
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 22.
-[35
+[37
 
 
 
-]) [36] [37]
+]) [38] [39]
 \openout2 = `Chapter07/chapter7.aux'.
 
  (Chapter07/chapter7.tex
 Chapter 7.
-) [38
+) [40
 
 
 
@@ -586,7 +586,7 @@ Chapter 7.
 
  (Chapter08/chapter8.tex
 Chapter 8.
-) [39
+) [41
 
 
 
@@ -595,7 +595,7 @@ Chapter 8.
 
  (Chapter09/chapter9.tex
 Chapter 9.
-) [40
+) [42
 
 
 
@@ -604,7 +604,7 @@ Chapter 9.
 
  (Chapter10/chapter10.tex
 Chapter 10.
-) [41
+) [43
 
 
 
@@ -613,37 +613,37 @@ Chapter 10.
 
  (Chapter11/chapter11.tex
 Chapter 11.
-<Chapter11/Figs/fig1.png, id=1037, 633.86812pt x 279.29344pt>
+<Chapter11/Figs/fig1.png, id=1051, 633.86812pt x 279.29344pt>
 File: Chapter11/Figs/fig1.png Graphic file (type png)
 <use Chapter11/Figs/fig1.png>
 Package pdftex.def Info: Chapter11/Figs/fig1.png  used on input line 24.
 (pdftex.def)             Requested size: 234.87749pt x 103.49037pt.
-[42
+[44
 
 
 
  <./Chapter11/Figs/fig1.png (PNG copy)>]
-<Chapter11/Figs/fig2.png, id=1045, 305.64188pt x 220.57407pt>
+<Chapter11/Figs/fig2.png, id=1060, 305.64188pt x 220.57407pt>
 File: Chapter11/Figs/fig2.png Graphic file (type png)
 <use Chapter11/Figs/fig2.png>
 Package pdftex.def Info: Chapter11/Figs/fig2.png  used on input line 37.
 (pdftex.def)             Requested size: 117.43874pt x 84.7513pt.
-<Chapter11/Figs/fig3.png, id=1047, 291.33844pt x 213.04594pt>
+<Chapter11/Figs/fig3.png, id=1062, 291.33844pt x 213.04594pt>
 File: Chapter11/Figs/fig3.png Graphic file (type png)
 <use Chapter11/Figs/fig3.png>
 Package pdftex.def Info: Chapter11/Figs/fig3.png  used on input line 52.
 (pdftex.def)             Requested size: 105.69415pt x 77.28812pt.
-<Chapter11/Figs/fig4.png, id=1049, 293.59688pt x 210.7875pt>
+<Chapter11/Figs/fig4.png, id=1064, 293.59688pt x 210.7875pt>
 File: Chapter11/Figs/fig4.png Graphic file (type png)
 <use Chapter11/Figs/fig4.png>
 Package pdftex.def Info: Chapter11/Figs/fig4.png  used on input line 57.
 (pdftex.def)             Requested size: 105.69415pt x 75.88344pt.
-<Chapter11/Figs/fig5.png, id=1051, 289.08pt x 213.04594pt>
+<Chapter11/Figs/fig5.png, id=1066, 289.08pt x 213.04594pt>
 File: Chapter11/Figs/fig5.png Graphic file (type png)
 <use Chapter11/Figs/fig5.png>
 Package pdftex.def Info: Chapter11/Figs/fig5.png  used on input line 72.
 (pdftex.def)             Requested size: 105.69415pt x 77.89278pt.
-<Chapter11/Figs/fig6.png, id=1053, 288.3272pt x 211.54031pt>
+<Chapter11/Figs/fig6.png, id=1068, 288.3272pt x 211.54031pt>
 File: Chapter11/Figs/fig6.png Graphic file (type png)
 <use Chapter11/Figs/fig6.png>
 Package pdftex.def Info: Chapter11/Figs/fig6.png  used on input line 77.
@@ -652,9 +652,9 @@ Package pdftex.def Info: Chapter11/Figs/fig6.png  used on input line 77.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[43 <./Chapter11/Figs/fig2.png (PNG copy)> <./Chapter11/Figs/fig3.png (PNG copy
+[45 <./Chapter11/Figs/fig2.png (PNG copy)> <./Chapter11/Figs/fig3.png (PNG copy
 )> <./Chapter11/Figs/fig4.png (PNG copy)>]
-<Chapter11/Figs/fig7.png, id=1064, 387.69844pt x 317.68687pt>
+<Chapter11/Figs/fig7.png, id=1079, 387.69844pt x 317.68687pt>
 File: Chapter11/Figs/fig7.png Graphic file (type png)
 <use Chapter11/Figs/fig7.png>
 Package pdftex.def Info: Chapter11/Figs/fig7.png  used on input line 91.
@@ -664,7 +664,7 @@ Overfull \hbox (20.23589pt too wide) in paragraph at lines 89--96
 []$[]$ $[]$ 
  []
 
-<Chapter11/Figs/fig8.png, id=1066, 338.01282pt x 165.61874pt>
+<Chapter11/Figs/fig8.png, id=1081, 338.01282pt x 165.61874pt>
 File: Chapter11/Figs/fig8.png Graphic file (type png)
 <use Chapter11/Figs/fig8.png>
 Package pdftex.def Info: Chapter11/Figs/fig8.png  used on input line 106.
@@ -672,12 +672,12 @@ Package pdftex.def Info: Chapter11/Figs/fig8.png  used on input line 106.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Chapter11/Figs/fig9.png, id=1068, 1113.40968pt x 281.55188pt>
+<Chapter11/Figs/fig9.png, id=1083, 1113.40968pt x 281.55188pt>
 File: Chapter11/Figs/fig9.png Graphic file (type png)
 <use Chapter11/Figs/fig9.png>
 Package pdftex.def Info: Chapter11/Figs/fig9.png  used on input line 115.
 (pdftex.def)             Requested size: 469.75499pt x 118.788pt.
-[44 <./Chapter11/Figs/fig5.png (PNG copy)> <./Chapter11/Figs/fig6.png (PNG copy
+[46 <./Chapter11/Figs/fig5.png (PNG copy)> <./Chapter11/Figs/fig6.png (PNG copy
 )> <./Chapter11/Figs/fig7.png (PNG copy)>]
 Overfull \hbox (35.59346pt too wide) in paragraph at lines 123--124
 \OT1/cmr/m/n/12 In (d) the vari-ables A, B are con-di-tion-ally de-pen-dent giv
@@ -685,17 +685,17 @@ en C, $\OML/cmm/m/it/12 P [] \U/msa/m/n/12 _ \OML/cmm/m/it/12 P [] P [] P []$\O
 T1/cmr/m/n/12 . 
  []
 
-<Chapter11/Figs/fig10.png, id=1079, 1110.39844pt x 272.51813pt>
+<Chapter11/Figs/fig10.png, id=1093, 1110.39844pt x 272.51813pt>
 File: Chapter11/Figs/fig10.png Graphic file (type png)
 <use Chapter11/Figs/fig10.png>
 Package pdftex.def Info: Chapter11/Figs/fig10.png  used on input line 128.
 (pdftex.def)             Requested size: 469.75499pt x 115.28848pt.
-<Chapter11/Figs/fig11.png, id=1081, 238.64156pt x 150.5625pt>
+<Chapter11/Figs/fig11.png, id=1095, 238.64156pt x 150.5625pt>
 File: Chapter11/Figs/fig11.png Graphic file (type png)
 <use Chapter11/Figs/fig11.png>
 Package pdftex.def Info: Chapter11/Figs/fig11.png  used on input line 139.
 (pdftex.def)             Requested size: 112.74062pt x 71.12965pt.
-<Chapter11/Figs/fig12.png, id=1083, 236.38312pt x 149.05687pt>
+<Chapter11/Figs/fig12.png, id=1097, 236.38312pt x 149.05687pt>
 File: Chapter11/Figs/fig12.png Graphic file (type png)
 <use Chapter11/Figs/fig12.png>
 Package pdftex.def Info: Chapter11/Figs/fig12.png  used on input line 146.
@@ -710,10 +710,10 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 137--151
 []$ $[]$ 
  []
 
-[45 <./Chapter11/Figs/fig8.png (PNG copy)> <./Chapter11/Figs/fig9.png (PNG copy
-)> <./Chapter11/Figs/fig10.png (PNG copy)>] [46 <./Chapter11/Figs/fig11.png (PN
+[47 <./Chapter11/Figs/fig8.png (PNG copy)> <./Chapter11/Figs/fig9.png (PNG copy
+)> <./Chapter11/Figs/fig10.png (PNG copy)>] [48 <./Chapter11/Figs/fig11.png (PN
 G copy)> <./Chapter11/Figs/fig12.png (PNG copy)>]
-<Chapter11/Figs/fig13.png, id=1113, 269.50688pt x 292.84406pt>
+<Chapter11/Figs/fig13.png, id=1127, 269.50688pt x 292.84406pt>
 File: Chapter11/Figs/fig13.png Graphic file (type png)
 <use Chapter11/Figs/fig13.png>
 Package pdftex.def Info: Chapter11/Figs/fig13.png  used on input line 189.
@@ -723,7 +723,7 @@ Overfull \hbox (20.23589pt too wide) in paragraph at lines 187--197
 []$[]$ $[]$ 
  []
 
-<Chapter11/Figs/fig14.png, id=1115, 286.82156pt x 281.55188pt>
+<Chapter11/Figs/fig14.png, id=1129, 286.82156pt x 281.55188pt>
 File: Chapter11/Figs/fig14.png Graphic file (type png)
 <use Chapter11/Figs/fig14.png>
 Package pdftex.def Info: Chapter11/Figs/fig14.png  used on input line 203.
@@ -738,13 +738,13 @@ Overfull \hbox (5.42458pt too wide) in paragraph at lines 201--214
 $[]$ $[]$ 
  []
 
-) [47 <./Chapter11/Figs/fig13.png (PNG copy)> <./Chapter11/Figs/fig14.png (PNG 
-copy)>] [48]
+) [49 <./Chapter11/Figs/fig13.png (PNG copy)> <./Chapter11/Figs/fig14.png (PNG 
+copy)>] [50]
 \openout2 = `AppendixA/appendixA.aux'.
 
  (AppendixA/appendixA.tex
 Appendix A.
-[49
+[51
 
 
 
@@ -755,7 +755,7 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
-) [50]
+) [52]
 
 AED: lastpage setting LastPage
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 45.
@@ -772,13 +772,13 @@ Package rerunfilecheck Info: File `notebook.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 45.
  ) 
 Here is how much of TeX's memory you used:
- 9546 strings out of 492945
- 139727 string characters out of 3135514
- 239371 words of memory out of 3000000
- 12751 multiletter control sequences out of 15000+200000
+ 9555 strings out of 492945
+ 139817 string characters out of 3135514
+ 239380 words of memory out of 3000000
+ 12752 multiletter control sequences out of 15000+200000
  23901 words of font info for 98 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,17n,43p,743b,587s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,17n,43p,786b,587s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Program Files/MiKT
@@ -799,9 +799,9 @@ s/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti
 12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/
 Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on notebook.pdf (55 pages, 758154 bytes).
+Output written on notebook.pdf (57 pages, 768881 bytes).
 PDF statistics:
- 1311 PDF objects out of 1440 (max. 8388607)
- 436 named destinations out of 1000 (max. 500000)
+ 1326 PDF objects out of 1440 (max. 8388607)
+ 444 named destinations out of 1000 (max. 500000)
  1099 words of extra memory for PDF output out of 10000 (max. 10000000)
 

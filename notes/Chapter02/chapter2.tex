@@ -180,7 +180,7 @@ Normal inverse gamma distribution is a conjugate distribution to univariate norm
 
 Multivariate normal distribution describes multiple continuous variables. It takes two parameters: a vector containing mean position $\vec{\mu}$, and a symmetric positive definite covariance matrix $\cov$.
 \begin{enumerate}
-	\item $\P{\vec{x}}=\Norm_{\vec{x}}[\vec{\mu},\cov]=\frac{1}{\sqrt{det(2\pi\cov)}}\e{-\frac{1}{2}(\vec{x}-\vec{\mu})\T\cov\inv(\vec{x}-\vec{\mu})}$
+	\item $\P{\vec{x}}=\Norm_{\vec{x}}[\vec{\mu},\cov]=\frac{1}{\sqrt{det(2\pi\cov)}}\e{-\half(\vec{x}-\vec{\mu})\T\cov\inv(\vec{x}-\vec{\mu})}$
 	\item multivariate, continuous, unbounded
 	\item $\vec{x} \in \bR^K$; $\vec{\mu} \in \bR^K$, $\cov \in \bR^{K \times K}$ (positive semi-definite matrix)
 	\item $\E{\vec{x}}=\vec{\mu}$, $\V{\vec{x}}=\cov$
@@ -190,7 +190,7 @@ Multivariate normal distribution describes multiple continuous variables. It tak
 
 Normal inverse wishart distribution is a conjugate distribution to multivariate normal distribution.
 \begin{enumerate}
-	\item $\P{\vec{\mu},\cov}=\NIW_{\vec{\mu},\cov}[\al,\vec{\Ps},\ga,\vec{\de}] \\ =\frac{\ga^{D/2}\det{\vec{\Ps}}^{\al/2}\det{\cov}^{-\frac{\al+D+2}{2}}}{(2\pi)^{D/2}2^{(\al\cov)/2}\Ga_D(\al/2)}\e{-\frac{1}{2}(\Tr(\vec{\Ps}\cov\inv)+\ga(\vec{\mu}-\vec{\de})\T\cov\inv(\vec{\mu}-\vec{\de})}$
+	\item $\P{\vec{\mu},\cov}=\NIW_{\vec{\mu},\cov}[\al,\vec{\Ps},\ga,\vec{\de}] \\ =\frac{\ga^{D/2}\det{\vec{\Ps}}^{\al/2}\det{\cov}^{-\frac{\al+D+2}{2}}}{(2\pi)^{D/2}2^{(\al\cov)/2}\Ga_D(\al/2)}\e{-\half(\Tr(\vec{\Ps}\cov\inv)+\ga(\vec{\mu}-\vec{\de})\T\cov\inv(\vec{\mu}-\vec{\de})}$
 	\item multivariate, $\vec{\mu}$ unbounded, $\cov$ square, positive definite
 	\item $\vec{\mu} \in \bR^K$, $\cov \in \bR^{K \times K}$; $\al \in \bR_{>D-1}$, $\vec{\Ps} \in \bR^{K \times K}$, $\ga \in \bR_+$, $\vec{\de} \in \bR^K$
 \end{enumerate}
@@ -706,7 +706,68 @@ Assume we pick $x$ such that $a<x<b$, then either $f(x)\geq f(b)$, so $\{x,b,c\}
 
 \subsection{Gradient Descent}
 
+\paragraph{Exact Line Search Condition}
+
+The iterative search technique that we proceed towards the minimum $\vec{x}^*$ by a sequence of steps. On the $k^\text{th}$ step we take a step of length $\al_k$ in the direction $\vec{p}_k$,
+\begin{align*}
+	\vec{x}_{k+1}=\vec{x}_k+\al_k\vec{p}_k
+\end{align*}
+The length of the step can either be chosen using prior knowledge, or by carrying out a line search in the direction $\vec{p}_k$. At the $k^\text{th}$ step, we chose $\al_k$ to minimize $f(\vec{x}_k+\al_k\vec{p}_k)$. So setting $F(\la)=f(\vec{x}_k+\la\vec{p}_k)$, at this step we solve the one-dimensional minimization problem for $F(\la)$. Thus our choice of $\al_k=\la^*$ will satisfy $F'(\al_k)=0$. We can calculate that $F'(\al_k)=\grad f\TT(\vec{x}_{k+1})\vec{p}_k$. So $F'(\al_k)=0$ means the directional derivative in the search direction must vanish at the new point and this gives the exact line search condition: $\grad f\T(\vec{x}_{k+1})\vec{p}_k=0$.
+
+For a quadratic function $f(\vec{x})=\half\vec{x}\T\mat{A}\vec{x}-\vec{b}\T\vec{x}+c$, with symmetric $\mat{A}$, we can use he condition to analytically calculate $\al_k$. Since $\grad f(\vec{x}_{k+1})=\mat{A}\vec{x}_k+\al_k\mat{A}\vec{p}_k-\vec{b}=\grad f(\vec{x}_k)+\al_k\mat{A}\vec{p}_k$, we find $\al_k=-\frac{\vec{p}_k\TT\grad f(\vec{x}_k)}{\vec{p}_k\TT\mat{A}\vec{p}_k}$.
+
+\paragraph{Gradient Descent}
+
+The simplest choice for $\vec{p}_k$ is to set it equal to $-\grad f(\vec{x}_k)$. If we find that $\grad f(\vec{x}_k)=\vec{0}$ we can stop. To see this, expand $f$ around $\vec{x}_k$ using Taylor's theorem:
+\begin{align*}
+	f(\vec{x}_k+\al_k\vec{p}_k)\approx f(\vec{x}_k)+\al_k\grad f\TT(\vec{x}_k)\vec{p}_k
+\end{align*}
+With $\vec{p}_k=-\grad f(\vec{x}_k)$ and for small positive $\al_k$, we see a guaranteed reduction:
+\begin{align*}
+	f(\vec{x}_k+\al_k\vec{p}_k)\approx f(\vec{x}_k)-\al_k\norm{\grad f(\vec{x}_k)}^2
+\end{align*}
+
 \subsection{Quadratic Functions}
+
+\paragraph{Minimizing Quadratic Functions Using Line Search}
+
+Consider a function $f(\vec{x})=\half\vec{x}\T\mat{A}\vec{x}-\vec{b}\T\vec{x}+c$ where $\mat{A}$ is positive definite and symmetric. One approach to finding minima is to search along a particular direction $\vec{p}$, and find a minimum along this direction. We can then search for a deeper minima by looking in different directions. That is, we can search along a line $\vec{x}^*=\vec{x}^0+\la\vec{p}$ such that the function attains a minimum. Differentiate the original function and set to zero, we have the solution
+\begin{align*}
+	\la=\frac{(\vec{b}-\mat{A}\vec{x}^0)\vec{p}}{\vec{p}\T\mat{A}\vec{p}}=\frac{-\grad f(\vec{x}^0)\vec{p}}{\vec{p}\T\mat{A}\vec{p}}
+\end{align*}
+It would seem sensible to choose successive line search directions $\vec{p}$ according to $\vec{p}^{new}=-\grad f(\vec{x}^*)$, so that each time we minimize the function along the line of steepest descent. However, this is far from the optimal choice in the case of minimizing quadratic functions.
+
+\paragraph{Conjugate Vectors}
+
+The vectors $\vec{p}_i, i=1,\dotsc,k$ are called conjugate to the matrix $\mat{A}$, iff for $i,j=1,\dotsc,k$ and $i\neq j$:
+\begin{align*}
+	\vec{p}_i\TT\mat{A}\vec{p}_j=0\quad\text{and}\quad\vec{p}_i\TT\mat{A}\vec{p}_i>0
+\end{align*}
+The two conditions guarantee that conjugate vectors are linearly independent: assume that
+\begin{align*}
+	\vec{0}=\sum_{j=1}^k\al_j\vec{p}_j=\sum_{j=1}^{i-1}\al_j\vec{p}_j+\al_i\vec{p}_i+\sum_{j=i+1}^k\al_j\vec{p}_j
+\end{align*}
+Now multiplying from the left with $\vec{p}_i\TT\mat{A}$ yields $0=\al_i\vec{p}_i\TT\mat{A}\vec{p}_i$. So $\al_i$ is zero since we know that $\vec{p}_i\TT\mat{A}\vec{p}_i>0$. As we can make this argument for any $i=1,\dotsc,k$, all of the $\al_i$ must be zero. That conjugate vectors are linearly independent, means that the matrix $\mat{P}=[\vec{p}_1\ \vec{p}_2\ \cdots\ \vec{p}_k]$ has full rank. In particular, if $k=n$, the matrix $\mat{P}$ will be invertible. If the symmetric $n\times n$ matrix $\mat{A}$ has $n$ conjugate directions, it is positive definite.
+
+\paragraph{Gram-Schmidt Procedure}
+
+We now turn to constructing conjugate vectors using a procedure which is analogous to Gram-Schmidt orthogonalization. Assume we already have $k$ conjugate vectors $\vec{p}_1,\dotsc,\vec{p}_k$ and let $\vec{v}$ be a vector which is linearly independent of $\vec{p}_1,\dotsc,\vec{p}_k$. We then set
+\begin{align*}
+	\vec{p}_{k+1}=\vec{v}-\sum_{j=1}^k\frac{\vec{p}_j\TT\mat{A}\vec{v}}{\vec{p}_j\TT\mat{A}\vec{p}_j}\vec{p}_j
+\end{align*}
+and claim that now the vectors $\vec{p}_1,\dotsc,\vec{p}_{k+1}$ are conjugate if $\mat{A}$ is positive definite: since $\vec{v}$ is linearly independent of $\vec{p}_1,\dotsc,\vec{p}_k$, the new vector $\vec{p}_{k+1}$ cannot be zero, and thus for positive definite $\mat{A}$, $\vec{p}_{k+1}\TT\mat{A}\vec{p}_{k+1}>0$. Also, $\vec{p}_i\TT\mat{A}\vec{p}_{k+1}=0$ that
+\begin{align*}
+	\vec{p}_i\TT\mat{A}\vec{p}_{k+1}&=\vec{p}_i\TT\mat{A}\vec{v}-\sum_{k=1}^k\frac{\vec{p}_j\TT\mat{A}\vec{v}}{\vec{p}_j\TT\mat{A}\vec{p}_j}\vec{p}_i\TT\mat{A}\vec{p}_j \\
+	&=\vec{p}_i\TT\mat{A}\vec{v}-\frac{\vec{p}_i\TT\mat{A}\vec{v}}{\vec{p}_i\TT\mat{A}\vec{p}_i}\vec{p}_i\TT\mat{A}\vec{p}_i \\
+	&=0
+\end{align*}
+An important property of the Gram-Schmidt procedure is that the vectors $\vec{p}_1,\dotsc,\vec{p}_{k+1}$ span the same subspace as the vectors $\vec{v}$ and $\vec{p}_1,\dotsc,\vec{p}_k$: any linear combination of $\vec{p}_1,\dotsc,\vec{p}_{k+1}$ can be rewritten as a linear combination of $\vec{v}$ and $\vec{p}_1,\dotsc,\vec{p}_k$ just by replacing $\vec{p}_{k+1}$ with the RHS of Gram-Schmidt equation. So the space spanned by $\vec{p}_1,\dotsc,\vec{p}_{k+1}$ is contained in the one spanned by $\vec{v}$ and $\vec{p}_1,\dotsc,\vec{p}_k$. But solving the Gram-Schmidt equation for $\vec{v}$ allows us to turn the argument around and so the two subspaces are the same.
+
+Using the Gram-Schmidt procedure, we can construct $n$ conjugate vectors for a positive definite matrix in the following way. We start with $n$ linearly independent vectors $\vec{u}_1,\dotsc,\vec{u}_n$, e.g. we might choose $\vec{u}_i=\vec{e}_i$, the unit vector in the $i^\text{th}$ direction. We then set $\vec{p}_1=\vec{u}_1$ and use the equation to compute $\vec{p}_2$ from $\vec{p}_1$ and $\vec{v}=\vec{u}_2$. Next we set $\vec{v}=\vec{u}_3$ and compute $\vec{p}_3$ from $\vec{p}_1$, $\vec{p}_2$ and $\vec{v}$. Continuing in this manner we obtain $n$ conjugate vectors. Note that at each stage of the procedure the vectors $\vec{u}_1,\dotsc,\vec{u}_k$ span the same subspace as the vector $\vec{p}_1,\dotsc,\vec{p}_j$.
+
+\paragraph{The Conjugate Vectors Algorithm}
+
+
 
 \subsection{General Functions}
 
