@@ -767,7 +767,66 @@ Using the Gram-Schmidt procedure, we can construct $n$ conjugate vectors for a p
 
 \paragraph{The Conjugate Vectors Algorithm}
 
+Assume that when minimizing $f(\vec{x})=\half\vec{x}\T\mat{A}\vec{x}-\vec{b}\T\vec{x}+c$ we first construct $n$ vectors $\vec{p}_1,\dotsc,\vec{p}_n$ conjugate to $\mat{A}$ which we use as our search directions. So
+\begin{align*}
+	\vec{x}_{k+1}=\vec{x}_k+\al_k\vec{\vec{p}_k}
+\end{align*}
+At each step we choose $\al_k$ by an exact line search, thus
+\begin{align*}
+	\al_k=-\frac{\vec{p}_k\TT\grad f(\vec{x}_k)}{\vec{p}_k\TT\mat{A}\vec{p}_k}
+\end{align*}
+We call this procedure the conjugate vectors algorithm. According to Expanding Subspace Theorem, the directional derivative $D_{\vec{p}_i}f(\vec{x}_{k+1})=\grad f\TT(\vec{x}_{k+1})\vec{p}_i=0,\ i=1,\dotsc,k$, which means it is not only zero at the new point along the direction $\vec{p}_k$, but also zero along all the previous search direction $\vec{p}_1,\dotsc,\vec{p}_k$.
 
+\paragraph{The Conjugate Gradients Algorithm}
+
+The conjugate gradients algorithm is a special case of the conjugate vectors algorithm, where we choose vector $\vec{v}=-\grad f(\vec{x}_{k+1})$. According to subspace theorem the gradient at the new point $\vec{x}_{k+1}$ is orthogonal to $\vec{p}_i,\ i=1,\dotsc,k$ so it is linearly independent of $\vec{p}_1,\dotsc,\vec{p}_k$ and a valid choice for $\vec{v}$. The equation for the new search direction given by the Gram-Schmidt procedure is
+\begin{align*}
+	\vec{p}_{k+1}=-\grad f(\vec{x}_{k+1})+\sum_{i=1}^k\frac{\vec{p}_i\TT\mat{A}\grad f(\vec{x}_{k+1})}{\vec{p}_i\TT\mat{A}\vec{p}_i}\vec{p}_i
+\end{align*}
+Since $\grad f(\vec{x}_{k+1})$ is orthogonal to $\vec{p}_i,\ i=1,\dotsc,k$, by the subspace theorem we have $\vec{p}_{k+1}\TT\grad f(\vec{x}_{k+1})=-\grad f\TT(\vec{x}_{k+1})\grad f(\vec{x}_{k+1})$. So $\al_{k+1}$ can be written as
+\begin{align*}
+	\al_{k+1}=\frac{\grad f\TT(\vec{x}_{k+1})\grad f(\vec{x}_{k+1})}{\vec{p}_{k+1}\TT\mat{A}\vec{p}_{k+1}}
+\end{align*}
+We can show that
+\begin{align*}
+	\grad f(\vec{x}_{i+1})-\grad f(\vec{x}_i)&=\mat{A}\vec{x}_{i+1}-\vec{b}-(\mat{A}\vec{x}_i-b)=\mat{A}(\vec{x}_{i+1}-\vec{x_i})=\al_i\mat{A}\vec{p}_i \\
+	\mat{A}\vec{p}_i&=\pfrac{(\grad f(\vec{x}_{i+1})-\grad f(\vec{x}_i))}{\al_i}\quad\text{since}\ \al_i\neq0
+\end{align*}
+Further,
+\begin{align*}
+	\vec{p}_i\TT\mat{A}\grad f(\vec{x}_{k+1})&=\grad f\TT(\vec{x}_{k+1})\mat{A}\vec{p}_i=\grad f\TT(\vec{x}_{k+1})\pfrac{(\grad f(\vec{x}_{i+1})-\grad f(\vec{x}_i))}{\al_i} \\
+	&=\frac{\grad f\TT(\vec{x}_{k+1})\grad f(\vec{x}_{i+1})-\grad f\TT(\vec{x}_{k+1})\grad f(\vec{x}_i)}{\al_i} \\
+	&=\casefill{0&\quad\text{if}\ 1\leq i<k \\ \frac{\grad f\TT(\vec{x}_{k+1})\grad f(\vec{x}_{k+1})}{\al_k}&\quad\text{if}\ i=k}
+\end{align*}
+Hence we can simplify the equations as
+\begin{align*}
+	\vec{p}_{k+1}&=-\grad f(\vec{x}_{k+1})+\frac{\pfrac{\grad f\TT(\vec{x}_{k+1})\grad f(\vec{x}_{k+1})}{\al_k}}{\vec{p}_k\TT\mat{A}\vec{p}_k}\vec{p}_k \\
+	&=-\grad f(\vec{x}_{k+1})+\frac{\grad f\TT(\vec{x}_{k+1})\grad f(\vec{x}_{k+1})}{\vec{p}_k\TT\mat{A}\vec{p}_k}\frac{\vec{p}_k\TT\mat{A}\vec{p}_k}{\grad f\TT(\vec{x}_k)\grad f(\vec{x}_k)}\vec{p}_k \\
+	&=-\grad f(\vec{x}_{k+1})+\frac{\grad f\TT(\vec{x}_{k+1})\grad f(\vec{x}_{k+1})}{\grad f\TT(\vec{x}_k)\grad f(\vec{x}_k)}\vec{p}_k \\
+	&=-\grad f(\vec{x}_{k+1})+\be_k\vec{p}_k\quad\text{where}\ \be_k=\frac{\grad f\TT(\vec{x}_{k+1})\grad f(\vec{x}_{k+1})}{\grad f\TT(\vec{x}_k)\grad f(\vec{x}_k)}
+\end{align*}
+We can conclude the conjugate gradients algorithm as
+\begin{algorithm}[H]
+	\caption{The Conjugate Gradients Algorithm}
+	\begin{algorithmic}
+		\State $k=1$
+		\State input $\vec{x}_1$
+		\State $\vec{p}_1=-\grad f(\vec{x}_1)$
+		\While{$\grad f(\vec{x}_k)\neq0$}
+			\State $\al_k:=-\pfrac{\grad f\TT(\vec{x}_k)\vec{p}_k}{\left(\vec{p}_k\TT\mat{A}\vec{p}_k\right)}$
+			\State $\vec{x}_{k+1}:=\vec{x}_k+\al_k\vec{p}_k$
+			\State $\be_k:=\pfrac{\grad f\TT(\vec{x}_{k+1})\grad f(\vec{x}_{k+1})}{\left(\grad f\TT(\vec{x}_k)\grad f(\vec{x}_k)\right)}$
+			\State $\vec{p}_{k+1}:=-\grad f(\vec{x}_{k+1})+\be_k\vec{p}_k$
+			\State $k=k+1$
+		\EndWhile
+	\end{algorithmic}
+\end{algorithm}
+An common alternative is the Polak-Ribiere formula:
+\begin{align*}
+	\be_k=\frac{\grad f\TT(\vec{x}_{k+1})\left(\grad f(\vec{x}_{k+1})-\grad f(\vec{x}_k)\right)}{\grad f\TT(\vec{x}_k)\grad f(\vec{x}_k)}
+\end{align*}
+
+\paragraph{Quasi-Newton Methods}
 
 \subsection{General Functions}
 
