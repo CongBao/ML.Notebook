@@ -895,3 +895,44 @@ For general functions it can be shown that the BFGS quasi-Newton (QN) method:
 A comparison of the CG and QN algorithms shows that CG methods require only $\O{n}$ storage, as opposed to $\O{n^2}$ for QN methods. Typically this means that QN methods are preferred for problems of relatively small size, while CG methods are more suitable for very large problems. QN methods appear to be more tolerant of moderate precision line-searches compared to CG methods, and CG methods are less efficient and less robust than QN methods on problems to which they can both be applied.
 
 \subsection{Optimization with Constraints}
+
+\paragraph{Constraint Types}
+
+There are two types of constraints:
+\begin{enumerate}
+	\item Equality (type A). $c(\vec{x})=0$. These reduce the dimension of the search space.
+	\item Inequality (type B). $c(\vec{x})\geq0$ or $c(\vec{x})>0$. These reduce the volume of the search space, but do not affect the dimension.
+\end{enumerate}
+
+\paragraph{Transformation Methods}
+
+For some type A constraints, it is possible to solve for one variable $x_i$ in terms of the other coordinates of $\vec{x}$. If this can be done, then $x_i$ can be eliminated from $f$, and the whole problem reduced to one of lower dimension with fewer constraints.
+
+Some type B constraints can be removed by simple variable substitutions so that they are automatically satisfied. For example, $x_i\geq0$ can be removed by substituting $x_i=y_i^2$ or $x_i=e^{y_i}$, while $a<x_i<b$ can be removed by substituting $x_i=\pfrac{(a+b)}{2}+\ppfrac{(a-b)}{2}\tanh y_i$. Another useful substitution is the softmax function. Minimizing $f(\vec{x})$ subject to the constraint $\sum_{i=1}^nx_i=1$, where $0\leq x_i\leq1$, for $i=1,\dotsc,n$ can be transformed to minimizing $f$ with $x_i=\pfrac{e^{y_i}}{\sum_{j=1}^ne^{y_j}}$.
+
+\paragraph{Lagrange Multipliers (Single Constraint)}
+
+Consider the problem of minimizing $f(\vec{x})$ subject to a single constraint $c(\vec{x})=0$. Assume we already identified an $\vec{x}$ that satisfies the constraint, what we are allowed is to search for lower function values around this $\vec{x}$ in directions which are consistent with te constraint. That is, $c(\vec{x}+\vec{\de})=0$. We know that $c(\vec{x}+\vec{\de})\approx c(\vec{x})+\vec{\de}\cdot\grad c(\vec{x})$. Hence, in order that the constraint remains satisfies, we can only search in a direction such that $\vec{\de}\cdot\grad c(\vec{x})=0$, which means in the direction $\vec{\de}$ is orthogonal to $\grad c(\vec{x})$.
+
+The change in $f$ along a direction $\vec{n}$ where $\vec{n}\cdot\grad c(\vec{x})=0$ is $f(\vec{x}+\ep\vec{n})\approx f(\vec{x})+\ep\grad f(\vec{x})\cdot\vec{n}$. Since we are looking for a point $\vec{x}$ that minimizes the function $f$, we require $\vec{x}$ to be a stationary point, $\grad f(\vec{x})\cdot\vec{n}=0$. That is, $\grad f(\vec{x})$ must lie parallel to $\grad c(\vec{x})$, so that $\grad f(\vec{x})=\la\grad c(\vec{x})$ for some $\la\in\bR$.
+
+To solve the optimization problem therefore, we look for a point $\vec{x}$ such that $\grad f(\vec{x})=\la\grad c(\vec{x})$, for some $\la$, and for which $c(\vec{x})=0$. An alternative formulation of this dual requirement is to look for $\vec{x}$ and $\la$ that jointly minimize the \emph{Lagrangian}:
+\begin{align*}
+	\cL(\vec{x},\la)=f(\vec{x})-\la c(\vec{x})
+\end{align*}
+Differentiating with respect to $\vec{x}$, we get the requirement $\grad f(\vec{x})=\la\grad c(\vec{x})$, and differentiating with respect to $\la$, we get that $c(\vec{x})=0$.
+
+\paragraph{Lagrange Multipliers (Multiple Constraints)}
+
+Consider the problem of optimizing $f(\vec{x})$ subject to the constraints $c_i(\vec{x})=0,i=1,\dotsc,r<n$, where $n$ is the dimensionality of the space. We can apply the \emph{Lagrangian function} $\cL:\bR^{n+r}\to\bR$,
+\begin{align*}
+	\cL(\vec{x},\vec{\la})=f(\vec{x})-\sum_i\la_ic_i(\vec{x})
+\end{align*}
+
+\paragraph{Computational Approaches to Constrained Optimization}
+
+A computational approach to the non-linear constrained optimization problem is the penalty and barrier function methods. Suppose we are minimizing a function $f(\vec{x})$ subject to constraints $c_i(\vec{x})=0,i=1,\dotsc,r$. We can construct a quadratic penalty function
+\begin{align*}
+	P_Q(\vec{x},\rh)=f(\vec{x})+\frac{\rh}{2}\vec{c}(\vec{x})\T\vec{c}(\vec{x})
+\end{align*}
+where $\vec{c}(\vec{x})$ is the vector of constraints $[c_1(\vec{x})\ \cdots\ c_r(\vec{x})]\T$ and $\rh$ is the penalty parameter. Note that the penalty term is continuously differentiable. Under mild technical conditions, if $\vec{x}^*(\rh)$ denotes an unconstrained munimum of $P_Q$ then it can be shown that $\lim_{\rh\to\infty}\vec{x}^*(\rh)=\vec{x}^*$ where $\vec{x}^*$ is the constrained minimum of $f$.
