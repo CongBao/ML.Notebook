@@ -354,7 +354,7 @@ If a matrix $\mat{M}$ satisfies
 \begin{align*}
 	\mat{M}\vec{v}=\la\vec{v}
 \end{align*}
-then $\vec{v}$ is the eigenvector of $\mat{M}$, and $\la$ is the eigenvalue of $\mat{M}$ (The vector $\vec{v}$ is just scaled by value $\la$ after a linear transformation $\mat{M}$). To solve the equation, we can rewrite it as
+then $\vec{v}$ is the \emph{eigenvector} of $\mat{M}$, and $\la$ is the \emph{eigenvalue} of $\mat{M}$ (The vector $\vec{v}$ is just scaled by value $\la$ after a linear transformation $\mat{M}$). To solve the equation, we can rewrite it as
 \begin{align*}
 	(\mat{M}-\la\mat{I})\vec{v}=\vec{0}
 \end{align*}
@@ -371,7 +371,7 @@ Specifically, every real symmetric matrix can be decomposed into an expression u
 \end{align*}
 where $\mat{Q}$ is an orthogonal matrix composed of eigenvectors of $\mat{M}$, and $\mat{\La}$ is a diagonal matrix.
 
-A matrix is {\bf singular} if and only if any of the eigenvalues are zero ($\det{\mat{M}}=0$). A matrix whose eigenvalues are all positive is called {\bf positive definite}. A matrix whose eigenvalues are all positive or zero-valued (non-negative) is called {\bf positive semi-definite}. Likewise, if all eigenvalues are negative, the matrix is {\bf negative definite}, and if all eigenvalues are negative or zero-valued (non-positive), it is {\bf negative semi-definite}. Positive semi-definite matrices guarantee that $\forall\vec{v}, \vec{v}\T\mat{M}\vec{v}\geq0$. Positive definite matrices additionally guarantee that $\vec{v}\T\mat{M}\vec{v}=0\impl\vec{v}=\vec{0}$.
+A matrix is \emph{singular} if and only if any of the eigenvalues are zero ($\det{\mat{M}}=0$). A matrix whose eigenvalues are all positive is called \emph{positive definite}. A matrix whose eigenvalues are all positive or zero-valued (non-negative) is called \emph{positive semi-definite}. Likewise, if all eigenvalues are negative, the matrix is \emph{negative definite}, and if all eigenvalues are negative or zero-valued (non-positive), it is \emph{negative semi-definite}. Positive semi-definite matrices guarantee that $\forall\vec{v}, \vec{v}\T\mat{M}\vec{v}\geq0$. Positive definite matrices additionally guarantee that $\vec{v}\T\mat{M}\vec{v}=0\impl\vec{v}=\vec{0}$.
 
 \paragraph{Singular Value Decomposition (SVD)}
 
@@ -379,7 +379,7 @@ The singular value decomposition of a $m\times n$ matrix $\mat{M}$ can be formed
 \begin{align*}
 	\mat{M}=\mat{U}\mat{\Si}\mat{V}\T
 \end{align*}
-where $\mat{U}$ is a $m\times m$ orthogonal matrix, $\mat{\Si}$ is a $m\times n$ diagonal matrix, and $\mat{V}$ is a $n\times n$ orthogonal matrix. The elements along the diagonal of $\mat{\Si}$ are known as the {\bf singular values} of the matrix $\mat{M}$. The columns of $\mat{U}$ are known as the {\bf left-singular vectors}. The columns of $\mat{V}$ are known as as the {\bf right-singular vectors}.
+where $\mat{U}$ is a $m\times m$ orthogonal matrix, $\mat{\Si}$ is a $m\times n$ diagonal matrix, and $\mat{V}$ is a $n\times n$ orthogonal matrix. The elements along the diagonal of $\mat{\Si}$ are known as the \emph{singular values} of the matrix $\mat{M}$. The columns of $\mat{U}$ are known as the \emph{left-singular vectors}. The columns of $\mat{V}$ are known as as the \emph{right-singular vectors}.
 
 There are relations between SVD and eigendecomposition. According to the definition of SVD, we have
 \begin{align*}
