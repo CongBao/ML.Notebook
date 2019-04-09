@@ -441,7 +441,7 @@ where $n!$ denotes the factorial of $n$ and $f^{n}(a)$ denotes the $n^\text{th}$
 \end{align*}
 If we set the function as $f(\vec{x}+h\vec{v})$ for some vector $\vec{v}$, then
 \begin{align*}
-	f(\vec{x}+h\vec{v})=f(\vec{x})+h\grad f\T\vec{v}+\frac{h^2}{2}\vec{v}\T H_f\vec{v}+\O{h^3}
+	f(\vec{x}+h\vec{v})=f(\vec{x})+h\grad f\T\vec{v}+\frac{h^2}{2}\vec{v}\T \hess_f\vec{v}+\O{h^3}
 \end{align*}
 where $\grad f$ is the gradient vector and $H_f$ is the Hessian matrix.
 
@@ -826,8 +826,72 @@ An common alternative is the Polak-Ribiere formula:
 	\be_k=\frac{\grad f\TT(\vec{x}_{k+1})\left(\grad f(\vec{x}_{k+1})-\grad f(\vec{x}_k)\right)}{\grad f\TT(\vec{x}_k)\grad f(\vec{x}_k)}
 \end{align*}
 
+\paragraph{Newton Methods}
+
+Consider the Taylor expansion of a target function $f(\vec{x})$:
+\begin{align*}
+	f(\vec{x}+\ep\vec{v})=f(\vec{x})+\ep\grad f\T\vec{v}+\frac{\ep^2}{2}\vec{v}\T \hess_f\vec{v}+\O{\ep^3}
+\end{align*}
+Differentiating the RHS with respect to $\vec{v}$, we find the RHS has its lowest value when
+\begin{align*}
+	\grad f=-\ep\hess_f\vec{v}\impl\vec{v}=-\ep^{-1}\hess_f\inv\grad f
+\end{align*}
+Hence, an optimization routine to minimize $f$ is given by the Newton update
+\begin{align*}
+	\vec{x}_{k+1}=\vec{x}_k-\al_k\hess_f\inv\grad f
+\end{align*}
+Although Newton's method can help to find the minima in one step, for large scale problems the Hessian matrix is computationally demanding, especially if it is singular or nearly so.
+
 \paragraph{Quasi-Newton Methods}
 
+An alternative is to set up the iteration
+\begin{align*}
+	\vec{x}_{k+1}=\vec{x}_k-\al_k\mat{S}_k\grad f(\vec{x}_k)
+\end{align*}
+This is a very general form: if $\mat{S}_k=\hess_f\inv$ then we have Newton's method, while if $\mat{S}_k=\mat{I}$ we have steepest (gradient) descent. The idea behind most quasi-Newton methods is to try to construct an approximate inverse Hessian $\hess_k$ using information gathered as the descent progresses, and to set $\mat{S}_k=\hess_k$. As we have seen, for a quadratic optimization problem we have the relationship $\grad f(\vec{x}_{k+1})-\grad f(\vec{x}_k)=\mat{A}(\vec{x}_{k+1}-\vec{x}_k)$. Defining $\vec{s}_k=\vec{x}_{k+1}-\vec{x}_k$ and $\vec{y}_k=\grad f(\vec{x}_{k+1})-\grad f(\vec{x}_k)$, we see that the original equation becomes $\vec{y}_k=\mat{A}\vec{s}_k$. It is reasonable to demand that $\hess_{k+1}\vec{y}_i=\vec{s}_i,1\leq i\leq k$. After $n$ linearly independent steps we would then have $\hess_{n+1}=\mat{A}\inv$. For $k<n$ there are an infinity of solutions for $\hess_{k+1}$ satisfying the equation. We shall focus on one of the most popular, the Broyden-Fletcher-Goldfarb-Shanno (BFGS) update. This is given by
+\begin{align*}
+	\hess_{k+1}=\hess_k+\left(1+\frac{\vec{y}_k\TT\hess_k\vec{y}_k}{\vec{y}_k\TT\vec{s}_k}\right)\frac{\vec{s}_k\vec{s}_k\TT}{\vec{s}_k\TT\vec{y}_k}-\frac{\vec{s}_k\vec{y}_k\TT\hess_k+\hess_k\vec{y}_k\vec{s}_k\TT}{\vec{s}_k\TT\vec{y}_k}
+\end{align*}
+This is a rand-2 correction to $\hess_k$ constructed from the vectors $\vec{s}_k$ and $\hess_k\vec{y}_k$. The quasi-Newton algorithm is
+\begin{algorithm}[H]
+	\caption{The Quasi-Newton Algorithm}
+	\begin{algorithmic}
+		\State input $\vec{x}_1$
+		\State set $\hess_i=\mat{I}$
+		\For{$k=1,\dotsc,n$}
+			\State $\vec{p}_k=-\hess_k\grad f(\vec{x}_k)$
+			\State compute $\al_k$ to minimize $f(\vec{x}_k+\al_k\vec{p}_k)$
+			\State $\vec{s}_k=\vec{x}_{k+1}-\vec{x}_k$, $\vec{y}_k=\grad f(\vec{x}_{k+1})-\grad f(\vec{x}_k)$, and update $\hess_{k+1}$
+			\State $k=k+1$
+		\EndFor
+	\end{algorithmic}
+\end{algorithm}
+Properties of the BFGS update:
+\begin{enumerate}
+	\item All the $\hess$'s are symmetric.
+	\item All the $\hess$'s are positive definite.
+	\item The direction vectors $\vec{p}_1,\dotsc,\vec{p}_k$ produced by the algorithm obey $\vec{p}_i\TT\mat{A}\vec{p}_j=0,1\leq i<j\leq k$ and $\hess_{k+1}\mat{A}\vec{p}_i=\vec{p}_i,1\leq i\leq k$.
+\end{enumerate}
+
 \subsection{General Functions}
+
+The basic strategy for the minimization of general (i.e. non-quadratic) functions is to apply the same algorithms as in the quadratic case, except that exact line-minimizations (the calculation of the $\al_k$'s) have to be replaced with inexact line-searches.
+
+For the conjugate gradient (CG) method, the exact formula used to compute $\be_k$ may be important in this respect. For example, the two possible formulae are
+\begin{align*}
+	\be_k&=\frac{\grad f\TT(\vec{x}_{k+1})\grad f(\vec{x}_{k+1})}{\grad f\TT(\vec{x}_k)\grad f(\vec{x}_k)} && \text{Fletcher-Reeves} \\
+	\be_k&=\frac{\grad f\TT(\vec{x}_{k+1})\left(\grad f(\vec{x}_{k+1})-\grad f(\vec{x}_k)\right)}{\grad f\TT(\vec{x}_k)\grad f(\vec{x}_k)} && \text{Polak-Ribiere}
+\end{align*}
+These formulae are equivalent for quadratic functions, however, they can have quite different effects in the non-quadratic case. If the algorithm is not making progress then we can expect $\grad f(\vec{x}_{k+1})\simeq\grad f(\vec{x}_k)$, and hence that $\be_k$ computed by the Polak-Ribiere formula will be near 0, and hence that $\vec{p}_{k+1}\simeq-\grad f(\vec{x}_{k+1})$. On the other hand, under the same circumstances the Fletcher-Reeves update will set $\be_k\simeq1$.
+
+For general functions it can be shown that the BFGS quasi-Newton (QN) method:
+\begin{enumerate}
+	\item preserves positive definite matrices $\hess_k$, and hence that the descent property holds;
+	\item requires $\O{n^2}$ multiplications per iteration;
+	\item has superlinear order of convergence;
+	\item has global convergence for strictly convex functions (with exact line searches).
+\end{enumerate}
+
+A comparison of the CG and QN algorithms shows that CG methods require only $\O{n}$ storage, as opposed to $\O{n^2}$ for QN methods. Typically this means that QN methods are preferred for problems of relatively small size, while CG methods are more suitable for very large problems. QN methods appear to be more tolerant of moderate precision line-searches compared to CG methods, and CG methods are less efficient and less robust than QN methods on problems to which they can both be applied.
 
 \subsection{Optimization with Constraints}
