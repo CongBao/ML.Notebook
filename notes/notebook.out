@@ -87,32 +87,38 @@
 \BOOKMARK [1][]{section.10.6}{10.6 Random Forest}{chapter.10}% 87
 \BOOKMARK [1][]{section.10.7}{10.7 Boosting}{chapter.10}% 88
 \BOOKMARK [1][]{section.10.8}{10.8 Adaboost}{chapter.10}% 89
-\BOOKMARK [0][]{chapter.11}{11 Graphical Models \046 Markov Network}{}% 90
-\BOOKMARK [1][]{section.11.1}{11.1 Graph Definitions}{chapter.11}% 91
-\BOOKMARK [2][]{subsection.11.1.1}{11.1.1 Graph}{section.11.1}% 92
-\BOOKMARK [2][]{subsection.11.1.2}{11.1.2 Directed Graph}{section.11.1}% 93
-\BOOKMARK [2][]{subsection.11.1.3}{11.1.3 Undirected Graph}{section.11.1}% 94
-\BOOKMARK [2][]{subsection.11.1.4}{11.1.4 Connectivity}{section.11.1}% 95
-\BOOKMARK [2][]{subsection.11.1.5}{11.1.5 Connectedness}{section.11.1}% 96
-\BOOKMARK [1][]{section.11.2}{11.2 Belief Networks}{chapter.11}% 97
-\BOOKMARK [2][]{subsection.11.2.1}{11.2.1 Definition}{section.11.2}% 98
-\BOOKMARK [2][]{subsection.11.2.2}{11.2.2 Uncertain Evidence}{section.11.2}% 99
-\BOOKMARK [2][]{subsection.11.2.3}{11.2.3 Independence}{section.11.2}% 100
-\BOOKMARK [2][]{subsection.11.2.4}{11.2.4 General Rule for Independence in Belief Networks}{section.11.2}% 101
-\BOOKMARK [2][]{subsection.11.2.5}{11.2.5 Markov Equivalence}{section.11.2}% 102
-\BOOKMARK [1][]{section.11.3}{11.3 Markov Networks}{chapter.11}% 103
-\BOOKMARK [2][]{subsection.11.3.1}{11.3.1 Definition}{section.11.3}% 104
-\BOOKMARK [2][]{subsection.11.3.2}{11.3.2 Examples}{section.11.3}% 105
-\BOOKMARK [2][]{subsection.11.3.3}{11.3.3 Independence}{section.11.3}% 106
-\BOOKMARK [2][]{subsection.11.3.4}{11.3.4 Expressiveness of Markov and Belief Networks}{section.11.3}% 107
-\BOOKMARK [2][]{subsection.11.3.5}{11.3.5 Factor Graphs}{section.11.3}% 108
-\BOOKMARK [1][]{section.11.4}{11.4 Markov Chains}{chapter.11}% 109
-\BOOKMARK [1][]{section.11.5}{11.5 Hidden Markov Models}{chapter.11}% 110
-\BOOKMARK [0][]{appendix.A}{A Statistical Assessment}{}% 111
-\BOOKMARK [1][]{section.A.1}{A.1 Hypothesis Testing}{appendix.A}% 112
-\BOOKMARK [2][]{subsection.A.1.1}{A.1.1 Testing Basics}{section.A.1}% 113
-\BOOKMARK [2][]{subsection.A.1.2}{A.1.2 Testing Procedure}{section.A.1}% 114
-\BOOKMARK [2][]{subsection.A.1.3}{A.1.3 Power Investigation}{section.A.1}% 115
-\BOOKMARK [2][]{subsection.A.1.4}{A.1.4 Useful Tests}{section.A.1}% 116
-\BOOKMARK [1][]{section.A.2}{A.2 Confidence Intervals}{appendix.A}% 117
-\BOOKMARK [1][]{section.A.3}{A.3 Bootstrap}{appendix.A}% 118
+\BOOKMARK [0][]{chapter.11}{11 Clustering}{}% 90
+\BOOKMARK [1][]{section.11.1}{11.1 K-Means}{chapter.11}% 91
+\BOOKMARK [1][]{section.11.2}{11.2 Spectral Clustering}{chapter.11}% 92
+\BOOKMARK [0][]{chapter.12}{12 Graphical Models \046 Markov Network}{}% 93
+\BOOKMARK [1][]{section.12.1}{12.1 Graph Definitions}{chapter.12}% 94
+\BOOKMARK [2][]{subsection.12.1.1}{12.1.1 Graph}{section.12.1}% 95
+\BOOKMARK [2][]{subsection.12.1.2}{12.1.2 Directed Graph}{section.12.1}% 96
+\BOOKMARK [2][]{subsection.12.1.3}{12.1.3 Undirected Graph}{section.12.1}% 97
+\BOOKMARK [2][]{subsection.12.1.4}{12.1.4 Connectivity}{section.12.1}% 98
+\BOOKMARK [2][]{subsection.12.1.5}{12.1.5 Connectedness}{section.12.1}% 99
+\BOOKMARK [1][]{section.12.2}{12.2 Belief Networks}{chapter.12}% 100
+\BOOKMARK [2][]{subsection.12.2.1}{12.2.1 Definition}{section.12.2}% 101
+\BOOKMARK [2][]{subsection.12.2.2}{12.2.2 Uncertain Evidence}{section.12.2}% 102
+\BOOKMARK [2][]{subsection.12.2.3}{12.2.3 Independence}{section.12.2}% 103
+\BOOKMARK [2][]{subsection.12.2.4}{12.2.4 General Rule for Independence in Belief Networks}{section.12.2}% 104
+\BOOKMARK [2][]{subsection.12.2.5}{12.2.5 Markov Equivalence}{section.12.2}% 105
+\BOOKMARK [1][]{section.12.3}{12.3 Markov Networks}{chapter.12}% 106
+\BOOKMARK [2][]{subsection.12.3.1}{12.3.1 Definition}{section.12.3}% 107
+\BOOKMARK [2][]{subsection.12.3.2}{12.3.2 Examples}{section.12.3}% 108
+\BOOKMARK [2][]{subsection.12.3.3}{12.3.3 Independence}{section.12.3}% 109
+\BOOKMARK [2][]{subsection.12.3.4}{12.3.4 Expressiveness of Markov and Belief Networks}{section.12.3}% 110
+\BOOKMARK [2][]{subsection.12.3.5}{12.3.5 Factor Graphs}{section.12.3}% 111
+\BOOKMARK [1][]{section.12.4}{12.4 Markov Chains}{chapter.12}% 112
+\BOOKMARK [1][]{section.12.5}{12.5 Hidden Markov Models}{chapter.12}% 113
+\BOOKMARK [0][]{appendix.A}{A Bayesian Statistics}{}% 114
+\BOOKMARK [1][]{section.A.1}{A.1 Bayesian Inference}{appendix.A}% 115
+\BOOKMARK [1][]{section.A.2}{A.2 Prior Distributions}{appendix.A}% 116
+\BOOKMARK [0][]{appendix.B}{B Statistical Assessment}{}% 117
+\BOOKMARK [1][]{section.B.1}{B.1 Hypothesis Testing}{appendix.B}% 118
+\BOOKMARK [2][]{subsection.B.1.1}{B.1.1 Testing Basics}{section.B.1}% 119
+\BOOKMARK [2][]{subsection.B.1.2}{B.1.2 Testing Procedure}{section.B.1}% 120
+\BOOKMARK [2][]{subsection.B.1.3}{B.1.3 Power Investigation}{section.B.1}% 121
+\BOOKMARK [2][]{subsection.B.1.4}{B.1.4 Useful Tests}{section.B.1}% 122
+\BOOKMARK [1][]{section.B.2}{B.2 Confidence Intervals}{appendix.B}% 123
+\BOOKMARK [1][]{section.B.3}{B.3 Bootstrap}{appendix.B}% 124

@@ -5,6 +5,7 @@
 \label{chapter3}
 
 \section{Regularization}
+\label{section3.1}
 
 \subsection{Under-fitting \& Over-fitting}
 
@@ -37,12 +38,14 @@ Without regularization, the loss function is $L(\vec{w})=\vec{\ep}\T\vec{\ep}$. 
 With L2-regularization, the loss function is $L(\vec{w})=\vec{\ep}\T\vec{\ep}+\la\vec{w}\T\vec{w}$. Let $\grad L(\vec{w}^*)=0$, we have $\vec{w}^*=(\mat{X}\T\mat{X}+\la\mat{I})\inv\mat{X}\T\vec{y}$. The additional $\la\mat{I}$ makes the data matrix more robust to calculate inversion.
 
 \section{Cross-Validation}
+\label{section3.2}
 
 We can select hyperparameters with (cross-)validation. Cross-validation excludes part of the training data from parameter estimation, and use them only to predict the test error.
 
 K-fold cross validation: split data set into K folds and each time train on (K-1) folds and valid on the remaining fold until all folds have been used as validation fold. The cross-validation error is the average of K validation errors. We pick hyperparameters that minimize cross-validation error.
 
 \section{Bayesian Learning}
+\label{section3.3}
 
 \subsection{Bayes' Rule Terminology}
 
@@ -233,6 +236,7 @@ Compute predictive distribution:
 	\end{align*}
 
 \section{Machine Learning Models}
+\label{section3.4}
 
 \subsection{Learning and Inference}
 
@@ -356,6 +360,7 @@ Can't build this mode very easily:
 	\end{enumerate}
 
 \section{Overview of Common Algorithms}
+\label{section3.5}
 
 Properties of common machine learning methods:
 \begin{table*}[!h]
