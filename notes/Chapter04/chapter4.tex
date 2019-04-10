@@ -4,8 +4,77 @@
 \chapter{Matrix Factorization}
 \label{chapter4}
 
-\section{SVD}
+\section{Principal Component Analysis (PCA)}
 
-\section{PCA}
+\subsection{The PCA Algorithm}
+
+The goal of PCA is to use an orthogonal transformation $\mat{W}\T\in\bR^{L\times D}$ to convert the data $\mat{X}\in\bR^{N\times D}$ into a lower dimension set $\mat{Z}\in\bR^{N\times L}$. The matrix $\mat{W}$ is a set of orthogonal basis vectors of principle directions. Our goal is to minimize the reconstruction error $\cL(\mat{W},\mat{Z})=\norm{\mat{X}\T-\mat{W}\mat{Z}\T}_F^2$. The optimal solution is obtained by setting $\mat{W}=\mat{Q}_L$, where $\mat{Q}_L$ contains the $L$ eigenvectors with largest eigenvalues of the empirical covariance matrix $\mat{\Si}=\frac{1}{N}\sum_{i=1}^N\vec{x}_i\vec{x}_i\TT$ (assume $\vec{x}_i$ has zero mean). Hence the optimal low-dimensional encoding of data is given by $\vec{z}_i=\mat{W}\T\vec{x}_i$.
+
+The PCA algorithm can be concluded as following steps:
+\begin{enumerate}
+	\item Get the data $\mat{X}\in\bR^{N\times D}$.
+	\item Zero-mean the data $\vec{x}_j\gets\vec{x}_j-\frac{1}{N}\sum_{i=1}^N\vec{x}_i,j=1,\dotsc,D$.
+	\item Calculate the covariance matrix $\mat{\Si}=\frac{1}{N}\sum_{i=1}^N\vec{x}_i\vec{x}_i\TT$.
+	\item Apply eigendecomposition on covariance matrix $\mat{\Si}=\mat{Q}\mat{\La}\mat{Q}\T$.
+	\item Select the eigenvectors with largest $L$ eigenvalues $\mat{Q}_L\in\bR^{L\times D}$ and apply to the data $\mat{Z}=\left(\mat{Q}_L\mat{X}\T\right)\T$.
+\end{enumerate}
+
+\subsection{PCA Interpretation}
+
+We use $\vec{w}_j\in\bR^D$ to denote the $j\nth$ principal direction, $\vec{x}_i\in\bR^D$ to denote the $i\nth$ high-dimensional observation, $\vec{z}_i\in\bR^L$ to denote the $i\nth$ low-dimensional representation, and $\ti{\vec{z}}_1\in\bR^N$ to denote the $[z_{1j}\ \cdots\ z_{Nj}]$, which is the $j\nth$ component of all the low-dimensional vectors. Besides, since $\vec{w}_j$ is orthogonal basis vector, we have $\vec{w}_j\TT\vec{w}_j=1$ and $\norm{\vec{w}_j}=1$.
+
+We start by estimating the best one-dimension solution, $\vec{w}_1\in\bR^D$, and the corresponding projected points $\ti{\vec{z}}_1\in\bR^N$. The reconstruction error is given by
+\begin{align*}
+	\cL(\vec{w}_1,\vec{z}_1)&=\frac{1}{N}\sum_{i=1}^N\norm{\vec{x}_i-z_{i1}\vec{w}_1}^2 \\
+	&=\frac{1}{N}\sum_{i=1}^N(\vec{x}_i-z_{i1}\vec{w}_1)\T(\vec{x}_i-z_{i1}\vec{w}_1) \\
+	&=\frac{1}{N}\sum_{i=1}^N\left(\vec{x}_i\TT\vec{x}_i-2z_{i1}\vec{w}_1\TT\vec{x}_i+z_{i1}^2\vec{w}_1\TT\vec{w}_1\right) \\
+	&=\frac{1}{N}\sum_{i=1}^N\left(\vec{x}_i\TT\vec{x}_i-2z_{i1}\vec{w}_1\TT\vec{x}_i+z_{i1}^2\right)
+\end{align*}
+Taking derivatives w.r.t. $z_{i1}$ and equating to zero gives
+\begin{align*}
+	\frac{\pa}{\pa z_{i1}}\cL(\vec{w}_1,\vec{z}_1)=\frac{1}{N}\left(-2\vec{w}_1\TT\vec{x}_i+2z_{i1}\right)=0\impl z_{i1}=\vec{w}_1\TT\vec{x}_i
+\end{align*}
+So the optimal reconstruction weights are obtained by orthogonally projecting the data onto the first principle direction, $\vec{w}_1$. Plugging back in gives
+\begin{align*}
+	\cL(\vec{w}_1)&=\frac{1}{N}\sum_{i=1}^N\left(\vec{x}_i\TT\vec{x}_i-z_{i1}^2\right) \\
+	&\prop-\frac{1}{N}\sum_{i=1}^Nz_{i1}^2
+\end{align*}
+The variance of the projected coordinates is given by
+\begin{align*}
+	\V{\ti{\vec{z}}_1}=\E{\ti{\vec{z}}_1^2}-\left(\E{\ti{\vec{z}}_1}\right)^2=\frac{1}{N}\sum_{i=1}^Nz_{i1}^2
+\end{align*}
+since $\E{z_{i1}}=\E{\vec{x}_1\TT\vec{w}_1}=\E{\vec{x}_i}\T\vec{w}_1=0$ as the data has zero mean. From this, we see that minimizing the reconstruction error is equivalent to maximizing the variance of the projected data, i.e.
+\begin{align*}
+	\argmin_{\vec{w}_1}\cL(\vec{w}_1)=\argmax_{\vec{w}_1}\V{\ti{\vec{z}}_1}
+\end{align*}
+Further, the variance of the projected data can be written as
+\begin{align*}
+	\V{\ti{\vec{z}}_1}=\frac{1}{N}\sum_{i=1}^Nz_{i1}^2=\frac{1}{N}\sum_{i=1}^N\vec{w}_1\TT\vec{x}_i\vec{x}_i\TT\vec{w}_1=\vec{w}_1\TT\mat{\Si}\vec{w}_1
+\end{align*}
+where $\mat{\Si}$ is the covariance matrix of the data. We then maximize the object function with the constraint $\norm{\vec{w}_1}=1$ with Lagrange multiplier, that is
+\begin{align*}
+	\ti{\cL}(\vec{w}_1)&=\vec{w}_1\TT\mat{\Si}\vec{w}_1+\la_1\left(\vec{w}_1\TT\vec{w}_1-1\right) \\
+	\frac{\pa}{\pa\vec{w}_1}\ti{\cL}(\vec{w}_1)&=2\mat{\Si}\vec{w}_1-2\la_1\vec{w}_1=0 \\
+	\mat{\Si}\vec{w}_1&=\la_1\vec{w}_1
+\end{align*}
+Hence the direction that maximize the variance is an eigenvector of the covariance matrix. We can calculate the variance of the projected data as $\vec{w}_1\TT\mat{\Si}\vec{w}_1=\la_1$. Since we want to maximize the variance, we pick the eigenvector which corresponds to the largest eigenvalue.
+
+Now consider to find another direction $\vec{w}_2$ to further minimize the reconstruction error, subject to $\vec{w}_1\TT\vec{w}_2=0$ and $\vec{w}_2\TT\vec{w}_2=1$. The error is
+\begin{align*}
+	\cL(\vec{w}_1,\vec{z}_1,\vec{w}_2,\vec{z}_2)=\frac{1}{N}\sum_{i=1}^N\norm{\vec{x}_i-z_{i1}\vec{w}_1-z_{i2}\vec{w}_2}^2
+\end{align*}
+Optimizing w.r.t. $\vec{W}_1$ and $\vec{z}_1$ gives the same solution as before. In other words, the second principle encoding is gotten by projecting onto the second principal direction. Substituting in yields
+\begin{align*}
+	\cL(\vec{w}_2)&=\frac{1}{N}\sum_{i=1}^N\left(\vec{x}_i\TT\vec{x}_i-\vec{w}_1\TT\vec{x}_i\vec{x}_i\TT\vec{w}_1-\vec{w}_2\TT\vec{x}_i\vec{x}_i\TT\vec{w}_2\right) \\
+	&\prop-\vec{w}_2\TT\mat{\Si}\vec{w}_2
+\end{align*}
+Adding the constraints and solving yields
+\begin{align*}
+	\ti{\cL}(\vec{w}_2)&=-\vec{w}_2\TT\mat{\Si}\vec{w}_2+\la_2\left(\vec{w}_2\TT\vec{w}_2-1\right)+\la_2'\left(\vec{w}_2\TT\vec{w}_1-0\right) \\
+	\mat{\Si}\vec{w}_2&=\la_2\vec{w}_2
+\end{align*}
+The proof continues in this way.
+
+\section{SVD}
 
 \section{(N)NMF}

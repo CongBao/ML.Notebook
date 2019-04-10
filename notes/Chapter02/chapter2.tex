@@ -145,7 +145,7 @@ Geometric distribution describes the number of independent Bernoulli trails unti
 
 \paragraph{Negative Binomial}
 
-Negative Binomial distribution describes the number of independent Bernoulli trails until we record the $r^\text{th}$ success.
+Negative Binomial distribution describes the number of independent Bernoulli trails until we record the $r\nth$ success.
 \begin{enumerate}
 	\item $\P{x}=\NBin_x[r,\la]=\binom{x+r-1}{x}\la^x(1-\la)^r$
 	\item $x\in\bN$; $r\in\bZ_+$, $\la\in[0,1]$
@@ -181,7 +181,7 @@ Exponential distribution describes the continuous time between events in Poisson
 
 \paragraph{Gamma}
 
-Gamma distribution describes the continuous time until the $\al^\text{th}$ event in Poisson process takes place. It is also a common conjugate prior to Poisson and Exponential distributions.
+Gamma distribution describes the continuous time until the $\al\nth$ event in Poisson process takes place. It is also a common conjugate prior to Poisson and Exponential distributions.
 \begin{enumerate}
 	\item $\P{\la}=\Gam_\la[\al,\be]=\frac{\be^\al}{\Ga(\al)}\la^{\al-1}e^{-\be\la}$
 	\item $\la\in\bZ_+$; $\al\in\bZ_+$, $\be\in\bZ_+$
@@ -194,13 +194,13 @@ Gamma distribution describes the continuous time until the $\al^\text{th}$ event
 		\hline
 		& \multicolumn{2}{|c|}{Distribution} \\
 		\hline
-		Random Variables & Discrete time & continuous time \\
+		Random Variables & Discrete Time & Continuous Time \\
 		\hline\hline
 		No. of events & Binomial & Poisson \\
 		\hline
 		Time till first event & Geometric & Exponential \\
 		\hline
-		Time till $r^\text{th}$ event & Negative Binomial & Gamma \\
+		Time till $r\nth$ event & Negative Binomial & Gamma \\
 		\hline
 	\end{tabular}
 \end{table*}
@@ -225,7 +225,7 @@ Dirichlet distribution is a common conjugate prior to Categorical distribution.
 
 \paragraph{Univariate Normal}
 
-Univariate normal distribution describes single continuous variable.
+Univariate Normal distribution describes single continuous variable.
 \begin{enumerate}
 	\item $\P{x}=\Norm_x[\mu,\si^2]=\frac{1}{\sqrt{2\pi\si^2}}\e{-\frac{(x-\mu)^2}{2\si^2}}$
 	\item $x \in \bR$; $\mu \in \bR$, $\si^2 \in \bR_+$
@@ -234,7 +234,7 @@ Univariate normal distribution describes single continuous variable.
 
 \paragraph{Normal Inverse Gamma}
 
-Normal inverse gamma distribution is a common conjugate prior to Univariate Normal distribution.
+Normal Inverse Gamma distribution is a common conjugate prior to Univariate Normal distribution.
 \begin{enumerate}
 	\item $\P{\mu,\si^2}=\NIG_{\mu,\si^2}[\al,\be,\ga,\de]=\frac{\sqrt{\ga}}{\sqrt{2\pi\si^2}}\frac{\be^\al}{\Ga(\al)}\left(\frac{1}{\si^2}\right)^{\al+1}\e{-\frac{2\be+\ga(\de-\mu)^2}{2\si^2}}$
 	\item $\mu \in \bR$, $\si^2 \in \bR_+$; $\al \in \bR_+$, $\be \in \bR_+$, $\ga \in \bR_+$, $\de \in \bR$
@@ -243,7 +243,7 @@ Normal inverse gamma distribution is a common conjugate prior to Univariate Norm
 
 \paragraph{Multivariate Normal}
 
-Multivariate normal distribution describes multiple continuous variables. It takes two parameters: a vector containing mean position $\vec{\mu}$, and a symmetric positive definite covariance matrix $\cov$.
+Multivariate Normal distribution describes multiple continuous variables. It takes two parameters: a vector containing mean position $\vec{\mu}$, and a symmetric positive definite covariance matrix $\cov$.
 \begin{enumerate}
 	\item $\P{\vec{x}}=\Norm_{\vec{x}}[\vec{\mu},\cov]=\frac{1}{\sqrt{det(2\pi\cov)}}\e{-\half(\vec{x}-\vec{\mu})\T\cov\inv(\vec{x}-\vec{\mu})}$
 	\item $\vec{x} \in \bR^K$; $\vec{\mu} \in \bR^K$, $\cov \in \bR^{K \times K}$ (positive semi-definite matrix)
@@ -252,7 +252,7 @@ Multivariate normal distribution describes multiple continuous variables. It tak
 
 \paragraph{Normal Inverse Wishart}
 
-Normal inverse wishart distribution is a common conjugate prior to Multivariate Normal distribution.
+Normal Inverse Wishart distribution is a common conjugate prior to Multivariate Normal distribution.
 \begin{enumerate}
 	\item $\P{\vec{\mu},\cov}=\NIW_{\vec{\mu},\cov}[\al,\vec{\Ps},\ga,\vec{\de}] \\ =\frac{\ga^{D/2}\det{\vec{\Ps}}^{\al/2}\det{\cov}^{-\frac{\al+D+2}{2}}}{(2\pi)^{D/2}2^{(\al\cov)/2}\Ga_D(\al/2)}\e{-\half(\Tr(\vec{\Ps}\cov\inv)+\ga(\vec{\mu}-\vec{\de})\T\cov\inv(\vec{\mu}-\vec{\de})}$
 	\item $\vec{\mu} \in \bR^K$, $\cov \in \bR^{K \times K}$; $\al \in \bR_{>D-1}$, $\vec{\Ps} \in \bR^{K \times K}$, $\ga \in \bR_+$, $\vec{\de} \in \bR^K$
@@ -432,7 +432,11 @@ Specifically, every real symmetric matrix can be decomposed into an expression u
 \begin{align*}
 	\mat{M}=\mat{Q}\mat{\La}\mat{Q}\T
 \end{align*}
-where $\mat{Q}$ is an orthogonal matrix composed of eigenvectors of $\mat{M}$, and $\mat{\La}$ is a diagonal matrix.
+where $\mat{Q}$ is an orthogonal matrix composed of eigenvectors of $\mat{M}$, and $\mat{\La}$ is a diagonal matrix. And we can also obtain the matrix diagonalization formula:
+\begin{align*}
+	\mat{Q}\T\mat{M}\mat{Q}=\mat{\La}
+\end{align*}
+In this case, $\mat{M}$ must be real symmetric and positive (semi-)definite. Hence, $\mat{\La}$ will be a diagonal matrix with all positive eigenvalues on its diagonal.
 
 A matrix is \emph{singular} if and only if any of the eigenvalues are zero ($\det{\mat{M}}=0$). A matrix whose eigenvalues are all positive is called \emph{positive definite}. A matrix whose eigenvalues are all positive or zero-valued (non-negative) is called \emph{positive semi-definite}. Likewise, if all eigenvalues are negative, the matrix is \emph{negative definite}, and if all eigenvalues are negative or zero-valued (non-positive), it is \emph{negative semi-definite}. Positive semi-definite matrices guarantee that $\forall\vec{v}, \vec{v}\T\mat{M}\vec{v}\geq0$. Positive definite matrices additionally guarantee that $\vec{v}\T\mat{M}\vec{v}=0\impl\vec{v}=\vec{0}$.
 
@@ -490,7 +494,7 @@ If $f(x)$ is continuous on the closed interval $[a,b]$ and differentiable on the
 
 \paragraph{Newton's Method}
 
-If $x_n$ is the $n^\text{th}$ guess for the root/solution of $f(x)=0$ then $(n+1)^\text{st}$ guess is $x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}$ provided $f'(x_n)$ exists.
+If $x_n$ is the $n\nth$ guess for the root/solution of $f(x)=0$ then $(n+1)^\text{st}$ guess is $x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}$ provided $f'(x_n)$ exists.
 
 \paragraph{Taylor Series}
 
@@ -498,7 +502,7 @@ The Taylor series of a real or complex-valued function $f(x)$ that is infinitely
 \begin{align*}
 	f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\dots+\frac{f^{(n)}(a)}{n!}(x-a)^n
 \end{align*}
-where $n!$ denotes the factorial of $n$ and $f^{n}(a)$ denotes the $n^\text{th}$ derivative of $f$ evaluated at the point $a$. Sometimes, we can represent it as
+where $n!$ denotes the factorial of $n$ and $f^{n}(a)$ denotes the $n\nth$ derivative of $f$ evaluated at the point $a$. Sometimes, we can represent it as
 \begin{align*}
 	f(x+h)=f(x)+hf'(x)+\frac{h^2}{2}f''(x)+\cdots+\frac{h^{r-1}}{(r-1)!}f^{(r-1)}(x)+\O{h^r}
 \end{align*}
@@ -771,11 +775,11 @@ Assume we pick $x$ such that $a<x<b$, then either $f(x)\geq f(b)$, so $\{x,b,c\}
 
 \paragraph{Exact Line Search Condition}
 
-The iterative search technique that we proceed towards the minimum $\vec{x}^*$ by a sequence of steps. On the $k^\text{th}$ step we take a step of length $\al_k$ in the direction $\vec{p}_k$,
+The iterative search technique that we proceed towards the minimum $\vec{x}^*$ by a sequence of steps. On the $k\nth$ step we take a step of length $\al_k$ in the direction $\vec{p}_k$,
 \begin{align*}
 	\vec{x}_{k+1}=\vec{x}_k+\al_k\vec{p}_k
 \end{align*}
-The length of the step can either be chosen using prior knowledge, or by carrying out a line search in the direction $\vec{p}_k$. At the $k^\text{th}$ step, we chose $\al_k$ to minimize $f(\vec{x}_k+\al_k\vec{p}_k)$. So setting $F(\la)=f(\vec{x}_k+\la\vec{p}_k)$, at this step we solve the one-dimensional minimization problem for $F(\la)$. Thus our choice of $\al_k=\la^*$ will satisfy $F'(\al_k)=0$. We can calculate that $F'(\al_k)=\grad f\TT(\vec{x}_{k+1})\vec{p}_k$. So $F'(\al_k)=0$ means the directional derivative in the search direction must vanish at the new point and this gives the exact line search condition: $\grad f\T(\vec{x}_{k+1})\vec{p}_k=0$.
+The length of the step can either be chosen using prior knowledge, or by carrying out a line search in the direction $\vec{p}_k$. At the $k\nth$ step, we chose $\al_k$ to minimize $f(\vec{x}_k+\al_k\vec{p}_k)$. So setting $F(\la)=f(\vec{x}_k+\la\vec{p}_k)$, at this step we solve the one-dimensional minimization problem for $F(\la)$. Thus our choice of $\al_k=\la^*$ will satisfy $F'(\al_k)=0$. We can calculate that $F'(\al_k)=\grad f\TT(\vec{x}_{k+1})\vec{p}_k$. So $F'(\al_k)=0$ means the directional derivative in the search direction must vanish at the new point and this gives the exact line search condition: $\grad f\T(\vec{x}_{k+1})\vec{p}_k=0$.
 
 For a quadratic function $f(\vec{x})=\half\vec{x}\T\mat{A}\vec{x}-\vec{b}\T\vec{x}+c$, with symmetric $\mat{A}$, we can use he condition to analytically calculate $\al_k$. Since $\grad f(\vec{x}_{k+1})=\mat{A}\vec{x}_k+\al_k\mat{A}\vec{p}_k-\vec{b}=\grad f(\vec{x}_k)+\al_k\mat{A}\vec{p}_k$, we find $\al_k=-\frac{\vec{p}_k\TT\grad f(\vec{x}_k)}{\vec{p}_k\TT\mat{A}\vec{p}_k}$.
 
@@ -826,7 +830,7 @@ and claim that now the vectors $\vec{p}_1,\dotsc,\vec{p}_{k+1}$ are conjugate if
 \end{align*}
 An important property of the Gram-Schmidt procedure is that the vectors $\vec{p}_1,\dotsc,\vec{p}_{k+1}$ span the same subspace as the vectors $\vec{v}$ and $\vec{p}_1,\dotsc,\vec{p}_k$: any linear combination of $\vec{p}_1,\dotsc,\vec{p}_{k+1}$ can be rewritten as a linear combination of $\vec{v}$ and $\vec{p}_1,\dotsc,\vec{p}_k$ just by replacing $\vec{p}_{k+1}$ with the RHS of Gram-Schmidt equation. So the space spanned by $\vec{p}_1,\dotsc,\vec{p}_{k+1}$ is contained in the one spanned by $\vec{v}$ and $\vec{p}_1,\dotsc,\vec{p}_k$. But solving the Gram-Schmidt equation for $\vec{v}$ allows us to turn the argument around and so the two subspaces are the same.
 
-Using the Gram-Schmidt procedure, we can construct $n$ conjugate vectors for a positive definite matrix in the following way. We start with $n$ linearly independent vectors $\vec{u}_1,\dotsc,\vec{u}_n$, e.g. we might choose $\vec{u}_i=\vec{e}_i$, the unit vector in the $i^\text{th}$ direction. We then set $\vec{p}_1=\vec{u}_1$ and use the equation to compute $\vec{p}_2$ from $\vec{p}_1$ and $\vec{v}=\vec{u}_2$. Next we set $\vec{v}=\vec{u}_3$ and compute $\vec{p}_3$ from $\vec{p}_1$, $\vec{p}_2$ and $\vec{v}$. Continuing in this manner we obtain $n$ conjugate vectors. Note that at each stage of the procedure the vectors $\vec{u}_1,\dotsc,\vec{u}_k$ span the same subspace as the vector $\vec{p}_1,\dotsc,\vec{p}_j$.
+Using the Gram-Schmidt procedure, we can construct $n$ conjugate vectors for a positive definite matrix in the following way. We start with $n$ linearly independent vectors $\vec{u}_1,\dotsc,\vec{u}_n$, e.g. we might choose $\vec{u}_i=\vec{e}_i$, the unit vector in the $i\nth$ direction. We then set $\vec{p}_1=\vec{u}_1$ and use the equation to compute $\vec{p}_2$ from $\vec{p}_1$ and $\vec{v}=\vec{u}_2$. Next we set $\vec{v}=\vec{u}_3$ and compute $\vec{p}_3$ from $\vec{p}_1$, $\vec{p}_2$ and $\vec{v}$. Continuing in this manner we obtain $n$ conjugate vectors. Note that at each stage of the procedure the vectors $\vec{u}_1,\dotsc,\vec{u}_k$ span the same subspace as the vector $\vec{p}_1,\dotsc,\vec{p}_j$.
 
 \paragraph{The Conjugate Vectors Algorithm}
 
