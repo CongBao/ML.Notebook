@@ -129,6 +129,8 @@
 \contentsline {subsection}{\numberline {4.1.1}The PCA Algorithm}{41}{subsection.4.1.1}% 
 \contentsline {subsection}{\numberline {4.1.2}PCA Interpretation}{41}{subsection.4.1.2}% 
 \contentsline {section}{\numberline {4.2}SVD}{44}{section.4.2}% 
+\contentsline {subsection}{\numberline {4.2.1}The SVD Algorithm}{44}{subsection.4.2.1}% 
+\contentsline {subsection}{\numberline {4.2.2}Relation to PCA}{44}{subsection.4.2.2}% 
 \contentsline {section}{\numberline {4.3}(N)NMF}{44}{section.4.3}% 
 \contentsline {chapter}{\numberline {5}K-Nearest Neighbors}{45}{chapter.5}% 
 \contentsline {section}{\numberline {5.1}Simple K-NN}{45}{section.5.1}% 

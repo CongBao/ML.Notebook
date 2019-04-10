@@ -77,4 +77,24 @@ The proof continues in this way.
 
 \section{SVD}
 
+\subsection{The SVD Algorithm}
+
+SVD decomposes a data matrix $\mat{X}\in\bR^{N\times D}$ into $\mat{X}=\mat{U}\mat{\Si}\mat{V}\T$, where $\mat{U}\in\bR^{N\times N}$ is an orthogonal matrix (columns of $\mat{U}$ are called left singular vectors), $\mat{V}\in\bR^{D\times D}$ is an orthogonal matrix (columns of $\mat{V}$ are called right singular vectors), and $\mat{\Si}\in\bR^{N\times D}$ is a diagonal matrix, with non-negative diagonal entries, sorted from high to low (these are called singular values).
+
+When using SVD for dimensionality reduction, we get the largest $L$ singular values from $\mat{\Si}$ to construct a diagonal matrix $\mat{\Si}_L\in\bR^{L\times L}$. Also, we get the corresponding left singular vectors from $\mat{U}$ to construct a matrix $\mat{U}_L\in\bR^{N\times L}$. Hence the low-dimensional matrix $\mat{Z}\in\bR^{N\times L}$ can be constructed by $\mat{Z}=\mat{U}_L\mat{\Si}_L$.
+
+When using SVD for low-rank approximation, we still construct the same matrices $\mat{\Si}_L\in\bR^{L\times L}$ and $\mat{U}_L\in\bR^{N\times L}$. In addition, we construct another matrix $\mat{V}_L$ by getting corresponding right singular vectors from $\mat{V}$. Hence the reconstructed low-rank matrix can be constructed as $\mat{X}_L=\mat{U}_L\mat{\Si}_L\mat{V}_L\TT$.
+
+\subsection{Relation to PCA}
+
+In PCA, we have to compute eigenvectors and eigenvalues of the covariance matrix $\mat{X}\T\mat{X}$:
+\begin{align*}
+	\mat{X}\T\mat{X}=\mat{Q}\mat{\La}\mat{Q}\T
+\end{align*}
+This means if $\mat{X}=\mat{U}\mat{\Si}\mat{V}\T$, then
+\begin{align*}
+	\mat{X}\T\mat{X}=\mat{V}\mat{\Si}\T\mat{U}\T\mat{U}\mat{\Si}\mat{V}\T=\mat{V}\mat{\La}\mat{V}\T
+\end{align*}
+where $\mat{\La}$ is a diagonal matrix with diagonals equal to the squares of diagonal entries of $\mat{\Si}$. This means that the eigenvectors of $\mat{X}\T\mat{X}$ (principal dimensions) are the same as right singular vectors of $\mat{X}$.
+
 \section{(N)NMF}
