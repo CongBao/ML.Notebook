@@ -75,7 +75,7 @@ Adding the constraints and solving yields
 \end{align*}
 The proof continues in this way.
 
-\section{SVD}
+\section{Singular Value Decomposition (SVD)}
 
 \subsection{The SVD Algorithm}
 
@@ -97,4 +97,37 @@ This means if $\mat{X}=\mat{U}\mat{\Si}\mat{V}\T$, then
 \end{align*}
 where $\mat{\La}$ is a diagonal matrix with diagonals equal to the squares of diagonal entries of $\mat{\Si}$. This means that the eigenvectors of $\mat{X}\T\mat{X}$ (principal dimensions) are the same as right singular vectors of $\mat{X}$.
 
-\section{(N)NMF}
+\section{Non-negative Matrix Factorization ((N)NMF)}
+
+\subsection{Standard NMF}
+
+The idea of NMF is that for a matrix $\mat{X}$ of size $m\times n$ the goal is to express $\mat{X}$, at least approximately as a product of non-negative $m\times k$ and $k\times n$ matrices $\mat{W}$ and $\mat{H}$ that
+\begin{align*}
+	\mat{M}\approx\mat{W}\mat{H}
+\end{align*}
+The objective function to minimize is
+\begin{align*}
+	\cL(\mat{W},\mat{H})=\norm{\mat{X}-\mat{W}\mat{H}}_F^2,\mat{W}\geq 0,\mat{H}\geq 0
+\end{align*}
+The standard framework is to solve problems in $\mat{W}$ and $\mat{H}$ iteratively that fix $\mat{H}$, optimize for $\mat{W}$ or fix $\mat{W}$, optimize for $\mat{H}$. A simple iterative algorithm called \emph{multiplicative updates} is proposed as
+\begin{align*}
+	\mat{H}&\gets\mat{H}\odot\frac{\left[\mat{W}\T\mat{X}\right]}{\left[\mat{W}\T\mat{W}\mat{H}\right]} \\
+	\mat{W}&\gets\mat{W}\odot\frac{\left[\mat{X}\mat{H}\T\right]}{\left[\mat{W}\mat{H}\mat{H}\T\right]}
+\end{align*}
+where $\frac{[]}{[]}$ is element-wise division and $\odot$ is element-wise multiplication. The updates can be viewed as rescaled gradient method. We can write the formulae as
+\begin{align*}
+	\mat{H}&\gets\mat{H}-\frac{\left[\mat{H}\right]}{\left[\mat{W}\T\mat{W}\mat{H}\right]}\odot\grad_{\vec{H}}\cL,\quad\grad_{\vec{H}}\cL=\mat{W}\T\mat{W}\mat{H}-\mat{W}\T\mat{X} \\
+	\mat{W}&\gets\mat{W}-\frac{\left[\mat{W}\right]}{\left[\mat{W}\mat{H}\mat{H}\T\right]}\odot\grad_{\mat{W}}\cL,\quad\grad_{\mat{W}}\cL=\mat{W}\mat{H}\mat{H}\T-\mat{X}\mat{H}\T
+\end{align*}
+
+Another simple algorithm is \emph{alternating least squares (ALS)}:
+\begin{align*}
+	\mat{W}\gets\max\left(0,\frac{\mat{X}\mat{H}\T}{\mat{H}\mat{H}\T}\right)
+\end{align*}
+or the \emph{hierarchical alternating least squares (HALS)}:
+\begin{align*}
+	\mat{W}[:,i]\gets\max\left(0,\frac{\mat{X}\vec{h}_i\TT-\sum_{k\neq i}\mat{W}[:,i]\vec{h}_k\vec{h}_i\TT}{\norm{\vec{h}_i}}^2\right)
+\end{align*}
+where $\mat{W}[:,i]$ is the $i\nth$ column of $\mat{W}$ and $\vec{h}_i$ is the $i\nth$ row of $\mat{H}$.
+
+\subsection{Anchor Words Assumption}
