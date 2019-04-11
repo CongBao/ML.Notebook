@@ -41,8 +41,73 @@ it takes $\O{D}$ operations to compute this distance. For a set of $N$ vectors, 
 
 \paragraph{Triangle Inequality}
 
+For the squared Euclidean distance we have
+\begin{align*}
+	(\vec{x}-\vec{y})^2&=(\vec{x}-\vec{z}+\vec{z}-\vec{y})^2=(\vec{x}-\vec{z})^2+(\vec{z}-\vec{y})^2+2(\vec{x}-\vec{z})\T(\vec{z}-\vec{y}) \\
+	\ab{\vec{x}-\vec{y}}^2&=\ab{\vec{x}-\vec{z}}^2+\ab{\vec{z}-\vec{y}}^2+2\ab{\vec{x}-\vec{z}}\ab{\vec{z}-\vec{y}}\cos(\th) \\
+	\ab{\vec{x}-\vec{y}}&\leq\ab{\vec{x}-\vec{z}}+\ab{\vec{z}-\vec{y}}\ \text{since}\  \cos(\th)\leq 1
+\end{align*}
+More generally a distance $d(\vec{x},\vec{y})$ satisfies the triangle inequality if it is of the form
+\begin{align*}
+	d(\vec{x},\vec{y})\leq d(\vec{x},\vec{z})+d(\vec{y},\vec{z})
+\end{align*}
+Formally the distance is a metric if it is symmetric $d(\vec{x},\vec{y})=d(\vec{y},\vec{x})$, non-negative $d(\vec{x},\vec{y})\geq 0$, and $d(\vec{x},\vec{y})=0\iff\vec{x}=\vec{y}$. Further, if we are in the situation that $d(\vec{x},\vec{y})\leq\half d(\vec{z},\vec{y})$, then we can write $2d(\vec{x},\vec{y})\leq d(\vec{y},\vec{x})+d(\vec{x},\vec{z})$. Hence $d(\vec{x},\vec{y})\leq d(\vec{x},\vec{z})$.In the nearest neighbor context, we can infer that
+\begin{align*}
+	d(\vec{q},\vec{x}_i)\leq d(\vec{q},\vec{x}_j),\ \text{if}\ d(\vec{q},\vec{x}_i)\leq\half d(\vec{x}_i,\vec{x}_j)
+\end{align*}
+
 \paragraph{Orchard's Algorithm}
+
+The Orchard's algorithm takes use of triangle inequality and has the following steps:
+\begin{enumerate}
+	\item Precompute all the distance pairs $d_{ij}=d(\vec{x}_i,\vec{x}_j)$ in the dataset.
+	\item Given these distances, for each $i$ we can then compute an ordered list $L_i=\{j_1^i,j_2^i,\dotsc,j_{N-1}^i\}$ of those vectors $\vec{x}_j$ that are closest to $\vec{x}_i$, with $d(\vec{x}_i,\vec{x}_{j_1^i})\leq d(\vec{x}_i,\vec{x}_{j_2^i})\leq\cdots$.
+	\item We then start with some vector $\vec{x}_i$ as our current best guess for the nearest neighbor to $\vec{q}$ and compute $d(\vec{q},\vec{x}_i)$. We then examine the first element of the list $L_i$ and consider the following cases:
+	\begin{enumerate}
+		\item (BOUND CHECK) If $d(\vec{q},\vec{x}_i)\leq\half d_{i,j_1^i}$ then $j_1^i$ cannot be closer than $\vec{x}_i$ to $\vec{q}$; furthermore, neither can any if the other members of this list since they automatically satisfy this bound as well. In this situation, $\vec{x}_i$ must be the nearest neighbor to $\vec{q}$.
+		\item If $d(\vec{q},\vec{x}_i)>\half d_{i,j_1^i}$ then we compute $d(\vec{q},\vec{x}_{j_1^i})$. If $d(\vec{q},\vec{x}_{j_1^i})<d(\vec{q},\vec{x}_i)$ we have found a better candidate $i'=j_1^i$ than current best guess, and we jump to the start of the new list $L_{i'}$. Otherwise we move down the current list and consider $j_2^i$ in the BOUND CHECK step above.
+	\end{enumerate}
+\end{enumerate}
+
+The Orchard's algorithm has $\O{DN^2}$ operations in precomputation of distance matrix, and $\O{D}$ operations on evaluating each member in the list. Orchard's algorithm can work well in low dimensional cases, avoiding the calculation of many distances. It requires however a potentially very time consuming one-time calculation of all point to point distances. Also, the storage of this inter-point distance matrix can be prohibitive.
 
 \paragraph{Approximating and Eliminating Search Algorithm (AESA)}
 
-\subsection{KD Tree}
+The triangle inequality can be used to form a lower bound
+\begin{align*}
+	d(\vec{q},\vec{x}_j)\geq d(\vec{q},\vec{x}_i)-d(\vec{x}_i,\vec{x}_j)
+\end{align*}
+Define $I$ to be the set of datapoints for which $d(\vec{q},\vec{x}_i),i\in I$ has already been computed. One can then maximize the lower bounds to find the tightest lower bound on all other $d(\vec{q},\vec{x}_j)$
+\begin{align*}
+	d(\vec{q},\vec{x}_j)\geq\max_{i\in I}\{d(\vec{q},\vec{x}_i)-d(\vec{x}_i,\vec{x}_j)\}
+\end{align*}
+All data points $\vec{x}_j$ whose lower bound is greater than the current best nearest neighbor distance can be eliminated. One may then select the next (non-eliminated) candidate datapoint $\vec{x}_j$ corresponding to the lowest bound and continue, updating the bound and eliminating.
+
+The AESA algorithm has $\O{DN^2}$ operations on precomputation of distance matrix, and $\O{M(N-M)}$ operations to evaluate the bound for all $M$ remaining datapoints.
+
+\paragraph{Pre-elimination using Buoys}
+
+Both Orchard's algorithm and AESA pay an $\O{N^2}$ storage cost, which is likely to be prohibitive for large datasets. An alternative is to consider the distances between the training points and a smaller number of strategically placed buoys, $\vec{b}_1,\dotsc,\vec{b}_B,B<N$. Given the buoys, the triangle inequality gives the following upper and lower bounds on the distance from the query to each datapoint:
+\begin{align*}
+	d(\vec{q},\vec{x}_n)&\geq\max_m\{d(\vec{q},\vec{b}_m)-d(\vec{b}_m,\vec{x}_n)\}\equiv\ti{L}_n \\
+	d(\vec{q},\vec{x}_n)&\leq\min_m\{d(\vec{q},\vec{b}_m)+d(\vec{b}_m,\vec{x}_n)\}\equiv\ti{U}_n
+\end{align*}
+We can then immediately eliminate any datapoint whose lower bound is greater than the upper bound of some other datapoint. This enables one to pre-eliminate datapoints, at a cost of $B$ distance calculations. (Still takes $\O{N}$ operations to do pre-elimination)
+
+\paragraph{AESA with Buoys}
+
+With buoys, AESA now has the following steps:
+\begin{enumerate}
+	\item In place of the exact distances to the datapoints, an alternative is to relabel the datapoints according to $\ti{L}_n$, with lowest distance first $\ti{L}_1\leq\ti{L}_2\leq\cdots\leq\ti{L}_N$.
+	\item We can then compute the distance $d(\vec{q},\vec{x}_1)$ and compare this to $\ti{L}_2$. If $d(\vec{q},\vec{x}_1)\leq\ti{L}_2$ then $\vec{x}_1$ must be the nearest neighbor, and the algorithm terminates. Otherwise we move on to the next candidate $\vec{x}_2$.
+	\item If this datapoint has a lower distance than our current best guess, we update our current best guess accordingly. We then move on to the next candidate in the list and continue. If we reach a candidate in the list for which $d(\vec{q},\vec{x}_{best}\leq\ti{L}_m)$ the algorithm terminates.
+\end{enumerate}
+This algorithm is also called \emph{linear AESA}. The gain here is that the storage costs are reduced to $\O{NB}$ since we only now need to pre-compute the distances between the buoys and the dataset vectors. By choosing $B\ll N$, this can be a significant saving. The loss is that, because we are now not using the true distance, but a bound, that we may need more distance calculations $d(\vec{q},\vec{x}_i)$.
+
+\paragraph{Orchard with Buoys}
+
+One can also use buoys to replace the exact distance $d(\vec{x}_i,\vec{x}_j)$ in the Orchard algorithm with an upper bound $d(\vec{x}_i,\vec{b})-d(\vec{x}_j-\vec{b})$. However, one can show that AESA with buoys (linear AESA) dominates Orchard with buoys in terms of the number of distance calculations $d(\vec{q},\vec{x}_i)$ required. No obvious advantage of this approach since computing the upper bounds on the distance requires an $\O{N}$ computation.
+
+\subsection{K-dimensional (KD) Tree}
+
+
