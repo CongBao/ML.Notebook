@@ -131,3 +131,9 @@ or the \emph{hierarchical alternating least squares (HALS)}:
 where $\mat{W}[:,i]$ is the $i\nth$ column of $\mat{W}$ and $\vec{h}_i$ is the $i\nth$ row of $\mat{H}$.
 
 \subsection{Anchor Words Assumption}
+
+NMF problem is NP-hard in the worst case, but there is an assumption which makes it tractable. Suppose that matrix $\mat{X}$ admits factorization $\mat{X}=\mat{W}\mat{H}$ such that for each column $j$ of $\mat{W}$, there exists a row $i$, such that $\mat{W}_{ij}>0$ and $\mat{W}_{ik}=0$ for $k\neq j$.
+
+Then, we could simplify our problem a bit. Without the loss of generality, $\sum_j\mat{X}_{ij}=1$, otherwise we normalize, factorize, and renormalize it. Also $\sum_j\mat{H}_{ij}=1$, otherwise we normalize the rows of $\mat{H}$ and compensate for it by renormalizing the columns of $\mat{W}$. Then $\sum_j\mat{W}_{ij}=1$ as well. The reason is that: rows of $\mat{X}$ are non-negative linear combinations of rows of $\mat{H}$ with coefficients in the rows of $\mat{W}$. Since rows $\mat{X}$ and $\mat{H}$ sum to 1, this has to be convex combination.
+
+Anchor words assumption means that there is identity matrix embedded in $\mat{W}$. But that means that there are $k$ rows of $\mat{X}$ embedded in $\mat{H}$. The goal is now to find $k$ rows of $\mat{X}$ such that the rest of them are in the convex hull of these $k$. This could be done greedily. Start with all the rows of $\mat{X}$. While there is a row that is in the convex hull of the rest: delete it. And this could be done with linear programming.
