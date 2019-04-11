@@ -4,6 +4,59 @@
 \chapter{Clustering}
 \label{chapter11}
 
+
+
 \section{K-Means}
+\label{section11.1}
+
+\subsection{The K-Means Algorithm}
+
+The goal of k-means is to assign each datapoint in a dataset $\vec{x}_1,\dotsc,\vec{x}_N$ to one of $K$ groups, $\vec{m}_1,\dotsc,\vec{m}_K$. We will assign each datapoint to a cluster, $\vec{x}_n\to c(n)$ where $c(n)\in\{1,\dotsc,K\}$ is the cluster index of datapoint number $n$. We want to find the assignments and centers that minimize the squared loss
+\begin{align*}
+	\cL=\sum_{n=1}^N\left(\vec{x}_n-\vec{m}_{c(n)}\right)^2
+\end{align*}
+The algorithm of k-means has following steps:
+\begin{algorithm}[H]
+	\caption*{\bf The K-Means Algorithm}
+	\begin{algorithmic}
+		\State initialize the centers $\vec{m}_i,i=1,\dotsc,K$
+		\While{not converged}
+		\State for each center $i$, find all the $\vec{x}_n$ for which $i$ is the nearest center
+		\State call this set of points $\cN_i$. Let $N_i$ be the number of datapoints in set $\cN_i$
+		\State update the center by taking the mean of those datapoints assigned to this center:
+		\begin{align*}
+			\vec{m}_i^{new}=\frac{1}{N_i}\sum_{n\in\cN_i}\vec{x}_n
+		\end{align*}
+		\EndWhile
+	\end{algorithmic}
+\end{algorithm}
+
+\subsection{K-Means Limitations}
+
+\paragraph{Hard Assignment}
+
+A datapoint is assigned to only a single cluster (hard assignment). It might be preferable to make a soft assignment that a datapoint probably belongs to a cluster, but could belong to another cluster with a certain probability. 
+
+\paragraph{Outlier Sensitivity}
+
+K-means is sensitive to outliers. If there is an outlier (datapoint far from the rest) this can throw off the k-means algorithm. The k-medians algorithms can be less sensitive to outliers.
+
+\paragraph{Shape/Density Issues}
+
+K-means works best when the clusters are roughly spherical and of equal number of points. We can use spectral clustering in case the data is not spherical.
+
+\paragraph{Computational Cost}
+
+K-means is a fast method. However, if each datapoint is very high dimensional, finding the nearest center can be expensive. There are speed-up techniques available (see section~\ref{section5.2}).
+
+\paragraph{Representation Sensitivity}
+
+Let's say that each data vector contains two attributes $x_{(1)}$ and $x_{(2)}$. $x^{(1)}$ represents the temperature in centigrade, and $x^{(2)}$ the distance. If we represent the distance in millimeters, then the Euclidean distance will be dominated by the difference in distance. If we represent the distance in kilometers, the distance will be most likely dominated by the difference in temperature. Rescaling is one way around this.
+
+\paragraph{Missing Data}
+
+There is no simple and justifiable way to deal with missing data in k-means. For example, encoding missing data with zeros will bias the clusters found.
+
+
 
 \section{Spectral Clustering}
