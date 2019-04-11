@@ -110,4 +110,12 @@ One can also use buoys to replace the exact distance $d(\vec{x}_i,\vec{x}_j)$ in
 
 \subsection{K-dimensional (KD) Tree}
 
+If we consider first one-dimensional data $x_n,n=1,\dotsc,N$ we can partition the data into points that have value less than a chosen value $v$, and those with a value greater than this. If the distance of the current best candidate $x^*$ to the query point $q$ in smaller than the distance of the query to $v$, then points to the left of $v$ cannot be the nearest neighbor.
 
+In the more general $K$ dimensional case, consider a query vector $\vec{q}$. We partition the datapoints into those with first dimension $x^{(1)}$ less than a defined value $v$ (to its left) $L=\{\vec{x}_n:x_n^{(1)}<v\}$, and those with a value greater or equal to $v$ (to its right) $R=\{\vec{x}_n:x_n^{(1)}\geq v\}$. If the current best nearest neighbor candidate is $\vec{x}_i\in\bR$ and that this point has squared Euclidean distance $\de^2=(\vec{q}-\vec{x}_i)^2$ from $\vec{q}$. The squared Euclidean distance of any datapoint $\vec{x}\in L$ to the query is
+\begin{align*}
+	(\vec{x}-\vec{q})^2=\sum_k(x^{(k)}-q^{(k)})^2\geq(x^{(1)}-q^{(1)})^2\geq(v-q^{(1)})^2
+\end{align*}
+If $(v-q^{(1)})^2\geq\de^2$, then $(\vec{x}-\vec{q})^2>\de^2$. That is, all points in $L$ must be further from $\vec{q}$ than the current best point $\vec{x}_i$. On the other hand, if $(v-q^{(1)})^2<\de^2$, then it is possible that some point in $L$ might be closer to $\vec{q}$ than the current best nearest neighbor candidate, and we need to check these points.
+
+For $N$ datapoints, the constructed tree consists of $N$ nodes. Each node contains a datapoint, along with the axis along which the data is split. In each layer, we split data in node into three group: middle data, left data, and right data, along a specified dimension. We first form the set of scalar values that correspond to the axis components of node data. These are sorted and middle data is the datapoint closest to the median of the data. Besides, left data are the datapoints to the left of the middle datapoints and right data are the datapoints to the right of the middle datapoint.
