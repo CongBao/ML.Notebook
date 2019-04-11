@@ -4,6 +4,45 @@
 \chapter{K-Nearest Neighbors}
 \label{chapter5}
 
+
+
 \section{Simple K-NN}
+\label{section5.1}
+
+The k-nearest neighbors (k-NN) algorithm is a simple non-parametric method used for both classification and regression problems. A simple k-NN has the following steps:
+\begin{algorithm}[H]
+	\caption*{\bf The K-Nearest Neighbors Algorithm}
+	\begin{algorithmic}
+		\State input data $\mat{X}\in\bR^{N\times D}$
+		\State input label $\vec{y}\in\bR^N$
+		\State choose distance measure function $d$
+		\State set $k$
+		\State initialize $\mat{M}\in\bR^{N\times2}$ with zeros
+		\For{$i=1,\dotsc,N$}
+		\State $\mat{M}_{i,1}:=d(\vec{q},\vec{x}_i)$
+		\State $\mat{M}_{i,2}:=\vec{y}_i$
+		\EndFor
+		\State sort $\mat{M}$ in ascending order w.r.t. the first column
+		\State \Return the most frequent class in $\mat{M}_{1:k}$
+	\end{algorithmic}
+\end{algorithm}
+Usually, we choose Euclidean distance as our distance function that
+\begin{align*}
+	d(\vec{q},\vec{x})=\sqrt{(\vec{q}-\vec{x})^2}=\sqrt{\sum_{i=1}^D(q_i-x_i)^2}
+\end{align*}
+it takes $\O{D}$ operations to compute this distance. For a set of $N$ vectors, computing the nearest neighbors to $\vec{q}$ would take then $\O{DN}$ operations. For large datasets this can be prohibitively expensive.
+
+
 
 \section{Fast K-NN Computation}
+\label{section5.2}
+
+\subsection{Metric Distances Methods}
+
+\paragraph{Triangle Inequality}
+
+\paragraph{Orchard's Algorithm}
+
+\paragraph{Approximating and Eliminating Search Algorithm (AESA)}
+
+\subsection{KD Tree}

@@ -874,7 +874,7 @@ Hence we can simplify the equations as
 \end{align*}
 We can conclude the conjugate gradients algorithm as
 \begin{algorithm}[H]
-	\caption{The Conjugate Gradients Algorithm}
+	\caption*{\bf The Conjugate Gradients Algorithm}
 	\begin{algorithmic}
 		\State $k=1$
 		\State input $\vec{x}_1$
@@ -921,7 +921,7 @@ This is a very general form: if $\mat{S}_k=\hess_f\inv$ then we have Newton's me
 \end{align*}
 This is a rand-2 correction to $\hess_k$ constructed from the vectors $\vec{s}_k$ and $\hess_k\vec{y}_k$. The quasi-Newton algorithm is
 \begin{algorithm}[H]
-	\caption{The Quasi-Newton Algorithm}
+	\caption*{\bf The Quasi-Newton Algorithm}
 	\begin{algorithmic}
 		\State input $\vec{x}_1$
 		\State set $\hess_i=\mat{I}$
