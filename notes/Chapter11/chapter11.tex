@@ -60,3 +60,137 @@ There is no simple and justifiable way to deal with missing data in k-means. For
 
 
 \section{Spectral Clustering}
+\label{section11.2}
+
+\subsection{Similarity Graphs}
+\label{section11.2.1}
+
+\paragraph{$\ep$-Neighborhood Graph}
+
+We connect all points whose pairwise distances are smaller than $\ep$. As all connected points are roughly of the same scale, the graph is usually not weighted.
+
+\paragraph{$k$-Nearest Neighbor Graphs}
+
+We connect vertex $v_i$ and vertex $v_j$ if $x_j$ is among $k$ nearest neighbors of $x_i$. However, the nearest neighbor relationship is not symmetric. There are two choices to deal with this. The first way is ignoring the direction of the edges: we connect $v_i$ and $v_j$ if either $x_i$ is in the $k$ nearest neighbors of $x_j$ OR $x_j$ is among $k$ nearest neighbors of $x_i$. The second choice is to connect vertices $v_i$ and $v_j$ if both $v_i$ is among the $k$ nearest neighbors of $v_j$ AND $v_j$ is among the $k$ nearest neighbors of $v_i$ (mutual $k$-nearest neighbors graph). In both cases we weight the edges by the similarity of the data points $w_{ij}=s_{ij}$.
+
+\paragraph{Fully Connected Graph}
+
+We connect all the points with positive similarity and weight all the edges by $s_{ij}$. We would like the graph to model local neighborhood relationships, so need a similarity function which encodes this. Gaussian kernel is widely used $s_{ij}=\e{-\frac{\norm{x_i-x_j}}{2\si^2}}$. The parameter $\si$ controls the width of the neighborhood.
+
+\subsection{Graph Laplacian}
+
+\paragraph{Basic Graph Definitions}
+
+Let $G=(V,E)$ be an undirected weighted graph with non-negative edge weights. Let $w_{ij}$ be the weight of an edge connecting $v_i$ and $v_j$. The degree of the vertex $i$ is $d_i=\sum_{j=1}^nw_{ij}$. The weighted adjacency matrix is the matrix $\mat{W}=[w_{ij}]$. If $w_{ij}=0$ then $v_i$ and $v_j$ are not connected. The degree matrix $\mat{D}$ is a diagonal matrix with $d_1,\dotsc,d_n$ on the diagonal. For a subset $A\subset V$ denote the complement $\bar{A}=V\setminus A$. We have two ways of measuring the size of a subset: $\ab{A}:=\text{the number of vertivces in }A$, and $vol(A):=\sum_{i\in A}d_i$.
+
+\paragraph{Unnormalized Graph Laplacian}
+
+The unnormalized graph Laplacian matrix is:
+\begin{align*}
+	\mat{L}=\mat{D}-\mat{W}
+\end{align*}
+It has the following properties:
+\begin{enumerate}
+	\item For every vector $\vec{f}\in\bR^n$ we have
+	\begin{align*}
+		\vec{f}\TT\mat{L}\vec{f}&=\vec{f}\TT\mat{D}\vec{f}-\vec{f}\TT\mat{W}\vec{f} \\
+		&=\sum_{i=1}^nd_if_i^2-\sum_{i,j=1}^nf_if_jw_{ij} \\
+		&=\half\left(\sum_{i=1}^nd_if_i^2-2\sum_{i,j=1}^nf_if_jw_{ij}+\sum_{j=1}^nd_jf_j^2\right) \\
+		&=\half\sum_{i,j=1}^nw_{ij}(f_i-f_j)^2
+	\end{align*}
+	\item $\mat{L}$ is symmetric and positive semi-definite.
+	\item The smallest eigenvalue of $\mat{L}$ is 0, the corresponding eigenvector is the constant one vector $\vec{1}$.
+	\item $\mat{L}$ has $n$ non-negative, real-valued eigenvalues $0=\la_1\leq\la_2\leq\cdots\leq\la_n$.
+	\item The multiplicity $k$ of the eigenvalue 0 of $\mat{L}$ equals the number of connected components $A_1,\dotsc,A_k$ in the graph. The eigenspace of eigenvalue 0 is spanned by the indicator vectors $\vec{1}_{A_1},\dotsc,\vec{1}_{A_k}$ of those components.
+\end{enumerate}
+
+\paragraph{Normalized Graph Laplacian}
+
+Another matrix which is used in spectral clustering is normalized Laplacian:
+\begin{align*}
+	\mat{L}_{rw}=\mat{D}\inv\mat{L}=\mat{I}-\mat{D}\inv\mat{W}
+\end{align*}
+where $rw$ stands for random walk. The properties of normalized Laplacian are:
+\begin{enumerate}
+	\item $\mat{L}_{rw}$ is symmetric and positive semi-definite.
+	\item The smallest eigenvalue of $\mat{L}_{rw}$ is 0 with the corresponding eigenvector being a constant one vector $\vec{1}$.
+	\item $\mat{L}$ has $n$ non-negative, real-valued eigenvalues $0=\la_1\leq\la_2\leq\cdots\leq\la_n$.
+	\item $\la$ is an eigenvalue of $\mat{L}_{rw}$ with eigenvector $\vec{v}$ iff $\la$ and $\vec{v}$ solve the generalized eigenproblem $\mat{L}\vec{v}=\la\mat{D}\vec{v}$.
+	\item The multiplicity $k$ of the eigenvalue 0 of $\mat{L}_{rw}$ equals the number of connected components $A_1,\dotsc,A_k$ in the graph. The eigenspace of eigenvalue 0 is spanned by the indicator vectors $\vec{1}_{A_1},\dotsc,\vec{1}_{A_k}$ of those components.
+\end{enumerate}
+
+\subsection{Spectral Clustering Algorithms}
+
+Assume the data consists of $n$ datapoints $\vec{x}_1,\dotsc,\vec{x}_n$. We measure their pairwise similarities $s_{ij}=s(\vec{x}_i,\vec{x}_j)$ by some similarity function which is symmetric and non-negative, and we denote the corresponding similarity matrix by $\mat{S}=[s_{ij}],i,j=1,\dotsc,n$.
+\begin{algorithm}[H]
+	\caption*{\bf The Unnormalized Spectral Clustering Algorithm}
+	\begin{algorithmic}
+		\State input similarity matrix $\mat{S}\in\bR^{n\times n}$
+		\State input number of clusters $k$
+		\State construct a similarity graph by one of the methods described in section~\ref{section11.2.1}
+		\State compute the unnormalized Laplacian $\mat{L}$
+		\State compute the first $k$ eigenvectors $\vec{v}_1,\dotsc,\vec{v}_k$ of $\mat{L}$
+		\State let $\mat{U}\in\bR^{n\times k}$ be the matrix containing the vectors $\vec{v}_1\dotsc,\vec{v}_k$ as columns
+		\State for $i=1,\dotsc,n$, let $\vec{y}_i\in\bR^k$ be the vector corresponding to the $i\nth$ row of $\mat{U}$
+		\State cluster the points $\vec{y}_i,i=1,\dotsc,n$ in $\bR^k$ with the k-means algorithm into clusters $C_1,\dotsc,C_k$
+		\State \Return clusters $A_1,\dotsc,A_k$ with $A_i=\{j|\vec{y}_j\in C_i\}$
+	\end{algorithmic}
+\end{algorithm}
+Normalized spectral clustering has similar steps except the computation of eigenvectors.
+\begin{algorithm}[H]
+	\caption*{\bf The Normalized Spectral Clustering Algorithm}
+	\begin{algorithmic}
+		\State input similarity matrix $\mat{S}\in\bR^{n\times n}$
+		\State input number of clusters $k$
+		\State construct a similarity graph by one of the methods described in section~\ref{section11.2.1}
+		\State compute the unnormalized Laplacian $\mat{L}$
+		\State compute the first $k$ eigenvectors $\vec{v}_1,\dotsc,\vec{v}_k$ of the generalized eigenproblem $\mat{L}\vec{v}=\la\mat{D}\vec{v}$
+		\State let $\mat{U}\in\bR^{n\times k}$ be the matrix containing the vectors $\vec{v}_1\dotsc,\vec{v}_k$ as columns
+		\State for $i=1,\dotsc,n$, let $\vec{y}_i\in\bR^k$ be the vector corresponding to the $i\nth$ row of $\mat{U}$
+		\State cluster the points $\vec{y}_i,i=1,\dotsc,n$ in $\bR^k$ with the k-means algorithm into clusters $C_1,\dotsc,C_k$
+		\State \Return clusters $A_1,\dotsc,A_k$ with $A_i=\{j|\vec{y}_j\in C_i\}$
+	\end{algorithmic}
+\end{algorithm}
+
+\subsection{NCut and RatioCut Approximations}
+
+Recall the definition of the graph cut. For two disjoint subsets $A,B\in V$ we define $cut(A,B)=\sum_{i\in A,j\in B}w_{ij}$. One way to partition a graph into $k$ disjoint subsets is to solve a min-cut problem, defining $cut(A_1,\dotsc,A_k)=\sum_{i=1}^kcut(A_i,\bar{A}_i)$. However, this leads to an unbalanced partitions, for example in case of $k=2$ the minimum is often achieved by splitting off one vertex. Thus we want to enforce the clusters $A_i$ to be reasonably large. There are two natural ways of doing this: by the number of vertices and by the volume. This leads to the two definitions:
+\begin{align*}
+	RatioCut(A_1,\dotsc,A_k)&=\sum_{i=1}^k\frac{cut(A_i,\bar{A}_i)}{\ab{A_i}} \\
+	NCut(A_1,\dotsc,A_k)&=\sum_{i=1}^k\frac{cut(A_i,\bar{A}_i)}{vol(A_i)}
+\end{align*}
+
+Here is a sketch of how RatioCut for $k=2$ is related to unnormalized spectral clustering. Our goal is to solve the optimization problem $\min_{A\subset V}RatioCut(A,\bar{A})$. We first rewrite the problem is a more convenient form. Given a subset $A\subset V$ we define the vector $\vec{f}=[f_1\ \cdots\ f_n]\T\in\bR^n$ with entries
+\begin{align*}
+	f_i=\casefill{\sqrt{\pfrac{\ab{\bar{A}}}{\ab{A}}}&\quad\text{if }v_i\in A \\ -\sqrt{\pfrac{\ab{A}}{\ab{\bar{A}}}}&\quad\text{if }v_i\in\bar{A}}
+\end{align*}
+Now the RatioCut objective function can be conveniently rewritten using the unnormalized graph Laplacian. This is due to the following calculation:
+\begin{align*}
+	\vec{f}\TT\mat{L}\vec{f}&=\half\sum_{i,j=1}^nw_{ij}(f_i-f_j)^2 \\
+	&=\half\sum_{i\in A,j\in\bar{A}}w_{ij}\left(\sqrt{\frac{\ab{\bar{A}}}{\ab{A}}}+\sqrt{\frac{\ab{A}}{\ab{\bar{A}}}}\right)^2+\half\sum_{i\in\bar{A},j\in A}w_{ij}\left(-\sqrt{\frac{\ab{\bar{A}}}{\ab{A}}}-\sqrt{\frac{\ab{A}}{\ab{\bar{A}}}}\right)^2 \\
+	&=cut(A,\bar{A})\left(\frac{\ab{\bar{A}}}{\ab{A}}+\frac{\ab{A}}{\ab{\bar{A}}}+2\right) \\
+	&=cut(A,\bar{A})\left(\frac{\ab{A}+\ab{\bar{A}}}{\ab{A}}+\frac{\ab{A}+\ab{\bar{A}}}{\ab{\bar{A}}}\right) \\
+	&=\ab{V}\cdot RatioCut(A,\bar{A})
+\end{align*}
+Additionally, we have
+\begin{align*}
+	\sum_{i=1}^nf_i=\sum_{i\in A}\sqrt{\frac{\ab{\bar{A}}}{\ab{A}}}-\sum_{i\in\bar{A}}\sqrt{\frac{\ab{A}}{\ab{\bar{A}}}}=\ab{A}\sqrt{\frac{\ab{\bar{A}}}{\ab{A}}}-\ab{\bar{A}}\sqrt{\frac{\ab{A}}{\ab{\bar{A}}}}=0
+\end{align*}
+In other words, the vector $\vec{f}$ is orthogonal to the constant one vector $\vec{1}$. Finally, note that $\vec{f}$ satisfies
+\begin{align*}
+	\norm{\vec{f}}^2=\sum_{i=1}^nf_i^2=\ab{A}\frac{\ab{\bar{A}}}{\ab{A}}+\ab{\bar{A}}\frac{\ab{A}}{\ab{\bar{A}}}=\ab{\bar{A}}+\ab{A}=n
+\end{align*}
+Take a relaxation to discard the discreteness condition and instead allow that $f_i$ takes arbitrary values in $\bR$ leads to the relaxed optimization problem
+\begin{align*}
+	\min_{\vec{f}\in\bR^n}\vec{f}\TT\mat{L}\vec{f}\ \text{subject to }\vec{f}\perp\vec{1},\norm{\vec{f}}=\sqrt{n}
+\end{align*}
+The solution to this problem is the second eigenvector of $\mat{L}$. Now we need to transform back the solution to discrete indicator vectors. This is done using k-means clustering of the components. One can show similarly that unnormalized spectral clustering corresponds to the relaxation of RatioCut whereas normalized spectral clustering corresponds to the relaxation of NCut.
+
+\subsection{Random Walk Viewpoint}
+
+Spectral clustering could be viewed as finding the partition such that the random walk with transition probabilities proportional to edge weights stays long within the same cluster. The transition matrix $\mat{P}=[p_{ij}],i,j=1,\dotsc,n$ of the random walk is defined by $\mat{P}=\mat{D}\inv\mat{W}$. And we can see that $\mat{L}_{rw}=\mat{I}-\mat{P}$. If the graph is connected and non-bipartite there is an unique stationary distribution $\pi=(\pi_1,\dotsc,\pi_n)$ given by $\pi_i=\pfrac{d_i}{vol(G)}$.
+
+Random walk and NCut are equivalence. Let $G$ be a connected non-bipartite graph. Suppose we run the random walk starting from $X_0$ in the stationary distribution. For disjoint subsets $A,B\subset V$, denote by $\P{B|A}:=\P{X_1\in B|X_0\in A}$. Then
+\begin{align*}
+	NCut(A,\bar{A})=\P{\bar{A}|A}+\P{A|\bar{A}}
+\end{align*}
