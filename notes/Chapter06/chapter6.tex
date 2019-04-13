@@ -4,55 +4,175 @@
 \chapter{Linear Regression}
 \label{chapter6}
 
-\section{Basic Model}
-\begin{enumerate}
-	\item Discriminative, Regression
-	\item $\P{w_i|\mat{X}_i,\vec{\th}}=\Norm_{w_i}[\ph_0+\vec{\ph}\T\mat{X}_i,\si^2]$
-	\item (Neater Notation) $\mat{X}_i\gets[1\quad\mat{X}\T_i]\T$, $\vec{\ph}\gets[\ph_0\quad\vec{\ph}\T]\T$ \\ $\P{w_i|\mat{X}_i,\vec{\th}}=\Norm_{w_i}[\vec{\ph}\T\mat{X}_i,\si^2]$
-	\item (Combining Equations) $\mat{X}=[\mat{X}_1,\mat{X}_2,\dotsc,\mat{X}_I]$ \\ $\P{\vec{w}|\mat{X},\vec{\th}}=\Norm_{\vec{w}}[\mat{X}\T\vec{\ph},\si^2\mat{I}]$
-	\item Learning with Maximum Likelihood: $\hat{\vec{\th}}=\argmax_{\vec{\th}}\P{\vec{w}|\mat{X},\vec{\th}}=\argmax_{\vec{\th}}\log\P{\vec{w}|\mat{X},\vec{\th}}$, result:
-	\begin{align*}
-	\hat{\vec{\ph}}&=(\mat{X}\mat{X}\T)\inv\mat{X}\vec{w} \\
-	\hat{\si}^2&=\frac{(\vec{w}-\mat{X}\T\vec{\ph})\T(\vec{w}-\mat{X}\T\vec{\ph})}{\mat{I}}
-	\end{align*}
-\end{enumerate}
+\section{Non-Probability Model}
+\label{section6.1}
+
+We want to fit a linear line on the data so we introduce the linear relation for one datapoint $\vec{x}_i$ and the corresponding result $y_i$:
+\begin{align*}
+	y_i=\vec{\ph}\T\vec{x}_i+\ep_i
+\end{align*}
+where $\vec{x}_i$ is a data point with $1$ as the first item and $\vec{\ph}$ is the parameter vector with the first item as a bias term. $\ep_i$ is a noise. For a whole dataset:
+\begin{align*}
+	\vec{y}=\mat{X}\T\vec{\ph}+\vec{\ep}
+\end{align*}
+where $\mat{X}\in\bR^{D\times N}$. We can apply a squared error loss on the noise term:
+\begin{align*}
+	\cL(\vec{\ph})=\sum_{i=1}^N\ep_i^2=\sum_{i=1}^N\left(y_i-\vec{\ph}\T\vec{x}_i\right)^2
+\end{align*}
+Taking $\grad\cL(\vec{\ph})=0$ and we have the solution:
+\begin{align*}
+	\vec{\ph}^*=\left(\mat{X}\mat{X}\T\right)\inv\mat{X}\vec{y}
+\end{align*}
+
+
+
+\section{Probability Model}
+\label{section6.2}
+
+We choose normal distribution over world $w_i$ with mean as a linear function of data $\vec{x}_i$ and constant variance:
+\begin{align*}
+	\P{w_i|\vec{x}_i,\vec{\th}}=\Norm_{w_i}[\vec{\ph}\T\vec{x}_i,\si^2]
+\end{align*}
+where $\vec{x}_i$ is a data point with $1$ as the first item and $\vec{\ph}$ is the parameter vector with the first item as a bias term. For a whole dataset, the probability is the product of these individual distributions:
+\begin{align*}
+	\P{\vec{w}|\mat{X},\vec{\th}}=\Norm_{\vec{w}}[\mat{X}\T\vec{\ph},\si^2\mat{I}]
+\end{align*}
+where $\mat{X}\in\bR^{D\times N}$, $\vec{\ph}\in\bR^{D\times1}$. Hence the distribution is a multivariate normal distribution with mean a vector in $\bR^N$ and covariance a diagonal matrix in $\bR^{N\times N}$ with $\si^2$ on its diagonal. Learning with maximum likelihood: $\hat{\vec{\th}}=\argmax_{\vec{\th}}\P{\vec{w}|\mat{X},\vec{\th}}=\argmax_{\vec{\th}}\log\P{\vec{w}|\mat{X},\vec{\th}}$, taking derivative and set result to zero and re-arrange:
+\begin{align*}
+	\hat{\vec{\ph}}&=\left(\mat{X}\mat{X}\T\right)\inv\mat{X}\vec{w} \\
+	\hat{\si}^2&=\frac{\left(\vec{w}-\mat{X}\T\vec{\ph}\right)\T\left(\vec{w}-\mat{X}\T\vec{\ph}\right)}{\mat{I}}
+\end{align*}
+
+
 
 \section{Bayesian Regression}
+\label{section6.3}
 
-\subsection*{Parameter $\vec{\ph}$}
-\begin{description}
-	\item[Likelihood] $\P{\vec{w}|\mat{X},\vec{\th}}=\Norm_{\vec{w}}[\mat{X}\T\vec{\ph},\si^2\mat{I}]$
-	\item[Prior] $\P{\vec{\ph}}=\Norm_{\vec{\ph}}[\vec{0},\si_p^2\mat{I}]$
-	\item[Posterior] 
-	\begin{align*}
+We already got the likelihood term $\P{\vec{w}|\mat{X},\vec{\th}}=\Norm_{\vec{w}}[\mat{X}\T\vec{\ph},\si^2\mat{I}]$. Now we give it a prior distribution $\P{\vec{\ph}}=\Norm_{\vec{\ph}}[\vec{0},\si_p^2\mat{I}]$ on the mean $\vec{\ph}$. We can use Bayes' rule to calculate the posterior distribution of $\vec{\ph}$:
+\begin{align*}
 	\P{\vec{\ph}|\mat{X},\vec{w}}&=\frac{\P{\vec{w}|\mat{X},\vec{\ph}}\P{\vec{\ph}|\mat{X}}}{\P{\vec{w}|\mat{X}}} \\
 	&=\Norm_{\vec{\ph}}\left[\frac{1}{\si^2}\mat{A}\inv\mat{X}\vec{w},\mat{A}\inv\right]
-	\end{align*}
-	where
-	\begin{align*}
+\end{align*}
+where
+\begin{align*}
 	\mat{A}&=\frac{1}{\si^2}\mat{X}\mat{X}\T+\frac{1}{\si_p^2}\mat{I} \\
-	\mat{A}\inv&=\si_p^2\mat{I}_D-\si_p^2\mat{X}\left(\mat{X}\T\mat{X}+\frac{\si^2}{\si_p^2}\mat{I}_I\right)\inv\mat{X}\T
-	\end{align*}
-	\item[Inference (Bayesian Approach)]
-	\begin{align*}
+	\mat{A}\inv&=\si_p^2\mat{I}_D-\si_p^2\mat{X}\left(\mat{X}\T\mat{X}+\frac{\si^2}{\si_p^2}\mat{I}_N\right)\inv\mat{X}\T
+\end{align*}
+With the posterior, we can do Bayesian inference that
+\begin{align*}
 	\P{w^*|\vec{x}^*,\mat{X},\vec{w}}&=\int\P{w^*|\vec{x}^*,\vec{\ph}}\P{\vec{\ph|\mat{X},\vec{w}}}d\vec{\ph} \\
 	&=\int\Norm_{w^*}[\vec{\ph}\T\vec{x}^*,\si^2]\Norm_{\vec{\ph}}\left[\frac{1}{\si^2}\mat{A}\inv\mat{X}\vec{w},\mat{A}\inv\right]d\vec{\ph} \\
 	&=\Norm_{w^*}\left[\frac{1}{\si^2}\vec{x}^*\T\mat{A}\inv\mat{X}\vec{w},\vec{x}^*\T\mat{A}\inv\vec{x}^*+\si^2\right]
-	\end{align*}
-\end{description}
-
-\subsection*{Parameter $\si^2$}
+\end{align*}
+For the variance $\si^2$, we optimize the marginal likelihood that
 \begin{align*}
-\P{\vec{w}|\mat{X},\si^2}&=\int\P{\vec{w}|\mat{X},\vec{\ph},\si^2}\P{\vec{\ph}}d\vec{\ph} \\
-&=\int\Norm_{\vec{w}}[\mat{X}\T\vec{\ph},\si^2\mat{I}]\Norm_{\vec{\ph}}[\vec{0},\si_p^2\mat{I}]d\vec{\ph} \\
-&=\Norm_{\vec{w}}[\vec{0},\si_p^2\mat{X}\T\mat{X}+\si^2\mat{I}]
+	\P{\vec{w}|\mat{X},\si^2}&=\int\P{\vec{w}|\mat{X},\vec{\ph},\si^2}\P{\vec{\ph}}d\vec{\ph} \\
+	&=\int\Norm_{\vec{w}}[\mat{X}\T\vec{\ph},\si^2\mat{I}]\Norm_{\vec{\ph}}[\vec{0},\si_p^2\mat{I}]d\vec{\ph} \\
+	&=\Norm_{\vec{w}}[\vec{0},\si_p^2\mat{X}\T\mat{X}+\si^2\mat{I}]
 \end{align*}
 
 \section{Non-linear Regression}
 
+\paragraph{Basic Idea}
+
+One can make a non-linear function from a linear weighted sum of non-linear basis functions. We have known the linear regression:
+\begin{align*}
+	\P{w_i|\vec{x}_i,\vec{\th}}=\Norm_{w_i}[\vec{\ph}\T\vec{x}_i,\si^2]
+\end{align*}
+Then the non-linear regression is:
+\begin{align*}
+	\P{w_i|\vec{x}_i,\vec{\th}}=\Norm_{w_i}[\vec{\ph}\T\vec{z}_i,\si^2]
+\end{align*}
+where $\vec{z}_i=f(\vec{x}_i)$ with $f$ as some non-linear basis functions.
+
+\paragraph{Polynomial Regression}
+
+The non-linear basis function $f(\bullet)$ can be a polynomial function, for example, $\vec{z}_i=f(\vec{x}_i)=[1\ x_i\ x_i^2\ x_i^3]\T$. In this case, we can obtain the estimated parameter similar to linear regression but with $\mat{Z}=f(\mat{X})$ instead of $\mat{X}$:
+\begin{align*}
+	\hat{\vec{\ph}}&=\left(\mat{Z}\mat{Z}\T\right)\inv\mat{Z}\vec{w} \\
+	\hat{\si}^2&=\frac{\left(\vec{w}-\mat{Z}\T\vec{\ph}\right)\T\left(\vec{w}-\mat{Z}\T\vec{\ph}\right)}{\mat{I}}
+\end{align*}
+
+\paragraph{Radial Basis Functions (RBF)} We can apply a Gaussian radial basis function on the data that $\vec{z}=\e{-\pfrac{(\vec{x}-\vec{\al})^2}{\la}}$.
+
+\paragraph{Arc Tan Functions} We can apply an arc tan function on the data that $\vec{z}=\arctan(\la\vec{x}-\vec{\al})$.
+
 \section{Kernel Trick \& Gaussian Processes}
 
+With any linear or non-linear basis function and the Bayesian inference, we can get the predictive distribution that
+\begin{align*}
+	\P{w^*|\vec{z}^*,\mat{Z},\vec{w}}&=\int\P{w^*|\vec{z}^*,\vec{\ph}}\P{\vec{\ph|\mat{Z},\vec{w}}}d\vec{\ph} \\
+	&=\Norm_{w^*}\left[\frac{1}{\si^2}\vec{z}^*\T\mat{A}\inv\mat{Z}\vec{w},\vec{z}^*\T\mat{A}\inv\vec{z}^*+\si^2\right] \\
+	&=\Norm_{w^*}\Bigg[\frac{\si_p^2}{\si^2}\vec{z}^*\T\mat{Z}\vec{w}-\frac{\si_p^2}{\si^2}\vec{z}^*\T\mat{Z}\left(\mat{Z}\TT\mat{Z}+\frac{\si^2}{\si_p^2}\mat{I}\right)\inv\mat{Z}\TT\mat{Z}\vec{w},\\
+	&\qquad\qquad\qquad\si_p^2\vec{z}^*\T\vec{z}^*-\si_p^2\vec{z}^*\T\mat{Z}\left(\mat{Z}\TT\mat{Z}+\frac{\si^2}{\si_p^2}\mat{I}\right)\inv\mat{Z}\TT\vec{z}^*+\si^2\Bigg]
+\end{align*}
+Notice that the final equation does not need the data itself, but just dot products between data items of the form $\vec{z}_i\TT\vec{z}_j$. So, we take data $\vec{x}_i$ and $\vec{x}_j$ pass through non-linear function to create $\vec{z}_i$ and $\vec{z}_j$ and then take dot products of different $\vec{z}_i\TT\vec{z}_j$.
+
+The kernel trick is that, we can define a kernel function that does all of this together. Instead of compute $\vec{z}$ explicitly, which can be very high or infinite dimension, we takes data $\vec{x}_i$ and $\vec{x}_j$ and returns a value for dot product $\vec{z}_i\TT\vec{z}_j$. Then, the predictive distribution above can be written as
+\begin{align*}
+	\P{w^*|\vec{z}^*,\mat{Z},\vec{w}}&=\int\P{w^*|\vec{z}^*,\vec{\ph}}\P{\vec{\ph|\mat{Z},\vec{w}}}d\vec{\ph} \\
+	&=\Norm_{w^*}\Bigg[\frac{\si_p^2}{\si^2}\mat{K}[\vec{x}^*,\mat{X}]\vec{w}-\frac{\si_p^2}{\si^2}\mat{K}[\vec{x}^*,\mat{X}]\left(\mat{K}[\mat{X},\mat{X}]+\frac{\si^2}{\si_p^2}\mat{I}\right)\inv\mat{K}[\mat{X},\mat{X}]\vec{w},\\
+	&\qquad\qquad\qquad\si_p^2\mat{K}[\vec{x}^*,\vec{x}^*]-\si_p^2\mat{K}[\vec{x}^*,\mat{X}]\left(\mat{K}[\mat{X},\mat{X}]+\frac{\si^2}{\si_p^2}\mat{I}\right)\inv\mat{K}[\mat{X},\vec{x}^*]+\si^2\Bigg]
+\end{align*}
+where the notation $\mat{K}[\mat{X},\mat{X}]$ represents a matrix of dot products where element $(i,j)$ is given by $k[\vec{x}_i,\vec{x}_j]$. Similarly, for the variance $\si^2$, we optimize the marginal likelihood that
+\begin{align*}
+\P{\vec{w}|\mat{Z},\si^2}&=\int\P{\vec{w}|\mat{Z},\vec{\ph},\si^2}\P{\vec{\ph}}d\vec{\ph} \\
+&=\int\Norm_{\vec{w}}[\mat{Z}\T\vec{\ph},\si^2\mat{I}]\Norm_{\vec{\ph}}[\vec{0},\si_p^2\mat{I}]d\vec{\ph} \\
+&=\Norm_{\vec{w}}[\vec{0},\si_p^2\mat{Z}\T\mat{Z}+\si^2\mat{I}] \\
+&=\Norm_{\vec{w}}[\vec{0},\si_p^2\mat{K}[\mat{X},\mat{X}]+\si^2\mat{I}]
+\end{align*}
+
+Some examples of kernel functions:
+\begin{enumerate}
+	\item linear: $k[\vec{x}_i,\vec{x}_j]=\vec{x}_i\TT\vec{x}_j$
+	\item degree $p$ polynomial: $k[\vec{x}_i,\vec{x}_j]=\left(\vec{x}_i\TT\vec{x}_j+1\right)^p$
+	\item RBF or Gaussian:
+	\begin{align*}
+		k[\vec{x}_i,\vec{x}_j]=\e{-\frac{(\vec{x}_i-\vec{x}_j)\T(\vec{x}_i-\vec{x}_j)}{2\la^2}}
+	\end{align*}
+\end{enumerate}
+Gaussian process regression using an RBF (Gaussian) kernel. The parameter $\la$ controls how smooth the function is.
+
 \section{Sparse Linear Regression}
+
+Sometimes not every dimension of the data $\vec{x}$ is informative. A sparse solution forces some of the coefficients in $\vec{\ph}$ to be zero. This can be done by applying product of t-distributions to parameter vectors
+\begin{align*}
+	\P{\vec{\ph}}&=\prod_{d=1}^D\Stud_{\ph_d}[0,1,\nu] \\
+	&=\prod_{d=1}^D\frac{\Ga\left(\frac{\nu+1}{2}\right)}{\sqrt{\nu\pi}\Ga\left(\frac{\nu}{2}\right)}\left(1+\frac{\ph_d^2}{\nu}\right)^{-(\nu+1)/2}
+\end{align*}
+Using Bayes' rule, we can have the posterior distribution as
+\begin{align*}
+	\P{\vec{\ph}|\mat{X},\vec{w},\si^2}=\frac{\P{\vec{w}|\mat{X},\vec{\ph},\si^2}\P{\vec{\ph}}}{\P{\vec{w}|\mat{X},\si^2}}
+\end{align*}
+However, this time the prior is not conjugate to the normal likelihood so cannot compute posterior in closed form. To make progress, we can write t-distribution as marginal of joint distribution
+\begin{align*}
+	\P{\vec{\ph}}&=\prod_{d=1}^D\int\Norm_{\ph_d}\left[0,\frac{1}{h_d}\right]\Gam_{h_d}\left[\frac{\nu}{2},\frac{\nu}{2}\right]dh_d \\
+	&=\int\Norm_{\vec{\ph}}\left[0,\mat{H}\inv\right]\prod_{d=1}^D\Gam_{h_d}\left[\frac{\nu}{2},\frac{\nu}{2}\right]d\mat{H}
+\end{align*}
+where $\mat{H}$ is a diagonal matrix with hidden variables $h_d$ on diagonal. Then we have
+\begin{align*}
+	\P{\vec{w}|\mat{X},\si^2}&\prop\int\P{\vec{w},\vec{\ph}|\mat{X},\si^2}d\vec{\ph} \\
+	&=\int\P{\vec{w}|\mat{X},\vec{\ph},\si^2}\P{\vec{\ph}}d\vec{\ph} \\
+	&=\int\Norm_{\vec{w}}\left[\mat{X}\TT\vec{\ph},\si^2\mat{I}\right]\int\Norm_{\vec{\ph}}\left[0,\mat{H}\inv\right]\prod_{d=1}^D\Gam_{h_d}\left[\frac{\nu}{2},\frac{\nu}{2}\right]d\mat{H}d\vec{\ph} \\
+	&=\iint\Norm_{\vec{w}}\left[\mat{X}\TT\vec{\ph},\si^2\mat{I}\right]\Norm_{\vec{\ph}}\left[0,\mat{H}\inv\right]\prod_{d=1}^D\Gam_{h_d}\left[\frac{\nu}{2},\frac{\nu}{2}\right]d\mat{H}d\vec{\ph} \\
+	&=\int\Norm_{\vec{w}}\left[\vec{0},\mat{X}\TT\mat{H}\inv\mat{X}+\si^2\mat{I}\right]\prod_{d=1}^D\Gam_{h_d}\left[\frac{\nu}{2},\frac{\nu}{2}\right]d\mat{H}
+\end{align*}
+We still cannot compute it, but we can approximate that
+\begin{align*}
+	\P{\vec{w}|\mat{X},\si^2}\approx\max_{\mat{H}}\left[\Norm_{\vec{w}}\left[\vec{0},\mat{X}\TT\mat{H}\inv\mat{X}+\si^2\mat{I}\right]\prod_{d=1}^D\Gam_{h_d}\left[\frac{\nu}{2},\frac{\nu}{2}\right]\right]
+\end{align*}
+To fit the model, update variance $\si^2$ and hidden variables $h_d$ according to the updates:
+\begin{align*}
+	h_d&\gets\frac{1-h_d\mat{\Si}_{dd}+\nu}{\mu_d^2+\nu} \\
+	\si^2&\gets\frac{1}{D-\sum_d(1-h_d\mat{\Si}_{dd})}\left(\vec{w}-\mat{X}\vec{\mu}\right)\T\left(\vec{w}-\mat{X}\vec{\mu}\right)
+\end{align*}
+where
+\begin{align*}
+	\vec{\mu}&=\frac{1}{\si^2}\mat{A}\inv\mat{X}\vec{w} \\
+	\mat{\Si}&=\mat{A}\inv \\
+	\mat{A}&=\frac{1}{\si^2}\mat{X}\mat{X}\TT+\mat{H}
+\end{align*}
+After fitting, some of hidden variables become very big, implies prior tightly fitted around zero, can be eliminated from model. However it does not work for non-linear case as we need one hidden variable per dimension, which becomes intractable with high dimensional transformation.
 
 \section{Dual Linear Regression}
 
