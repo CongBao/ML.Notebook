@@ -176,4 +176,63 @@ After fitting, some of hidden variables become very big, implies prior tightly f
 
 \section{Dual Linear Regression}
 
+We can represent $\vec{\ph}$ as a weighted sum of the data points that $\vec{\ph}=\mat{X}\vec{\ps}$, since gradient $\vec{\ph}$ is just a vector in the data space. Now we can instead solve for $\vec{\ps}$, one parameter per training example. Hence, we can write the likelihood term as
+\begin{align*}
+	\P{\vec{w}|\mat{X},\vec{\th}}&=\Norm_{\vec{w}}\left[\mat{X}\T\vec{\ph},\si^2\mat{I}\right] \\
+	&=\Norm_{\vec{w}}\left[\mat{X}\T\mat{X}\vec{\ps},\si^2\mat{I}\right]
+\end{align*}
+Learning with maximum likelihood we have
+\begin{align*}
+	\hat{\vec{\ps}}&=\left(\mat{X}\TT\mat{X}\right)\inv\vec{w} \\
+	\hat{\si}^2&=\frac{\left(\vec{w}-\mat{X}\TT\mat{X}\vec{\ps}\right)\T\left(\vec{w}-\mat{X}\TT\mat{X}\vec{\ps}\right)}{\mat{I}}
+\end{align*}
+It has the same result as before
+\begin{align*}
+	\hat{\vec{\ph}}=\mat{X}\hat{\vec{\ps}}&=\mat{X}\left(\mat{X}\TT\mat{X}\right)\inv\vec{w} \\
+	&=\left(\mat{X}\mat{X}\TT\right)\inv\mat{X}\mat{X}\TT\mat{X}\left(\mat{X}\TT\mat{X}\right)\inv\vec{w} \\
+	&=\left(\mat{X}\mat{X}\TT\right)\inv\mat{X}\vec{w}
+\end{align*}
+
+As before, in Bayesian inference, we give a prior to the parameter $\vec{\ps}$ that $\P{\vec{\ps}}=\Norm_{\vec{\ps}}[\vec{0},\si_p^2\mat{I}]$. Hence the posterior distribution is
+\begin{align*}
+	\P{\vec{\ps}|\mat{X},\vec{w},\si^2}&=\frac{\P{\vec{w}|\mat{X},\vec{\ps},\si^2}\P{\vec{\ps}}}{\P{\vec{w}|\mat{X},\si^2}} \\
+	&=\Norm_{\vec{\ps}}\left[\frac{1}{\si^2}\mat{A}\inv\mat{X}\TT\mat{X}\vec{w},\mat{A}\inv\right]
+\end{align*}
+where
+\begin{align*}
+	\mat{A}=\frac{1}{\si^2}\mat{X}\TT\mat{X}\mat{X}\TT\mat{X}+\frac{1}{\si_p^2}\mat{I}
+\end{align*}
+And the predictive distribution is
+\begin{align*}
+	\P{w^*|\vec{x}^*,\mat{X},\vec{w}}&=\int\P{w^*|\vec{x}^*,\vec{\ps}}\P{\vec{\ps}|\mat{X},\vec{w}}d\vec{\ps} \\
+	&=\Norm_{w^*}\left[\frac{1}{\si^2}\vec{x}^*\T\mat{X}\mat{A}\inv\mat{X}\TT\mat{X}\vec{w}^*,\vec{x}^*\T\mat{X}\mat{A}\inv\mat{X}\TT\vec{x}^*+\si^2\right]
+\end{align*}
+where
+\begin{align*}
+\mat{A}=\frac{1}{\si^2}\mat{X}\TT\mat{X}\mat{X}\TT\mat{X}+\frac{1}{\si_p^2}\mat{I}
+\end{align*}
+Notice that both the maximum likelihood and Bayesian inference depend on dot products $\mat{X}\TT\mat{X}$, which can be kernelized.
+
 \section{Relevance Vector Regression}
+
+We can combine the ideas of dual regression (one parameter per training example) and sparsity regression (most of the parameters are zero) to obtain a model that only depends sparsely on training data. In this case, we have our likelihood and prior term as
+\begin{align*}
+	\P{\vec{w}|\mat{X},\vec{\th}}&=\Norm_{\vec{w}}\left[\mat{X}\TT\mat{X}\vec{\ps},\si^2\mat{I}\right] \\
+	\P{\vec{\ps}}&=\prod_{i=1}^N\Stud_{\ps_i}[0,1,\nu]
+\end{align*}
+Similarly, we use the approximations that
+\begin{align*}
+	\P{\vec{w}|\mat{X},\si^2}\approx\max_{\mat{H}}\left[\Norm_{\vec{w}}\left[\vec{0},\mat{X}\TT\mat{X}\mat{H}\inv\mat{X}\TT\mat{X}+\si^2\mat{I}\right]\prod_{d=1}^D\Gam_{h_d}\left[\frac{\nu}{2},\frac{\nu}{2}\right]\right]
+\end{align*}
+and the updates over parameters
+\begin{align*}
+	h_i&\gets\frac{1-h_i\mat{\Si}_{ii}+\nu}{\mu_i^2+\nu} \\
+	\si^2&\gets\frac{1}{\mat{I}-\sum_i(1-h_i\mat{\Si}_{ii})}\left(\vec{w}-\mat{X}\TT\mat{X}\vec{\mu}\right)\T\left(\vec{w}-\mat{X}\TT\mat{X}\vec{\mu}\right)
+\end{align*}
+where
+\begin{align*}
+	\vec{\mu}&=\frac{1}{\si^2}\mat{A}\inv\mat{X}\TT\mat{X}\vec{w} \\
+	\mat{\Si}&=\mat{A}\inv \\
+	\mat{A}&=\frac{1}{\si^2}\mat{X}\TT\mat{X}\mat{X}\TT\mat{X}+\mat{H}
+\end{align*}
+Notice that this only depends on dot-products and so can be kernelized.
