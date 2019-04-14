@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.4)  14 APR 2019 14:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.4)  14 APR 2019 14:16
 entering extended mode
 **./notebook.tex
 (notebook.tex
@@ -826,14 +826,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 47.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 47.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 47.
 Package rerunfilecheck Info: File `notebook.out' has not changed.
-(rerunfilecheck)             Checksum: 3CC4CD473F2C67F29ADB75802EE2BD89;10380.
+(rerunfilecheck)             Checksum: 5296D06FD3B129E8D75F1DB7EA2636D9;10384.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 47.
  ) 
 Here is how much of TeX's memory you used:
- 10291 strings out of 492945
- 150324 string characters out of 3135514
- 251628 words of memory out of 3000000
- 13332 multiletter control sequences out of 15000+200000
+ 10296 strings out of 492945
+ 150384 string characters out of 3135514
+ 251899 words of memory out of 3000000
+ 13337 multiletter control sequences out of 15000+200000
  21089 words of font info for 86 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,19n,43p,1102b,587s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -858,7 +858,7 @@ msy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on notebook.pdf (86 pages, 913041 bytes).
+Output written on notebook.pdf (86 pages, 913044 bytes).
 PDF statistics:
  1664 PDF objects out of 1728 (max. 8388607)
  570 named destinations out of 1000 (max. 500000)

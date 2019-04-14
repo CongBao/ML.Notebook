@@ -61,8 +61,8 @@
 \BOOKMARK [2][]{subsection.5.2.1}{5.2.1 Metric Distances Methods}{section.5.2}% 61
 \BOOKMARK [2][]{subsection.5.2.2}{5.2.2 K-dimensional \(KD\) Tree}{section.5.2}% 62
 \BOOKMARK [0][]{chapter.6}{6 Linear Regression}{}% 63
-\BOOKMARK [1][]{section.6.1}{6.1 Non-Probability Model}{chapter.6}% 64
-\BOOKMARK [1][]{section.6.2}{6.2 Probability Model}{chapter.6}% 65
+\BOOKMARK [1][]{section.6.1}{6.1 Non-probabilistic Model}{chapter.6}% 64
+\BOOKMARK [1][]{section.6.2}{6.2 Probabilistic Model}{chapter.6}% 65
 \BOOKMARK [1][]{section.6.3}{6.3 Bayesian Regression}{chapter.6}% 66
 \BOOKMARK [1][]{section.6.4}{6.4 Non-linear Regression}{chapter.6}% 67
 \BOOKMARK [1][]{section.6.5}{6.5 Kernel Trick \046 Gaussian Processes}{chapter.6}% 68

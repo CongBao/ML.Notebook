@@ -4,7 +4,7 @@
 \chapter{Linear Regression}
 \label{chapter6}
 
-\section{Non-Probability Model}
+\section{Non-probabilistic Model}
 \label{section6.1}
 
 We want to fit a linear line on the data so we introduce the linear relation for one datapoint $\vec{x}_i$ and the corresponding result $y_i$:
@@ -26,7 +26,7 @@ Taking $\grad\cL(\vec{\ph})=0$ and we have the solution:
 
 
 
-\section{Probability Model}
+\section{Probabilistic Model}
 \label{section6.2}
 
 We choose normal distribution over world $w_i$ with mean as a linear function of data $\vec{x}_i$ and constant variance:
@@ -71,7 +71,10 @@ For the variance $\si^2$, we optimize the marginal likelihood that
 	&=\Norm_{\vec{w}}[\vec{0},\si_p^2\mat{X}\T\mat{X}+\si^2\mat{I}]
 \end{align*}
 
+
+
 \section{Non-linear Regression}
+\label{section6.4}
 
 \paragraph{Basic Idea}
 
@@ -97,7 +100,10 @@ The non-linear basis function $f(\bullet)$ can be a polynomial function, for exa
 
 \paragraph{Arc Tan Functions} We can apply an arc tan function on the data that $\vec{z}=\arctan(\la\vec{x}-\vec{\al})$.
 
+
+
 \section{Kernel Trick \& Gaussian Processes}
+\label{section6.5}
 
 With any linear or non-linear basis function and the Bayesian inference, we can get the predictive distribution that
 \begin{align*}
@@ -133,7 +139,10 @@ Some examples of kernel functions:
 \end{enumerate}
 Gaussian process regression using an RBF (Gaussian) kernel. The parameter $\la$ controls how smooth the function is.
 
+
+
 \section{Sparse Linear Regression}
+\label{section6.6}
 
 Sometimes not every dimension of the data $\vec{x}$ is informative. A sparse solution forces some of the coefficients in $\vec{\ph}$ to be zero. This can be done by applying product of t-distributions to parameter vectors
 \begin{align*}
@@ -174,7 +183,10 @@ where
 \end{align*}
 After fitting, some of hidden variables become very big, implies prior tightly fitted around zero, can be eliminated from model. However it does not work for non-linear case as we need one hidden variable per dimension, which becomes intractable with high dimensional transformation.
 
+
+
 \section{Dual Linear Regression}
+\label{section6.7}
 
 We can represent $\vec{\ph}$ as a weighted sum of the data points that $\vec{\ph}=\mat{X}\vec{\ps}$, since gradient $\vec{\ph}$ is just a vector in the data space. Now we can instead solve for $\vec{\ps}$, one parameter per training example. Hence, we can write the likelihood term as
 \begin{align*}
@@ -213,7 +225,10 @@ where
 \end{align*}
 Notice that both the maximum likelihood and Bayesian inference depend on dot products $\mat{X}\TT\mat{X}$, which can be kernelized.
 
+
+
 \section{Relevance Vector Regression}
+\label{section6.8}
 
 We can combine the ideas of dual regression (one parameter per training example) and sparsity regression (most of the parameters are zero) to obtain a model that only depends sparsely on training data. In this case, we have our likelihood and prior term as
 \begin{align*}
