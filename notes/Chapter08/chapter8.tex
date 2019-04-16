@@ -1,10 +1,41 @@
 %!TEX root = ../notebook.tex
 % Chapter 8
 
+\graphicspath{{Chapter08/Figs/}}
+
 \chapter{Support Vector Machines}
 \label{chapter8}
 
-\section{Geometric Margins}
+\section{Functional \& Geometric Margins}
+
+Consider a separating hyperplane $\vec{\ph}\TT\vec{x}+b=0$. We can use $\ab{\vec{\ph}\TT\vec{x}_i+b}$ as the distance of point $\vec{x}_i$ to the hyperplane. When the sign of $\vec{\ph}\TT\vec{x}_i+b$ is same as its label $y_i$, the classification of datapoint $x_i$ is correct. Otherwise the classification is wrong. Ideally, we also want the distance to hyperplane to be large enough so that we can make sure the classification is correct. Putting them together, we have the functional margin $y_i(\vec{\ph}\TT\vec{x}_i+b)$, which is always positive or equal to zero. However, when we scale $\vec{\ph}$ and $b$ with the same ratio, the functional margin changes but the hyperplane does not. We need a measure of margin that is invariant to the scale of $\vec{\ph}$ and $b$, for example, we divide the functional margin by L2 norm of $\vec{\ph}$ that $\ga_i=y_i\left(\frac{\vec{\ph}\TT\vec{x}_i+b}{\norm{\vec{\ph}}}\right)$. This is called geometric margin. We can have an intuitive interpretation.
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+	\includegraphics*[width=0.4\textwidth]{fig1.png}
+\end{wrapfigure}
+The red line in the right figure is the decision boundary $f(\vec{x})=\vec{\ph}\TT\vec{x}+b$, and we call it discriminant function. A point $\vec{x}$ is classified in decision region $\cR_0$ if $f(\vec{x})<0$, otherwise it belongs to $\cR_1$. $\vec{x}_\bot$ is the projection of $\vec{x}$ on decision boundary and we have
+\begin{align*}
+	\vec{x}=\vec{x}_\bot+r\frac{\vec{\ph}}{\norm{\vec{\ph}}}
+\end{align*}
+where $r$ is the distance between point $\vec{x}$ and the decision boundary. Multiply with $\vec{\ph}$ we have
+\begin{align*}
+	\vec{\ph}\TT\vec{x}=\vec{\ph}\TT\vec{x}_\bot+\vec{\ph}\TT r\frac{\vec{\ph}}{\norm{\vec{\ph}}}
+\end{align*}
+Since $\vec{x}_\bot$ is on the decision boundary, it satisfies that $\vec{\ph}\TT\vec{x}_\bot+b=0$. Hence the above equation can be rewritten as
+\begin{align*}
+	\vec{\ph}\TT\vec{x}&=-b+\vec{\ph}\TT r\frac{\vec{\ph}}{\norm{\vec{\ph}}} \\
+	&=-b+r\vec{\ph}\frac{\vec{\ph}}{\sqrt{\vec{\ph}\TT\vec{\ph}}} \\
+	&=-b+r\norm{\vec{\ph}}
+\end{align*}
+Then we can solve for $r$ that
+\begin{align*}
+	r&=\frac{\vec{\ph}\TT\vec{x}+b}{\norm{\vec{\ph}}} \\
+	&=\frac{\vec{\ph}\TT}{\norm{\vec{\ph}}}\vec{x}+\frac{b}{\norm{\vec{\ph}}}
+\end{align*}
+We scale it with the label and then get the geometric margin
+\begin{align*}
+	\ga_i=y_i\left(\frac{\vec{\ph}\TT}{\norm{\vec{\ph}}}\vec{x}_i+\frac{b}{\norm{\vec{\ph}}}\right)
+\end{align*}
 
 \section{Primal \& Dual Problems}
 
