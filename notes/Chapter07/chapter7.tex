@@ -6,12 +6,150 @@
 
 
 
-\section{Logistic Regression}
+\section{Binary Classification}
+\label{section7.1}
+
+For a tow classes classification problem, we can choose Bernoulli distribution over world with the parameter as a function of $\vec{x}$:
+\begin{align*}
+	\P{w|\vec{\ph},\vec{x}}&=\Bern_w[\si(\vec{\ph}\TT\vec{x})] \\
+	&=\Bern_w\left[\frac{1}{1+\e{-\vec{\ph}\TT\vec{x}}}\right]
+\end{align*}
+where $\si(\bullet)$ is sigmoid function mapping $\bR\to[0,1]$. Hence the maximum likelihood is
+\begin{align*}
+	\P{\vec{w}|\mat{X},\vec{\ph}}&=\prod_{i=1}^N\la^{w_i}(1-\la)^{1-w_i} \\
+	&=\prod_{i=1}^N\left(\frac{1}{1+\e{-\vec{\ph}\TT\vec{x}_i}}\right)^{w_i}\left(\frac{\e{-\vec{\ph}\TT\vec{x}_i}}{1+\e{-\vec{\ph}\TT\vec{x}_i}}\right)^{1-w_i}
+\end{align*}
+We then take logarithm and derivative
+\begin{align*}
+	\log\P{\vec{w}|\mat{X},\vec{\ph}}&=\sum_{i=1}^Nw_i\log\left(\frac{1}{1+\e{-\vec{\ph}\TT\vec{x}_i}}\right)+\sum_{i=1}^N(1-w_i)\log\left(\frac{\e{-\vec{\ph}\TT\vec{x}_i}}{1+\e{-\vec{\ph}\TT\vec{x}_i}}\right) \\
+	\frac{\pa}{\pa\vec{\ph}}\log\P{\vec{w}|\mat{X},\vec{\ph}}&=-\sum_{i=1}^N\left(\frac{1}{1+\e{-\vec{\ph}\TT\vec{x}_i}}-w_i\right)\vec{x}_i \\
+	&=-\sum_{i=1}^N\left(\si\left(\vec{\ph}\TT\vec{x}_i\right)-w_i\right)\vec{x}_i
+\end{align*}
+Unfortunately, there is no closed form solution that we cannot get an expression for $\vec{\ph}$ in terms of $\vec{x}$ and $\vec{w}$. Instead, we can use iterative non-linear optimization techniques such as gradient descent and Newton's method. See section~\ref{section2.5}.
+
+
+
+\section{Bayesian Logistic Regression}
+\label{section7.2}
+
+As in linear regression, we set a prior to the parameter that $\P{\vec{\ph}}=\Norm_{\vec{\ph}}[\vec{0},\si_p^2\mat{I}]$, and using Bayes' rule to calculate the posterior distribution. However, there is no closed form solution for posterior. Instead, we use Laplace approximation that we approximate the posterior with a normal distribution that
+\begin{align*}
+	\P{\vec{\ph}|\mat{X},\vec{w}}\approx q(\vec{\ph})=\Norm_{\vec{\ph}}[\vec{\mu},\vec{\Si}]
+\end{align*}
+where
+\begin{align*}
+	\vec{\mu}&=\hat{\vec{\ph}} \\
+	\vec{\Si}&=-\left.\left(\frac{\pa^2}{\pa\vec{\ph}^2}\log\P{\vec{\ph}|\mat{X},\vec{w}}\right)\inv\right|_{\vec{\ph}=\hat{\vec{\ph}}}
+\end{align*}
+Then the Bayesian inference is
+\begin{align*}
+	\P{w^*|\vec{x}^*,\mat{X},\vec{w}}&=\int\P{w^*|\vec{x}^*,\vec{\ph}}\P{\vec{\ph}|\mat{X},\vec{w}}d\vec{\ph} \\
+	&\approx\int\P{w^*|\vec{x}^*,\vec{\ph}}q(\vec{\ph})d\vec{\ph} \\
+	&=\int\P{w^*|a}\P{a}da,\quad a=\vec{\ph}\TT\vec{x}^*
+\end{align*}
+where the posterior can be calculated using transformation properties of normal distributions
+\begin{align*}
+	\P{a}=\P{\vec{\ph}\TT\vec{x}^*}=\Norm_a\left[\vec{\mu}\TT\vec{x}^*,\vec{x}^*\T\vec{\Si}\vec{x}\right]=\Norm_a\left[\mu_a,\si_a^2\right]
+\end{align*}
+Finally, we can approximate the inference as
+\begin{align*}
+	\P{w^*|\vec{x}^*,\mat{X},\vec{w}}&\approx\int\P{w^*|a}\Norm_a\left[\mu_a,\si_a^2\right]da \\
+	&\approx\frac{1}{1+\e{-\pfrac{\mu_a}{\sqrt{1+\pi\si_a^2/8}}}}
+\end{align*}
 
 
 
 \section{Non-linear Logistic Regression}
+\label{section7.3}
+
+Similar to linear regression, we can have an non-linear transformation on data $\vec{x}=f(\vec{x})$. Hence the model as be written as
+\begin{align*}
+	\P{w|\vec{\ph},\vec{x}}&=\Bern_w\left[\si\left(\vec{\ph}\TT\vec{z}\right)\right] \\
+	&=\Bern_w\left[\si\left(\vec{\ph}\TT f(\vec{x})\right)\right]
+\end{align*}
+Some example non-linear transformations are
+\begin{enumerate}
+	\item Heaviside Step functions of projections: $z_k=Heaviside(\vec{\al}_k\TT\vec{x})$
+	\item Arc tan functions of projections: $z_k=\arctan(\vec{\al}_k\TT\vec{x})$
+	\item Radial basis functions: $z_k=\e{-\frac{1}{\la_0}(\vec{x}-\vec{\al}_k)\T(\vec{x}-\vec{\al}_k)}$
+\end{enumerate}
+
+
 
 \section{Kernel Trick \& Gaussian Process Classification}
+\label{section7.4}
+
+We write the parameter $\vec{\ph}$ in dual formulation that $\vec{\ph}=\mat{X}\vec{\ps}$. Hence the likelihood term and its derivatives becomes
+\begin{align*}
+	\P{\vec{w}|\mat{X},\vec{\ps}}&=\prod_{i=1}^N\Bern_{w_i}[\si(a_i)]=\prod_{i=1}^N\Bern_{w_i}\left[\si\left(\vec{\ps}\TT\mat{X}\TT\vec{x}_i\right)\right] \\
+	\frac{\pa}{\pa\vec{\ps}}\log\P{\vec{w}|\mat{X},\vec{\ps}}&=-\sum_{i=1}^N(\si(a_i)-w_i)\mat{X}\TT\vec{x}_i \\
+	\frac{\pa^2}{\pa\vec{\ps}^2}\log\P{\vec{w}|\mat{X},\vec{\ps}}&=-\sum_{i=1}^N\si(a_i)(1-\si(a_i))\mat{X}\TT\vec{x}_i\vec{x}_i\TT\mat{X}
+\end{align*}
+which only depends on inner products. Hence we can use a Gaussian kernel that
+\begin{align*}
+	k[\vec{x}_i,\vec{x}_j]=\e{-\frac{(\vec{x}_i-\vec{x}_j)\T(\vec{x}_i-\vec{x}_j)}{2\la_0^2}}
+\end{align*}
+This Bayesian case is known as Gaussian process classification.
+
+
+
+\section{Relevance Vector Classification}
+\label{section7.5}
+
+As before, we apply sparse prior to dual variables and write as marginalization of them:
+\begin{align*}
+	\P{\vec{\ps}}&=\prod_{i=1}^N\Stud_{\ps_i}[0,1,\nu] \\
+	&=\prod_{i=1}^N\int\Norm_{\ps_i}\left[0,\frac{1}{h_i}\right]\Gam_{h_i}\left[\frac{\nu}{2},\frac{\nu}{2}\right]dh_i \\
+	&=\int\Norm_{\vec{\ps}}\left[0,\mat{H}\inv\right]\prod_{d=1}^D\Gam_{h_d}\left[\frac{\nu}{2},\frac{\nu}{2}\right]d\mat{H}
+\end{align*}
+And this gives the model
+\begin{align*}
+	\P{\vec{w}|\mat{X}}&=\int\P{\vec{w}|\mat{X},\vec{\ps}}\P{\vec{\ps}}d\vec{\ps} \\
+	&=\iint\prod_{i=1}^N\Bern_{w_i}\left[\si\left(\vec{\ps}\TT\mat{K}\left[\mat{X},\vec{x}_i\right]\right)\right]\Norm_{\vec{\ps}}\left[0,\mat{H}\inv\right]\prod_{d=1}^D\Gam_{h_d}\left[\frac{\nu}{2},\frac{\nu}{2}\right]d\mat{H}d\vec{\ps}
+\end{align*}
+We need two approximations to solve this equation.
+\begin{enumerate}
+	\item Use Laplace approximation result:
+	\begin{align*}
+		\int q(\vec{\ps})d\vec{\ps}&\approx q(\vec{\mu})\int\e{-\half(\vec{\ps}-\vec{\mu})\TT\mat{\Si}\inv(\vec{\ps}-\vec{\mu})}d\vec{\ps} \\
+		&=q(\vec{\mu})(2\pi)^{\frac{D}{2}}\det{\mat{\Si}}^{\half} \\
+		\P{\vec{w}|\mat{X}}&\approx\int\prod_{i=1}^N(2\pi)^{\frac{N}{2}}\det{\mat{\Si}}^{\half}\Bern_{w_i}\left[\si\left(\vec{\mu}\TT\mat{K}\left[\mat{X},\vec{x}_i\right]\right)\right]\Norm_{\vec{\mu}}\left[0,\mat{H}\inv\right]\Gam_{h_i}\left[\frac{\nu}{2},\frac{\nu}{2}\right]d\mat{H}
+	\end{align*}
+	\item Maximize over $\mat{H}$, instead of marginalizing:
+	\begin{align*}
+		\P{\vec{w}|\mat{X}}\approx\max_{\mat{H}}\left[\prod_{i=1}^N(2\pi)^{\frac{N}{2}}\det{\mat{\Si}}^{\half}\Bern_{w_i}\left[\si\left(\vec{\mu}\TT\mat{K}\left[\mat{X},\vec{x}_i\right]\right)\right]\Norm_{\vec{\mu}}\left[0,\mat{H}\inv\right]\Gam_{h_i}\left[\frac{\nu}{2},\frac{\nu}{2}\right]\right]
+	\end{align*}
+\end{enumerate}
+To solve this, alternately update hidden variables in $\mat{H}$ and mean and variance of Laplace approximation.
+
+
+
+\section{Incremental Fitting}
+\label{section7.6}
+
+Previously we have the term $a_i=\vec{\ph}\TT\vec{z}_i=\vec{\ph}\TT f(\vec{x}_i)$. Now we write it as
+\begin{align*}
+	a_i=\ph_0+\sum_{k=1}^K\ph_k f(\vec{x}_i,\vec{\xi}_k)
+\end{align*}
+For arc tan functions, $\vec{\xi}=\{\vec{\al}\}$, $f(\vec{x},\vec{\xi})=\arctan(\vec{\al}\TT\vec{x})$. For radial bases functions, $\vec{\xi}=\{\vec{\al},\la_0\}$, $f(\vec{x},\vec{\xi})=\e{-\frac{(\vec{x}-\vec{\al})\TT(\vec{x}-\vec{\al})}{\la_0^2}}$. When the function $f(\bullet)$ is a Heaviside step function, each step function is called a weak classifier, and the processing is called boosting.
+
+A different way to make non-linear classifiers is
+\begin{align*}
+	a_i=\left(1-g\left(\vec{x}_i,\vec{\om}\right)\right)\vec{\ph}_0\TT\vec{x}_i+g\left(\vec{x}_i,\vec{\om}\right)\vec{\ph}_1\TT\vec{x}_i
+\end{align*}
+where $g(\bullet,\bullet)$ is a gating function returns a number between 0 and 1. If 0, then we get one logistic regression model. If 1, then we get a different logistic regression model.
+
+
 
 \section{Multi-class Classification}
+\label{section7.7}
+
+For multi-class recognition, choose categorical distribution over $\vec{w}$ and make the parameters of this a function of $\vec{x}$
+\begin{align*}
+	\P{w|\vec{x}}=\Cat_w\left[\vec{\la}(\vec{x})\right]
+\end{align*}
+Softmax maps real activations $a_k$ to numbers between 0 and 1 that sum to one
+\begin{align*}
+	\la_k=softmax_k(a_1,a_2,\dotsc,a_K)=\frac{\e{a_k}}{\sum_{j=1}^K\e{a_j}}
+\end{align*}
+where the parameters are vectors $\vec{\ph}$ that $a_k=\vec{\ph}_k\TT\vec{x}$. We can then learn the model with maximum likelihood with non-linear optimization.
