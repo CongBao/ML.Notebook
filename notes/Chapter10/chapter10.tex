@@ -1,21 +1,112 @@
 %!TEX root = ../notebook.tex
 % Chapter 10
 
-\chapter{Bagging \& Boosting}
+\chapter{Decision Tree \& Ensemble Methods}
 \label{chapter10}
 
-\section{Ensemble Methods}
+\section{Decision Tree}
+
+\subsection{Growing a Tree}
+
+\paragraph{Tree Growing Algorithm}
+
+We can define a split function to choose the best feature and the best value for that feature as follows
+\begin{align*}
+	(j^*,t^*)=\argmin_{j\in\{1,\dotsc,D\}}\min_{t\in\cT_j}cost\left(\{\vec{x}_i,y_j:x_{ij}\leq t\}\right)+cost\left(\{\vec{x}_i,y_j:x_{ij}>t\}\right)
+\end{align*}
+where we compare a feature $x_{ij}$ to a threshold $t$. The set of possible thresholds $\cT_j$ for feature $j$ can be obtained by sorting the unique values of $x_{ij}$. The algorithm to grow tree is
+\begin{algorithm}[H]
+	\caption*{\bf Recursive Procedure to Grow a Tree}
+	\begin{algorithmic}
+		\Function{fitTree}{node,$\cD$,depth}
+		\State $\text{node.prediction}=mean(y_i:i\in\cD)$
+		\State $(j^*,t^*,\cD_L,\cD_R)=split(\cD)$
+		\If{not $worthSplitting(depth,cost,\cD_L,\cD_R)$}
+		\State \Return node
+		\Else
+		\State $\text{node.test}=\la\vec{x}.x_{j^*}<t^*$
+		\State $\text{node.left}=fitTree(\text{node},\cD_L,\text{depth}+1)$
+		\State $\text{node.right}=fitTree(\text{node},\cD_R,\text{depth}+1)$
+		\State \Return node
+		\EndIf
+		\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+The function that checks if a node is worth splitting can use several stopping heuristics, such as the following:
+\begin{enumerate}
+	\item Is the reduction in cost too small? Typically we define the gain of using a feature ti be a normalized measure of the reduction in cost
+	\begin{align*}
+		\De=cost(\cD)-\left(\frac{\ab{\cD_L}}{\ab{\cD}}cost(\cD_L)+\frac{\ab{\cD_R}}{\ab{\cD}}cost(\cD_R)\right)
+	\end{align*}
+	\item Has the tree exceeded the maximum desired depth?
+	\item Is the distribution of the response in either $\cD_L$ or $\cD_R$ sufficiently homogeneous (e.g. all labels are the same, so the distribution is pure)?
+	\item Is the number of examples in either $\cD_L$ or $\cD_R$ too small?
+\end{enumerate}
+
+\paragraph{Regression Cost}
+
+In the regression setting, we define the cost as follows
+\begin{align*}
+	cost(\cD)=\sum_{i\in\cD}(y_i-\bar{y})^2
+\end{align*}
+where $\bar{y}=\frac{1}{\ab{\cD}}\sum_{i\in\cD}y_i$ is the mean of the response variable in the specified set of data. Alternatively, we can fit a linear regression model for each leaf, using as inputs the features that were chosen on the path fro the root, and then measure the residual error.
+
+\paragraph{Classification Cost}
+
+In the classification setting, there are several ways to measure the quality of a split. First, we fit a multinoulli model to the data in the leaf satisfying the test $X_j<t$ by estimating the class-conditional probabilities as follows
+\begin{align*}
+	\hat{\pi}_c=\frac{1}{\ab{\cD}}\sum_{i\in\cD}\bI(y_i=c)
+\end{align*}
+where $\cD$ is the data in the leaf. Given this, there are several common error measures for evaluating a proposed partition
+
+\subparagraph{Misclassification Rate}
+
+We define the most probable class label as $\hat{y}=\argmax_c\hat{\pi}_c$. The corresponding error is then
+\begin{align*}
+	\frac{1}{\ab{\cD}}\sum_{i\in\cD}\bI(y_i\neq\hat{y})=1-\hat{\pi}_{\hat{y}}
+\end{align*}
+
+\subparagraph{Entropy}
+
+\begin{align*}
+	\H{\hat{\vec{\pi}}}=-\sum_{c=1}^C\hat{\pi}_c\log\hat{\pi}_c
+\end{align*}
+Note that minimizing the entropy is equivalent to maximizing the information gain (used in ID3) between test $X_j<t$ and the class label $Y$, defined by
+\begin{align*}
+infoGain(X_j<t,Y)&=\H{Y}-\H{Y|X_j<t} \\
+&=\left(-\sum_c\p{y=c}\log\p{y=c}\right) \\
+&\quad+\left(\sum_c\p{y=c|X_j<t}\log\p{c|X_j<t}\right)
+\end{align*}
+And the information gain (ratio used in C4.5).
+\begin{align*}
+infoGainRatio(X_j<t,Y)=\frac{infoGain(X_j,Y)}{\H{Y}}
+\end{align*}
+
+\subparagraph{Gini Index}
+
+\begin{align*}
+	\sum_{c=1}^C\hat{\pi}_c(1-\hat{\pi}_c)=\sum_c\hat{\pi}_c-\sum_c\hat{\pi}_c^2=1-\sum_c\hat{\pi}_c^2
+\end{align*}
+This is the expected error rate. To see this, note that $\hat{\pi}_c$ is the probability a random entry in the leaf belongs to class $c$, and $1-\hat{\pi}_c$ is the probability it would be misclassified.
+
+\subsection{Pruning a Tree}
+
+To prevent overfitting, we can stop growing the tree if the decrease in the error is not sufficient to justify the extra complexity of adding an extra subtree. However, this tends to be too myopic. The standard approach is therefore to grow a ``full'' tree, and then to perform pruning. This can be dine using a scheme that prunes the branches giving the least increase in the error. To determine how far to prune back, we can evaluate the cross-validated error on each such subtree, and then pick the tree whose CV error is within 1 standard error of the minimum.
+
+\subsection{Limitation of Decision Tree}
+
+Decision tree models such as CART have some disadvantages. The primary one is that they do not predict very accurately compared to other kinds of model.
 
 \section{Bagging}
 
-\section{CART}
+\subsection{Bagging Basics}
 
-\section{ID3}
-
-\section{C4.5}
-
-\section{Random Forest}
+\subsection{Random Forest}
 
 \section{Boosting}
 
-\section{Adaboost}
+\subsection{Boosting Basics}
+
+\subsection{Adaboost}
+
+\subsection{Gradient Boosting}
