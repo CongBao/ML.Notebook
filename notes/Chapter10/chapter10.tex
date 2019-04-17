@@ -95,7 +95,7 @@ To prevent overfitting, we can stop growing the tree if the decrease in the erro
 
 \subsection{Limitation of Decision Tree}
 
-Decision tree models such as CART have some disadvantages. The primary one is that they do not predict very accurately compared to other kinds of model.
+Decision trees such as CART have some disadvantages. The primary one is that they do not predict very accurately compared to other kinds of model. This is in part due to the greedy nature of the tree construction algorithm. A related problem is that trees are unstable: small changes to the input data can have large effects on the structure of the tree, due to the hierarchical nature of the tree-growing process, causing errors at the top to affect the rest of the tree. In frequentist terminology, we say that trees are high variance estimators.
 
 \section{Bagging}
 
