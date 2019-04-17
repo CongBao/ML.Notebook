@@ -78,12 +78,12 @@ Plug the results back to the Lagrangian function we have
 The problem $\min_{\vec{\ph},b}\cL(\vec{\ph},b,\vec{\al})$ is equivalent to the primal optimization problem. According to Lagrangian duality, we can have the dual problem $\max_{\vec{\al}}\min_{\vec{\ph},b}\cL(\vec{\ph},b,\vec{\al})$ that
 \begin{align*}
 	\max_{\vec{\al}}-\half\sum_{i=1}^N\sum_{j=1}^N\al_i\al_jy_iy_j\vec{x}_i\TT\vec{x}_j+\sum_{i=1}^N\al_i\quad\text{s.t.}\quad&\sum_{i=1}^N\al_iy_i=0, \\
-	&\al_i\geq 0,i=1,\dotsc,N
+	&\al_i\geq 0,\quad i=1,\dotsc,N
 \end{align*}
 This is equivalent to
 \begin{align*}
 	\min_{\vec{\al}}\half\sum_{i=1}^N\sum_{j=1}^N\al_i\al_jy_iy_j\vec{x}_i\TT\vec{x}_j-\sum_{i=1}^N\al_i\quad\text{s.t.}\quad&\sum_{i=1}^N\al_iy_i=0, \\
-	&\al_i\geq 0,i=1,\dotsc,N
+	&\al_i\geq 0,\quad i=1,\dotsc,N
 \end{align*}
 Assume the solution to dual problem is $\vec{\al}^*$ and the solutions to primal problem are $\vec{\ph}^*$ and $b^*$, we must satisfies the \emph{Karush-Kuhn-Tucker (KKT)} conditions that
 \begin{align*}
@@ -93,11 +93,12 @@ Assume the solution to dual problem is $\vec{\al}^*$ and the solutions to primal
 	y_i\left(\vec{\ph}\T\vec{x}_i+b^*\right)-1&\geq 0,\quad i=1,\dotsc,N \\
 	\al_i^*&\geq 0,\quad i=1,\dotsc,N
 \end{align*}
-We then have the solution
+We then have the solutions
 \begin{align*}
-	\vec{\ph}^*=\sum_{i=1}^N\al_i^*y_i\vec{x}_i
+	\vec{\ph}^*&=\sum_{i=1}^N\al_i^*y_i\vec{x}_i \\
+	b^*&=y_i-\sum_{i=1}^N\al_i^*y_i\vec{x}_i\TT\vec{x}_j
 \end{align*}
-Hence the separating hyperplane is
+where $\exists j,\al_j^*>0$. Hence the separating hyperplane is
 \begin{align*}
 	\sum_{i=1}^N\al_i^*y_i\vec{x}_i\TT\vec{x}+b^*=0
 \end{align*}
@@ -109,6 +110,70 @@ And the discriminant function can be written as
 
 
 \section{Slack Variables}
+\label{section8.3}
+
+\begin{wrapfigure}{r}{0.2\textwidth}
+	\vspace*{-1.8cm}
+	\includegraphics*[width=0.2\textwidth]{fig2.png}
+\end{wrapfigure}
+If the data is not linearly separable (even after using the kernel trick), there will be no feasible solution in which $y_if(\vec{x}_i)\geq 1,\forall i$. We therefore introduce slack variables $\xi_i\geq 0$ such that $\xi_i=0$ if the point is on the correct margin boundary, and $\xi_i=\ab{y_i-f(\vec{x}_i)}$ otherwise. As shown in the right figure, points with circles around them are support vectors. If $0<\xi_i\leq 1$ the point lies inside the margin,, but on the correct side of the decision boundary. If $\xi_i\geq 1$, the point lies on the wrong side of the decision boundary.
+
+We replace the hard constraints that $y_if(\vec{x}_i)\geq 1$ with the soft margin constraints $y_if(\vec{x}_i)\geq 1-\xi_i$. The objective becomes
+\begin{align*}
+	\min_{\vec{\ph},b,\vec{\xi}}\half\norm{\vec{\ph}}^2+C\sum_{i=1}^N\xi_i\quad\text{s.t.}\quad&\forall i,y_i\left(\vec{\ph}\TT\vec{x}_i+b\right)\geq 1-\xi_i \\
+	&\forall i,\xi_i\geq 0
+\end{align*}
+where $C$ is a regularization parameter that controls the number of errors we are willing to tolerate on the training set. It is common to define this using $C=\pfrac{1}{(\nu N)}$, where $0<\nu\leq 1$ controls the fraction of misclassified points that we allow during training phase.
+
+Similarly, we set the Lagrangian function as
+\begin{align*}
+	\cL(\vec{\ph},b,\vec{\xi},\vec{\al},\vec{\mu})=\half\norm{\vec{\ph}}^2+C\sum_{i=1}^N\xi_i-\sum_{i=1}^N\al_i\left(y_i\left(\vec{\ph}\TT\vec{x}_i+b\right)-1+\xi_i\right)-\sum_{i=1}^N\mu_i\xi_i
+\end{align*}
+Taking derivatives and set to zero we have
+\begin{align*}
+	\frac{\pa}{\pa\vec{\ph}}\cL(\vec{\ph},b,\vec{\xi},\vec{\al},\vec{\mu})=0\quad&\impl\quad\vec{\ph}=\sum_{i=1}^N\al_iy_i\vec{x}_i \\
+	\frac{\pa}{\pa b}\cL(\vec{\ph},b,\vec{\xi},\vec{\al},\vec{\mu})=0\quad&\impl\quad\sum_{i=1}^N\al_iy_i=0 \\
+	\frac{\pa}{\pa\xi_i}\cL(\vec{\ph},b,\vec{\xi},\vec{\al},\vec{\mu})=0\quad&\impl\quad\al_i=C-\mu_i
+\end{align*}
+Plug into Lagrangian function we have
+\begin{align*}
+	\cL(\vec{\ph},b,\vec{\xi},\vec{\al},\vec{\mu})=-\half\sum_{i=1}^N\sum_{j=1}^N\al_i\al_jy_iy_j\vec{x}_i\TT\vec{x}_j+\sum_{i=1}^N\al_i
+\end{align*}
+The dual problem is
+\begin{align*}
+	\max_{\vec{\al}}-\half\sum_{i=1}^N\sum_{j=1}^N\al_i\al_jy_iy_j\vec{x}_i\TT\vec{x}_j+\sum_{i=1}^N\al_i\quad\text{s.t.}\quad&\sum_{i=1}^N\al_iy_i=0, \\
+	&C-\al_i-\mu_i=0, \\
+	&\al_i\geq 0, \\
+	&\mu_i\geq 0,\quad i=1,\dotsc,N
+\end{align*}
+The last three constraints above can be rewritten as $0\leq\al_i\leq C$ by eliminating $\mu_i$. Again, we transform it as a minimization problem and assume $\vec{\al}^*,\vec{\mu}^*$ are solutions to dual problem and $\vec{\ph}^*,b^*,\vec{\xi}^*$ are solutions to primal problem. Following the KKT conditions, we have
+\begin{align*}
+	\frac{\pa}{\pa\vec{\ph}}\cL(\vec{\ph}^*,b^*,\vec{\xi}^*,\vec{\al}^*,\vec{\mu}^*)&=\vec{\ph}^*-\sum_{i=1}^N\al_i^*y_i\vec{x}_i=0 \\
+	\frac{\pa}{\pa b}\cL(\vec{\ph}^*,b^*,\vec{\xi}^*,\vec{\al}^*,\vec{\mu}^*)&=-\sum_{i=1}^N\al_i^*y_i=0 \\
+	\frac{\pa}{\pa\vec{\xi}}\cL(\vec{\ph}^*,b^*,\vec{\xi}^*,\vec{\al}^*,\vec{\mu}^*)&=C-\vec{\al}^*-\vec{\mu}^*=0 \\
+	\al_i^*\left(y_i\left(\vec{\ph}^*\T\vec{x}_i+b^*\right)-1+\xi_i^*\right)&=0,\quad i=1,\dotsc,N \\
+	\mu_i^*\xi_i^*&=0,\quad i=1,\dotsc,N \\
+	y_i\left(\vec{\ph}^*\T\vec{x}_i+b^*\right)-1+\xi_i^*&\geq 0,\quad i=1,\dotsc,N \\
+	\xi_i^*&\geq 0,\quad i=1,\dotsc,N \\
+	\al_i^*&\geq 0,\quad i=1,\dotsc,N \\
+	\mu_i^*&\geq 0,\quad i=1,\dotsc,N
+\end{align*}
+We then have the solutions
+\begin{align*}
+	\vec{\ph}^*&=\sum_{i=1}^N\al_i^*y_i\vec{x}_i \\
+	b^*&=y_i-\sum_{i=1}^N\al_i^*y_i\vec{x}_i\TT\vec{x}_j
+\end{align*}
+where $\exists j,0<\al_j^*<C$. Hence the separating hyperplane is
+\begin{align*}
+	\sum_{i=1}^N\al_i^*y_i\vec{x}_i\TT\vec{x}+b^*=0
+\end{align*}
+And the discriminant function can be written as
+\begin{align*}
+	f(\vec{x})=\sum_{i=1}^N\al_i^*y_i\vec{x}_i\TT\vec{x}+b^*
+\end{align*}
+The result is same as before. However, the support vectors are not located on margin boundary exactly. The distance between a support vector and the margin boundary is $\frac{\xi_i}{\norm{\vec{\ph}}}$. If $\al_i^*<C$ then $\xi_i=0$, and the point is on the margin boundary. If $\al_i^*=C,0<\xi_i<1$, the point is between margin boundary and hyperplane with correct classification. If $\al_i^*=C,\xi_i=1$, the point is on the hyperplane. If $\al_i^*=C,\xi_i>1$, the point is on the misclassified side.
+
+
 
 \section{Hinge Loss}
 
