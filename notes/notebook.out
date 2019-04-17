@@ -82,8 +82,8 @@
 \BOOKMARK [1][]{section.8.2}{8.2 The Large Margin Principle}{chapter.8}% 82
 \BOOKMARK [1][]{section.8.3}{8.3 Slack Variables}{chapter.8}% 83
 \BOOKMARK [1][]{section.8.4}{8.4 Hinge Loss}{chapter.8}% 84
-\BOOKMARK [1][]{section.8.5}{8.5 Non-linear SVMs}{chapter.8}% 85
-\BOOKMARK [1][]{section.8.6}{8.6 Kernel Trick}{chapter.8}% 86
+\BOOKMARK [1][]{section.8.5}{8.5 Non-linear SVMs \046 Kernel Trick}{chapter.8}% 85
+\BOOKMARK [1][]{section.8.6}{8.6 Sequential Minimal Optimization \(SMO\)}{chapter.8}% 86
 \BOOKMARK [0][]{chapter.9}{9 EM Algorithm}{}% 87
 \BOOKMARK [1][]{section.9.1}{9.1 Expectation Maximization}{chapter.9}% 88
 \BOOKMARK [1][]{section.9.2}{9.2 Example: Mixture of Gaussians}{chapter.9}% 89

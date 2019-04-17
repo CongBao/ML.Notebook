@@ -176,7 +176,45 @@ The result is same as before. However, the support vectors are not located on ma
 
 
 \section{Hinge Loss}
+\label{section8.4}
 
-\section{Non-linear SVMs}
+The soft margin constraints we introduced in last section is $y_i\left(\vec{\ph}\TT\vec{x}_i+b\right)\geq 1-\xi_i$. Since $\xi_i>1$ means point $i$ is misclassified, we can interpret $\sum_{i=1}^N\xi_i$ as an upper bound on the number of misclassified points. Then we can use the hinge loss that 
+\begin{align*}
+	\xi_i&=\left[1-y_i\left(\vec{\ph}\TT\vec{x}_i+b\right)\right]_+ \\
+	&=\max\left(1-y_i\left(\vec{\ph}\TT\vec{x}_i+b\right),0\right)
+\end{align*}
+Hence the objective function becomes
+\begin{align*}
+	&\half\norm{\vec{\ph}}^2+C\sum_{i=1}^N\left[1-y_i\left(\vec{\ph}\TT\vec{x}_i+b\right)\right]_+ \\
+	\prop\quad&\la\norm{\vec{\ph}}^2+\sum_{i=1}^N\left[1-y_i\left(\vec{\ph}\TT\vec{x}_i+b\right)\right]_+
+\end{align*}
+This is equivalent to the objective function in last section.
 
-\section{Kernel Trick}
+
+
+\section{Non-linear SVMs \& Kernel Trick}
+\label{section8.5}
+
+Similar to linear and logistic regression, we can have a non-linear transformation on data $\vec{z}=f(\vec{x})$. Then we can have the Lagrangian function as
+\begin{align*}
+	\cL=-\half\sum_{i=1}^N\sum_{j=1}^N\al_i\al_jy_iy_j\vec{z}_i\TT\vec{z}_j+\sum_{i=1}^N\al_i
+\end{align*}
+And the discriminant function can be written as
+\begin{align*}
+	f(\vec{x})=\sum_{i=1}^N\al_i^*y_i\vec{z}_i\TT\vec{z}+b^*
+\end{align*}
+
+We can directly use kernel trick as there are inner products in the equations. Therefore the Lagrangian function becomes
+\begin{align*}
+	\cL=-\half\sum_{i=1}^N\sum_{j=1}^N\al_i\al_jy_iy_jk[\vec{x}_i,\vec{x}_j]+\sum_{i=1}^N\al_i
+\end{align*}
+And the discriminant function is
+\begin{align*}
+	f(\vec{x})=\sum_{i=1}^N\al_i^*y_ik[\vec{x}_i,\vec{x}]+b^*
+\end{align*}
+
+
+
+\section{Sequential Minimal Optimization (SMO)}
+
+TODO
