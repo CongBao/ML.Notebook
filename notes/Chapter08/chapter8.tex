@@ -6,7 +6,10 @@
 \chapter{Support Vector Machines}
 \label{chapter8}
 
+
+
 \section{Functional \& Geometric Margins}
+\label{section8.1}
 
 Consider a separating hyperplane $\vec{\ph}\TT\vec{x}+b=0$. We can use $\ab{\vec{\ph}\TT\vec{x}_i+b}$ as the distance of point $\vec{x}_i$ to the hyperplane. When the sign of $\vec{\ph}\TT\vec{x}_i+b$ is same as its label $y_i$, the classification of datapoint $x_i$ is correct. Otherwise the classification is wrong. Ideally, we also want the distance to hyperplane to be large enough so that we can make sure the classification is correct. Putting them together, we have the functional margin $y_i(\vec{\ph}\TT\vec{x}_i+b)$, which is always positive or equal to zero. However, when we scale $\vec{\ph}$ and $b$ with the same ratio, the functional margin changes but the hyperplane does not. We need a measure of margin that is invariant to the scale of $\vec{\ph}$ and $b$, for example, we divide the functional margin by L2 norm of $\vec{\ph}$ that $\ga_i=y_i\left(\frac{\vec{\ph}\TT\vec{x}_i+b}{\norm{\vec{\ph}}}\right)$. This is called geometric margin. We can have an intuitive interpretation.
 
@@ -24,7 +27,7 @@ where $r$ is the distance between point $\vec{x}$ and the decision boundary. Mul
 Since $\vec{x}_\bot$ is on the decision boundary, it satisfies that $\vec{\ph}\TT\vec{x}_\bot+b=0$. Hence the above equation can be rewritten as
 \begin{align*}
 	\vec{\ph}\TT\vec{x}&=-b+\vec{\ph}\TT r\frac{\vec{\ph}}{\norm{\vec{\ph}}} \\
-	&=-b+r\vec{\ph}\frac{\vec{\ph}}{\sqrt{\vec{\ph}\TT\vec{\ph}}} \\
+	&=-b+r\vec{\ph}\TT\frac{\vec{\ph}}{\sqrt{\vec{\ph}\TT\vec{\ph}}} \\
 	&=-b+r\norm{\vec{\ph}}
 \end{align*}
 Then we can solve for $r$ that
@@ -37,9 +40,73 @@ We scale it with the label and then get the geometric margin
 	\ga_i=y_i\left(\frac{\vec{\ph}\TT}{\norm{\vec{\ph}}}\vec{x}_i+\frac{b}{\norm{\vec{\ph}}}\right)
 \end{align*}
 
-\section{Primal \& Dual Problems}
 
-\section{Support Vectors}
+
+\section{The Large Margin Principle}
+\label{section8.2}
+
+Our goal is to make the distance $r=\pfrac{\left(\vec{\ph}\TT\vec{x}+b\right)}{\norm{\vec{\ph}}}$ as large as possible. Hence we want to maximize the geometric margin for the points closest to decision boundary that
+\begin{align*}
+	\argmax_{\vec{\ph},b}\min_{i=1}^Ny_i\left(\frac{\vec{\ph}\TT}{\norm{\vec{\ph}}}\vec{x}_i+\frac{b}{\norm{\vec{\ph}}}\right)
+\end{align*}
+The points closest to decision boundary are called \emph{support vectors}. Since the scaling of $\vec{\ph}$ do not influence the geometric margin, we have freedom to choose the scaling. We choose that $\vec{\ph}\TT\vec{x}_++b=+1$ is the hyperplane that positive support vectors located and $\vec{\ph}\TT\vec{x}_-+b=-1$ is the hyperplane that negative support vectors located. Then the margin is given by
+\begin{align*}
+	\frac{\vec{\ph}\TT(\vec{x}_+-\vec{x}_-)}{\norm{\vec{\ph}}}=\frac{2}{\norm{\vec{\ph}}}
+\end{align*}
+So the optimization problem becomes
+\begin{align*}
+	\max_{\vec{\ph}}\frac{2}{\norm{\vec{\ph}}}\quad\text{s.t.}\quad\forall i, y_i\left(\vec{\ph}\TT\vec{x}_i+b\right)\geq 1
+\end{align*}
+This is equivalent to
+\begin{align*}
+	\min_{\vec{\ph}}\half\norm{\vec{\ph}}^2\quad\text{s.t.}\quad\forall i, y_i\left(\vec{\ph}\TT\vec{x}_i+b\right)\geq 1
+\end{align*}
+We can optimize it with Lagrangian multipliers $\al_i,i=1,\dotsc,N$, then the Lagrangian function can be written as
+\begin{align*}
+	\cL(\vec{\ph},b,\vec{\al})=\half\norm{\vec{\ph}}^2-\sum_{i=1}^N\al_i\left(y_i\left(\vec{\ph}\TT\vec{x}_i+b\right)-1\right)
+\end{align*}
+Take derivatives w.r.t. $\vec{\ph}$ and $b$ respectively and set them to 0 we get
+\begin{align*}
+	\frac{\pa}{\pa\vec{\ph}}\cL(\vec{\ph},b,\vec{\al})=0\quad&\impl\quad\vec{\ph}=\sum_{i=1}^N\al_iy_i\vec{x}_i \\
+	\frac{\pa}{\pa b}\cL(\vec{\ph},b,\vec{\al})=0\quad&\impl\quad\sum_{i=1}^N\al_iy_i=0
+\end{align*}
+Plug the results back to the Lagrangian function we have
+\begin{align*}
+	\cL(\vec{\ph},b,\vec{\al})&=\half\sum_{i=1}^N\sum_{j=1}^N\al_i\al_jy_iy_j\vec{x}_i\TT\vec{x}_j-\sum_{i=1}^N\al_iy_i\left(\left(\sum_{j=1}^N\al_jy_j\vec{x}_j\right)\vec{x}_i+b\right)+\sum_{i=1}^N\al_i \\
+	&=-\half\sum_{i=1}^N\sum_{j=1}^N\al_i\al_jy_iy_j\vec{x}_i\TT\vec{x}_j+\sum_{i=1}^N\al_i
+\end{align*}
+The problem $\min_{\vec{\ph},b}\cL(\vec{\ph},b,\vec{\al})$ is equivalent to the primal optimization problem. According to Lagrangian duality, we can have the dual problem $\max_{\vec{\al}}\min_{\vec{\ph},b}\cL(\vec{\ph},b,\vec{\al})$ that
+\begin{align*}
+	\max_{\vec{\al}}-\half\sum_{i=1}^N\sum_{j=1}^N\al_i\al_jy_iy_j\vec{x}_i\TT\vec{x}_j+\sum_{i=1}^N\al_i\quad\text{s.t.}\quad&\sum_{i=1}^N\al_iy_i=0, \\
+	&\al_i\geq 0,i=1,\dotsc,N
+\end{align*}
+This is equivalent to
+\begin{align*}
+	\min_{\vec{\al}}\half\sum_{i=1}^N\sum_{j=1}^N\al_i\al_jy_iy_j\vec{x}_i\TT\vec{x}_j-\sum_{i=1}^N\al_i\quad\text{s.t.}\quad&\sum_{i=1}^N\al_iy_i=0, \\
+	&\al_i\geq 0,i=1,\dotsc,N
+\end{align*}
+Assume the solution to dual problem is $\vec{\al}^*$ and the solutions to primal problem are $\vec{\ph}^*$ and $b^*$, we must satisfies the \emph{Karush-Kuhn-Tucker (KKT)} conditions that
+\begin{align*}
+	\frac{\pa}{\pa\vec{\ph}}\cL(\vec{\ph}^*,b^*,\vec{\al}^*)&=\vec{\ph}^*-\sum_{i=1}^N\vec{\al}_i^*y_i\vec{x}_i=0 \\
+	\frac{\pa}{\pa b}\cL(\vec{\ph}^*,b^*,\vec{\al}^*)&=-\sum_{i=1}^N\al_i^*y_i=0 \\
+	\al_i^*\left(y_i\left(\vec{\ph}^*\T\vec{x}_i+b^*\right)-1\right)&=0,\quad i=1,\dotsc,N \\
+	y_i\left(\vec{\ph}\T\vec{x}_i+b^*\right)-1&\geq 0,\quad i=1,\dotsc,N \\
+	\al_i^*&\geq 0,\quad i=1,\dotsc,N
+\end{align*}
+We then have the solution
+\begin{align*}
+	\vec{\ph}^*=\sum_{i=1}^N\al_i^*y_i\vec{x}_i
+\end{align*}
+Hence the separating hyperplane is
+\begin{align*}
+	\sum_{i=1}^N\al_i^*y_i\vec{x}_i\TT\vec{x}+b^*=0
+\end{align*}
+And the discriminant function can be written as
+\begin{align*}
+	f(\vec{x})=\sum_{i=1}^N\al_i^*y_i\vec{x}_i\TT\vec{x}+b^*
+\end{align*}
+
+
 
 \section{Slack Variables}
 
