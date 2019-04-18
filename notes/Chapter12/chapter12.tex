@@ -263,16 +263,121 @@ A Markov Network is an undirected graph in which there is a potential (non-negat
 
 \subsubsection*{Boltzmann Machine}
 
+\begin{minipage}{0.4\textwidth}
+	\centering
+	\includegraphics*[width=0.7\textwidth]{fig15.png}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+	\begin{align*}
+		&\P{\vec{x}|\vec{w},b}=\frac{1}{Z(\vec{w},b)}\e{\sum_{i<j}w_{ij}x_ix_j+\sum_ib_ix_i} \\
+		&\P{x_i=1|x_{\setminus i}}=\si\left(b_i+\sum_{j\neq i}w_{ij}x_j\right)
+	\end{align*}
+\end{minipage}
+
 \subsubsection*{The Ising Model}
+
+\begin{minipage}{0.4\textwidth}
+	\centering
+	\includegraphics*[width=0.6\textwidth]{fig16.png}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+	\begin{align*}
+		&x_i\in\{+1,-1\} \\
+		&\P{x_1,\dotsc,x_9}=\frac{1}{Z}\prod_{i\sim j}\ph_{ij}(x_i,x_j) \\
+		&\ph_{ij}(x_i,x_j)=\e{-\frac{1}{2T}(x_i-x_j)^2}
+	\end{align*}
+\end{minipage}
 
 \subsection{Independence}
 
+\subsubsection*{Properties of Markov Networks}
+
+\begin{minipage}{0.6\textwidth}
+	\centering
+	\includegraphics*[width=0.8\textwidth]{fig18.png}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+	Marginalizing over $C$ makes $A$ and $B$ dependent. $\P{A,B}\neq\P{A}\P{B}$
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+	\centering
+	\includegraphics*[width=0.8\textwidth]{fig19.png}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+	Conditioning on $C$ makes $A$ and $B$ independent. $\P{A,B|C}=\P{A|C}\P{B|C}$
+\end{minipage}
+
+\subsubsection*{General Rule}
+
+\begin{figure*}[h]
+	\centering
+	\includegraphics*[width=\textwidth]{fig20.png}
+\end{figure*}
+Remove all links neighboring the variables in conditioning set $\cZ$. If there is no path from any member of $\cX$ to any member of $\cY$, then $\cX$ and $\cY$ are conditionally independent given $\cZ$.
+
+\subsubsection*{Rule for Independence in Belief/Markov Networks}
+
+\begin{figure*}[h]
+	\centering
+	\begin{subfigure}[b]{0.24\textwidth}
+		\centering
+		\includegraphics*[width=0.8\textwidth]{fig21.png}
+		\caption*{Step 1}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.24\textwidth}
+		\centering
+		\includegraphics*[width=0.63\textwidth]{fig22.png}
+		\caption*{Step 2}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.24\textwidth}
+		\centering
+		\includegraphics*[width=0.63\textwidth]{fig23.png}
+		\caption*{Step 3}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.24\textwidth}
+		\centering
+		\includegraphics*[width=0.63\textwidth]{fig24.png}
+		\caption*{Step 4}
+	\end{subfigure}
+\end{figure*}
+Here is an example to check $A\dep I|F,L$, $\cX=\{A\},\cY=\{I\},\cZ=\{F,L\}$.
+\begin{enumerate}
+	\item Ancestral Graph: Remove any node which is neither in $\cX\cup\cY\cup\cZ$ nor an ancestor of a node in this set, together with any edges in or out of such nodes. Here in the graph node $G$ is not an ancestor of $\cX\cup\cY\cup\cZ$ hence remove it.
+	\item Moralization: Add a line between any two nodes which have a common child. Remove arrowheads. Here in the graph node $H$ is a common child of node $E$ and node $M$ so connect node $E$ and node $M$ then remove all arrowheads.
+	\item Separation: Remove all links from $\cZ$.
+	\item Independence: If there are no path from any node in $\cX$ to one in $\cY$ then $\cX\indep\cY|\cZ$. Obviously, here in the graph there is a path from node $A$ to node $I$ hence $A\nindep I|F,L$.
+\end{enumerate}
+
 \subsection{Expressiveness of Markov and Belief Networks}
 
+For a distribution $P$ form the list $\cL_P$ of all the independence statements. For a graph $G$, form the list of all independence statements $\cL_G$. Then we define:
+\begin{enumerate}
+	\item $\cL_P\subseteq\cL_G$: Dependence Map (D-map)
+	\item $\cL_P\supseteq\cL_G$: Independence Map (I-map)
+	\item $\cL_P=\cL_G$: Perfect Map
+\end{enumerate}
+
 \subsection{Factor Graphs}
+
+\begin{minipage}{0.4\textwidth}
+	\centering
+	\includegraphics*[width=0.3\textwidth]{fig25.png}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+	The joint function is the product of all factors:
+	\begin{align*}
+	f(A,B,C,D,E)=f_1(A,B)f_2(B,C,D)f_3(C,E)f_4(D,E)
+	\end{align*}
+\end{minipage}
+A square node represents a factor (non negative function) of its neighboring variables. Factor graphs are useful for performing efficient computations (not just for probability).
+\begin{figure*}[h]
+	\centering
+	\includegraphics*[width=0.6\textwidth]{fig26.png}
+\end{figure*}
+The above graphs give us (a) $\ph(a,b,c)$, (b) $\ph(a,b)\ph(b,c)\ph(c,a)$, (c) $\ph(a,b,c)$. Both (a) and (b) have the same Markov network (c). Whilst (b) contains the same (lack of) independence statements as (a), it expresses more constraints on the form of the potential.
 
 \section{Markov Chains}
 
 \section{Hidden Markov Models}
 
-\section{Sampling with Monte Carlo Markov Chains (MCMC)}
+\section{Monte Carlo Markov Chains (MCMC)}

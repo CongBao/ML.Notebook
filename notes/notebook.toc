@@ -263,19 +263,19 @@
 \contentsline {subsection}{\numberline {12.3.1}Definition}{93}{subsection.12.3.1}% 
 \contentsline {subsection}{\numberline {12.3.2}Examples}{93}{subsection.12.3.2}% 
 \contentsline {subsection}{\numberline {12.3.3}Independence}{94}{subsection.12.3.3}% 
-\contentsline {subsection}{\numberline {12.3.4}Expressiveness of Markov and Belief Networks}{94}{subsection.12.3.4}% 
-\contentsline {subsection}{\numberline {12.3.5}Factor Graphs}{94}{subsection.12.3.5}% 
-\contentsline {section}{\numberline {12.4}Markov Chains}{94}{section.12.4}% 
-\contentsline {section}{\numberline {12.5}Hidden Markov Models}{94}{section.12.5}% 
-\contentsline {section}{\numberline {12.6}Sampling with Monte Carlo Markov Chains (MCMC)}{94}{section.12.6}% 
-\contentsline {chapter}{\numberline {A}Bayesian Statistics}{95}{appendix.A}% 
-\contentsline {section}{\numberline {A.1}Bayesian Inference}{95}{section.A.1}% 
-\contentsline {section}{\numberline {A.2}Prior Distributions}{95}{section.A.2}% 
-\contentsline {chapter}{\numberline {B}Statistical Assessment}{96}{appendix.B}% 
-\contentsline {section}{\numberline {B.1}Hypothesis Testing}{96}{section.B.1}% 
-\contentsline {subsection}{\numberline {B.1.1}Testing Basics}{96}{subsection.B.1.1}% 
-\contentsline {subsection}{\numberline {B.1.2}Testing Procedure}{96}{subsection.B.1.2}% 
-\contentsline {subsection}{\numberline {B.1.3}Power Investigation}{97}{subsection.B.1.3}% 
-\contentsline {subsection}{\numberline {B.1.4}Useful Tests}{97}{subsection.B.1.4}% 
-\contentsline {section}{\numberline {B.2}Confidence Intervals}{97}{section.B.2}% 
-\contentsline {section}{\numberline {B.3}Bootstrap}{97}{section.B.3}% 
+\contentsline {subsection}{\numberline {12.3.4}Expressiveness of Markov and Belief Networks}{95}{subsection.12.3.4}% 
+\contentsline {subsection}{\numberline {12.3.5}Factor Graphs}{96}{subsection.12.3.5}% 
+\contentsline {section}{\numberline {12.4}Markov Chains}{96}{section.12.4}% 
+\contentsline {section}{\numberline {12.5}Hidden Markov Models}{96}{section.12.5}% 
+\contentsline {section}{\numberline {12.6}Monte Carlo Markov Chains (MCMC)}{96}{section.12.6}% 
+\contentsline {chapter}{\numberline {A}Bayesian Statistics}{97}{appendix.A}% 
+\contentsline {section}{\numberline {A.1}Bayesian Inference}{97}{section.A.1}% 
+\contentsline {section}{\numberline {A.2}Prior Distributions}{97}{section.A.2}% 
+\contentsline {chapter}{\numberline {B}Statistical Assessment}{98}{appendix.B}% 
+\contentsline {section}{\numberline {B.1}Hypothesis Testing}{98}{section.B.1}% 
+\contentsline {subsection}{\numberline {B.1.1}Testing Basics}{98}{subsection.B.1.1}% 
+\contentsline {subsection}{\numberline {B.1.2}Testing Procedure}{98}{subsection.B.1.2}% 
+\contentsline {subsection}{\numberline {B.1.3}Power Investigation}{99}{subsection.B.1.3}% 
+\contentsline {subsection}{\numberline {B.1.4}Useful Tests}{99}{subsection.B.1.4}% 
+\contentsline {section}{\numberline {B.2}Confidence Intervals}{99}{section.B.2}% 
+\contentsline {section}{\numberline {B.3}Bootstrap}{99}{section.B.3}% 
