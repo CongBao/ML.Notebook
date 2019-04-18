@@ -1,2 +1,2 @@
 # ML.Notebook
-My Notebook of Machine Learning Algorithms
+My notes of machine learning algorithms learnt in University College London.
