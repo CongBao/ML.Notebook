@@ -101,7 +101,31 @@ Decision trees such as CART have some disadvantages. The primary one is that the
 
 \subsection{Bagging Basics}
 
+Suppose there are $N$ predictors that make errors independently
+\begin{align*}
+	\hat{y}_i^n=y_i+\ep_i^n
+\end{align*}
+where $\ep_i^n$ is the error following a Gaussian distribution with zero mean and one variance. Bagging is then the technique that we train many models and try to decorrelate them
+\begin{align*}
+	\hat{y}_i=\frac{1}{N}\sum_{n=1}^N\hat{y}_i^n
+\end{align*}
+The expectation and variance of the new model are now
+\begin{align*}
+	\E{\hat{y}_i}&=\frac{1}{N}\left(Ny_i+\E{\sum_{n=1}^N\ep_i^n}\right)=y_i \\
+	\V{\hat{y}_i}&=\E{\hat{y}_i^2}-\Es{\hat{y}_i} \\
+	&=\E{\frac{1}{N^2}\left(\sum_{n=1}^N\left(y_i+\ep_i^n\right)\right)^2}-y_i^2 \\
+	&=\E{\frac{1}{N^2}\left(Ny_i+\sum_{n=1}^N\ep_i^n\right)^2}-y_i^2 \\
+	&=\E{y_i^2}+\E{\frac{1}{N^2}\left(\sum_{n=1}^N\ep_i^n\right)^2}+\E{\frac{2}{N}y_i\sum_{n=1}^N\ep_i^n}-y_i^2 \\
+	&=\frac{1}{N^2}\E{\left(\sum_{n=1}^N\left(\hat{y}_i-y_i\right)\right)^2} \\
+	&=\frac{1}{N}\V{\hat{y}_i^n}
+\end{align*}
+This gives us the result that we can approach the mean of true distribution and reduce variance by $\pfrac{1}{N}$.
+
 \subsection{Random Forest}
+
+Random forest is an instance of bagging methods that we train a number of trees, where each tree is trained on a sample of the same size as the original dataset sampled with replacement. At each splitting point we restrict a search to a subspace of features. This gives a wonderful parallelizable procedure.
+
+Another nice feature of random forests is that they provide an estimation of generalization error for free, without validation set. This is called Out-Of-Bag (OOB) error. For each example we compute the prediction using only the trees that were built without this example.
 
 \section{Boosting}
 
