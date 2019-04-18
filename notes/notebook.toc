@@ -173,20 +173,25 @@
 \contentsline {section}{\numberline {8.4}Hinge Loss}{71}{section.8.4}% 
 \contentsline {section}{\numberline {8.5}Non-linear SVMs \& Kernel Trick}{71}{section.8.5}% 
 \contentsline {section}{\numberline {8.6}Sequential Minimal Optimization (SMO)}{72}{section.8.6}% 
-\contentsline {chapter}{\numberline {9}EM Algorithm}{73}{chapter.9}% 
+\contentsline {chapter}{\numberline {9}EM Algorithm \& Variational Inference}{73}{chapter.9}% 
 \contentsline {section}{\numberline {9.1}Expectation Maximization}{73}{section.9.1}% 
-\contentsline {section}{\numberline {9.2}Example: Mixture of Gaussians}{73}{section.9.2}% 
-\contentsline {section}{\numberline {9.3}Example: t-distributions}{73}{section.9.3}% 
-\contentsline {section}{\numberline {9.4}Example: Factor Analysis}{73}{section.9.4}% 
+\contentsline {subsection}{\numberline {9.1.1}The EM Algorithm}{73}{subsection.9.1.1}% 
+\contentsline {subsection}{\numberline {9.1.2}EM Algorithm for Mixture Models}{73}{subsection.9.1.2}% 
+\contentsline {paragraph}{Mixture of Gaussians}{73}{section*.112}% 
+\contentsline {paragraph}{Example: t-distributions}{73}{section*.113}% 
+\contentsline {paragraph}{Example: Factor Analysis}{73}{section*.114}% 
+\contentsline {section}{\numberline {9.2}Variational Inference}{73}{section.9.2}% 
+\contentsline {subsection}{\numberline {9.2.1}Mean Field Approximation}{73}{subsection.9.2.1}% 
+\contentsline {subsection}{\numberline {9.2.2}Variational Autoencoders}{73}{subsection.9.2.2}% 
 \contentsline {chapter}{\numberline {10}Decision Tree \& Ensemble Methods}{74}{chapter.10}% 
 \contentsline {section}{\numberline {10.1}Decision Tree}{74}{section.10.1}% 
 \contentsline {subsection}{\numberline {10.1.1}Growing a Tree}{74}{subsection.10.1.1}% 
-\contentsline {paragraph}{Tree Growing Algorithm}{74}{section*.112}% 
-\contentsline {paragraph}{Regression Cost}{75}{section*.113}% 
-\contentsline {paragraph}{Classification Cost}{75}{section*.114}% 
-\contentsline {subparagraph}{Misclassification Rate}{75}{section*.115}% 
-\contentsline {subparagraph}{Entropy}{75}{section*.116}% 
-\contentsline {subparagraph}{Gini Index}{76}{section*.117}% 
+\contentsline {paragraph}{Tree Growing Algorithm}{74}{section*.115}% 
+\contentsline {paragraph}{Regression Cost}{75}{section*.116}% 
+\contentsline {paragraph}{Classification Cost}{75}{section*.117}% 
+\contentsline {subparagraph}{Misclassification Rate}{75}{section*.118}% 
+\contentsline {subparagraph}{Entropy}{75}{section*.119}% 
+\contentsline {subparagraph}{Gini Index}{76}{section*.120}% 
 \contentsline {subsection}{\numberline {10.1.2}Pruning a Tree}{76}{subsection.10.1.2}% 
 \contentsline {subsection}{\numberline {10.1.3}Limitation of Decision Tree}{76}{subsection.10.1.3}% 
 \contentsline {section}{\numberline {10.2}Bagging}{77}{section.10.2}% 
@@ -200,21 +205,21 @@
 \contentsline {section}{\numberline {11.1}K-Means}{81}{section.11.1}% 
 \contentsline {subsection}{\numberline {11.1.1}The K-Means Algorithm}{81}{subsection.11.1.1}% 
 \contentsline {subsection}{\numberline {11.1.2}K-Means Limitations}{82}{subsection.11.1.2}% 
-\contentsline {paragraph}{Hard Assignment}{82}{section*.118}% 
-\contentsline {paragraph}{Outlier Sensitivity}{82}{section*.119}% 
-\contentsline {paragraph}{Shape/Density Issues}{82}{section*.120}% 
-\contentsline {paragraph}{Computational Cost}{82}{section*.121}% 
-\contentsline {paragraph}{Representation Sensitivity}{82}{section*.122}% 
-\contentsline {paragraph}{Missing Data}{82}{section*.123}% 
+\contentsline {paragraph}{Hard Assignment}{82}{section*.121}% 
+\contentsline {paragraph}{Outlier Sensitivity}{82}{section*.122}% 
+\contentsline {paragraph}{Shape/Density Issues}{82}{section*.123}% 
+\contentsline {paragraph}{Computational Cost}{82}{section*.124}% 
+\contentsline {paragraph}{Representation Sensitivity}{82}{section*.125}% 
+\contentsline {paragraph}{Missing Data}{82}{section*.126}% 
 \contentsline {section}{\numberline {11.2}Spectral Clustering}{82}{section.11.2}% 
 \contentsline {subsection}{\numberline {11.2.1}Similarity Graphs}{82}{subsection.11.2.1}% 
-\contentsline {paragraph}{$\epsilon $-Neighborhood Graph}{82}{section*.124}% 
-\contentsline {paragraph}{$k$-Nearest Neighbor Graphs}{82}{section*.125}% 
-\contentsline {paragraph}{Fully Connected Graph}{83}{section*.126}% 
+\contentsline {paragraph}{$\epsilon $-Neighborhood Graph}{82}{section*.127}% 
+\contentsline {paragraph}{$k$-Nearest Neighbor Graphs}{82}{section*.128}% 
+\contentsline {paragraph}{Fully Connected Graph}{83}{section*.129}% 
 \contentsline {subsection}{\numberline {11.2.2}Graph Laplacian}{83}{subsection.11.2.2}% 
-\contentsline {paragraph}{Basic Graph Definitions}{83}{section*.127}% 
-\contentsline {paragraph}{Unnormalized Graph Laplacian}{83}{section*.128}% 
-\contentsline {paragraph}{Normalized Graph Laplacian}{84}{section*.129}% 
+\contentsline {paragraph}{Basic Graph Definitions}{83}{section*.130}% 
+\contentsline {paragraph}{Unnormalized Graph Laplacian}{83}{section*.131}% 
+\contentsline {paragraph}{Normalized Graph Laplacian}{84}{section*.132}% 
 \contentsline {subsection}{\numberline {11.2.3}Spectral Clustering Algorithms}{84}{subsection.11.2.3}% 
 \contentsline {subsection}{\numberline {11.2.4}NCut and RatioCut Approximations}{85}{subsection.11.2.4}% 
 \contentsline {subsection}{\numberline {11.2.5}Random Walk Viewpoint}{87}{subsection.11.2.5}% 
@@ -239,6 +244,7 @@
 \contentsline {subsection}{\numberline {12.3.5}Factor Graphs}{94}{subsection.12.3.5}% 
 \contentsline {section}{\numberline {12.4}Markov Chains}{94}{section.12.4}% 
 \contentsline {section}{\numberline {12.5}Hidden Markov Models}{94}{section.12.5}% 
+\contentsline {section}{\numberline {12.6}Sampling with Monte Carlo Markov Chains (MCMC)}{94}{section.12.6}% 
 \contentsline {chapter}{\numberline {A}Bayesian Statistics}{95}{appendix.A}% 
 \contentsline {section}{\numberline {A.1}Bayesian Inference}{95}{section.A.1}% 
 \contentsline {section}{\numberline {A.2}Prior Distributions}{95}{section.A.2}% 
