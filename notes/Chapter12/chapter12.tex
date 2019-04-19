@@ -706,4 +706,43 @@ where $E$ is the energy function $E(x)=\sum_{i\sim j}w_{ij}\bI[x_i=x_j]+\sum_ic_
 
 
 \section{Sampling}
+\label{section12.6}
 
+\subsection{Basic Idea}
+
+Sampling concerns drawing realizations (samples) $\cX=\left\{x^1,\dotsc,x^L\right\}$ of a variable $x$ from a distribution $\P{x}$. For a discrete variable $x$, in the limit of a large number of samples, the fraction of samples in state $\mathsf{x}$ tends to $\P{x=\mathsf{x}}$. That is,
+\begin{align*}
+	\lim_{L\to\infty}\frac{1}{L}\sum_{l=1}^L\bI\left[x^l=\mathsf{x}\right]=\P{x=\mathsf{x}}
+\end{align*}
+In the continuous case, one can consider a region $R$ such that the probability that samples occupy $R$ tends to the integral of $\P{x}$ over $R$. Given a finite set of samples, one can then approximate expectations using
+\begin{align*}
+	\vecx{f(x)}_{\P{x}}\approx\frac{1}{L}\sum_{l=1}^Lf(x^l)\equiv\hat{f}_\cX
+\end{align*}
+The subscript in $\hat{f}_\cX$ emphasizes that the approximation is dependent on the set of samples drawn. This sample approximation holds for both discrete and continuous variables.
+
+A sampling procedure produces realizations of the set $\cX$ and can itself be considered as generating a distribution $\ti{P}\left(\cX\right)$. Provided the marginals of the sampling distribution are equal to the marginals of the target distribution, $\ti{P}\left(\cX\right)=\P{x^l}$, then the average of the approximation $\hat{f}_\cX$ with respect to draws of the sample set $\cX$ is
+\begin{align*}
+	\vecx{\hat{f}_\cX}_{\ti{P}\left(\cX\right)}=\frac{1}{L}\sum_{l=1}^L\vecx{f\left(x^l\right)}_{\ti{P}\left(x^l\right)}=\vecx{f(x)}_{\P{x}}
+\end{align*}
+Hence the mean of the sample approximation is the exact mean of $f$ provided only that the marginals of $\ti{P}\left(\cX\right)$ correspond to $\P{x}$.
+
+For any sampling method, an important issue is the variance of the sample estimate. If this is low then only a small number of samples are required since the sample mean must be close to the true mean (assuming it is unbiased). Defining
+\begin{align*}
+	\De\hat{f}_\cX=\hat{f}_\cX-\vecx{\hat{f}_\cX}_{\ti{P}\left(\cX\right)},\quad \De f(x)=f(x)-\vecx{f(x)}_{\P{x}}
+\end{align*}
+the variance of the approximation is (assuming $\ti{P}\left(x^l\right)=\P{x^l}$, for all $l$):
+\begin{align*}
+	\vecx{\left[\De\hat{f}_\cX\right]^2}_{\ti{P}\left(\cX\right)}&=\frac{1}{L^2}\sum_{l,l'}\vecx{\De f\left(x^l\right)\De f\left(x^{l'}\right)}_{\ti{P}\left(x^l,x^{l'}\right)} \\
+	&=\frac{1}{L^2}\left(L\vecx{\left[\De f(x)\right]^2}_{\ti{P}\left(x\right)}+\sum_{l\neq l'}\vecx{\De f\left(x^l\right)\De f\left(x^{l'}\right)}_{\ti{P}\left(x^l,x^{l'}\right)}\right)
+\end{align*}
+Provided the samples are independent $\ti{P}\left(\cX\right)=\prod_{l=1}^L\ti{P}\left(x^l\right)$ and $\ti{P}\left(x^l,x^{l'}\right)=\P{x^l}\P{x^{l'}}$. The second term in the equation above is composed of $\vecx{\De f\left(x^l\right)}\vecx{f\left(x^{l'}\right)}$ which is zero since $\vecx{\De f(x)}=0$. Hence,
+\begin{align*}
+	\vecx{\left[\De\hat{f}_\cX\right]^2}_{\ti{P}\left(x^l,x^{l'}\right)}=\frac{1}{L}\vecx{\left[\De f(x)\right]^2}_{\P{x}}
+\end{align*}
+and the variance of the approximation scales inversely with the number of samples.
+
+\subsection{Importance Sampling}
+
+\subsection{Rejection Sampling}
+
+\subsection{Markov Chain Monte Carlo (MCMC)}

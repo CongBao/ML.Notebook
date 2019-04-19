@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000) (preloaded format=pdflatex 2019.4.12)  19 APR 2019 23:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000) (preloaded format=pdflatex 2019.4.12)  20 APR 2019 00:42
 entering extended mode
 **./notebook.tex
 (notebook.tex
@@ -648,7 +648,7 @@ Overfull \hbox (44.52824pt too wide) detected at line 121
 
  (Chapter08/chapter8.tex
 Chapter 8.
-<Chapter08/Figs/fig1.png, id=1389, 119.0046pt x 133.4586pt>
+<Chapter08/Figs/fig1.png, id=1409, 119.0046pt x 133.4586pt>
 File: Chapter08/Figs/fig1.png Graphic file (type png)
 <use Chapter08/Figs/fig1.png>
 Package pdftex.def Info: Chapter08/Figs/fig1.png  used on input line 17.
@@ -658,7 +658,7 @@ Package pdftex.def Info: Chapter08/Figs/fig1.png  used on input line 17.
 
 
  <./Chapter08/Figs/fig1.png>] [66] [67]
-<Chapter08/Figs/fig2.png, id=1408, 86.9649pt x 145.5036pt>
+<Chapter08/Figs/fig2.png, id=1428, 86.9649pt x 145.5036pt>
 File: Chapter08/Figs/fig2.png Graphic file (type png)
 <use Chapter08/Figs/fig2.png>
 Package pdftex.def Info: Chapter08/Figs/fig2.png  used on input line 117.
@@ -696,7 +696,7 @@ Chapter 11.
 
  (Chapter12/chapter12.tex
 Chapter 12.
-<Chapter12/Figs/fig1.png, id=1538, 633.86812pt x 279.29344pt>
+<Chapter12/Figs/fig1.png, id=1558, 633.86812pt x 279.29344pt>
 File: Chapter12/Figs/fig1.png Graphic file (type png)
 <use Chapter12/Figs/fig1.png>
 Package pdftex.def Info: Chapter12/Figs/fig1.png  used on input line 31.
@@ -706,27 +706,27 @@ Package pdftex.def Info: Chapter12/Figs/fig1.png  used on input line 31.
 
 
  <./Chapter12/Figs/fig1.png (PNG copy)>]
-<Chapter12/Figs/fig2.png, id=1551, 305.64188pt x 220.57407pt>
+<Chapter12/Figs/fig2.png, id=1571, 305.64188pt x 220.57407pt>
 File: Chapter12/Figs/fig2.png Graphic file (type png)
 <use Chapter12/Figs/fig2.png>
 Package pdftex.def Info: Chapter12/Figs/fig2.png  used on input line 53.
 (pdftex.def)             Requested size: 117.43874pt x 84.7513pt.
-<Chapter12/Figs/fig3.png, id=1553, 291.33844pt x 213.04594pt>
+<Chapter12/Figs/fig3.png, id=1573, 291.33844pt x 213.04594pt>
 File: Chapter12/Figs/fig3.png Graphic file (type png)
 <use Chapter12/Figs/fig3.png>
 Package pdftex.def Info: Chapter12/Figs/fig3.png  used on input line 77.
 (pdftex.def)             Requested size: 105.69415pt x 77.28812pt.
-<Chapter12/Figs/fig4.png, id=1555, 293.59688pt x 210.7875pt>
+<Chapter12/Figs/fig4.png, id=1575, 293.59688pt x 210.7875pt>
 File: Chapter12/Figs/fig4.png Graphic file (type png)
 <use Chapter12/Figs/fig4.png>
 Package pdftex.def Info: Chapter12/Figs/fig4.png  used on input line 82.
 (pdftex.def)             Requested size: 105.69415pt x 75.88344pt.
-<Chapter12/Figs/fig5.png, id=1557, 289.08pt x 213.04594pt>
+<Chapter12/Figs/fig5.png, id=1577, 289.08pt x 213.04594pt>
 File: Chapter12/Figs/fig5.png Graphic file (type png)
 <use Chapter12/Figs/fig5.png>
 Package pdftex.def Info: Chapter12/Figs/fig5.png  used on input line 100.
 (pdftex.def)             Requested size: 105.69415pt x 77.89278pt.
-<Chapter12/Figs/fig6.png, id=1559, 288.3272pt x 211.54031pt>
+<Chapter12/Figs/fig6.png, id=1579, 288.3272pt x 211.54031pt>
 File: Chapter12/Figs/fig6.png Graphic file (type png)
 <use Chapter12/Figs/fig6.png>
 Package pdftex.def Info: Chapter12/Figs/fig6.png  used on input line 105.
@@ -737,7 +737,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [89 <./Chapter12/Figs/fig2.png (PNG copy)> <./Chapter12/Figs/fig3.png (PNG copy
 )> <./Chapter12/Figs/fig4.png (PNG copy)>]
-<Chapter12/Figs/fig7.png, id=1577, 387.69844pt x 317.68687pt>
+<Chapter12/Figs/fig7.png, id=1597, 387.69844pt x 317.68687pt>
 File: Chapter12/Figs/fig7.png Graphic file (type png)
 <use Chapter12/Figs/fig7.png>
 Package pdftex.def Info: Chapter12/Figs/fig7.png  used on input line 121.
@@ -747,14 +747,14 @@ Overfull \hbox (20.23589pt too wide) in paragraph at lines 119--126
 []$[]$ $[]$ 
  []
 
-<Chapter12/Figs/fig8.png, id=1579, 338.01282pt x 165.61874pt>
+<Chapter12/Figs/fig8.png, id=1599, 338.01282pt x 165.61874pt>
 File: Chapter12/Figs/fig8.png Graphic file (type png)
 <use Chapter12/Figs/fig8.png>
 Package pdftex.def Info: Chapter12/Figs/fig8.png  used on input line 146.
 (pdftex.def)             Requested size: 93.94955pt x 46.03175pt.
 [90 <./Chapter12/Figs/fig5.png (PNG copy)> <./Chapter12/Figs/fig6.png (PNG copy
 )> <./Chapter12/Figs/fig7.png (PNG copy)>]
-<Chapter12/Figs/fig9.png, id=1594, 1113.40968pt x 281.55188pt>
+<Chapter12/Figs/fig9.png, id=1614, 1113.40968pt x 281.55188pt>
 File: Chapter12/Figs/fig9.png Graphic file (type png)
 <use Chapter12/Figs/fig9.png>
 Package pdftex.def Info: Chapter12/Figs/fig9.png  used on input line 155.
@@ -766,19 +766,19 @@ en C, $\OML/cmm/m/it/12 P [] \U/msa/m/n/12 _ \OML/cmm/m/it/12 P [] P [] P []$\O
 T1/cmr/m/n/12 . 
  []
 
-<Chapter12/Figs/fig10.png, id=1596, 1110.39844pt x 272.51813pt>
+<Chapter12/Figs/fig10.png, id=1616, 1110.39844pt x 272.51813pt>
 File: Chapter12/Figs/fig10.png Graphic file (type png)
 <use Chapter12/Figs/fig10.png>
 Package pdftex.def Info: Chapter12/Figs/fig10.png  used on input line 169.
 (pdftex.def)             Requested size: 469.75499pt x 115.28848pt.
 [91 <./Chapter12/Figs/fig8.png (PNG copy)> <./Chapter12/Figs/fig9.png (PNG copy
 )> <./Chapter12/Figs/fig10.png (PNG copy)>]
-<Chapter12/Figs/fig11.png, id=1614, 238.64156pt x 150.5625pt>
+<Chapter12/Figs/fig11.png, id=1634, 238.64156pt x 150.5625pt>
 File: Chapter12/Figs/fig11.png Graphic file (type png)
 <use Chapter12/Figs/fig11.png>
 Package pdftex.def Info: Chapter12/Figs/fig11.png  used on input line 181.
 (pdftex.def)             Requested size: 112.74062pt x 71.12965pt.
-<Chapter12/Figs/fig12.png, id=1616, 236.38312pt x 149.05687pt>
+<Chapter12/Figs/fig12.png, id=1636, 236.38312pt x 149.05687pt>
 File: Chapter12/Figs/fig12.png Graphic file (type png)
 <use Chapter12/Figs/fig12.png>
 Package pdftex.def Info: Chapter12/Figs/fig12.png  used on input line 188.
@@ -795,7 +795,7 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 179--193
 
 [92 <./Chapter12/Figs/fig11.png (PNG copy)> <./Chapter12/Figs/fig12.png (PNG co
 py)>]
-<Chapter12/Figs/fig13.png, id=1630, 269.50688pt x 292.84406pt>
+<Chapter12/Figs/fig13.png, id=1650, 269.50688pt x 292.84406pt>
 File: Chapter12/Figs/fig13.png Graphic file (type png)
 <use Chapter12/Figs/fig13.png>
 Package pdftex.def Info: Chapter12/Figs/fig13.png  used on input line 240.
@@ -805,7 +805,7 @@ Overfull \hbox (20.23589pt too wide) in paragraph at lines 238--248
 []$[]$ $[]$ 
  []
 
-<Chapter12/Figs/fig14.png, id=1632, 286.82156pt x 281.55188pt>
+<Chapter12/Figs/fig14.png, id=1652, 286.82156pt x 281.55188pt>
 File: Chapter12/Figs/fig14.png Graphic file (type png)
 <use Chapter12/Figs/fig14.png>
 Package pdftex.def Info: Chapter12/Figs/fig14.png  used on input line 255.
@@ -820,7 +820,7 @@ Overfull \hbox (5.42458pt too wide) in paragraph at lines 253--266
 $[]$ $[]$ 
  []
 
-<Chapter12/Figs/fig15.png, id=1634, 62.634pt x 62.1522pt>
+<Chapter12/Figs/fig15.png, id=1654, 62.634pt x 62.1522pt>
 File: Chapter12/Figs/fig15.png Graphic file (type png)
 <use Chapter12/Figs/fig15.png>
 Package pdftex.def Info: Chapter12/Figs/fig15.png  used on input line 271.
@@ -832,7 +832,7 @@ $[]$ $[]$
 
 [93 <./Chapter12/Figs/fig13.png (PNG copy)> <./Chapter12/Figs/fig14.png (PNG co
 py)>]
-<Chapter12/Figs/fig16.png, id=1646, 58.5387pt x 58.5387pt>
+<Chapter12/Figs/fig16.png, id=1666, 58.5387pt x 58.5387pt>
 File: Chapter12/Figs/fig16.png Graphic file (type png)
 <use Chapter12/Figs/fig16.png>
 Package pdftex.def Info: Chapter12/Figs/fig16.png  used on input line 284.
@@ -842,12 +842,12 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 282--293
 $[]$ $[]$ 
  []
 
-<Chapter12/Figs/fig18.png, id=1648, 205.0059pt x 53.2389pt>
+<Chapter12/Figs/fig18.png, id=1668, 205.0059pt x 53.2389pt>
 File: Chapter12/Figs/fig18.png Graphic file (type png)
 <use Chapter12/Figs/fig18.png>
 Package pdftex.def Info: Chapter12/Figs/fig18.png  used on input line 300.
 (pdftex.def)             Requested size: 225.48553pt x 58.55809pt.
-<Chapter12/Figs/fig19.png, id=1650, 205.0059pt x 52.7571pt>
+<Chapter12/Figs/fig19.png, id=1670, 205.0059pt x 52.7571pt>
 File: Chapter12/Figs/fig19.png Graphic file (type png)
 <use Chapter12/Figs/fig19.png>
 Package pdftex.def Info: Chapter12/Figs/fig19.png  used on input line 307.
@@ -868,34 +868,34 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 298--312
 []$ $[]$ 
  []
 
-<Chapter12/Figs/fig20.png, id=1652, 355.3275pt x 66.4884pt>
+<Chapter12/Figs/fig20.png, id=1672, 355.3275pt x 66.4884pt>
 File: Chapter12/Figs/fig20.png Graphic file (type png)
 <use Chapter12/Figs/fig20.png>
 Package pdftex.def Info: Chapter12/Figs/fig20.png  used on input line 317.
 (pdftex.def)             Requested size: 469.75499pt x 87.90292pt.
 [94 <./Chapter12/Figs/fig15.png> <./Chapter12/Figs/fig16.png> <./Chapter12/Figs
 /fig18.png> <./Chapter12/Figs/fig19.png> <./Chapter12/Figs/fig20.png>]
-<Chapter12/Figs/fig21.png, id=1673, 107.6823pt x 153.9351pt>
+<Chapter12/Figs/fig21.png, id=1693, 107.6823pt x 153.9351pt>
 File: Chapter12/Figs/fig21.png Graphic file (type png)
 <use Chapter12/Figs/fig21.png>
 Package pdftex.def Info: Chapter12/Figs/fig21.png  used on input line 327.
 (pdftex.def)             Requested size: 90.19536pt x 128.93816pt.
-<Chapter12/Figs/fig22.png, id=1675, 84.7968pt x 153.9351pt>
+<Chapter12/Figs/fig22.png, id=1695, 84.7968pt x 153.9351pt>
 File: Chapter12/Figs/fig22.png Graphic file (type png)
 <use Chapter12/Figs/fig22.png>
 Package pdftex.def Info: Chapter12/Figs/fig22.png  used on input line 332.
 (pdftex.def)             Requested size: 71.02911pt x 128.95226pt.
-<Chapter12/Figs/fig23.png, id=1677, 84.7968pt x 153.9351pt>
+<Chapter12/Figs/fig23.png, id=1697, 84.7968pt x 153.9351pt>
 File: Chapter12/Figs/fig23.png Graphic file (type png)
 <use Chapter12/Figs/fig23.png>
 Package pdftex.def Info: Chapter12/Figs/fig23.png  used on input line 337.
 (pdftex.def)             Requested size: 71.02911pt x 128.95226pt.
-<Chapter12/Figs/fig24.png, id=1679, 84.7968pt x 153.9351pt>
+<Chapter12/Figs/fig24.png, id=1699, 84.7968pt x 153.9351pt>
 File: Chapter12/Figs/fig24.png Graphic file (type png)
 <use Chapter12/Figs/fig24.png>
 Package pdftex.def Info: Chapter12/Figs/fig24.png  used on input line 342.
 (pdftex.def)             Requested size: 71.02911pt x 128.95226pt.
-<Chapter12/Figs/fig25.png, id=1681, 75.1608pt x 142.8537pt>
+<Chapter12/Figs/fig25.png, id=1701, 75.1608pt x 142.8537pt>
 File: Chapter12/Figs/fig25.png Graphic file (type png)
 <use Chapter12/Figs/fig25.png>
 Package pdftex.def Info: Chapter12/Figs/fig25.png  used on input line 367.
@@ -905,7 +905,7 @@ Overfull \hbox (6.7663pt too wide) detected at line 373
 []
  []
 
-<Chapter12/Figs/fig26.png, id=1683, 237.7683pt x 80.4606pt>
+<Chapter12/Figs/fig26.png, id=1703, 237.7683pt x 80.4606pt>
 File: Chapter12/Figs/fig26.png Graphic file (type png)
 <use Chapter12/Figs/fig26.png>
 Package pdftex.def Info: Chapter12/Figs/fig26.png  used on input line 379.
@@ -922,7 +922,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 365--381
 
 [95 <./Chapter12/Figs/fig21.png> <./Chapter12/Figs/fig22.png> <./Chapter12/Figs
 /fig23.png> <./Chapter12/Figs/fig24.png>]
-<Chapter12/Figs/fig27.png, id=1706, 164.0529pt x 43.8438pt>
+<Chapter12/Figs/fig27.png, id=1726, 164.0529pt x 43.8438pt>
 File: Chapter12/Figs/fig27.png Graphic file (type png)
 <use Chapter12/Figs/fig27.png>
 Package pdftex.def Info: Chapter12/Figs/fig27.png  used on input line 400.
@@ -939,69 +939,69 @@ Underfull \hbox (badness 10000) in paragraph at lines 391--403
 
 [96 <./Chapter12/Figs/fig25.png> <./Chapter12/Figs/fig26.png> <./Chapter12/Figs
 /fig27.png>]
-<Chapter12/Figs/fig28.png, id=1719, 164.0529pt x 18.0675pt>
+<Chapter12/Figs/fig28.png, id=1739, 164.0529pt x 18.0675pt>
 File: Chapter12/Figs/fig28.png Graphic file (type png)
 <use Chapter12/Figs/fig28.png>
 Package pdftex.def Info: Chapter12/Figs/fig28.png  used on input line 417.
 (pdftex.def)             Requested size: 147.97116pt x 16.29669pt.
-<Chapter12/Figs/fig29.png, id=1721, 164.2938pt x 33.726pt>
+<Chapter12/Figs/fig29.png, id=1741, 164.2938pt x 33.726pt>
 File: Chapter12/Figs/fig29.png Graphic file (type png)
 <use Chapter12/Figs/fig29.png>
 Package pdftex.def Info: Chapter12/Figs/fig29.png  used on input line 422.
 (pdftex.def)             Requested size: 147.97116pt x 30.37729pt.
-<Chapter12/Figs/fig30.png, id=1723, 165.9801pt x 67.452pt>
+<Chapter12/Figs/fig30.png, id=1743, 165.9801pt x 67.452pt>
 File: Chapter12/Figs/fig30.png Graphic file (type png)
 <use Chapter12/Figs/fig30.png>
 Package pdftex.def Info: Chapter12/Figs/fig30.png  used on input line 436.
 (pdftex.def)             Requested size: 187.89912pt x 76.36395pt.
-<Chapter12/Figs/fig31.png, id=1725, 132.0132pt x 63.5976pt>
+<Chapter12/Figs/fig31.png, id=1745, 132.0132pt x 63.5976pt>
 File: Chapter12/Figs/fig31.png Graphic file (type png)
 <use Chapter12/Figs/fig31.png>
-Package pdftex.def Info: Chapter12/Figs/fig31.png  used on input line 449.
+Package pdftex.def Info: Chapter12/Figs/fig31.png  used on input line 450.
 (pdftex.def)             Requested size: 150.31987pt x 72.42339pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 447--456
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 448--457
 $[]$ $[]$ 
  []
 
-<Chapter12/Figs/fig32.png, id=1727, 129.1224pt x 70.8246pt>
+<Chapter12/Figs/fig32.png, id=1747, 129.1224pt x 70.8246pt>
 File: Chapter12/Figs/fig32.png Graphic file (type png)
 <use Chapter12/Figs/fig32.png>
-Package pdftex.def Info: Chapter12/Figs/fig32.png  used on input line 461.
+Package pdftex.def Info: Chapter12/Figs/fig32.png  used on input line 462.
 (pdftex.def)             Requested size: 150.31987pt x 82.45915pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 459--468
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 460--469
 $[]$ $[]$ 
  []
 
 [97 <./Chapter12/Figs/fig28.png> <./Chapter12/Figs/fig29.png> <./Chapter12/Figs
 /fig30.png> <./Chapter12/Figs/fig31.png>]
-<Chapter12/Figs/fig33.png, id=1745, 181.1568pt x 19.9947pt>
+<Chapter12/Figs/fig33.png, id=1765, 181.1568pt x 19.9947pt>
 File: Chapter12/Figs/fig33.png Graphic file (type png)
 <use Chapter12/Figs/fig33.png>
-Package pdftex.def Info: Chapter12/Figs/fig33.png  used on input line 479.
+Package pdftex.def Info: Chapter12/Figs/fig33.png  used on input line 480.
 (pdftex.def)             Requested size: 150.31987pt x 16.591pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 477--486
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 478--487
 $[]$ $[]$ 
  []
 
-<Chapter12/Figs/fig34.png, id=1747, 171.7617pt x 93.2283pt>
+<Chapter12/Figs/fig34.png, id=1767, 171.7617pt x 93.2283pt>
 File: Chapter12/Figs/fig34.png Graphic file (type png)
 <use Chapter12/Figs/fig34.png>
-Package pdftex.def Info: Chapter12/Figs/fig34.png  used on input line 493.
+Package pdftex.def Info: Chapter12/Figs/fig34.png  used on input line 494.
 (pdftex.def)             Requested size: 150.31987pt x 81.59447pt.
 
-Overfull \hbox (20.23589pt too wide) in paragraph at lines 491--500
+Overfull \hbox (20.23589pt too wide) in paragraph at lines 492--501
 []$[]$ $[]$ 
  []
 
 File: Chapter12/Figs/fig31.png Graphic file (type png)
 <use Chapter12/Figs/fig31.png>
-Package pdftex.def Info: Chapter12/Figs/fig31.png  used on input line 511.
+Package pdftex.def Info: Chapter12/Figs/fig31.png  used on input line 512.
 (pdftex.def)             Requested size: 150.31987pt x 72.42339pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 509--518
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 510--519
 $[]$ $[]$ 
  []
 
@@ -1009,130 +1009,130 @@ $[]$ $[]$
 /fig34.png>]
 File: Chapter12/Figs/fig32.png Graphic file (type png)
 <use Chapter12/Figs/fig32.png>
-Package pdftex.def Info: Chapter12/Figs/fig32.png  used on input line 523.
+Package pdftex.def Info: Chapter12/Figs/fig32.png  used on input line 524.
 (pdftex.def)             Requested size: 150.31987pt x 82.45915pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 521--530
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 522--531
 $[]$ $[]$ 
  []
 
 File: Chapter12/Figs/fig33.png Graphic file (type png)
 <use Chapter12/Figs/fig33.png>
-Package pdftex.def Info: Chapter12/Figs/fig33.png  used on input line 541.
+Package pdftex.def Info: Chapter12/Figs/fig33.png  used on input line 542.
 (pdftex.def)             Requested size: 150.31987pt x 16.591pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 539--548
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 540--549
 $[]$ $[]$ 
  []
 
 [99]
-<Chapter12/Figs/fig35.png, id=1778, 152.9715pt x 23.6082pt>
+<Chapter12/Figs/fig35.png, id=1798, 152.9715pt x 23.6082pt>
 File: Chapter12/Figs/fig35.png Graphic file (type png)
 <use Chapter12/Figs/fig35.png>
-Package pdftex.def Info: Chapter12/Figs/fig35.png  used on input line 565.
+Package pdftex.def Info: Chapter12/Figs/fig35.png  used on input line 566.
 (pdftex.def)             Requested size: 150.31987pt x 23.19925pt.
-<Chapter12/Figs/fig36.png, id=1780, 81.1833pt x 80.7015pt>
+<Chapter12/Figs/fig36.png, id=1800, 81.1833pt x 80.7015pt>
 File: Chapter12/Figs/fig36.png Graphic file (type png)
 <use Chapter12/Figs/fig36.png>
-Package pdftex.def Info: Chapter12/Figs/fig36.png  used on input line 577.
+Package pdftex.def Info: Chapter12/Figs/fig36.png  used on input line 578.
 (pdftex.def)             Requested size: 93.94955pt x 93.39584pt.
-<Chapter12/Figs/fig37.png, id=1782, 139.722pt x 24.5718pt>
+<Chapter12/Figs/fig37.png, id=1802, 139.722pt x 24.5718pt>
 File: Chapter12/Figs/fig37.png Graphic file (type png)
 <use Chapter12/Figs/fig37.png>
-Package pdftex.def Info: Chapter12/Figs/fig37.png  used on input line 579.
+Package pdftex.def Info: Chapter12/Figs/fig37.png  used on input line 580.
 (pdftex.def)             Requested size: 131.52881pt x 23.13121pt.
 
-Overfull \hbox (20.23589pt too wide) in paragraph at lines 563--592
+Overfull \hbox (20.23589pt too wide) in paragraph at lines 564--593
 []$[]$ $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 563--592
+Underfull \hbox (badness 10000) in paragraph at lines 564--593
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 563--592
+Underfull \hbox (badness 10000) in paragraph at lines 564--593
 
  []
 
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 563--592
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 564--593
 []$ $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 563--592
+Underfull \hbox (badness 10000) in paragraph at lines 564--593
 
  []
 
-<Chapter12/Figs/fig38.png, id=1784, 135.8676pt x 21.1992pt>
+<Chapter12/Figs/fig38.png, id=1804, 135.8676pt x 21.1992pt>
 File: Chapter12/Figs/fig38.png Graphic file (type png)
 <use Chapter12/Figs/fig38.png>
-Package pdftex.def Info: Chapter12/Figs/fig38.png  used on input line 604.
+Package pdftex.def Info: Chapter12/Figs/fig38.png  used on input line 605.
 (pdftex.def)             Requested size: 150.31987pt x 23.45537pt.
 
-Overfull \hbox (20.23589pt too wide) in paragraph at lines 597--608
+Overfull \hbox (20.23589pt too wide) in paragraph at lines 598--609
 []$[]$ $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 597--608
+Underfull \hbox (badness 10000) in paragraph at lines 598--609
 
  []
 
-<Chapter12/Figs/fig39.png, id=1786, 135.8676pt x 23.6082pt>
+<Chapter12/Figs/fig39.png, id=1806, 135.8676pt x 23.6082pt>
 File: Chapter12/Figs/fig39.png Graphic file (type png)
 <use Chapter12/Figs/fig39.png>
-Package pdftex.def Info: Chapter12/Figs/fig39.png  used on input line 616.
+Package pdftex.def Info: Chapter12/Figs/fig39.png  used on input line 617.
 (pdftex.def)             Requested size: 150.31987pt x 26.12073pt.
 
-Overfull \hbox (20.23589pt too wide) in paragraph at lines 609--620
+Overfull \hbox (20.23589pt too wide) in paragraph at lines 610--621
 []$[]$ $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 609--620
+Underfull \hbox (badness 10000) in paragraph at lines 610--621
 
  []
 
 [100 <./Chapter12/Figs/fig35.png> <./Chapter12/Figs/fig36.png> <./Chapter12/Fig
 s/fig37.png> <./Chapter12/Figs/fig38.png> <./Chapter12/Figs/fig39.png>]
-<Chapter12/Figs/fig40.png, id=1803, 70.8246pt x 69.861pt>
+<Chapter12/Figs/fig40.png, id=1823, 70.8246pt x 69.861pt>
 File: Chapter12/Figs/fig40.png Graphic file (type png)
 <use Chapter12/Figs/fig40.png>
-Package pdftex.def Info: Chapter12/Figs/fig40.png  used on input line 654.
+Package pdftex.def Info: Chapter12/Figs/fig40.png  used on input line 655.
 (pdftex.def)             Requested size: 58.62724pt x 57.82896pt.
-<Chapter12/Figs/fig41.png, id=1805, 70.8246pt x 69.861pt>
+<Chapter12/Figs/fig41.png, id=1825, 70.8246pt x 69.861pt>
 File: Chapter12/Figs/fig41.png Graphic file (type png)
 <use Chapter12/Figs/fig41.png>
-Package pdftex.def Info: Chapter12/Figs/fig41.png  used on input line 659.
+Package pdftex.def Info: Chapter12/Figs/fig41.png  used on input line 660.
 (pdftex.def)             Requested size: 58.62724pt x 57.82896pt.
-<Chapter12/Figs/fig42.png, id=1807, 129.6042pt x 89.133pt>
+<Chapter12/Figs/fig42.png, id=1827, 129.6042pt x 89.133pt>
 File: Chapter12/Figs/fig42.png Graphic file (type png)
 <use Chapter12/Figs/fig42.png>
-Package pdftex.def Info: Chapter12/Figs/fig42.png  used on input line 664.
+Package pdftex.def Info: Chapter12/Figs/fig42.png  used on input line 665.
 (pdftex.def)             Requested size: 84.55783pt x 58.15335pt.
-<Chapter12/Figs/fig43.png, id=1809, 129.6042pt x 89.133pt>
+<Chapter12/Figs/fig43.png, id=1829, 129.6042pt x 89.133pt>
 File: Chapter12/Figs/fig43.png Graphic file (type png)
 <use Chapter12/Figs/fig43.png>
-Package pdftex.def Info: Chapter12/Figs/fig43.png  used on input line 669.
+Package pdftex.def Info: Chapter12/Figs/fig43.png  used on input line 670.
 (pdftex.def)             Requested size: 84.55783pt x 58.15335pt.
 
 [101 <./Chapter12/Figs/fig40.png> <./Chapter12/Figs/fig41.png> <./Chapter12/Fig
 s/fig42.png> <./Chapter12/Figs/fig43.png>]
-<Chapter12/Figs/fig44.png, id=1826, 277.9986pt x 165.2574pt>
+<Chapter12/Figs/fig44.png, id=1846, 277.9986pt x 165.2574pt>
 File: Chapter12/Figs/fig44.png Graphic file (type png)
 <use Chapter12/Figs/fig44.png>
-Package pdftex.def Info: Chapter12/Figs/fig44.png  used on input line 679.
+Package pdftex.def Info: Chapter12/Figs/fig44.png  used on input line 680.
 (pdftex.def)             Requested size: 469.75499pt x 279.2746pt.
- [102 <./Chapter12/Figs/fig44.png>])
-[103]
+ [102 <./Chapter12/Figs/fig44.png>]
+[103] [104]) [105]
 \openout2 = `AppendixA/appendixA.aux'.
 
  (AppendixA/appendixA.tex
 Appendix A.
-) [104
+) [106
 
 
 
@@ -1141,7 +1141,7 @@ Appendix A.
 
  (AppendixB/appendixB.tex
 Appendix B.
-[105
+[107
 
 
 
@@ -1152,7 +1152,7 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 29.
-) [106]
+) [108]
 
 AED: lastpage setting LastPage
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 47.
@@ -1165,15 +1165,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 47.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 47.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 47.
 Package rerunfilecheck Info: File `notebook.out' has not changed.
-(rerunfilecheck)             Checksum: A27F797FD3C66AD6A9610A6210A0DEC5;11614.
+(rerunfilecheck)             Checksum: EA22D58684300C6A213AA860CEF2AA1D;11946.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 47.
  ) 
 Here is how much of TeX's memory you used:
- 10627 strings out of 492946
- 156129 string characters out of 3134728
- 252716 words of memory out of 3000000
- 13516 multiletter control sequences out of 15000+200000
- 21390 words of font info for 87 fonts, out of 3000000 for 9000
+ 10644 strings out of 492946
+ 156369 string characters out of 3134728
+ 252796 words of memory out of 3000000
+ 13525 multiletter control sequences out of 15000+200000
+ 22297 words of font info for 90 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,36n,43p,1102b,543s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
@@ -1193,16 +1193,17 @@ a/cmmib8.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmr1
 /usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loc
 al/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/share
 /miktex-texmf/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/share/miktex-
-texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/share/miktex-texmf/
-fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/share/miktex-texmf/fonts/t
-ype1/public/amsfonts/cm/cmsy8.pfb></usr/local/share/miktex-texmf/fonts/type1/pu
-blic/amsfonts/cm/cmti12.pfb></usr/local/share/miktex-texmf/fonts/type1/public/a
-msfonts/cm/cmtt12.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfont
-s/symbols/msam10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts
-/symbols/msbm10.pfb>
-Output written on notebook.pdf (112 pages, 1507059 bytes).
+texmf/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/share/miktex-texmf/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/share/miktex-texmf/fonts/
+type1/public/amsfonts/cm/cmsy6.pfb></usr/local/share/miktex-texmf/fonts/type1/p
+ublic/amsfonts/cm/cmsy8.pfb></usr/local/share/miktex-texmf/fonts/type1/public/a
+msfonts/cm/cmti12.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfont
+s/cm/cmtt12.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/symb
+ols/msam10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/symbo
+ls/msbm10.pfb>
+Output written on notebook.pdf (114 pages, 1524575 bytes).
 PDF statistics:
- 2090 PDF objects out of 2487 (max. 8388607)
- 688 named destinations out of 1000 (max. 500000)
- 1754 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2123 PDF objects out of 2487 (max. 8388607)
+ 694 named destinations out of 1000 (max. 500000)
+ 1786 words of extra memory for PDF output out of 10000 (max. 10000000)
 

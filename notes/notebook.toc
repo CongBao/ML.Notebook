@@ -281,14 +281,18 @@
 \contentsline {paragraph}{The Junction Algorithm}{102}{section*.192}% 
 \contentsline {subsection}{\numberline {12.5.4}Graph Cut}{103}{subsection.12.5.4}% 
 \contentsline {section}{\numberline {12.6}Sampling}{103}{section.12.6}% 
-\contentsline {chapter}{\numberline {A}Bayesian Statistics}{104}{appendix.A}% 
-\contentsline {section}{\numberline {A.1}Bayesian Inference}{104}{section.A.1}% 
-\contentsline {section}{\numberline {A.2}Prior Distributions}{104}{section.A.2}% 
-\contentsline {chapter}{\numberline {B}Statistical Assessment}{105}{appendix.B}% 
-\contentsline {section}{\numberline {B.1}Hypothesis Testing}{105}{section.B.1}% 
-\contentsline {subsection}{\numberline {B.1.1}Testing Basics}{105}{subsection.B.1.1}% 
-\contentsline {subsection}{\numberline {B.1.2}Testing Procedure}{105}{subsection.B.1.2}% 
-\contentsline {subsection}{\numberline {B.1.3}Power Investigation}{106}{subsection.B.1.3}% 
-\contentsline {subsection}{\numberline {B.1.4}Useful Tests}{106}{subsection.B.1.4}% 
-\contentsline {section}{\numberline {B.2}Confidence Intervals}{106}{section.B.2}% 
-\contentsline {section}{\numberline {B.3}Bootstrap}{106}{section.B.3}% 
+\contentsline {subsection}{\numberline {12.6.1}Basic Idea}{103}{subsection.12.6.1}% 
+\contentsline {subsection}{\numberline {12.6.2}Importance Sampling}{105}{subsection.12.6.2}% 
+\contentsline {subsection}{\numberline {12.6.3}Rejection Sampling}{105}{subsection.12.6.3}% 
+\contentsline {subsection}{\numberline {12.6.4}Markov Chain Monte Carlo (MCMC)}{105}{subsection.12.6.4}% 
+\contentsline {chapter}{\numberline {A}Bayesian Statistics}{106}{appendix.A}% 
+\contentsline {section}{\numberline {A.1}Bayesian Inference}{106}{section.A.1}% 
+\contentsline {section}{\numberline {A.2}Prior Distributions}{106}{section.A.2}% 
+\contentsline {chapter}{\numberline {B}Statistical Assessment}{107}{appendix.B}% 
+\contentsline {section}{\numberline {B.1}Hypothesis Testing}{107}{section.B.1}% 
+\contentsline {subsection}{\numberline {B.1.1}Testing Basics}{107}{subsection.B.1.1}% 
+\contentsline {subsection}{\numberline {B.1.2}Testing Procedure}{107}{subsection.B.1.2}% 
+\contentsline {subsection}{\numberline {B.1.3}Power Investigation}{108}{subsection.B.1.3}% 
+\contentsline {subsection}{\numberline {B.1.4}Useful Tests}{108}{subsection.B.1.4}% 
+\contentsline {section}{\numberline {B.2}Confidence Intervals}{108}{section.B.2}% 
+\contentsline {section}{\numberline {B.3}Bootstrap}{108}{section.B.3}% 
