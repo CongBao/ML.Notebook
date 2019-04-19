@@ -3,7 +3,7 @@
 
 \graphicspath{{Chapter12/Figs/}}
 
-\chapter{Graphical Models \& Markov Network}
+\chapter{Graphical Models}
 \label{chapter12}
 
 
@@ -227,7 +227,10 @@ An immorality in a DAG is a configuration of three nodes, A,B,C such that C is a
 Markov equivalence
 Two graphs represent the same set of independence assumptions if and only if they have the same skeleton and the same set of immoralities.
 
+
+
 \section{Markov Networks}
+\label{section12.3}
 
 \subsection{Definition}
 A Markov Network is an undirected graph in which there is a potential (non-negative function) $\ps$ defined on each maximal clique.
@@ -361,7 +364,7 @@ For a distribution $P$ form the list $\cL_P$ of all the independence statements.
 
 \begin{minipage}{0.4\textwidth}
 	\centering
-	\includegraphics*[width=0.3\textwidth]{fig25.png}
+	\includegraphics*[width=0.4\textwidth]{fig25.png}
 \end{minipage}
 \begin{minipage}{0.6\textwidth}
 	The joint function is the product of all factors:
@@ -369,15 +372,338 @@ For a distribution $P$ form the list $\cL_P$ of all the independence statements.
 	f(A,B,C,D,E)=f_1(A,B)f_2(B,C,D)f_3(C,E)f_4(D,E)
 	\end{align*}
 \end{minipage}
+\\ \\
 A square node represents a factor (non negative function) of its neighboring variables. Factor graphs are useful for performing efficient computations (not just for probability).
 \begin{figure*}[h]
 	\centering
 	\includegraphics*[width=0.6\textwidth]{fig26.png}
 \end{figure*}
+
 The above graphs give us (a) $\ph(a,b,c)$, (b) $\ph(a,b)\ph(b,c)\ph(c,a)$, (c) $\ph(a,b,c)$. Both (a) and (b) have the same Markov network (c). Whilst (b) contains the same (lack of) independence statements as (a), it expresses more constraints on the form of the potential.
 
-\section{Markov Chains}
 
-\section{Hidden Markov Models}
 
-\section{Monte Carlo Markov Chains (MCMC)}
+\section{Markov Models}
+\label{section12.4}
+
+\subsection{Basic Model}
+
+\begin{minipage}{0.6\textwidth}
+	For timeseries data $v_1,\dotsc,v_T$, we need a model $\P{v_{1:T}}$.
+	\begin{align*}
+		\P{v_{1:T}}=\prod_{t=1}^T\P{v_t|v_{1:t-1}}
+	\end{align*}
+	with the convention $\P{v_t|v_{1:t-1}}=\P{v_1}$ for $t=1$.
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+	\centering
+	\includegraphics*[width=0.8\textwidth]{fig27.png}
+\end{minipage}
+\\
+
+It is often natural to assume that the influence of the immediate past is more relevant than the remote past and in Markov models only a limited number of previous observations are required to predict the future.
+
+\subsection{Markov Chains}
+
+In Markov chain, only the recent past is relevant:
+\begin{align*}
+	\P{v_t|v_1,\dotsc,v_{t-1}}=\P{v_t|v_{t-L},\dotsc,v_{t-1}}
+\end{align*}
+where $L\geq 1$ is the order of the Markov chain.
+\begin{figure*}[h]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics*[width=0.7\textwidth]{fig28.png}
+		\caption*{First order Markov chain}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics*[width=0.7\textwidth]{fig29.png}
+		\caption*{Second order Markov chain}
+	\end{subfigure}
+\end{figure*}
+
+\subsection{Hidden Markov Models (HMM)}
+
+The HMM defines a Markov chain on hidden variables $h_{1:T}$. The observed variables depend on the hidden variables through an emission $\P{v_t|h_t}$. This defines a joint distribution
+\begin{align*}
+	\P{h_{1:T},v_{1:T}}=\P{v_1|h_1}\P{h1}\prod_{t=2}^T\P{v_t|h_t}\P{h_t|h_{t-1}}
+\end{align*}
+Below is a first order hidden Markov model with hidden variables $\dom(h_t)=\{1,\dotsc,H\},t=1:T$. The visible variables $v_t$ can be either discrete or continuous.
+\begin{figure*}[h]
+	\centering
+	\includegraphics*[width=0.4\textwidth]{fig30.png}
+\end{figure*}
+
+
+
+\section{Inference}
+\label{section12.5}
+
+\subsection{Sum-Product Algorithm}
+
+\subsubsection*{Variable to Factor Message}
+
+\begin{minipage}{0.4\textwidth}
+	\centering
+	\includegraphics*[width=0.8\textwidth]{fig31.png}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+	\begin{align*}
+		\mu_{v\to f}(v)=\prod_{f_i\sim v\setminus f}\mu_{f_i\to v}(v)
+	\end{align*}
+\end{minipage}
+
+\subsubsection*{Factor to Variable Message}
+
+\begin{minipage}{0.4\textwidth}
+	\centering
+	\includegraphics*[width=0.8\textwidth]{fig32.png}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+	\begin{align*}
+		\mu_{f\to v}(v)=\sum_{\{v_i\}}f(v,\{v_i\})\prod_{v_i\sim f\setminus v}\mu_{v_i\to f}(v_i)
+	\end{align*}
+\end{minipage}
+
+\subsubsection*{Marginal}
+
+\begin{align*}
+	\P{v}\prop\prod_{f_i\sim v}\mu_{f_i\to v}(v)
+\end{align*}
+
+\subsubsection*{Example}
+
+\begin{minipage}{0.4\textwidth}
+	\centering
+	\includegraphics*[width=0.8\textwidth]{fig33.png}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+	\begin{align*}
+		\P{a,b,c,d}\prop f_1(a,b)f_2(b,c)f_3(c,d)f_4(d)
+	\end{align*}
+\end{minipage}
+
+\begin{align*}
+\P{a}\prop\ub{\sum_bf_1(a,b)\ub{\sum_cf_2(b,c)\ub{\sum_df_3(c,d)f_4(d)}{\mu_{d\to c}(c)}}{\mu_{c\to b}(b)}}{\mu_{b\to a}(a)}
+\end{align*}
+
+\begin{minipage}{0.4\textwidth}
+	\centering
+	\includegraphics*[width=0.8\textwidth]{fig34.png}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+	\begin{align*}
+		\P{a,b,c,d,e}\prop f_1(a,b)f_2(b,c,d)f_3(c)f_4(d,e)f_5(d)
+	\end{align*}
+\end{minipage}
+
+\begin{align*}
+	\P{a}\prop\ub{\sum_bf_1(a,b)\ub{\sum_{c,d}f_2(b,c,d)\ub{f_3(c)}{\mu_{c\to f_2}(c)=\mu_{f_3\to c}(c)}\ub{\ub{f_5(d)}{\mu_{f_5\to d}(d)}\ub{\sum_ef_4(d,e)}{\mu_{f_4\to d}(d)}}{\mu_{d\to f_2(d)}}}{\mu_{b\to f_1}(b)}}{\mu_{f_1\to a(a)}}
+\end{align*}
+
+\subsection{Max-Product Algorithm}
+
+\subsubsection*{Variable to Factor Message}
+
+\begin{minipage}{0.4\textwidth}
+	\centering
+	\includegraphics*[width=0.8\textwidth]{fig31.png}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+	\begin{align*}
+	\mu_{v\to f}(v)=\prod_{f_i\sim v\setminus f}\mu_{f_i\to v}(v)
+	\end{align*}
+\end{minipage}
+
+\subsubsection*{Factor to Variable Message}
+
+\begin{minipage}{0.4\textwidth}
+	\centering
+	\includegraphics*[width=0.8\textwidth]{fig32.png}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+	\begin{align*}
+	\mu_{f\to v}(v)=\max_{\{v_i\}}f(v,\{v_i\})\prod_{v_i\sim f\setminus v}\mu_{v_i\to f}(v_i)
+	\end{align*}
+\end{minipage}
+
+\subsubsection*{Most Probable State}
+
+\begin{align*}
+	v^*=\argmax_v\prod_{f_i\sim v}\mu_{f_i\to v}(v)
+\end{align*}
+
+\subsubsection*{Example}
+
+\begin{minipage}{0.4\textwidth}
+	\centering
+	\includegraphics*[width=0.8\textwidth]{fig33.png}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+	\begin{align*}
+	\P{a,b,c,d}\prop f_1(a,b)f_2(b,c)f_3(c,d)f_4(d)
+	\end{align*}
+\end{minipage}
+
+\begin{align*}
+\max_{a,b,c,d}\P{a.b.c.d}=\ub{\max_a\max_bf_1(a,b)\ub{\max_cf_2(b,c)\ub{\max_df_3(c,d)f_4(d)}{\mu_{d\to c}(c)}}{\mu_{c\to b}(b)}}{\mu_{b\to a}(a)}
+\end{align*}
+
+\subsection{The Junction Tree Algorithm}
+
+\paragraph{Clique Graph}
+
+A clique graph consists of a set of potentials, $\ph_1(\cX^1),\dotsc,\ph_n(\cX^n)$ each defined on a set of variables $\cX^i$. For neighboring cliques on the graph, defined on sets of variables $\cX^i$ and $\cX^j$, the intersection $\cX^s=\cX^i\cap\cX^j$ is called the separator and has a corresponding potential $\ph_s(\cX^s)$. A clique graph represents the function
+\begin{align*}
+	\frac{\prod_c\ph_s(\cX^c)}{\prod_s\ph_s(\cX^s)}
+\end{align*}
+An example of clique graph:
+
+\begin{minipage}{0.4\textwidth}
+	\centering
+	\includegraphics*[width=0.8\textwidth]{fig35.png}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+	\begin{align*}
+	\frac{\ph(\cX^1)\ph(\cX^2)}{\ph(\cX^1\cap\cX^2)}
+	\end{align*}
+\end{minipage}
+\\ \\
+Now we have a Markov network and its clique graph representation and we can infer:
+\\ \\
+\begin{minipage}{0.4\textwidth}
+	\centering
+	\includegraphics*[width=0.5\textwidth]{fig36.png}
+	\newline\newline
+	\includegraphics*[width=0.7\textwidth]{fig37.png}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+	\begin{align*}
+		\P{a,b,c,d}&=\frac{1}{Z}\ph(a,b,c)\ph(b,c,d) \\
+		Z\P{a,b,c}&=\ph(a,b,c)\sum_d\ph(b,c,d) \\
+		Z\P{b,c,d}&=\ph(b,c,d)\sum_a\ph(a,b,c) \\
+		Z^2\P{a,b,c}\P{b,c,d}&=Z^2\P{a,b,c,d}\sum_{a,d}\P{a,b,c,d} \\
+		\P{a,b,c,d}&=\frac{\P{a,b,c}\P{b,c,d}}{\P{b,c}}
+	\end{align*}
+\end{minipage}
+\\ \\
+Hence we can transform $\ph(a,b,c)\to\P{a,b,c},\ph(b,c,d)\to\P{b,c,d},Z\to\P{b,c}$.
+
+\paragraph{Absorption}
+
+Consider neighboring cliques $\cV$ and $\cW$, sharing the variables $\cS$ in common. In this case, the distribution on the variables $\cX=\cV\cup\cW$ is
+
+\begin{minipage}{0.6\textwidth}
+	\begin{align*}
+	\P{\cX}=\frac{\ph(\cV)\ph(\cW)}{\ph(\cS)}
+	\end{align*}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+	\centering
+	\includegraphics*[width=0.8\textwidth]{fig38.png}
+\end{minipage}
+\\ \\
+and our aim is to find a new representation
+
+\begin{minipage}{0.6\textwidth}
+	\begin{align*}
+	\P{\cX}=\frac{\hat{\ph}(\cV)\hat{\ph}(\cW)}{\hat{\ph}(\cS)}
+	\end{align*}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+	\centering
+	\includegraphics*[width=0.8\textwidth]{fig39.png}
+\end{minipage}
+\\ \\
+in which the potentials are given by $\hat{\ph}(\cV)=\P{\cV},\hat{\ph}(\cW)=\P{\cW},\hat{\ph}(\cS)=\P{\cS}$. We can explicitly work out the new potentials as function of the old potentials:
+\begin{align*}
+	\P{\cW}&=\sum_{\cV\setminus\cS}\P{\cX}=\sum_{\cV\setminus\cS}\frac{\ph(\cV)\ph(\cW)}{\ph(\cS)}=\ph(\cW)\frac{\sum_{\cV\setminus\cS}\ph(\cV)}{\ph(\cS)} \\
+	\P{\cV}&=\sum_{\cW\setminus\cS}\P{\cX}=\sum_{\cW\setminus\cS}\frac{\ph(\cV)\ph(\cW)}{\ph(\cS)}=\ph(\cV)\frac{\sum_{\cW\setminus\cS}\ph(\cW)}{\ph(\cS)}
+\end{align*}
+There is a symmetry present in the two equations above -- they are the same under interchanging $\cV$ and $\cW$. One way to describe these equations is through ``absorption''.  We say that the cluster $\cW$ ``absorbs'' information from cluster $\cV$ by the following updating procedure. First we define a new separator
+\begin{align*}
+	\ph^*(\cS)=\sum_{\cV\setminus\cS}\ph(\cV)
+\end{align*}
+and refine the $\cW$ potential using
+\begin{align*}
+	\ph^*(\cW)=\ph(\cW)\frac{\ph^*(\cS)}{\ph(\cS)}
+\end{align*}
+The advantage of this interpretation is that the new representation is still a valid clique graph representation of the distribution since
+\begin{align*}
+	\frac{\ph(\cV)\ph^*(\cW)}{\ph^*(\cS)}=\frac{\ph(\cV)\ph(\cW)\frac{\ph^*(\cS)}{\ph(\cS)}}{\ph^*(\cS)}=\frac{\ph(\cV)\ph(\cW)}{\ph(\cS)}=\P{\cX}
+\end{align*}
+For this simple two clique graph, we see that after $\cW$ absorbs information from $\cV$ then $\ph^*(\cW)=\P{\cW}$. With these new updated potentials, we now go back along the graph, from $\cW$ to $\cV$. After $\cV$ absorbs information from $\cW$ then $\ph^*(\cV)$ contains the marginal $\P{\cV}$. After the separator $\cS$ has participated in absorption along both directions, then the separator potential will contain $\P{\cS}$ (this is not the case after only a single absorption). To see this, consider absorbing from $\cW$ to $\cV$ using the updated potentials $\ph^*(\cW)$ and $\ph^*(\cS)$
+\begin{align*}
+	\ph^{**}(\cS)&=\sum_{\cW\setminus\cS}\ph^*(\cW)=\sum_{\cW\setminus\cS}\frac{\ph(\cW)\ph^*(\cS)}{\ph(\cS)}=\sum_{\{\cW\cup\cV\}\setminus\cS}\frac{\ph(\cW)\ph(\cV)}{\ph(\cS)}=\P{\cS} \\
+	\ph^*(\cV)&=\frac{\ph(\cV)\ph^{**}(\cS)}{\ph^*(\cS)}=\frac{\ph(\cV)\sum_{\cW\setminus\cS}\ph(\cW)\frac{\ph^*(\cS)}{\ph(\cS)}}{\ph^*(\cS)}=\frac{\sum_{\cW\setminus\cS}\ph(\cV)\ph(\cW)}{\ph(\cS)}=\P{\cV}
+\end{align*}
+Hence, $\hat{\ph}(\cV)=\ph^*(\cV)=\P{\cV},\hat{\ph}(\cW)=\ph^*(\cW)=\P{\cW},\hat{\ph}(\cS)=\ph^{**}(\cS)=\P{\cS}$.
+
+\paragraph{Running Intersection Property}
+
+A clique tree is a junction tree if, for each pair of nodes, $\cV$ and $\cW$, all nodes on the path between $\cV$ and $\cW$ contain the intersection $\cV\cap\cW$.
+
+\paragraph{Constructing a Junction Tree for Singly-Connected Distributions}
+
+We can construct a junction tree for singly-connected models in following steps
+\begin{figure*}[h]
+	\centering
+	\begin{subfigure}[b]{0.24\textwidth}
+		\centering
+		\includegraphics*[width=0.52\textwidth]{fig40.png}
+		\caption*{Belief Network}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.24\textwidth}
+		\centering
+		\includegraphics*[width=0.52\textwidth]{fig41.png}
+		\caption*{Moralization}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.24\textwidth}
+		\centering
+		\includegraphics*[width=0.75\textwidth]{fig42.png}
+		\caption*{Clique Graph}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.24\textwidth}
+		\centering
+		\includegraphics*[width=0.75\textwidth]{fig43.png}
+		\caption*{Junction Tree}
+	\end{subfigure}
+\end{figure*}
+
+\paragraph{Constructing a Junction Tree for Multiply-Connected Distributions}
+
+We can use triangulation algorithm to construct such a junction tree. In a triangulated graph, every loop of length 4 or more must have a chord (a shortcut). Such graphs are called decomposable. To do this, we can triangulate via variable elimination that one simply picks any non-deleted node $x$ in the graph, and then adds links to all the neighbors of $x$. Node $x$ is then deleted. One repeats this until all nodes have been deleted. An example is given below:
+\begin{figure*}[h]
+	\centering
+	\includegraphics*[width=\textwidth]{fig44.png}
+\end{figure*}
+
+\paragraph{The Junction Algorithm}
+
+\begin{enumerate}
+	\item Moralization: Marry the parents. This is required only for directed distributions. Note that all the parents of a variable are married together-- a common error is to marry only the ``neighboring'' parents.
+	\item Triangulation: Ensure that every loop of length 4 or more has a chord.
+	\item Junction Tree:  Form a junction tree from cliques of the triangulated graph, removing any unnecessary links in a loop on the clique graph. Algorithmically, this can be achieved by finding a tree with maximal spanning weight with weight $w_{ij}$ given by the number of variables in the separator between cliques $i$ and $j$.
+	\item Potential Assignment: Assign potentials to junction tree cliques and set the separator potentials to unity.
+	\item Message Propagation: Carry out absorption until updates have been passed along both directions of every link on the junction tree.
+	\item The clique marginals can then be read off from the junction tree.
+\end{enumerate}
+
+\subsection{Graph Cut}
+
+For a graph $G$ with nodes $v_1,\dotsc,v_D$, and weights $w_{ij}>0$ a cut is a partition of the nodes into two disjoint groups, called $\cS$ and $\cT$. The weight of a cut is defined as the sum of the weights that leave $\cS$ and land in $\cT$. For symmetric $w$, the weight of a cut corresponds to the sum of weights between mismatched neighbors. That is
+\begin{align*}
+	cut(x)=\sum_{i\sim j}w_{ij}\bI[x_i\neq x_j]
+\end{align*}
+Since $\bI[x_i\neq x_j]=1-\bI[x_i=x_j]$, we can define the weight of the cut equivalently as
+\begin{align*}
+	cut(x)=\sum_{i\sim j}w_{ij}(1-\bI[x_i=x_j])=-\sum_{i\sim j}w_{ij}\bI[x_i=x_j]+const.=-E(x)+const.
+\end{align*}
+where $E$ is the energy function $E(x)=\sum_{i\sim j}w_{ij}\bI[x_i=x_j]+\sum_ic_ix_i$. So that the minimal cut assignment will correspond to maximising $E(x)$. In the Markov network case, our translation into a weighted graph with positive interactions then requires that we identify the source and all other variables assigned to state $1$ with $\cS$, and the sink and all variables in state $0$ with $\cT$. Our task is then to find the minimal cut from $\cS$ to $\cT$ . A fundamental result in discrete mathematics is that the min s-t-cut solution corresponds to the max-flow solution from the source $s$ to the sink $t$. There are efficient algorithms for max-flow, which take $\O{D^3}$ operations or less, for a graph with $D$ nodes. This means that one can find the exact MAP assignment of an attractive binary Markov network efficiently in $\O{D^3}$ operations.
+
+
+
+\section{Sampling}
+

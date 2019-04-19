@@ -113,7 +113,7 @@
 \BOOKMARK [2][]{subsection.11.2.3}{11.2.3 Spectral Clustering Algorithms}{section.11.2}% 113
 \BOOKMARK [2][]{subsection.11.2.4}{11.2.4 NCut and RatioCut Approximations}{section.11.2}% 114
 \BOOKMARK [2][]{subsection.11.2.5}{11.2.5 Random Walk Viewpoint}{section.11.2}% 115
-\BOOKMARK [0][]{chapter.12}{12 Graphical Models \046 Markov Network}{}% 116
+\BOOKMARK [0][]{chapter.12}{12 Graphical Models}{}% 116
 \BOOKMARK [1][]{section.12.1}{12.1 Graph Definitions}{chapter.12}% 117
 \BOOKMARK [2][]{subsection.12.1.1}{12.1.1 Graph}{section.12.1}% 118
 \BOOKMARK [2][]{subsection.12.1.2}{12.1.2 Directed Graph}{section.12.1}% 119
@@ -132,17 +132,24 @@
 \BOOKMARK [2][]{subsection.12.3.3}{12.3.3 Independence}{section.12.3}% 132
 \BOOKMARK [2][]{subsection.12.3.4}{12.3.4 Expressiveness of Markov and Belief Networks}{section.12.3}% 133
 \BOOKMARK [2][]{subsection.12.3.5}{12.3.5 Factor Graphs}{section.12.3}% 134
-\BOOKMARK [1][]{section.12.4}{12.4 Markov Chains}{chapter.12}% 135
-\BOOKMARK [1][]{section.12.5}{12.5 Hidden Markov Models}{chapter.12}% 136
-\BOOKMARK [1][]{section.12.6}{12.6 Monte Carlo Markov Chains \(MCMC\)}{chapter.12}% 137
-\BOOKMARK [0][]{appendix.A}{A Bayesian Statistics}{}% 138
-\BOOKMARK [1][]{section.A.1}{A.1 Bayesian Inference}{appendix.A}% 139
-\BOOKMARK [1][]{section.A.2}{A.2 Prior Distributions}{appendix.A}% 140
-\BOOKMARK [0][]{appendix.B}{B Statistical Assessment}{}% 141
-\BOOKMARK [1][]{section.B.1}{B.1 Hypothesis Testing}{appendix.B}% 142
-\BOOKMARK [2][]{subsection.B.1.1}{B.1.1 Testing Basics}{section.B.1}% 143
-\BOOKMARK [2][]{subsection.B.1.2}{B.1.2 Testing Procedure}{section.B.1}% 144
-\BOOKMARK [2][]{subsection.B.1.3}{B.1.3 Power Investigation}{section.B.1}% 145
-\BOOKMARK [2][]{subsection.B.1.4}{B.1.4 Useful Tests}{section.B.1}% 146
-\BOOKMARK [1][]{section.B.2}{B.2 Confidence Intervals}{appendix.B}% 147
-\BOOKMARK [1][]{section.B.3}{B.3 Bootstrap}{appendix.B}% 148
+\BOOKMARK [1][]{section.12.4}{12.4 Markov Models}{chapter.12}% 135
+\BOOKMARK [2][]{subsection.12.4.1}{12.4.1 Basic Model}{section.12.4}% 136
+\BOOKMARK [2][]{subsection.12.4.2}{12.4.2 Markov Chains}{section.12.4}% 137
+\BOOKMARK [2][]{subsection.12.4.3}{12.4.3 Hidden Markov Models \(HMM\)}{section.12.4}% 138
+\BOOKMARK [1][]{section.12.5}{12.5 Inference}{chapter.12}% 139
+\BOOKMARK [2][]{subsection.12.5.1}{12.5.1 Sum-Product Algorithm}{section.12.5}% 140
+\BOOKMARK [2][]{subsection.12.5.2}{12.5.2 Max-Product Algorithm}{section.12.5}% 141
+\BOOKMARK [2][]{subsection.12.5.3}{12.5.3 The Junction Tree Algorithm}{section.12.5}% 142
+\BOOKMARK [2][]{subsection.12.5.4}{12.5.4 Graph Cut}{section.12.5}% 143
+\BOOKMARK [1][]{section.12.6}{12.6 Sampling}{chapter.12}% 144
+\BOOKMARK [0][]{appendix.A}{A Bayesian Statistics}{}% 145
+\BOOKMARK [1][]{section.A.1}{A.1 Bayesian Inference}{appendix.A}% 146
+\BOOKMARK [1][]{section.A.2}{A.2 Prior Distributions}{appendix.A}% 147
+\BOOKMARK [0][]{appendix.B}{B Statistical Assessment}{}% 148
+\BOOKMARK [1][]{section.B.1}{B.1 Hypothesis Testing}{appendix.B}% 149
+\BOOKMARK [2][]{subsection.B.1.1}{B.1.1 Testing Basics}{section.B.1}% 150
+\BOOKMARK [2][]{subsection.B.1.2}{B.1.2 Testing Procedure}{section.B.1}% 151
+\BOOKMARK [2][]{subsection.B.1.3}{B.1.3 Power Investigation}{section.B.1}% 152
+\BOOKMARK [2][]{subsection.B.1.4}{B.1.4 Useful Tests}{section.B.1}% 153
+\BOOKMARK [1][]{section.B.2}{B.2 Confidence Intervals}{appendix.B}% 154
+\BOOKMARK [1][]{section.B.3}{B.3 Bootstrap}{appendix.B}% 155

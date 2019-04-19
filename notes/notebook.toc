@@ -223,7 +223,7 @@
 \contentsline {subsection}{\numberline {11.2.3}Spectral Clustering Algorithms}{84}{subsection.11.2.3}% 
 \contentsline {subsection}{\numberline {11.2.4}NCut and RatioCut Approximations}{85}{subsection.11.2.4}% 
 \contentsline {subsection}{\numberline {11.2.5}Random Walk Viewpoint}{87}{subsection.11.2.5}% 
-\contentsline {chapter}{\numberline {12}Graphical Models \& Markov Network}{88}{chapter.12}% 
+\contentsline {chapter}{\numberline {12}Graphical Models}{88}{chapter.12}% 
 \contentsline {section}{\numberline {12.1}Graph Definitions}{88}{section.12.1}% 
 \contentsline {subsection}{\numberline {12.1.1}Graph}{88}{subsection.12.1.1}% 
 \contentsline {paragraph}{Graph}{88}{section*.133}% 
@@ -265,17 +265,30 @@
 \contentsline {subsection}{\numberline {12.3.3}Independence}{94}{subsection.12.3.3}% 
 \contentsline {subsection}{\numberline {12.3.4}Expressiveness of Markov and Belief Networks}{95}{subsection.12.3.4}% 
 \contentsline {subsection}{\numberline {12.3.5}Factor Graphs}{96}{subsection.12.3.5}% 
-\contentsline {section}{\numberline {12.4}Markov Chains}{96}{section.12.4}% 
-\contentsline {section}{\numberline {12.5}Hidden Markov Models}{96}{section.12.5}% 
-\contentsline {section}{\numberline {12.6}Monte Carlo Markov Chains (MCMC)}{96}{section.12.6}% 
-\contentsline {chapter}{\numberline {A}Bayesian Statistics}{97}{appendix.A}% 
-\contentsline {section}{\numberline {A.1}Bayesian Inference}{97}{section.A.1}% 
-\contentsline {section}{\numberline {A.2}Prior Distributions}{97}{section.A.2}% 
-\contentsline {chapter}{\numberline {B}Statistical Assessment}{98}{appendix.B}% 
-\contentsline {section}{\numberline {B.1}Hypothesis Testing}{98}{section.B.1}% 
-\contentsline {subsection}{\numberline {B.1.1}Testing Basics}{98}{subsection.B.1.1}% 
-\contentsline {subsection}{\numberline {B.1.2}Testing Procedure}{98}{subsection.B.1.2}% 
-\contentsline {subsection}{\numberline {B.1.3}Power Investigation}{99}{subsection.B.1.3}% 
-\contentsline {subsection}{\numberline {B.1.4}Useful Tests}{99}{subsection.B.1.4}% 
-\contentsline {section}{\numberline {B.2}Confidence Intervals}{99}{section.B.2}% 
-\contentsline {section}{\numberline {B.3}Bootstrap}{99}{section.B.3}% 
+\contentsline {section}{\numberline {12.4}Markov Models}{96}{section.12.4}% 
+\contentsline {subsection}{\numberline {12.4.1}Basic Model}{96}{subsection.12.4.1}% 
+\contentsline {subsection}{\numberline {12.4.2}Markov Chains}{97}{subsection.12.4.2}% 
+\contentsline {subsection}{\numberline {12.4.3}Hidden Markov Models (HMM)}{97}{subsection.12.4.3}% 
+\contentsline {section}{\numberline {12.5}Inference}{97}{section.12.5}% 
+\contentsline {subsection}{\numberline {12.5.1}Sum-Product Algorithm}{97}{subsection.12.5.1}% 
+\contentsline {subsection}{\numberline {12.5.2}Max-Product Algorithm}{99}{subsection.12.5.2}% 
+\contentsline {subsection}{\numberline {12.5.3}The Junction Tree Algorithm}{99}{subsection.12.5.3}% 
+\contentsline {paragraph}{Clique Graph}{99}{section*.185}% 
+\contentsline {paragraph}{Absorption}{100}{section*.186}% 
+\contentsline {paragraph}{Running Intersection Property}{101}{section*.187}% 
+\contentsline {paragraph}{Constructing a Junction Tree for Singly-Connected Distributions}{101}{section*.188}% 
+\contentsline {paragraph}{Constructing a Junction Tree for Multiply-Connected Distributions}{102}{section*.190}% 
+\contentsline {paragraph}{The Junction Algorithm}{102}{section*.192}% 
+\contentsline {subsection}{\numberline {12.5.4}Graph Cut}{103}{subsection.12.5.4}% 
+\contentsline {section}{\numberline {12.6}Sampling}{103}{section.12.6}% 
+\contentsline {chapter}{\numberline {A}Bayesian Statistics}{104}{appendix.A}% 
+\contentsline {section}{\numberline {A.1}Bayesian Inference}{104}{section.A.1}% 
+\contentsline {section}{\numberline {A.2}Prior Distributions}{104}{section.A.2}% 
+\contentsline {chapter}{\numberline {B}Statistical Assessment}{105}{appendix.B}% 
+\contentsline {section}{\numberline {B.1}Hypothesis Testing}{105}{section.B.1}% 
+\contentsline {subsection}{\numberline {B.1.1}Testing Basics}{105}{subsection.B.1.1}% 
+\contentsline {subsection}{\numberline {B.1.2}Testing Procedure}{105}{subsection.B.1.2}% 
+\contentsline {subsection}{\numberline {B.1.3}Power Investigation}{106}{subsection.B.1.3}% 
+\contentsline {subsection}{\numberline {B.1.4}Useful Tests}{106}{subsection.B.1.4}% 
+\contentsline {section}{\numberline {B.2}Confidence Intervals}{106}{section.B.2}% 
+\contentsline {section}{\numberline {B.3}Bootstrap}{106}{section.B.3}% 
