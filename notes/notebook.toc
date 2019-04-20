@@ -289,16 +289,17 @@
 \contentsline {paragraph}{Student t-distributions}{110}{section*.196}% 
 \contentsline {paragraph}{Factor Analysis}{111}{section*.197}% 
 \contentsline {section}{\numberline {12.3}Variational Inference}{113}{section.12.3}% 
-\contentsline {subsection}{\numberline {12.3.1}Mean Field Approximation}{113}{subsection.12.3.1}% 
-\contentsline {subsection}{\numberline {12.3.2}Variational Autoencoders}{113}{subsection.12.3.2}% 
-\contentsline {chapter}{\numberline {A}Bayesian Statistics}{114}{appendix.A}% 
-\contentsline {section}{\numberline {A.1}Bayesian Inference}{114}{section.A.1}% 
-\contentsline {section}{\numberline {A.2}Prior Distributions}{114}{section.A.2}% 
-\contentsline {chapter}{\numberline {B}Statistical Assessment}{115}{appendix.B}% 
-\contentsline {section}{\numberline {B.1}Hypothesis Testing}{115}{section.B.1}% 
-\contentsline {subsection}{\numberline {B.1.1}Testing Basics}{115}{subsection.B.1.1}% 
-\contentsline {subsection}{\numberline {B.1.2}Testing Procedure}{115}{subsection.B.1.2}% 
-\contentsline {subsection}{\numberline {B.1.3}Power Investigation}{116}{subsection.B.1.3}% 
-\contentsline {subsection}{\numberline {B.1.4}Useful Tests}{116}{subsection.B.1.4}% 
-\contentsline {section}{\numberline {B.2}Confidence Intervals}{116}{section.B.2}% 
-\contentsline {section}{\numberline {B.3}Bootstrap}{116}{section.B.3}% 
+\contentsline {subsection}{\numberline {12.3.1}Markov Random Field}{113}{subsection.12.3.1}% 
+\contentsline {subsection}{\numberline {12.3.2}Mean Field Approximation}{113}{subsection.12.3.2}% 
+\contentsline {subsection}{\numberline {12.3.3}Variational Autoencoders}{114}{subsection.12.3.3}% 
+\contentsline {chapter}{\numberline {A}Bayesian Statistics}{115}{appendix.A}% 
+\contentsline {section}{\numberline {A.1}Bayesian Inference}{115}{section.A.1}% 
+\contentsline {section}{\numberline {A.2}Prior Distributions}{115}{section.A.2}% 
+\contentsline {chapter}{\numberline {B}Statistical Assessment}{116}{appendix.B}% 
+\contentsline {section}{\numberline {B.1}Hypothesis Testing}{116}{section.B.1}% 
+\contentsline {subsection}{\numberline {B.1.1}Testing Basics}{116}{subsection.B.1.1}% 
+\contentsline {subsection}{\numberline {B.1.2}Testing Procedure}{116}{subsection.B.1.2}% 
+\contentsline {subsection}{\numberline {B.1.3}Power Investigation}{117}{subsection.B.1.3}% 
+\contentsline {subsection}{\numberline {B.1.4}Useful Tests}{117}{subsection.B.1.4}% 
+\contentsline {section}{\numberline {B.2}Confidence Intervals}{117}{section.B.2}% 
+\contentsline {section}{\numberline {B.3}Bootstrap}{117}{section.B.3}% 

@@ -94,6 +94,7 @@ Sometimes we cannot sample from the conditionals. The idea of Metropolis algorit
 
 
 \section{Expectation Maximization (EM)}
+\label{section12.2}
 
 \subsection{Hidden Variables}
 
@@ -295,8 +296,44 @@ The solutions are
 	\hat{\mat{\Si}}&=\frac{1}{\mat{I}}\sum_{i=1}diag\left[(\vec{x}_i-\hat{\vec{\mu}})\TT(\vec{x}_i-\hat{\vec{\mu}})-\hat{\mat{\Ph}}\E{\vec{h}_i}\vec{x}\TT\right]
 \end{align*}
 
+
+
 \section{Variational Inference}
 
+\subsection{Markov Random Field}
+
+Instead of dealing with the difficult distribution $p$ we are going to find the best approximation to it in a class of simpler distributions $q$. A canonical intractable distribution is Markov Random Field (MRF) that
+\begin{align*}
+	p(x)=\frac{1}{Z}e^{-E(x)}
+\end{align*}
+where $E(\bullet)$ is an energy function and on binary variables $x_i\in\{+1,-1\},i=1,\dots,D$ this may become $E(x)=-\sum_{i,j}w_{ij}x_ix_j-\sum_ib_ix_i$. Now we introduce a distribution $q$ and the KL divergence between $q$ and $p$ is
+\begin{align*}
+	\KL{q}{p}&=\vecx{\log q}_q-\vecx{\log p}_q \\
+	&=-\H{q}-\vecx{-E(x)-\log Z}_q \\
+	&=\vecx{E(x)}_q+\log Z-\H{q}\geq 0
+\end{align*}
+Rewriting, this gives a bound on the log-partition function
+\begin{align*}
+	\log Z\geq\vecx{-E(x)}_q+\H{q}
+\end{align*}
+
 \subsection{Mean Field Approximation}
+
+A common approach to selecting a family of ``easy'' distribution $Q$ is to select a factorized distribution:
+\begin{align*}
+	Q(x)=\prod_{n=1}^Nq(x_n)
+\end{align*}
+This is a simplification and typically this family does not contain true distribution of interest. For a general intractable distribution $p(x)$ on discrete or continuous $x$, the KL divergence between a factorized approximation $q(x)=\prod_iq(x_i)$ and $p(x)$ is
+\begin{align*}
+	\KL{q(x)}{p(x)}=\sum_i\vecx{\log q(x_i)}_{q(x_i)}-\vecx{\log p(x)}_{\prod_iq(x_i)}
+\end{align*}
+Isolating the dependency of the above on a single factor $q(x_i)$ we have
+\begin{align*}
+	\vecx{\log q(x_i)}_{q(x_i)}-\vecx{\vecx{\log p(x)}_{\prod_{j\neq i}q(x_j)}}_{q(x_i)}
+\end{align*}
+Up to a normalization constant, this is therefore the KL divergence between $q(x_i)$ and a distribution proportional to $\e{\vecx{\log p(x)}_{\prod_{j\neq i}q(x_j)}}$ so that the optimal setting for $q(x_i)$ satisfies
+\begin{align*}
+	q(x_i)\prop\e{\vecx{\log p(x)}_{\prod_{j\neq i}q(x_j)}}
+\end{align*}
 
 \subsection{Variational Autoencoders}
