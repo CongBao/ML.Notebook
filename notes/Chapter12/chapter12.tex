@@ -1,6 +1,8 @@
 %!TEX root = ../notebook.tex
 % Chapter 12
 
+\graphicspath{{Chapter12/Figs/}}
+
 \chapter{Approximate Inference}
 \label{chapter12}
 
@@ -299,6 +301,7 @@ The solutions are
 
 
 \section{Variational Inference}
+\label{section12.3}
 
 \subsection{Markov Random Field}
 
@@ -337,3 +340,21 @@ Up to a normalization constant, this is therefore the KL divergence between $q(x
 \end{align*}
 
 \subsection{Variational Autoencoders}
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+	\vspace*{-0.7cm}
+	\includegraphics*[width=0.4\textwidth]{fig1.png}
+\end{wrapfigure}
+We want to build a generative model like the figure on the right. Here $z$ could be a hidden low-dimensional representation of a picture/video/sentence. The joint then is
+\begin{align*}
+	p(x,z)=p(z)p_\th(x|z)
+\end{align*}
+where $p_\th(x|z)$ is some other complicated distribution (for example parameterized by neural network) where most parameters of the model live. And we want to find ML-parameters, maximizing $\log p(x)$. Following the variational approach, we have
+\begin{align*}
+	\log p(x)\geq \int q_\ph(z|x)\log\frac{p(z)p_\th(x|z)}{q_\ph(z|x)}dz
+\end{align*}
+where family $q_\ph$ could be parameterized by another neural network. This is then approximated by taking samples from $q_\ph(z|x)$.
+\begin{align*}
+	\log p(x)\geq\int q_\ph(z|x)\log\frac{p(z)p_\th(x|z)}{q_\ph(z|x)}dz\approx\frac{1}{S}\sum_{s=1}^S\log\frac{p(z_s)p_\th(x|z_s)}{q_\ph(z_s|x)}
+\end{align*}
+This then is iteratively optimized in $\th$ and $\ph$.
