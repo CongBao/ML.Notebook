@@ -708,7 +708,7 @@ where $E$ is the energy function $E(x)=\sum_{i\sim j}w_{ij}\bI[x_i=x_j]+\sum_ic_
 \section{Sampling}
 \label{section12.6}
 
-\subsection{Basic Idea}
+\subsection{Basic Monte Carlo}
 
 Sampling concerns drawing realizations (samples) $\cX=\left\{x^1,\dotsc,x^L\right\}$ of a variable $x$ from a distribution $\P{x}$. For a discrete variable $x$, in the limit of a large number of samples, the fraction of samples in state $\mathsf{x}$ tends to $\P{x=\mathsf{x}}$. That is,
 \begin{align*}
@@ -739,10 +739,53 @@ Provided the samples are independent $\ti{P}\left(\cX\right)=\prod_{l=1}^L\ti{P}
 \begin{align*}
 	\vecx{\left[\De\hat{f}_\cX\right]^2}_{\ti{P}\left(x^l,x^{l'}\right)}=\frac{1}{L}\vecx{\left[\De f(x)\right]^2}_{\P{x}}
 \end{align*}
-and the variance of the approximation scales inversely with the number of samples.
+and the variance of the approximation scales inversely with the number of samples. The critical difficulty is in actually generating independent samples from $\P{x}$. A dependent scheme may be unbiased, but if variance is very high we meed a large number of samples to get an accurate approximation.
 
 \subsection{Importance Sampling}
 
+Consider $p(x)=\frac{1}{Z}p^*(x)$, where $p^*(x)$ can be evaluated but $Z=\int_xp^*(x)$ is intractable. The average with respect to $p$ is given by
+\begin{align*}
+	\int_xf(x)p(x)=\frac{\int_xf(x)p^*(x)}{\int_xp^*(x)}=\frac{\int_xf(x)\frac{p^*(x)}{q(x)}q(x)}{\int_x\frac{p^*(x)}{q(x)}q(x)}
+\end{align*}
+and we can approximate this sampling from $q(x)$.
+\begin{align*}
+	\int_xf(x)p(x)\approx\frac{\sum_{l=1}^Lf(x^l)\frac{p^*(x^l)}{q(x^l)}}{\sum_{l=1}^L\frac{p^*(x^l)}{q(x^l)}}=\sum_{l=1}^Lf(x^l)w^l
+\end{align*}
+where we define the normalized importance weights
+\begin{align*}
+	w^l=\frac{\pfrac{p^*(x^l)}{q(x^l)}}{\pfrac{\sum_{l=1}^Lp^*(x^l)}{q(x^l)}}
+\end{align*}
+However, it is not easy to find the right distribution $Q$ and diagnose whether it is good.
+
 \subsection{Rejection Sampling}
 
+Consider that we have an efficient sampling procedure for a distribution $q(x)$. Suppose that we know that $p(x)<cq(x)$ for all $x$. Then we can sample from $q(x)$ and accept the sample with probability $\frac{p(x)}{cq(x)}$.
+
+Let $y\in\{0,1\}$ be an auxiliary binary variable and define $q(x,y)=q(x)q(y|x)$. If we set $q(y=1|x)\prop\pfrac{p(x)}{q(x)}$, then $q(x,y=1)\prop p(x)$. So sampling from $q(x,y)$ gives us a procedure for sampling from $p(x)$. The expected acceptance rate is $1/c$. When working with unnormalized $p^*(x)$, if we find $c$ such that $p^*(x)<cq(x)$. The acceptance rate becomes $Z/c$. However, it is not easy to find distribution $q(x)$ such that $c$ is small.
+
 \subsection{Markov Chain Monte Carlo (MCMC)}
+
+\paragraph{MCMC Idea}
+
+Consider the conditional distribution $q(x^{l+1}|x^l)$. If we are given an initial sample $x^1$, then we can recursively generate samples $x^1,x^2,\dotsc,x^L$. After a long time $L\gg 1$, the samples are from the unique stationary distribution $q_\infty(x)$ which is defined as
+\begin{align*}
+	q_\infty(x')&=\int_xq(x'|x)q_\infty(x)dx \\
+	q_\infty(x')&=\sum_xq(x'|x)q_\infty(x)
+\end{align*}
+for continuous and discrete variable respectively. The idea in MCMC is, for a given distribution $p(x)$, to find a transition $q(x'|x)$ which has $p(x)$ as its stationary distribution. If we can do so, then we can draw samples from the Markov chain by forward sampling and take these as samples from $p(x)$ as the chain converges towards its stationary distribution.
+
+\paragraph{Gibbs Sampling}
+
+Sometimes the whole distribution $p(x)$ is nasty, but the conditionals $p(x_i|x_{\setminus i})$ are easy to sample from. Gibbs sampling is such a method that we loop over the variables (at random or in turn) and sample from the conditional $p(x_i|x_{\setminus i})$.
+
+\paragraph{Metropolis-Hastings Sampling}
+
+Sometimes we cannot sample from the conditionals. The idea of Metropolis algorithm is using some proposal distribution $q(x'|x)$ and we will accept or reject based on density of $p(x)$. We can repeat the following steps starting from some $x$:
+\begin{enumerate}
+	\item Propose a new state $x'$ by sampling from proposed $q(x'|x)$.
+	\item Accept the new state with probability
+	\begin{align*}
+		\min\left(1,\frac{p(x')q(x|x')}{p(x)q(x'|x)}\right)
+	\end{align*}
+	\item If the sample is not accepted the old state becomes the new sample.
+\end{enumerate}
