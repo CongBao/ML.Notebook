@@ -1,743 +1,44 @@
 %!TEX root = ../notebook.tex
 % Chapter 12
 
-\graphicspath{{Chapter12/Figs/}}
-
-\chapter{Graphical Models}
+\chapter{Approximate Inference}
 \label{chapter12}
 
 
 
-\section{Graph Definitions}
-\label{section12.1}
-
-\subsection{Graph}
-
-\paragraph{Graph}
-
-A graph consists of nodes (vertices) and undirected or directed links (edges) between nodes.
-
-\paragraph{Path}
-
-A path from $X_i$ to $X_j$ is a sequence of connected nodes starting at $X_i$ and ending at $X_j$.
-
-\subsection{Directed Graph}
-
-\paragraph{Directed Graphs}
-
-Graphs that all the edges are directed.
-\begin{figure*}[h]
-	\centering
-	\includegraphics*[width=0.5\textwidth]{fig1.png}
-\end{figure*}
-
-\paragraph{Directed Acyclic Graph (DAG)}
-
-Graph in which by following the direction of the arrows a node will never be visited more than once.
-
-\paragraph{Parents and Children}
-
-$X_i$ is a parent of $X_j$ if there is a link from $X_i$ to $X_j$. $X_i$ is a child of $X_j$ if there is a link from $X_j$ to $X_i$.
-
-\paragraph{Ancestors and Descendants}
-
-The ancestors of a node $X_i$ are the nodes with a directed path ending at $X_i$. The descendants of $X_i$ are the nodes with a directed path beginning at $X_i$.
-
-\subsection{Undirected Graph}	
-
-\paragraph{Undirected Graph}
-
-Graph that all the edges are undirected.
-\begin{figure*}[h]
-	\centering
-	\includegraphics*[width=0.25\textwidth]{fig2.png}
-\end{figure*}
-
-\paragraph{Clique}
-
-A clique is a fully connected subset of nodes. ($X_1$, $X_2$, $X_4$) forms a (non-maximal) clique.
-
-\paragraph{Maximal Clique}
-
-Clique which is not a subset of a larger clique. ($X_1$, $X_2$, $X_3$, $X_4$) and ($X_2$, $X_3$, $X_5$) are both maximal cliques.
-
-\subsection{Connectivity}
-
-\paragraph{Connected Graph}
-
-There is a path between every pair of vertices.
-
-\paragraph{Connected Components}
-
-In a non-connected graph, the connected components are the connected-subgraphs. ($X_1$, $X_2$, $X_4$) and ($X_3$, $X_5$) are the two connected components.
-\begin{figure*}[h]
-	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics*[width=0.5\textwidth]{fig3.png}
-		\caption*{Connected Graph}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics*[width=0.5\textwidth]{fig4.png}
-		\caption*{Connected Components}
-	\end{subfigure}
-\end{figure*}
-
-\subsection{Connectedness}
-
-\paragraph{Singly-connected}
-
-There is only one path from any node $a$ to another node $b$.
-
-\paragraph{Multiply-connected}
-
-A graph is multiply-connected if it is not singly-connected.
-\begin{figure*}[h]
-	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics*[width=0.5\textwidth]{fig5.png}
-		\caption*{Singly-connected}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics*[width=0.5\textwidth]{fig6.png}
-		\caption*{Multiply-connected}
-	\end{subfigure}
-\end{figure*}
-
-
-
-\section{Belief Networks}
-\label{section12.2}
-
-\subsection{Definition}
-
-A belief network is a directed acyclic graph in which each node is associated with the conditional probability of the node given its parents. The joint distribution is obtained by taking the product of the conditional probabilities.
-
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.6\textwidth]{fig7.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	$\P{A,B,C,D,E}=\\ \P{A}\P{B}\P{C|A,B}\P{D|C}\P{E|B,C}$
-\end{minipage}
-
-\subsection{Uncertain Evidence}
-
-\paragraph{Definition}
-
-In soft/uncertain evidence the variable is in more than one state, with the strength of out belief about each state being given by probabilities. For example, if $y$ has the states $\dom(y)=\{red,blue,green\}$, the vector (0.6, 0.1, 0.3) could represent the probabilities of the respective states.
-
-\paragraph{Hard Evidence}
-
-We are certain that a variable is in a particular state. In this state, all the probability mass is in one of the vector components, (0, 0, 1).
-
-\paragraph{Inference}
-
-Inference with soft-evidence can be achieved using Bayes' rule. Writing the soft-evidence as $\ti{y}$, we have $\P{x|\ti{y}}=\sum_y\P{x|y}\P{y|\ti{y}}$, where $\P{y=i|\ti{y}}$ represents the probability that $y$ is in state $i$ under the soft-evidence.
-
-\paragraph{Jeffrey's Rule}
-
-For variables $x$, $y$ and $P_1(x,y)$, how do we form a joint distribution given soft-evidence $\ti{y}$? (a) From the conditional we first define $P_1(x|y)=\frac{P_1(x,y)}{\sum_xP_1(x,y)}$. (b) Define the joint. The soft-evidence $\P{y|\ti{y}}$ then defines a new joint distribution $P_2(x,y|\ti{y})=P_1(x|y)P_1(y|\ti{y})$. One can therefore view soft-evidence as defining a new joint distribution. We use a dashed circle to represent a variable in an uncertain state.
-\begin{figure*}[h]
-	\centering
-	\includegraphics*[width=0.2\textwidth]{fig8.png}
-\end{figure*}
-
-\subsection{Independence}
-
-\subsubsection*{Conditionally Independent}
-
-\begin{figure*}[h]
-	\centering
-	\includegraphics*[width=\textwidth]{fig9.png}
-\end{figure*}
-In (a), (b) and (c), A, B are conditionally independent given C.
-\begin{enumerate}[label=(\alph*)]
-	\item $\P{A,B|C}=\frac{\P{A,B,C}}{\P{C}}=\frac{\P{A|C}\P{B|C}\P{C}}{\P{C}}=\P{A|C}\P{B|C}$
-	\item $\P{A,B|C}=\frac{\P{A,B,C}}{\P{C}}=\frac{\P{A}\P{C|A}\P{B|C}}{\P{C}}=\frac{\P{A,C}\P{B|C}}{\P{C}}=\P{A|C}\P{B|C}$
-	\item $\P{A,B|C}=\frac{\P{A,B,C}}{\P{C}}=\frac{\P{A|C}\P{C|B}\P{B}}{\P{C}}=\frac{\P{A|C}\P{B,C}}{\P{C}}=\P{A|C}\P{B|C}$
-\end{enumerate}
-In (d) the variables A, B are conditionally dependent given C, $\P{A,B|C}\prop\P{C|A,B}\P{A}\P{B}$.
-
-\subsubsection*{Marginally Dependent}
-
-\begin{figure*}[h]
-	\centering
-	\includegraphics*[width=\textwidth]{fig10.png}
-\end{figure*}
-In (a), (b) and (c), the variables A, B are marginally dependent.
-In (d) the variables A, B are marginally independent.
-\begin{align*}
-\P{A,B}=\sum_C\P{A,B,C}=\sum_C\P{A}\P{B}\P{C|A,B}=\P{A}\P{B}
-\end{align*}
-
-\subsubsection*{Colliders}
-
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.6\textwidth]{fig11.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	If C has more than one incoming link, then $A\nindep B|C$. In this case C in called \textit{collider}.
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.6\textwidth]{fig12.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	If C has at most one incoming link, then $A\indep B|C$ and $A\nindep B$. In this case C is called \textit{non-collider}.
-\end{minipage}
-
-\subsection{General Rule for Independence in Belief Networks}
-
-Given three sets of nodes $\cX$, $\cY$, $\cC$, if all paths from any element of $\cX$ to any element of $\cY$ are blocked by $\cC$, then $\cX$ and $\cY$ are conditionally independent given $\cC$.
-A path $\cP$ is blocked by $\cC$ if at least one of the following conditions is satisfied:
-\begin{enumerate}
-	\item There is a collider in the path $\cP$ such that neither the collider nor any of its descendants is in the conditioning set $\cC$.
-	\item There is a non-collider in the path $\cP$ that is in the conditioning set $\cC$.
-\end{enumerate}
-
-\paragraph{Independence of $\cX$ and $\cY$}
-
-When the conditioning set is empty $\cC=\emptyset$, then a path $\cP$ from an element of $\cX$ to an element of $\cY$ is blocked if there is a collider on the path. Hence $\cX$ and $\cY$ are independent if every path from an element of $\cX$ to any element of $\cY$ has a collider.
-
-\paragraph{d-connected}
-
-We use the term that $\cX$ and $\cY$ are ``d-connected'' by $\cZ$ if there is any path from $\cX$ to $\cY$ that is not blocked by $\cZ$. If $\cZ$ is the empty set then we just say that $\cX$ and $\cY$ are d-connected.
-
-\paragraph{Separation and Independence}
-
-Note first that d-separation and connection are properties of the graph (not of the distribution). d-separation implies that $\cX\indep \cY|\cZ$, but d-connection does not necessarily imply conditional dependence. That is, for any distribution in which $\cX$ and $\cY$ are ``d-separated'' by $\cZ$, then no matter what the settings of the conditional tables are, then conditional independence holds, namely $\cX\indep \cY|\cZ$.
-
-\subsection{Markov Equivalence}
-
-\paragraph{Skeleton}
-
-Formed from a graph by removing the arrows.
-
-\paragraph{Immorality}
-
-An immorality in a DAG is a configuration of three nodes, A,B,C such that C is a child of both A and B, with A and B not directly connected.
-
-\paragraph{Markov Equivalence}
-
-Markov equivalence
-Two graphs represent the same set of independence assumptions if and only if they have the same skeleton and the same set of immoralities.
-
-
-
-\section{Markov Networks}
-\label{section12.3}
-
-\subsection{Definition}
-A Markov Network is an undirected graph in which there is a potential (non-negative function) $\ps$ defined on each maximal clique.
-
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.5\textwidth]{fig13.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	\begin{align*}
-	\P{A,B,C,D,E}=\frac{1}{Z}&\ps(A,C)\ps(C,D)\ps(B,C,E) \\
-	Z=\sum_{A,B,C,D,E}&\ps(A,C)\ps(C,D)\ps(B,C,E)
-	\end{align*}
-\end{minipage}
-
-\subsection{Examples}
-
-\subsubsection*{Binary Image}
-
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.8\textwidth]{fig14.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	\begin{align*}
-	&X=\{X_i,i=1,\dotsc,D\}\ X_i\in\{-1,1\}: \text{clean pixel} \\
-	&Y=\{Y_i,i=1,\dotsc,D\}\ Y_i\in\{-1,1\}: \text{corrupted pixel} \\
-	&\ph(Y_i,X_i)=e^{\ga X_i Y_i}: \text{encourage $Y_i$ and $X_i$ to be similar} \\
-	&\ps(X_i,X_j)=e^{\be X_i X_j}: \text{encourage the image to be smooth} \\
-	&\P{X,Y}\prop\left[\prod_{i=1}^D\ph(Y_i,X_i)\right]\left[\prod_{i\sim j}\ps(X_i,X_j)\right]
-	\end{align*}
-\end{minipage}
-
-\subsubsection*{Boltzmann Machine}
-
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.7\textwidth]{fig15.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	\begin{align*}
-		&\P{\vec{x}|\vec{w},b}=\frac{1}{Z(\vec{w},b)}\e{\sum_{i<j}w_{ij}x_ix_j+\sum_ib_ix_i} \\
-		&\P{x_i=1|x_{\setminus i}}=\si\left(b_i+\sum_{j\neq i}w_{ij}x_j\right)
-	\end{align*}
-\end{minipage}
-
-\subsubsection*{The Ising Model}
-
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.6\textwidth]{fig16.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	\begin{align*}
-		&x_i\in\{+1,-1\} \\
-		&\P{x_1,\dotsc,x_9}=\frac{1}{Z}\prod_{i\sim j}\ph_{ij}(x_i,x_j) \\
-		&\ph_{ij}(x_i,x_j)=\e{-\frac{1}{2T}(x_i-x_j)^2}
-	\end{align*}
-\end{minipage}
-
-\subsection{Independence}
-
-\subsubsection*{Properties of Markov Networks}
-
-\begin{minipage}{0.6\textwidth}
-	\centering
-	\includegraphics*[width=0.8\textwidth]{fig18.png}
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-	Marginalizing over $C$ makes $A$ and $B$ dependent. $\P{A,B}\neq\P{A}\P{B}$
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	\centering
-	\includegraphics*[width=0.8\textwidth]{fig19.png}
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-	Conditioning on $C$ makes $A$ and $B$ independent. $\P{A,B|C}=\P{A|C}\P{B|C}$
-\end{minipage}
-
-\subsubsection*{General Rule}
-
-\begin{figure*}[h]
-	\centering
-	\includegraphics*[width=\textwidth]{fig20.png}
-\end{figure*}
-Remove all links neighboring the variables in conditioning set $\cZ$. If there is no path from any member of $\cX$ to any member of $\cY$, then $\cX$ and $\cY$ are conditionally independent given $\cZ$.
-
-\subsubsection*{Rule for Independence in Belief/Markov Networks}
-
-\begin{figure*}[h]
-	\centering
-	\begin{subfigure}[b]{0.24\textwidth}
-		\centering
-		\includegraphics*[width=0.8\textwidth]{fig21.png}
-		\caption*{Step 1}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.24\textwidth}
-		\centering
-		\includegraphics*[width=0.63\textwidth]{fig22.png}
-		\caption*{Step 2}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.24\textwidth}
-		\centering
-		\includegraphics*[width=0.63\textwidth]{fig23.png}
-		\caption*{Step 3}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.24\textwidth}
-		\centering
-		\includegraphics*[width=0.63\textwidth]{fig24.png}
-		\caption*{Step 4}
-	\end{subfigure}
-\end{figure*}
-Here is an example to check $A\dep I|F,L$, $\cX=\{A\},\cY=\{I\},\cZ=\{F,L\}$.
-\begin{enumerate}
-	\item Ancestral Graph: Remove any node which is neither in $\cX\cup\cY\cup\cZ$ nor an ancestor of a node in this set, together with any edges in or out of such nodes. Here in the graph node $G$ is not an ancestor of $\cX\cup\cY\cup\cZ$ hence remove it.
-	\item Moralization: Add a line between any two nodes which have a common child. Remove arrowheads. Here in the graph node $H$ is a common child of node $E$ and node $M$ so connect node $E$ and node $M$ then remove all arrowheads.
-	\item Separation: Remove all links from $\cZ$.
-	\item Independence: If there are no path from any node in $\cX$ to one in $\cY$ then $\cX\indep\cY|\cZ$. Obviously, here in the graph there is a path from node $A$ to node $I$ hence $A\nindep I|F,L$.
-\end{enumerate}
-
-\subsection{Expressiveness of Markov and Belief Networks}
-
-For a distribution $P$ form the list $\cL_P$ of all the independence statements. For a graph $G$, form the list of all independence statements $\cL_G$. Then we define:
-\begin{enumerate}
-	\item $\cL_P\subseteq\cL_G$: Dependence Map (D-map)
-	\item $\cL_P\supseteq\cL_G$: Independence Map (I-map)
-	\item $\cL_P=\cL_G$: Perfect Map
-\end{enumerate}
-
-\subsection{Factor Graphs}
-
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.4\textwidth]{fig25.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	The joint function is the product of all factors:
-	\begin{align*}
-	f(A,B,C,D,E)=f_1(A,B)f_2(B,C,D)f_3(C,E)f_4(D,E)
-	\end{align*}
-\end{minipage}
-\\ \\
-A square node represents a factor (non negative function) of its neighboring variables. Factor graphs are useful for performing efficient computations (not just for probability).
-\begin{figure*}[h]
-	\centering
-	\includegraphics*[width=0.6\textwidth]{fig26.png}
-\end{figure*}
-
-The above graphs give us (a) $\ph(a,b,c)$, (b) $\ph(a,b)\ph(b,c)\ph(c,a)$, (c) $\ph(a,b,c)$. Both (a) and (b) have the same Markov network (c). Whilst (b) contains the same (lack of) independence statements as (a), it expresses more constraints on the form of the potential.
-
-
-
-\section{Markov Models}
-\label{section12.4}
-
-\subsection{Basic Model}
-
-\begin{minipage}{0.6\textwidth}
-	For timeseries data $v_1,\dotsc,v_T$, we need a model $\P{v_{1:T}}$.
-	\begin{align*}
-		\P{v_{1:T}}=\prod_{t=1}^T\P{v_t|v_{1:t-1}}
-	\end{align*}
-	with the convention $\P{v_t|v_{1:t-1}}=\P{v_1}$ for $t=1$.
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.8\textwidth]{fig27.png}
-\end{minipage}
-\\
-
-It is often natural to assume that the influence of the immediate past is more relevant than the remote past and in Markov models only a limited number of previous observations are required to predict the future.
-
-\subsection{Markov Chains}
-
-In Markov chain, only the recent past is relevant:
-\begin{align*}
-	\P{v_t|v_1,\dotsc,v_{t-1}}=\P{v_t|v_{t-L},\dotsc,v_{t-1}}
-\end{align*}
-where $L\geq 1$ is the order of the Markov chain.
-\begin{figure*}[h]
-	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics*[width=0.7\textwidth]{fig28.png}
-		\caption*{First order Markov chain}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics*[width=0.7\textwidth]{fig29.png}
-		\caption*{Second order Markov chain}
-	\end{subfigure}
-\end{figure*}
-
-\subsection{Hidden Markov Models (HMM)}
-
-The HMM defines a Markov chain on hidden variables $h_{1:T}$. The observed variables depend on the hidden variables through an emission $\P{v_t|h_t}$. This defines a joint distribution
-\begin{align*}
-	\P{h_{1:T},v_{1:T}}=\P{v_1|h_1}\P{h1}\prod_{t=2}^T\P{v_t|h_t}\P{h_t|h_{t-1}}
-\end{align*}
-Below is a first order hidden Markov model with hidden variables $\dom(h_t)=\{1,\dotsc,H\},t=1:T$. The visible variables $v_t$ can be either discrete or continuous.
-\begin{figure*}[h]
-	\centering
-	\includegraphics*[width=0.4\textwidth]{fig30.png}
-\end{figure*}
-
-
-
-\section{Inference}
-\label{section12.5}
-
-\subsection{Sum-Product Algorithm}
-
-\subsubsection*{Variable to Factor Message}
-
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.8\textwidth]{fig31.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	\begin{align*}
-		\mu_{v\to f}(v)=\prod_{f_i\sim v\setminus f}\mu_{f_i\to v}(v)
-	\end{align*}
-\end{minipage}
-
-\subsubsection*{Factor to Variable Message}
-
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.8\textwidth]{fig32.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	\begin{align*}
-		\mu_{f\to v}(v)=\sum_{\{v_i\}}f(v,\{v_i\})\prod_{v_i\sim f\setminus v}\mu_{v_i\to f}(v_i)
-	\end{align*}
-\end{minipage}
-
-\subsubsection*{Marginal}
-
-\begin{align*}
-	\P{v}\prop\prod_{f_i\sim v}\mu_{f_i\to v}(v)
-\end{align*}
-
-\subsubsection*{Example}
-
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.8\textwidth]{fig33.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	\begin{align*}
-		\P{a,b,c,d}\prop f_1(a,b)f_2(b,c)f_3(c,d)f_4(d)
-	\end{align*}
-\end{minipage}
-
-\begin{align*}
-\P{a}\prop\ub{\sum_bf_1(a,b)\ub{\sum_cf_2(b,c)\ub{\sum_df_3(c,d)f_4(d)}{\mu_{d\to c}(c)}}{\mu_{c\to b}(b)}}{\mu_{b\to a}(a)}
-\end{align*}
-
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.8\textwidth]{fig34.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	\begin{align*}
-		\P{a,b,c,d,e}\prop f_1(a,b)f_2(b,c,d)f_3(c)f_4(d,e)f_5(d)
-	\end{align*}
-\end{minipage}
-
-\begin{align*}
-	\P{a}\prop\ub{\sum_bf_1(a,b)\ub{\sum_{c,d}f_2(b,c,d)\ub{f_3(c)}{\mu_{c\to f_2}(c)=\mu_{f_3\to c}(c)}\ub{\ub{f_5(d)}{\mu_{f_5\to d}(d)}\ub{\sum_ef_4(d,e)}{\mu_{f_4\to d}(d)}}{\mu_{d\to f_2(d)}}}{\mu_{b\to f_1}(b)}}{\mu_{f_1\to a(a)}}
-\end{align*}
-
-\subsection{Max-Product Algorithm}
-
-\subsubsection*{Variable to Factor Message}
-
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.8\textwidth]{fig31.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	\begin{align*}
-	\mu_{v\to f}(v)=\prod_{f_i\sim v\setminus f}\mu_{f_i\to v}(v)
-	\end{align*}
-\end{minipage}
-
-\subsubsection*{Factor to Variable Message}
-
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.8\textwidth]{fig32.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	\begin{align*}
-	\mu_{f\to v}(v)=\max_{\{v_i\}}f(v,\{v_i\})\prod_{v_i\sim f\setminus v}\mu_{v_i\to f}(v_i)
-	\end{align*}
-\end{minipage}
-
-\subsubsection*{Most Probable State}
-
-\begin{align*}
-	v^*=\argmax_v\prod_{f_i\sim v}\mu_{f_i\to v}(v)
-\end{align*}
-
-\subsubsection*{Example}
-
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.8\textwidth]{fig33.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	\begin{align*}
-	\P{a,b,c,d}\prop f_1(a,b)f_2(b,c)f_3(c,d)f_4(d)
-	\end{align*}
-\end{minipage}
-
-\begin{align*}
-\max_{a,b,c,d}\P{a.b.c.d}=\ub{\max_a\max_bf_1(a,b)\ub{\max_cf_2(b,c)\ub{\max_df_3(c,d)f_4(d)}{\mu_{d\to c}(c)}}{\mu_{c\to b}(b)}}{\mu_{b\to a}(a)}
-\end{align*}
-
-\subsection{The Junction Tree Algorithm}
-
-\paragraph{Clique Graph}
-
-A clique graph consists of a set of potentials, $\ph_1(\cX^1),\dotsc,\ph_n(\cX^n)$ each defined on a set of variables $\cX^i$. For neighboring cliques on the graph, defined on sets of variables $\cX^i$ and $\cX^j$, the intersection $\cX^s=\cX^i\cap\cX^j$ is called the separator and has a corresponding potential $\ph_s(\cX^s)$. A clique graph represents the function
-\begin{align*}
-	\frac{\prod_c\ph_s(\cX^c)}{\prod_s\ph_s(\cX^s)}
-\end{align*}
-An example of clique graph:
-
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.8\textwidth]{fig35.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	\begin{align*}
-	\frac{\ph(\cX^1)\ph(\cX^2)}{\ph(\cX^1\cap\cX^2)}
-	\end{align*}
-\end{minipage}
-\\ \\
-Now we have a Markov network and its clique graph representation and we can infer:
-\\ \\
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.5\textwidth]{fig36.png}
-	\newline\newline
-	\includegraphics*[width=0.7\textwidth]{fig37.png}
-\end{minipage}
-\begin{minipage}{0.6\textwidth}
-	\begin{align*}
-		\P{a,b,c,d}&=\frac{1}{Z}\ph(a,b,c)\ph(b,c,d) \\
-		Z\P{a,b,c}&=\ph(a,b,c)\sum_d\ph(b,c,d) \\
-		Z\P{b,c,d}&=\ph(b,c,d)\sum_a\ph(a,b,c) \\
-		Z^2\P{a,b,c}\P{b,c,d}&=Z^2\P{a,b,c,d}\sum_{a,d}\P{a,b,c,d} \\
-		\P{a,b,c,d}&=\frac{\P{a,b,c}\P{b,c,d}}{\P{b,c}}
-	\end{align*}
-\end{minipage}
-\\ \\
-Hence we can transform $\ph(a,b,c)\to\P{a,b,c},\ph(b,c,d)\to\P{b,c,d},Z\to\P{b,c}$.
-
-\paragraph{Absorption}
-
-Consider neighboring cliques $\cV$ and $\cW$, sharing the variables $\cS$ in common. In this case, the distribution on the variables $\cX=\cV\cup\cW$ is
-
-\begin{minipage}{0.6\textwidth}
-	\begin{align*}
-	\P{\cX}=\frac{\ph(\cV)\ph(\cW)}{\ph(\cS)}
-	\end{align*}
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.8\textwidth]{fig38.png}
-\end{minipage}
-\\ \\
-and our aim is to find a new representation
-
-\begin{minipage}{0.6\textwidth}
-	\begin{align*}
-	\P{\cX}=\frac{\hat{\ph}(\cV)\hat{\ph}(\cW)}{\hat{\ph}(\cS)}
-	\end{align*}
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-	\centering
-	\includegraphics*[width=0.8\textwidth]{fig39.png}
-\end{minipage}
-\\ \\
-in which the potentials are given by $\hat{\ph}(\cV)=\P{\cV},\hat{\ph}(\cW)=\P{\cW},\hat{\ph}(\cS)=\P{\cS}$. We can explicitly work out the new potentials as function of the old potentials:
-\begin{align*}
-	\P{\cW}&=\sum_{\cV\setminus\cS}\P{\cX}=\sum_{\cV\setminus\cS}\frac{\ph(\cV)\ph(\cW)}{\ph(\cS)}=\ph(\cW)\frac{\sum_{\cV\setminus\cS}\ph(\cV)}{\ph(\cS)} \\
-	\P{\cV}&=\sum_{\cW\setminus\cS}\P{\cX}=\sum_{\cW\setminus\cS}\frac{\ph(\cV)\ph(\cW)}{\ph(\cS)}=\ph(\cV)\frac{\sum_{\cW\setminus\cS}\ph(\cW)}{\ph(\cS)}
-\end{align*}
-There is a symmetry present in the two equations above -- they are the same under interchanging $\cV$ and $\cW$. One way to describe these equations is through ``absorption''.  We say that the cluster $\cW$ ``absorbs'' information from cluster $\cV$ by the following updating procedure. First we define a new separator
-\begin{align*}
-	\ph^*(\cS)=\sum_{\cV\setminus\cS}\ph(\cV)
-\end{align*}
-and refine the $\cW$ potential using
-\begin{align*}
-	\ph^*(\cW)=\ph(\cW)\frac{\ph^*(\cS)}{\ph(\cS)}
-\end{align*}
-The advantage of this interpretation is that the new representation is still a valid clique graph representation of the distribution since
-\begin{align*}
-	\frac{\ph(\cV)\ph^*(\cW)}{\ph^*(\cS)}=\frac{\ph(\cV)\ph(\cW)\frac{\ph^*(\cS)}{\ph(\cS)}}{\ph^*(\cS)}=\frac{\ph(\cV)\ph(\cW)}{\ph(\cS)}=\P{\cX}
-\end{align*}
-For this simple two clique graph, we see that after $\cW$ absorbs information from $\cV$ then $\ph^*(\cW)=\P{\cW}$. With these new updated potentials, we now go back along the graph, from $\cW$ to $\cV$. After $\cV$ absorbs information from $\cW$ then $\ph^*(\cV)$ contains the marginal $\P{\cV}$. After the separator $\cS$ has participated in absorption along both directions, then the separator potential will contain $\P{\cS}$ (this is not the case after only a single absorption). To see this, consider absorbing from $\cW$ to $\cV$ using the updated potentials $\ph^*(\cW)$ and $\ph^*(\cS)$
-\begin{align*}
-	\ph^{**}(\cS)&=\sum_{\cW\setminus\cS}\ph^*(\cW)=\sum_{\cW\setminus\cS}\frac{\ph(\cW)\ph^*(\cS)}{\ph(\cS)}=\sum_{\{\cW\cup\cV\}\setminus\cS}\frac{\ph(\cW)\ph(\cV)}{\ph(\cS)}=\P{\cS} \\
-	\ph^*(\cV)&=\frac{\ph(\cV)\ph^{**}(\cS)}{\ph^*(\cS)}=\frac{\ph(\cV)\sum_{\cW\setminus\cS}\ph(\cW)\frac{\ph^*(\cS)}{\ph(\cS)}}{\ph^*(\cS)}=\frac{\sum_{\cW\setminus\cS}\ph(\cV)\ph(\cW)}{\ph(\cS)}=\P{\cV}
-\end{align*}
-Hence, $\hat{\ph}(\cV)=\ph^*(\cV)=\P{\cV},\hat{\ph}(\cW)=\ph^*(\cW)=\P{\cW},\hat{\ph}(\cS)=\ph^{**}(\cS)=\P{\cS}$.
-
-\paragraph{Running Intersection Property}
-
-A clique tree is a junction tree if, for each pair of nodes, $\cV$ and $\cW$, all nodes on the path between $\cV$ and $\cW$ contain the intersection $\cV\cap\cW$.
-
-\paragraph{Constructing a Junction Tree for Singly-Connected Distributions}
-
-We can construct a junction tree for singly-connected models in following steps
-\begin{figure*}[h]
-	\centering
-	\begin{subfigure}[b]{0.24\textwidth}
-		\centering
-		\includegraphics*[width=0.52\textwidth]{fig40.png}
-		\caption*{Belief Network}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.24\textwidth}
-		\centering
-		\includegraphics*[width=0.52\textwidth]{fig41.png}
-		\caption*{Moralization}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.24\textwidth}
-		\centering
-		\includegraphics*[width=0.75\textwidth]{fig42.png}
-		\caption*{Clique Graph}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.24\textwidth}
-		\centering
-		\includegraphics*[width=0.75\textwidth]{fig43.png}
-		\caption*{Junction Tree}
-	\end{subfigure}
-\end{figure*}
-
-\paragraph{Constructing a Junction Tree for Multiply-Connected Distributions}
-
-We can use triangulation algorithm to construct such a junction tree. In a triangulated graph, every loop of length 4 or more must have a chord (a shortcut). Such graphs are called decomposable. To do this, we can triangulate via variable elimination that one simply picks any non-deleted node $x$ in the graph, and then adds links to all the neighbors of $x$. Node $x$ is then deleted. One repeats this until all nodes have been deleted. An example is given below:
-\begin{figure*}[h]
-	\centering
-	\includegraphics*[width=\textwidth]{fig44.png}
-\end{figure*}
-
-\paragraph{The Junction Algorithm}
-
-\begin{enumerate}
-	\item Moralization: Marry the parents. This is required only for directed distributions. Note that all the parents of a variable are married together-- a common error is to marry only the ``neighboring'' parents.
-	\item Triangulation: Ensure that every loop of length 4 or more has a chord.
-	\item Junction Tree:  Form a junction tree from cliques of the triangulated graph, removing any unnecessary links in a loop on the clique graph. Algorithmically, this can be achieved by finding a tree with maximal spanning weight with weight $w_{ij}$ given by the number of variables in the separator between cliques $i$ and $j$.
-	\item Potential Assignment: Assign potentials to junction tree cliques and set the separator potentials to unity.
-	\item Message Propagation: Carry out absorption until updates have been passed along both directions of every link on the junction tree.
-	\item The clique marginals can then be read off from the junction tree.
-\end{enumerate}
-
-\subsection{Graph Cut}
-
-For a graph $G$ with nodes $v_1,\dotsc,v_D$, and weights $w_{ij}>0$ a cut is a partition of the nodes into two disjoint groups, called $\cS$ and $\cT$. The weight of a cut is defined as the sum of the weights that leave $\cS$ and land in $\cT$. For symmetric $w$, the weight of a cut corresponds to the sum of weights between mismatched neighbors. That is
-\begin{align*}
-	cut(x)=\sum_{i\sim j}w_{ij}\bI[x_i\neq x_j]
-\end{align*}
-Since $\bI[x_i\neq x_j]=1-\bI[x_i=x_j]$, we can define the weight of the cut equivalently as
-\begin{align*}
-	cut(x)=\sum_{i\sim j}w_{ij}(1-\bI[x_i=x_j])=-\sum_{i\sim j}w_{ij}\bI[x_i=x_j]+const.=-E(x)+const.
-\end{align*}
-where $E$ is the energy function $E(x)=\sum_{i\sim j}w_{ij}\bI[x_i=x_j]+\sum_ic_ix_i$. So that the minimal cut assignment will correspond to maximising $E(x)$. In the Markov network case, our translation into a weighted graph with positive interactions then requires that we identify the source and all other variables assigned to state $1$ with $\cS$, and the sink and all variables in state $0$ with $\cT$. Our task is then to find the minimal cut from $\cS$ to $\cT$ . A fundamental result in discrete mathematics is that the min s-t-cut solution corresponds to the max-flow solution from the source $s$ to the sink $t$. There are efficient algorithms for max-flow, which take $\O{D^3}$ operations or less, for a graph with $D$ nodes. This means that one can find the exact MAP assignment of an attractive binary Markov network efficiently in $\O{D^3}$ operations.
-
-
-
 \section{Sampling}
-\label{section12.6}
+\label{section12.1}
 
 \subsection{Basic Monte Carlo}
 
 Sampling concerns drawing realizations (samples) $\cX=\left\{x^1,\dotsc,x^L\right\}$ of a variable $x$ from a distribution $\P{x}$. For a discrete variable $x$, in the limit of a large number of samples, the fraction of samples in state $\mathsf{x}$ tends to $\P{x=\mathsf{x}}$. That is,
 \begin{align*}
-	\lim_{L\to\infty}\frac{1}{L}\sum_{l=1}^L\bI\left[x^l=\mathsf{x}\right]=\P{x=\mathsf{x}}
+\lim_{L\to\infty}\frac{1}{L}\sum_{l=1}^L\bI\left[x^l=\mathsf{x}\right]=\P{x=\mathsf{x}}
 \end{align*}
 In the continuous case, one can consider a region $R$ such that the probability that samples occupy $R$ tends to the integral of $\P{x}$ over $R$. Given a finite set of samples, one can then approximate expectations using
 \begin{align*}
-	\vecx{f(x)}_{\P{x}}\approx\frac{1}{L}\sum_{l=1}^Lf(x^l)\equiv\hat{f}_\cX
+\vecx{f(x)}_{\P{x}}\approx\frac{1}{L}\sum_{l=1}^Lf(x^l)\equiv\hat{f}_\cX
 \end{align*}
 The subscript in $\hat{f}_\cX$ emphasizes that the approximation is dependent on the set of samples drawn. This sample approximation holds for both discrete and continuous variables.
 
 A sampling procedure produces realizations of the set $\cX$ and can itself be considered as generating a distribution $\ti{P}\left(\cX\right)$. Provided the marginals of the sampling distribution are equal to the marginals of the target distribution, $\ti{P}\left(\cX\right)=\P{x^l}$, then the average of the approximation $\hat{f}_\cX$ with respect to draws of the sample set $\cX$ is
 \begin{align*}
-	\vecx{\hat{f}_\cX}_{\ti{P}\left(\cX\right)}=\frac{1}{L}\sum_{l=1}^L\vecx{f\left(x^l\right)}_{\ti{P}\left(x^l\right)}=\vecx{f(x)}_{\P{x}}
+\vecx{\hat{f}_\cX}_{\ti{P}\left(\cX\right)}=\frac{1}{L}\sum_{l=1}^L\vecx{f\left(x^l\right)}_{\ti{P}\left(x^l\right)}=\vecx{f(x)}_{\P{x}}
 \end{align*}
 Hence the mean of the sample approximation is the exact mean of $f$ provided only that the marginals of $\ti{P}\left(\cX\right)$ correspond to $\P{x}$.
 
 For any sampling method, an important issue is the variance of the sample estimate. If this is low then only a small number of samples are required since the sample mean must be close to the true mean (assuming it is unbiased). Defining
 \begin{align*}
-	\De\hat{f}_\cX=\hat{f}_\cX-\vecx{\hat{f}_\cX}_{\ti{P}\left(\cX\right)},\quad \De f(x)=f(x)-\vecx{f(x)}_{\P{x}}
+\De\hat{f}_\cX=\hat{f}_\cX-\vecx{\hat{f}_\cX}_{\ti{P}\left(\cX\right)},\quad \De f(x)=f(x)-\vecx{f(x)}_{\P{x}}
 \end{align*}
 the variance of the approximation is (assuming $\ti{P}\left(x^l\right)=\P{x^l}$, for all $l$):
 \begin{align*}
-	\vecx{\left[\De\hat{f}_\cX\right]^2}_{\ti{P}\left(\cX\right)}&=\frac{1}{L^2}\sum_{l,l'}\vecx{\De f\left(x^l\right)\De f\left(x^{l'}\right)}_{\ti{P}\left(x^l,x^{l'}\right)} \\
-	&=\frac{1}{L^2}\left(L\vecx{\left[\De f(x)\right]^2}_{\ti{P}\left(x\right)}+\sum_{l\neq l'}\vecx{\De f\left(x^l\right)\De f\left(x^{l'}\right)}_{\ti{P}\left(x^l,x^{l'}\right)}\right)
+\vecx{\left[\De\hat{f}_\cX\right]^2}_{\ti{P}\left(\cX\right)}&=\frac{1}{L^2}\sum_{l,l'}\vecx{\De f\left(x^l\right)\De f\left(x^{l'}\right)}_{\ti{P}\left(x^l,x^{l'}\right)} \\
+&=\frac{1}{L^2}\left(L\vecx{\left[\De f(x)\right]^2}_{\ti{P}\left(x\right)}+\sum_{l\neq l'}\vecx{\De f\left(x^l\right)\De f\left(x^{l'}\right)}_{\ti{P}\left(x^l,x^{l'}\right)}\right)
 \end{align*}
 Provided the samples are independent $\ti{P}\left(\cX\right)=\prod_{l=1}^L\ti{P}\left(x^l\right)$ and $\ti{P}\left(x^l,x^{l'}\right)=\P{x^l}\P{x^{l'}}$. The second term in the equation above is composed of $\vecx{\De f\left(x^l\right)}\vecx{f\left(x^{l'}\right)}$ which is zero since $\vecx{\De f(x)}=0$. Hence,
 \begin{align*}
-	\vecx{\left[\De\hat{f}_\cX\right]^2}_{\ti{P}\left(x^l,x^{l'}\right)}=\frac{1}{L}\vecx{\left[\De f(x)\right]^2}_{\P{x}}
+\vecx{\left[\De\hat{f}_\cX\right]^2}_{\ti{P}\left(x^l,x^{l'}\right)}=\frac{1}{L}\vecx{\left[\De f(x)\right]^2}_{\P{x}}
 \end{align*}
 and the variance of the approximation scales inversely with the number of samples. The critical difficulty is in actually generating independent samples from $\P{x}$. A dependent scheme may be unbiased, but if variance is very high we meed a large number of samples to get an accurate approximation.
 
@@ -745,15 +46,15 @@ and the variance of the approximation scales inversely with the number of sample
 
 Consider $p(x)=\frac{1}{Z}p^*(x)$, where $p^*(x)$ can be evaluated but $Z=\int_xp^*(x)$ is intractable. The average with respect to $p$ is given by
 \begin{align*}
-	\int_xf(x)p(x)=\frac{\int_xf(x)p^*(x)}{\int_xp^*(x)}=\frac{\int_xf(x)\frac{p^*(x)}{q(x)}q(x)}{\int_x\frac{p^*(x)}{q(x)}q(x)}
+\int_xf(x)p(x)=\frac{\int_xf(x)p^*(x)}{\int_xp^*(x)}=\frac{\int_xf(x)\frac{p^*(x)}{q(x)}q(x)}{\int_x\frac{p^*(x)}{q(x)}q(x)}
 \end{align*}
 and we can approximate this sampling from $q(x)$.
 \begin{align*}
-	\int_xf(x)p(x)\approx\frac{\sum_{l=1}^Lf(x^l)\frac{p^*(x^l)}{q(x^l)}}{\sum_{l=1}^L\frac{p^*(x^l)}{q(x^l)}}=\sum_{l=1}^Lf(x^l)w^l
+\int_xf(x)p(x)\approx\frac{\sum_{l=1}^Lf(x^l)\frac{p^*(x^l)}{q(x^l)}}{\sum_{l=1}^L\frac{p^*(x^l)}{q(x^l)}}=\sum_{l=1}^Lf(x^l)w^l
 \end{align*}
 where we define the normalized importance weights
 \begin{align*}
-	w^l=\frac{\pfrac{p^*(x^l)}{q(x^l)}}{\pfrac{\sum_{l=1}^Lp^*(x^l)}{q(x^l)}}
+w^l=\frac{\pfrac{p^*(x^l)}{q(x^l)}}{\pfrac{\sum_{l=1}^Lp^*(x^l)}{q(x^l)}}
 \end{align*}
 However, it is not easy to find the right distribution $Q$ and diagnose whether it is good.
 
@@ -769,8 +70,8 @@ Let $y\in\{0,1\}$ be an auxiliary binary variable and define $q(x,y)=q(x)q(y|x)$
 
 Consider the conditional distribution $q(x^{l+1}|x^l)$. If we are given an initial sample $x^1$, then we can recursively generate samples $x^1,x^2,\dotsc,x^L$. After a long time $L\gg 1$, the samples are from the unique stationary distribution $q_\infty(x)$ which is defined as
 \begin{align*}
-	q_\infty(x')&=\int_xq(x'|x)q_\infty(x)dx \\
-	q_\infty(x')&=\sum_xq(x'|x)q_\infty(x)
+q_\infty(x')&=\int_xq(x'|x)q_\infty(x)dx \\
+q_\infty(x')&=\sum_xq(x'|x)q_\infty(x)
 \end{align*}
 for continuous and discrete variable respectively. The idea in MCMC is, for a given distribution $p(x)$, to find a transition $q(x'|x)$ which has $p(x)$ as its stationary distribution. If we can do so, then we can draw samples from the Markov chain by forward sampling and take these as samples from $p(x)$ as the chain converges towards its stationary distribution.
 
@@ -785,7 +86,29 @@ Sometimes we cannot sample from the conditionals. The idea of Metropolis algorit
 	\item Propose a new state $x'$ by sampling from proposed $q(x'|x)$.
 	\item Accept the new state with probability
 	\begin{align*}
-		\min\left(1,\frac{p(x')q(x|x')}{p(x)q(x'|x)}\right)
+	\min\left(1,\frac{p(x')q(x|x')}{p(x)q(x'|x)}\right)
 	\end{align*}
 	\item If the sample is not accepted the old state becomes the new sample.
 \end{enumerate}
+
+
+
+\section{Expectation Maximization}
+
+\subsection{The EM Algorithm}
+
+\subsection{EM Algorithm for Mixture Models}
+
+\paragraph{Mixture of Gaussians}
+
+\paragraph{t-distributions}
+
+\paragraph{Factor Analysis}
+
+
+
+\section{Variational Inference}
+
+\subsection{Mean Field Approximation}
+
+\subsection{Variational Autoencoders}

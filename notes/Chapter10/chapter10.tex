@@ -1,217 +1,196 @@
 %!TEX root = ../notebook.tex
 % Chapter 10
 
-\chapter{Decision Tree \& Ensemble Methods}
+\chapter{Clustering}
 \label{chapter10}
 
 
 
-\section{Decision Tree}
+\section{K-Means}
 \label{section10.1}
 
-\subsection{Growing a Tree}
+\subsection{The K-Means Algorithm}
 
-\paragraph{Tree Growing Algorithm}
-
-We can define a split function to choose the best feature and the best value for that feature as follows
+The goal of k-means is to assign each datapoint in a dataset $\vec{x}_1,\dotsc,\vec{x}_N$ to one of $K$ groups, $\vec{m}_1,\dotsc,\vec{m}_K$. We will assign each datapoint to a cluster, $\vec{x}_n\to c(n)$ where $c(n)\in\{1,\dotsc,K\}$ is the cluster index of datapoint number $n$. We want to find the assignments and centers that minimize the squared loss
 \begin{align*}
-	(j^*,t^*)=\argmin_{j\in\{1,\dotsc,D\}}\min_{t\in\cT_j}cost\left(\{\vec{x}_i,y_j:x_{ij}\leq t\}\right)+cost\left(\{\vec{x}_i,y_j:x_{ij}>t\}\right)
+\cL=\sum_{n=1}^N\left(\vec{x}_n-\vec{m}_{c(n)}\right)^2
 \end{align*}
-where we compare a feature $x_{ij}$ to a threshold $t$. The set of possible thresholds $\cT_j$ for feature $j$ can be obtained by sorting the unique values of $x_{ij}$. The algorithm to grow tree is
+The algorithm of k-means has following steps:
 \begin{algorithm}[H]
-	\caption*{\bf Recursive Procedure to Grow a Tree}
+	\caption*{\bf The K-Means Algorithm}
 	\begin{algorithmic}
-		\Function{fitTree}{node,$\cD$,depth}
-		\State $\text{node.prediction}=mean(y_i:i\in\cD)$
-		\State $(j^*,t^*,\cD_L,\cD_R)=split(\cD)$
-		\If{not $worthSplitting(depth,cost,\cD_L,\cD_R)$}
-		\State \Return node
-		\Else
-		\State $\text{node.test}=\la\vec{x}.x_{j^*}<t^*$
-		\State $\text{node.left}=fitTree(\text{node},\cD_L,\text{depth}+1)$
-		\State $\text{node.right}=fitTree(\text{node},\cD_R,\text{depth}+1)$
-		\State \Return node
-		\EndIf
-		\EndFunction
+		\State initialize the centers $\vec{m}_i,i=1,\dotsc,K$
+		\While{not converged}
+		\State for each center $i$, find all the $\vec{x}_n$ for which $i$ is the nearest center
+		\State call this set of points $\cN_i$. Let $N_i$ be the number of datapoints in set $\cN_i$
+		\State update the center by taking the mean of those datapoints assigned to this center:
+		\begin{align*}
+		\vec{m}_i^{new}=\frac{1}{N_i}\sum_{n\in\cN_i}\vec{x}_n
+		\end{align*}
+		\EndWhile
 	\end{algorithmic}
 \end{algorithm}
-The function that checks if a node is worth splitting can use several stopping heuristics, such as the following:
-\begin{enumerate}
-	\item Is the reduction in cost too small? Typically we define the gain of using a feature ti be a normalized measure of the reduction in cost
-	\begin{align*}
-		\De=cost(\cD)-\left(\frac{\ab{\cD_L}}{\ab{\cD}}cost(\cD_L)+\frac{\ab{\cD_R}}{\ab{\cD}}cost(\cD_R)\right)
-	\end{align*}
-	\item Has the tree exceeded the maximum desired depth?
-	\item Is the distribution of the response in either $\cD_L$ or $\cD_R$ sufficiently homogeneous (e.g. all labels are the same, so the distribution is pure)?
-	\item Is the number of examples in either $\cD_L$ or $\cD_R$ too small?
-\end{enumerate}
 
-\paragraph{Regression Cost}
+\subsection{K-Means Limitations}
 
-In the regression setting, we define the cost as follows
-\begin{align*}
-	cost(\cD)=\sum_{i\in\cD}(y_i-\bar{y})^2
-\end{align*}
-where $\bar{y}=\frac{1}{\ab{\cD}}\sum_{i\in\cD}y_i$ is the mean of the response variable in the specified set of data. Alternatively, we can fit a linear regression model for each leaf, using as inputs the features that were chosen on the path fro the root, and then measure the residual error.
+\paragraph{Hard Assignment}
 
-\paragraph{Classification Cost}
+A datapoint is assigned to only a single cluster (hard assignment). It might be preferable to make a soft assignment that a datapoint probably belongs to a cluster, but could belong to another cluster with a certain probability. 
 
-In the classification setting, there are several ways to measure the quality of a split. First, we fit a multinoulli model to the data in the leaf satisfying the test $X_j<t$ by estimating the class-conditional probabilities as follows
-\begin{align*}
-	\hat{\pi}_c=\frac{1}{\ab{\cD}}\sum_{i\in\cD}\bI(y_i=c)
-\end{align*}
-where $\cD$ is the data in the leaf. Given this, there are several common error measures for evaluating a proposed partition
+\paragraph{Outlier Sensitivity}
 
-\subparagraph{Misclassification Rate}
+K-means is sensitive to outliers. If there is an outlier (datapoint far from the rest) this can throw off the k-means algorithm. The k-medians algorithms can be less sensitive to outliers.
 
-We define the most probable class label as $\hat{y}=\argmax_c\hat{\pi}_c$. The corresponding error is then
-\begin{align*}
-	\frac{1}{\ab{\cD}}\sum_{i\in\cD}\bI(y_i\neq\hat{y})=1-\hat{\pi}_{\hat{y}}
-\end{align*}
+\paragraph{Shape/Density Issues}
 
-\subparagraph{Entropy}
+K-means works best when the clusters are roughly spherical and of equal number of points. We can use spectral clustering in case the data is not spherical.
 
-\begin{align*}
-	\H{\hat{\vec{\pi}}}=-\sum_{c=1}^C\hat{\pi}_c\log\hat{\pi}_c
-\end{align*}
-Note that minimizing the entropy is equivalent to maximizing the information gain (used in ID3) between test $X_j<t$ and the class label $Y$, defined by
-\begin{align*}
-infoGain(X_j<t,Y)&=\H{Y}-\H{Y|X_j<t} \\
-&=\left(-\sum_c\p{y=c}\log\p{y=c}\right) \\
-&\quad+\left(\sum_c\p{y=c|X_j<t}\log\p{c|X_j<t}\right)
-\end{align*}
-And the information gain (ratio used in C4.5).
-\begin{align*}
-infoGainRatio(X_j<t,Y)=\frac{infoGain(X_j,Y)}{\H{Y}}
-\end{align*}
+\paragraph{Computational Cost}
 
-\subparagraph{Gini Index}
+K-means is a fast method. However, if each datapoint is very high dimensional, finding the nearest center can be expensive. There are speed-up techniques available (see section~\ref{section5.2}).
 
-\begin{align*}
-	\sum_{c=1}^C\hat{\pi}_c(1-\hat{\pi}_c)=\sum_c\hat{\pi}_c-\sum_c\hat{\pi}_c^2=1-\sum_c\hat{\pi}_c^2
-\end{align*}
-This is the expected error rate. To see this, note that $\hat{\pi}_c$ is the probability a random entry in the leaf belongs to class $c$, and $1-\hat{\pi}_c$ is the probability it would be misclassified.
+\paragraph{Representation Sensitivity}
 
-\subsection{Pruning a Tree}
+Let's say that each data vector contains two attributes $x_{(1)}$ and $x_{(2)}$. $x^{(1)}$ represents the temperature in centigrade, and $x^{(2)}$ the distance. If we represent the distance in millimeters, then the Euclidean distance will be dominated by the difference in distance. If we represent the distance in kilometers, the distance will be most likely dominated by the difference in temperature. Rescaling is one way around this.
 
-To prevent overfitting, we can stop growing the tree if the decrease in the error is not sufficient to justify the extra complexity of adding an extra subtree. However, this tends to be too myopic. The standard approach is therefore to grow a ``full'' tree, and then to perform pruning. This can be dine using a scheme that prunes the branches giving the least increase in the error. To determine how far to prune back, we can evaluate the cross-validated error on each such subtree, and then pick the tree whose CV error is within 1 standard error of the minimum.
+\paragraph{Missing Data}
 
-\subsection{Limitation of Decision Tree}
-
-Decision trees such as CART have some disadvantages. The primary one is that they do not predict very accurately compared to other kinds of model. This is in part due to the greedy nature of the tree construction algorithm. A related problem is that trees are unstable: small changes to the input data can have large effects on the structure of the tree, due to the hierarchical nature of the tree-growing process, causing errors at the top to affect the rest of the tree. In frequentist terminology, we say that trees are high variance estimators.
+There is no simple and justifiable way to deal with missing data in k-means. For example, encoding missing data with zeros will bias the clusters found.
 
 
 
-\section{Bagging}
+\section{Spectral Clustering}
 \label{section10.2}
 
-\subsection{Bagging Basics}
+\subsection{Similarity Graphs}
+\label{section10.2.1}
 
-Suppose there are $N$ predictors that make errors independently
+\paragraph{$\ep$-Neighborhood Graph}
+
+We connect all points whose pairwise distances are smaller than $\ep$. As all connected points are roughly of the same scale, the graph is usually not weighted.
+
+\paragraph{$k$-Nearest Neighbor Graphs}
+
+We connect vertex $v_i$ and vertex $v_j$ if $x_j$ is among $k$ nearest neighbors of $x_i$. However, the nearest neighbor relationship is not symmetric. There are two choices to deal with this. The first way is ignoring the direction of the edges: we connect $v_i$ and $v_j$ if either $x_i$ is in the $k$ nearest neighbors of $x_j$ OR $x_j$ is among $k$ nearest neighbors of $x_i$. The second choice is to connect vertices $v_i$ and $v_j$ if both $v_i$ is among the $k$ nearest neighbors of $v_j$ AND $v_j$ is among the $k$ nearest neighbors of $v_i$ (mutual $k$-nearest neighbors graph). In both cases we weight the edges by the similarity of the data points $w_{ij}=s_{ij}$.
+
+\paragraph{Fully Connected Graph}
+
+We connect all the points with positive similarity and weight all the edges by $s_{ij}$. We would like the graph to model local neighborhood relationships, so need a similarity function which encodes this. Gaussian kernel is widely used $s_{ij}=\e{-\frac{\norm{x_i-x_j}}{2\si^2}}$. The parameter $\si$ controls the width of the neighborhood.
+
+\subsection{Graph Laplacian}
+
+\paragraph{Basic Graph Definitions}
+
+Let $G=(V,E)$ be an undirected weighted graph with non-negative edge weights. Let $w_{ij}$ be the weight of an edge connecting $v_i$ and $v_j$. The degree of the vertex $i$ is $d_i=\sum_{j=1}^nw_{ij}$. The weighted adjacency matrix is the matrix $\mat{W}=[w_{ij}]$. If $w_{ij}=0$ then $v_i$ and $v_j$ are not connected. The degree matrix $\mat{D}$ is a diagonal matrix with $d_1,\dotsc,d_n$ on the diagonal. For a subset $A\subset V$ denote the complement $\bar{A}=V\setminus A$. We have two ways of measuring the size of a subset: $\ab{A}:=\text{the number of vertivces in }A$, and $vol(A):=\sum_{i\in A}d_i$.
+
+\paragraph{Unnormalized Graph Laplacian}
+
+The unnormalized graph Laplacian matrix is:
 \begin{align*}
-	\hat{y}_i^n=y_i+\ep_i^n
+\mat{L}=\mat{D}-\mat{W}
 \end{align*}
-where $\ep_i^n$ is the error following a Gaussian distribution with zero mean and one variance. Bagging is then the technique that we train many models and try to decorrelate them
-\begin{align*}
-	\hat{y}_i=\frac{1}{N}\sum_{n=1}^N\hat{y}_i^n
-\end{align*}
-The expectation and variance of the new model are now
-\begin{align*}
-	\E{\hat{y}_i}&=\frac{1}{N}\left(Ny_i+\E{\sum_{n=1}^N\ep_i^n}\right)=y_i \\
-	\V{\hat{y}_i}&=\E{\hat{y}_i^2}-\Es{\hat{y}_i} \\
-	&=\E{\frac{1}{N^2}\left(\sum_{n=1}^N\left(y_i+\ep_i^n\right)\right)^2}-y_i^2 \\
-	&=\E{\frac{1}{N^2}\left(Ny_i+\sum_{n=1}^N\ep_i^n\right)^2}-y_i^2 \\
-	&=\E{y_i^2}+\E{\frac{1}{N^2}\left(\sum_{n=1}^N\ep_i^n\right)^2}+\E{\frac{2}{N}y_i\sum_{n=1}^N\ep_i^n}-y_i^2 \\
-	&=\frac{1}{N^2}\E{\left(\sum_{n=1}^N\left(\hat{y}_i-y_i\right)\right)^2} \\
-	&=\frac{1}{N}\V{\hat{y}_i^n}
-\end{align*}
-This gives us the result that we can approach the mean of true distribution and reduce variance by $\pfrac{1}{N}$.
-
-\subsection{Random Forest}
-
-Random forest is an instance of bagging methods that we train a number of trees, where each tree is trained on a sample of the same size as the original dataset sampled with replacement. At each splitting point we restrict a search to a subspace of features. This gives a wonderful parallelizable procedure.
-
-Another nice feature of random forests is that they provide an estimation of generalization error for free, without validation set. This is called Out-Of-Bag (OOB) error. For each example we compute the prediction using only the trees that were built without this example.
-
-
-
-\section{Boosting}
-\label{section10.3}
-
-\subsection{Boosting Basics}
-
-Boosting is a greedy algorithm for fitting adaptive basis function models of the form
-\begin{align*}
-	f(\vec{x})=\al_0+\sum_{t=1}^T\al_th_t(\vec{x})
-\end{align*}
-where the $h(\bullet)$ are generated by an algorithm called a weak learner or a base learner. The algorithm works by applying the weak learner sequentially to weighted versions of the data, where more weight is given to examples that were misclassified by earlier rounds.
-
-\subsection{Adaboost}
-
-\begin{algorithm}[H]
-	\caption*{\bf The Adaboost Algorithm}
-	\begin{algorithmic}
-		\State input dataset $(\vec{x}_i,y_i),\vec{x}_i\in\cX,y_i\in\{-1,1\},i=1,\dotsc,N$
-		\State initialize distribution on samples $D_1=\frac{1}{N}$
-		\For{$t=1,\dotsc,T$}
-		\State find classifier $h_t:\cX\to\{-1,1\}$ to the training set using weight $D_t$
-		\State compute the classification error $\ep_t=\pfrac{\sum_{i=1}^ND_{t,i}\bI\left[y_i\neq h_t(\vec{x}_i)\right]}{\sum_{i=1}^ND_{t,i}}$
-		\State compute $\al_t=\ppfrac{1}{2}\log\left(\pfrac{(1-\ep_t)}{\ep_t}\right)$
-		\State update distribution $D_{t+1,i}=\ppfrac{D_{t,i}}{Z_t}\e{-\al_ty_ih_t(\vec{x}_i)}$ where $Z_t$ is the normalization term that $Z_t=\sum_iD_{t,i}\e{-\al_ty_ih_t(\vec{x}_i)}$
-		\EndFor
-		\State the final adaptive function $f(\vec{x})=\sum_t\al_th_t(\vec{x})$
-		\State the final classifier is $H(\vec{x})=sign\left(f(\vec{x})\right)=sign\left(\sum_t\al_th_t(\vec{x})\right)$
-	\end{algorithmic}
-\end{algorithm}
-For a binary classification problem, we can show that Adaboost has a final error bound that
-\begin{align*}
-	\sum_{i=1}^N\frac{1}{N}\bI\left[y_i\neq H(\vec{x}_i)\right]\leq\prod_{t=1}^TZ_t\leq\e{-2\sum_{t=1}^T\ga_t^2}
-\end{align*}
-where $\ga_t=\half-\ep_t$ is the edge. We can prove this result that
-\begin{align*}
-	\sum_{i=1}^N\frac{1}{N}\bI\left[y_i\neq H(\vec{x}_i)\right]&=\frac{1}{N}\sum_{i=1}^N\casefill{1\ &y_if(\vec{x}_i)\leq 0\\0\ &y_if(\vec{x}_i)>0} \\
-	&\leq\sum_{i=1}^N\frac{1}{N}\e{-y_if(\vec{x}_i)} \\
-	&=\frac{1}{N}\sum_{i=1}^N\e{-\sum_{t=1}^T\al_ty_ih_t(\vec{x}_i)} \\
-	&=\sum_{i=1}^ND_{1,i}\prod_{t=1}^T\e{-\al_ty_ih_t(\vec{x}_i)} \\
-	&=Z_1\sum_{i=1}^ND_{2,i}\prod_{t=2}^T\e{-\al_ty_ih_t(\vec{x}_i)} \\
-	&=Z_1Z_2\sum_{i=1}^ND_{3,i}\prod_{t=3}^T\e{-\al_ty_ih_t(\vec{x}_i)} \\
-	&=\cdots \\
-	&=Z_1Z_2\cdots Z_{T-1}\sum_{i=1}^ND_{T,i}\e{-\al_Ty_ih_T(\vec{x}_i)} \\
-	&=\prod_{t=1}^TZ_t \\
-	&=\prod_{t=1}^T\sum_{i=1}^ND_{t,i}\e{-\al_ty_ih_t(\vec{x}_i)} \\
-	&=\prod_{t=1}^T\left(\sum_{y_i=h_t(\vec{x}_i)}D_{t,i}e^{-\al_t}+\sum_{y_i\neq h_t(\vec{x}_i)}D_{t,i}e^{\al_t}\right) \\
-	&=\prod_{t=1}^T\left((1-\ep_t)e^{-\al_t}+\ep_te^{\al_t}\right) \\
-	&=\prod_{t=1}^T2\sqrt{\ep_t(1-\ep_t)}=\prod_{t=1}^T\sqrt{1-4\ga_t^2}
-\end{align*}
-We can expand a Taylor series on $e^x$ and $\sqrt{1-x}$ around $x=0$ to have the inequality $\sqrt{1-4\ga_t^2}\leq\e{-2\ga_t^2}$, then we can have
-\begin{align*}
-	\prod_{t=1}^T\sqrt{1-4\ga_t^2}\leq\e{-2\sum_{t=1}^T\ga_t^2}
-\end{align*}
-Hence, we can conclude that if $\ga_t\geq\ga>0,\forall t$, we have
-\begin{align*}
-	\sum_{i=1}^N\frac{1}{N}\bI\left[y_i\neq H(\vec{x}_i)\right]\leq\e{-2T\ga^2}
-\end{align*}
-
-\subsection{Gradient Boosting}
-
-Instead of building lots of independent predictors, we build an ensemble in stagewise fashion. Each new element of the ensemble tried to correct the errors of the previous ones.
-
-For regression and MSE the model like this. We start with predicting mean of the data $f_0(\vec{x})=\bar{y}$ (this is the best constant prediction for MSE). Then for each iteration:
+It has the following properties:
 \begin{enumerate}
-	\item Compute the residuals $r_{i,t}=y_i-f_t(\vec{x}_i)$
-	\item fit a new model $h_t(\vec{x})$ to the residuals
-	\item alter the original model $f_{t+1}(\vec{x})=f_t(\vec{x})+\al h_t(\vec{x})$
+	\item For every vector $\vec{f}\in\bR^n$ we have
+	\begin{align*}
+	\vec{f}\TT\mat{L}\vec{f}&=\vec{f}\TT\mat{D}\vec{f}-\vec{f}\TT\mat{W}\vec{f} \\
+	&=\sum_{i=1}^nd_if_i^2-\sum_{i,j=1}^nf_if_jw_{ij} \\
+	&=\half\left(\sum_{i=1}^nd_if_i^2-2\sum_{i,j=1}^nf_if_jw_{ij}+\sum_{j=1}^nd_jf_j^2\right) \\
+	&=\half\sum_{i,j=1}^nw_{ij}(f_i-f_j)^2
+	\end{align*}
+	\item $\mat{L}$ is symmetric and positive semi-definite.
+	\item The smallest eigenvalue of $\mat{L}$ is 0, the corresponding eigenvector is the constant one vector $\vec{1}$.
+	\item $\mat{L}$ has $n$ non-negative, real-valued eigenvalues $0=\la_1\leq\la_2\leq\cdots\leq\la_n$.
+	\item The multiplicity $k$ of the eigenvalue 0 of $\mat{L}$ equals the number of connected components $A_1,\dotsc,A_k$ in the graph. The eigenspace of eigenvalue 0 is spanned by the indicator vectors $\vec{1}_{A_1},\dotsc,\vec{1}_{A_k}$ of those components.
 \end{enumerate}
-If we have a look at the loss function $\cL(y,\hat{y})=\frac{1}{N}\sum_{i=1}^N(y_i-\hat{y}_i)^2$, the gradient w.r.t. the predictions $\hat{y}_i$ is $\frac{\pa}{\pa\hat{y}_i}\cL(y,\hat{y})=-\frac{2}{N}(y_i-\hat{y}_i)\prop-r_i$. So we can change the predictions in such a way to move the function towards loss-function minimum, doing gradient descent.
+
+\paragraph{Normalized Graph Laplacian}
+
+Another matrix which is used in spectral clustering is normalized Laplacian:
+\begin{align*}
+\mat{L}_{rw}=\mat{D}\inv\mat{L}=\mat{I}-\mat{D}\inv\mat{W}
+\end{align*}
+where $rw$ stands for random walk. The properties of normalized Laplacian are:
+\begin{enumerate}
+	\item $\mat{L}_{rw}$ is symmetric and positive semi-definite.
+	\item The smallest eigenvalue of $\mat{L}_{rw}$ is 0 with the corresponding eigenvector being a constant one vector $\vec{1}$.
+	\item $\mat{L}$ has $n$ non-negative, real-valued eigenvalues $0=\la_1\leq\la_2\leq\cdots\leq\la_n$.
+	\item $\la$ is an eigenvalue of $\mat{L}_{rw}$ with eigenvector $\vec{v}$ iff $\la$ and $\vec{v}$ solve the generalized eigenproblem $\mat{L}\vec{v}=\la\mat{D}\vec{v}$.
+	\item The multiplicity $k$ of the eigenvalue 0 of $\mat{L}_{rw}$ equals the number of connected components $A_1,\dotsc,A_k$ in the graph. The eigenspace of eigenvalue 0 is spanned by the indicator vectors $\vec{1}_{A_1},\dotsc,\vec{1}_{A_k}$ of those components.
+\end{enumerate}
+
+\subsection{Spectral Clustering Algorithms}
+
+Assume the data consists of $n$ datapoints $\vec{x}_1,\dotsc,\vec{x}_n$. We measure their pairwise similarities $s_{ij}=s(\vec{x}_i,\vec{x}_j)$ by some similarity function which is symmetric and non-negative, and we denote the corresponding similarity matrix by $\mat{S}=[s_{ij}],i,j=1,\dotsc,n$.
 \begin{algorithm}[H]
-	\caption*{\bf The Gradient Boosting Algorithm}
+	\caption*{\bf The Unnormalized Spectral Clustering Algorithm}
 	\begin{algorithmic}
-		\State initialize $f_0(\vec{x})=\argmin_{\vec{\th}}\sum_{i=1}^N\cL(y_i,h_0(\vec{x}_i;\vec{\th}))$
-		\For{$t=1,\dotsc,T$}
-		\State compute the gradient residual $r_{i,t}=-\left[\frac{\pa\cL(y_i,f(\vec{x}_i))}{\pa f(\vec{x}_i)}\right]_{f(\vec{x}_i)=f_{t-1}(\vec{x}_i)}$
-		\State use weak learner to compute $\vec{\th}_t=\argmin_{\vec{\th}}\sum_{i=1}^N\left(r_{i,t}-h_t(\vec{x}_i;\vec{\th}_t)\right)^2$
-		\State update $f_t(\vec{x})=f_{t-1}(\vec{x})+\al h_t(\vec{x};\vec{\th}_t)$
-		\EndFor
-		\State \Return $f(\vec{x})=f_T(\vec{x})$
+		\State input similarity matrix $\mat{S}\in\bR^{n\times n}$
+		\State input number of clusters $k$
+		\State construct a similarity graph by one of the methods described in section~\ref{section10.2.1}
+		\State compute the unnormalized Laplacian $\mat{L}$
+		\State compute the first $k$ eigenvectors $\vec{v}_1,\dotsc,\vec{v}_k$ of $\mat{L}$
+		\State let $\mat{U}\in\bR^{n\times k}$ be the matrix containing the vectors $\vec{v}_1\dotsc,\vec{v}_k$ as columns
+		\State for $i=1,\dotsc,n$, let $\vec{y}_i\in\bR^k$ be the vector corresponding to the $i\nth$ row of $\mat{U}$
+		\State cluster the points $\vec{y}_i,i=1,\dotsc,n$ in $\bR^k$ with the k-means algorithm into clusters $C_1,\dotsc,C_k$
+		\State \Return clusters $A_1,\dotsc,A_k$ with $A_i=\{j|\vec{y}_j\in C_i\}$
 	\end{algorithmic}
 \end{algorithm}
+Normalized spectral clustering has similar steps except the computation of eigenvectors.
+\begin{algorithm}[H]
+	\caption*{\bf The Normalized Spectral Clustering Algorithm}
+	\begin{algorithmic}
+		\State input similarity matrix $\mat{S}\in\bR^{n\times n}$
+		\State input number of clusters $k$
+		\State construct a similarity graph by one of the methods described in section~\ref{section11.2.1}
+		\State compute the unnormalized Laplacian $\mat{L}$
+		\State compute the first $k$ eigenvectors $\vec{v}_1,\dotsc,\vec{v}_k$ of the generalized eigenproblem $\mat{L}\vec{v}=\la\mat{D}\vec{v}$
+		\State let $\mat{U}\in\bR^{n\times k}$ be the matrix containing the vectors $\vec{v}_1\dotsc,\vec{v}_k$ as columns
+		\State for $i=1,\dotsc,n$, let $\vec{y}_i\in\bR^k$ be the vector corresponding to the $i\nth$ row of $\mat{U}$
+		\State cluster the points $\vec{y}_i,i=1,\dotsc,n$ in $\bR^k$ with the k-means algorithm into clusters $C_1,\dotsc,C_k$
+		\State \Return clusters $A_1,\dotsc,A_k$ with $A_i=\{j|\vec{y}_j\in C_i\}$
+	\end{algorithmic}
+\end{algorithm}
+
+\subsection{NCut and RatioCut Approximations}
+
+Recall the definition of the graph cut. For two disjoint subsets $A,B\in V$ we define $cut(A,B)=\sum_{i\in A,j\in B}w_{ij}$. One way to partition a graph into $k$ disjoint subsets is to solve a min-cut problem, defining $cut(A_1,\dotsc,A_k)=\sum_{i=1}^kcut(A_i,\bar{A}_i)$. However, this leads to an unbalanced partitions, for example in case of $k=2$ the minimum is often achieved by splitting off one vertex. Thus we want to enforce the clusters $A_i$ to be reasonably large. There are two natural ways of doing this: by the number of vertices and by the volume. This leads to the two definitions:
+\begin{align*}
+RatioCut(A_1,\dotsc,A_k)&=\sum_{i=1}^k\frac{cut(A_i,\bar{A}_i)}{\ab{A_i}} \\
+NCut(A_1,\dotsc,A_k)&=\sum_{i=1}^k\frac{cut(A_i,\bar{A}_i)}{vol(A_i)}
+\end{align*}
+
+Here is a sketch of how RatioCut for $k=2$ is related to unnormalized spectral clustering. Our goal is to solve the optimization problem $\min_{A\subset V}RatioCut(A,\bar{A})$. We first rewrite the problem is a more convenient form. Given a subset $A\subset V$ we define the vector $\vec{f}=[f_1\ \cdots\ f_n]\T\in\bR^n$ with entries
+\begin{align*}
+f_i=\casefill{\sqrt{\pfrac{\ab{\bar{A}}}{\ab{A}}}&\quad\text{if }v_i\in A \\ -\sqrt{\pfrac{\ab{A}}{\ab{\bar{A}}}}&\quad\text{if }v_i\in\bar{A}}
+\end{align*}
+Now the RatioCut objective function can be conveniently rewritten using the unnormalized graph Laplacian. This is due to the following calculation:
+\begin{align*}
+\vec{f}\TT\mat{L}\vec{f}&=\half\sum_{i,j=1}^nw_{ij}(f_i-f_j)^2 \\
+&=\half\sum_{i\in A,j\in\bar{A}}w_{ij}\left(\sqrt{\frac{\ab{\bar{A}}}{\ab{A}}}+\sqrt{\frac{\ab{A}}{\ab{\bar{A}}}}\right)^2+\half\sum_{i\in\bar{A},j\in A}w_{ij}\left(-\sqrt{\frac{\ab{\bar{A}}}{\ab{A}}}-\sqrt{\frac{\ab{A}}{\ab{\bar{A}}}}\right)^2 \\
+&=cut(A,\bar{A})\left(\frac{\ab{\bar{A}}}{\ab{A}}+\frac{\ab{A}}{\ab{\bar{A}}}+2\right) \\
+&=cut(A,\bar{A})\left(\frac{\ab{A}+\ab{\bar{A}}}{\ab{A}}+\frac{\ab{A}+\ab{\bar{A}}}{\ab{\bar{A}}}\right) \\
+&=\ab{V}\cdot RatioCut(A,\bar{A})
+\end{align*}
+Additionally, we have
+\begin{align*}
+\sum_{i=1}^nf_i=\sum_{i\in A}\sqrt{\frac{\ab{\bar{A}}}{\ab{A}}}-\sum_{i\in\bar{A}}\sqrt{\frac{\ab{A}}{\ab{\bar{A}}}}=\ab{A}\sqrt{\frac{\ab{\bar{A}}}{\ab{A}}}-\ab{\bar{A}}\sqrt{\frac{\ab{A}}{\ab{\bar{A}}}}=0
+\end{align*}
+In other words, the vector $\vec{f}$ is orthogonal to the constant one vector $\vec{1}$. Finally, note that $\vec{f}$ satisfies
+\begin{align*}
+\norm{\vec{f}}^2=\sum_{i=1}^nf_i^2=\ab{A}\frac{\ab{\bar{A}}}{\ab{A}}+\ab{\bar{A}}\frac{\ab{A}}{\ab{\bar{A}}}=\ab{\bar{A}}+\ab{A}=n
+\end{align*}
+Take a relaxation to discard the discreteness condition and instead allow that $f_i$ takes arbitrary values in $\bR$ leads to the relaxed optimization problem
+\begin{align*}
+\min_{\vec{f}\in\bR^n}\vec{f}\TT\mat{L}\vec{f}\ \text{subject to }\vec{f}\perp\vec{1},\norm{\vec{f}}=\sqrt{n}
+\end{align*}
+The solution to this problem is the second eigenvector of $\mat{L}$. Now we need to transform back the solution to discrete indicator vectors. This is done using k-means clustering of the components. One can show similarly that unnormalized spectral clustering corresponds to the relaxation of RatioCut whereas normalized spectral clustering corresponds to the relaxation of NCut.
+
+\subsection{Random Walk Viewpoint}
+
+Spectral clustering could be viewed as finding the partition such that the random walk with transition probabilities proportional to edge weights stays long within the same cluster. The transition matrix $\mat{P}=[p_{ij}],i,j=1,\dotsc,n$ of the random walk is defined by $\mat{P}=\mat{D}\inv\mat{W}$. And we can see that $\mat{L}_{rw}=\mat{I}-\mat{P}$. If the graph is connected and non-bipartite there is an unique stationary distribution $\pi=(\pi_1,\dotsc,\pi_n)$ given by $\pi_i=\pfrac{d_i}{vol(G)}$.
+
+Random walk and NCut are equivalence. Let $G$ be a connected non-bipartite graph. Suppose we run the random walk starting from $X_0$ in the stationary distribution. For disjoint subsets $A,B\subset V$, denote by $\P{B|A}:=\P{X_1\in B|X_0\in A}$. Then
+\begin{align*}
+NCut(A,\bar{A})=\P{\bar{A}|A}+\P{A|\bar{A}}
+\end{align*}

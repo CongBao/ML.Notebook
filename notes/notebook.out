@@ -84,68 +84,68 @@
 \BOOKMARK [1][]{section.8.4}{8.4 Hinge Loss}{chapter.8}% 84
 \BOOKMARK [1][]{section.8.5}{8.5 Non-linear SVMs \046 Kernel Trick}{chapter.8}% 85
 \BOOKMARK [1][]{section.8.6}{8.6 Sequential Minimal Optimization \(SMO\)}{chapter.8}% 86
-\BOOKMARK [0][]{chapter.9}{9 EM Algorithm \046 Variational Inference}{}% 87
-\BOOKMARK [1][]{section.9.1}{9.1 Expectation Maximization}{chapter.9}% 88
-\BOOKMARK [2][]{subsection.9.1.1}{9.1.1 The EM Algorithm}{section.9.1}% 89
-\BOOKMARK [2][]{subsection.9.1.2}{9.1.2 EM Algorithm for Mixture Models}{section.9.1}% 90
-\BOOKMARK [1][]{section.9.2}{9.2 Variational Inference}{chapter.9}% 91
-\BOOKMARK [2][]{subsection.9.2.1}{9.2.1 Mean Field Approximation}{section.9.2}% 92
-\BOOKMARK [2][]{subsection.9.2.2}{9.2.2 Variational Autoencoders}{section.9.2}% 93
-\BOOKMARK [0][]{chapter.10}{10 Decision Tree \046 Ensemble Methods}{}% 94
-\BOOKMARK [1][]{section.10.1}{10.1 Decision Tree}{chapter.10}% 95
-\BOOKMARK [2][]{subsection.10.1.1}{10.1.1 Growing a Tree}{section.10.1}% 96
-\BOOKMARK [2][]{subsection.10.1.2}{10.1.2 Pruning a Tree}{section.10.1}% 97
-\BOOKMARK [2][]{subsection.10.1.3}{10.1.3 Limitation of Decision Tree}{section.10.1}% 98
-\BOOKMARK [1][]{section.10.2}{10.2 Bagging}{chapter.10}% 99
-\BOOKMARK [2][]{subsection.10.2.1}{10.2.1 Bagging Basics}{section.10.2}% 100
-\BOOKMARK [2][]{subsection.10.2.2}{10.2.2 Random Forest}{section.10.2}% 101
-\BOOKMARK [1][]{section.10.3}{10.3 Boosting}{chapter.10}% 102
-\BOOKMARK [2][]{subsection.10.3.1}{10.3.1 Boosting Basics}{section.10.3}% 103
-\BOOKMARK [2][]{subsection.10.3.2}{10.3.2 Adaboost}{section.10.3}% 104
-\BOOKMARK [2][]{subsection.10.3.3}{10.3.3 Gradient Boosting}{section.10.3}% 105
-\BOOKMARK [0][]{chapter.11}{11 Clustering}{}% 106
-\BOOKMARK [1][]{section.11.1}{11.1 K-Means}{chapter.11}% 107
-\BOOKMARK [2][]{subsection.11.1.1}{11.1.1 The K-Means Algorithm}{section.11.1}% 108
-\BOOKMARK [2][]{subsection.11.1.2}{11.1.2 K-Means Limitations}{section.11.1}% 109
-\BOOKMARK [1][]{section.11.2}{11.2 Spectral Clustering}{chapter.11}% 110
-\BOOKMARK [2][]{subsection.11.2.1}{11.2.1 Similarity Graphs}{section.11.2}% 111
-\BOOKMARK [2][]{subsection.11.2.2}{11.2.2 Graph Laplacian}{section.11.2}% 112
-\BOOKMARK [2][]{subsection.11.2.3}{11.2.3 Spectral Clustering Algorithms}{section.11.2}% 113
-\BOOKMARK [2][]{subsection.11.2.4}{11.2.4 NCut and RatioCut Approximations}{section.11.2}% 114
-\BOOKMARK [2][]{subsection.11.2.5}{11.2.5 Random Walk Viewpoint}{section.11.2}% 115
-\BOOKMARK [0][]{chapter.12}{12 Graphical Models}{}% 116
-\BOOKMARK [1][]{section.12.1}{12.1 Graph Definitions}{chapter.12}% 117
-\BOOKMARK [2][]{subsection.12.1.1}{12.1.1 Graph}{section.12.1}% 118
-\BOOKMARK [2][]{subsection.12.1.2}{12.1.2 Directed Graph}{section.12.1}% 119
-\BOOKMARK [2][]{subsection.12.1.3}{12.1.3 Undirected Graph}{section.12.1}% 120
-\BOOKMARK [2][]{subsection.12.1.4}{12.1.4 Connectivity}{section.12.1}% 121
-\BOOKMARK [2][]{subsection.12.1.5}{12.1.5 Connectedness}{section.12.1}% 122
-\BOOKMARK [1][]{section.12.2}{12.2 Belief Networks}{chapter.12}% 123
-\BOOKMARK [2][]{subsection.12.2.1}{12.2.1 Definition}{section.12.2}% 124
-\BOOKMARK [2][]{subsection.12.2.2}{12.2.2 Uncertain Evidence}{section.12.2}% 125
-\BOOKMARK [2][]{subsection.12.2.3}{12.2.3 Independence}{section.12.2}% 126
-\BOOKMARK [2][]{subsection.12.2.4}{12.2.4 General Rule for Independence in Belief Networks}{section.12.2}% 127
-\BOOKMARK [2][]{subsection.12.2.5}{12.2.5 Markov Equivalence}{section.12.2}% 128
-\BOOKMARK [1][]{section.12.3}{12.3 Markov Networks}{chapter.12}% 129
-\BOOKMARK [2][]{subsection.12.3.1}{12.3.1 Definition}{section.12.3}% 130
-\BOOKMARK [2][]{subsection.12.3.2}{12.3.2 Examples}{section.12.3}% 131
-\BOOKMARK [2][]{subsection.12.3.3}{12.3.3 Independence}{section.12.3}% 132
-\BOOKMARK [2][]{subsection.12.3.4}{12.3.4 Expressiveness of Markov and Belief Networks}{section.12.3}% 133
-\BOOKMARK [2][]{subsection.12.3.5}{12.3.5 Factor Graphs}{section.12.3}% 134
-\BOOKMARK [1][]{section.12.4}{12.4 Markov Models}{chapter.12}% 135
-\BOOKMARK [2][]{subsection.12.4.1}{12.4.1 Basic Model}{section.12.4}% 136
-\BOOKMARK [2][]{subsection.12.4.2}{12.4.2 Markov Chains}{section.12.4}% 137
-\BOOKMARK [2][]{subsection.12.4.3}{12.4.3 Hidden Markov Models \(HMM\)}{section.12.4}% 138
-\BOOKMARK [1][]{section.12.5}{12.5 Inference}{chapter.12}% 139
-\BOOKMARK [2][]{subsection.12.5.1}{12.5.1 Sum-Product Algorithm}{section.12.5}% 140
-\BOOKMARK [2][]{subsection.12.5.2}{12.5.2 Max-Product Algorithm}{section.12.5}% 141
-\BOOKMARK [2][]{subsection.12.5.3}{12.5.3 The Junction Tree Algorithm}{section.12.5}% 142
-\BOOKMARK [2][]{subsection.12.5.4}{12.5.4 Graph Cut}{section.12.5}% 143
-\BOOKMARK [1][]{section.12.6}{12.6 Sampling}{chapter.12}% 144
-\BOOKMARK [2][]{subsection.12.6.1}{12.6.1 Basic Monte Carlo}{section.12.6}% 145
-\BOOKMARK [2][]{subsection.12.6.2}{12.6.2 Importance Sampling}{section.12.6}% 146
-\BOOKMARK [2][]{subsection.12.6.3}{12.6.3 Rejection Sampling}{section.12.6}% 147
-\BOOKMARK [2][]{subsection.12.6.4}{12.6.4 Markov Chain Monte Carlo \(MCMC\)}{section.12.6}% 148
+\BOOKMARK [0][]{chapter.9}{9 Decision Tree \046 Ensemble Methods}{}% 87
+\BOOKMARK [1][]{section.9.1}{9.1 Decision Tree}{chapter.9}% 88
+\BOOKMARK [2][]{subsection.9.1.1}{9.1.1 Growing a Tree}{section.9.1}% 89
+\BOOKMARK [2][]{subsection.9.1.2}{9.1.2 Pruning a Tree}{section.9.1}% 90
+\BOOKMARK [2][]{subsection.9.1.3}{9.1.3 Limitation of Decision Tree}{section.9.1}% 91
+\BOOKMARK [1][]{section.9.2}{9.2 Bagging}{chapter.9}% 92
+\BOOKMARK [2][]{subsection.9.2.1}{9.2.1 Bagging Basics}{section.9.2}% 93
+\BOOKMARK [2][]{subsection.9.2.2}{9.2.2 Random Forest}{section.9.2}% 94
+\BOOKMARK [1][]{section.9.3}{9.3 Boosting}{chapter.9}% 95
+\BOOKMARK [2][]{subsection.9.3.1}{9.3.1 Boosting Basics}{section.9.3}% 96
+\BOOKMARK [2][]{subsection.9.3.2}{9.3.2 Adaboost}{section.9.3}% 97
+\BOOKMARK [2][]{subsection.9.3.3}{9.3.3 Gradient Boosting}{section.9.3}% 98
+\BOOKMARK [0][]{chapter.10}{10 Clustering}{}% 99
+\BOOKMARK [1][]{section.10.1}{10.1 K-Means}{chapter.10}% 100
+\BOOKMARK [2][]{subsection.10.1.1}{10.1.1 The K-Means Algorithm}{section.10.1}% 101
+\BOOKMARK [2][]{subsection.10.1.2}{10.1.2 K-Means Limitations}{section.10.1}% 102
+\BOOKMARK [1][]{section.10.2}{10.2 Spectral Clustering}{chapter.10}% 103
+\BOOKMARK [2][]{subsection.10.2.1}{10.2.1 Similarity Graphs}{section.10.2}% 104
+\BOOKMARK [2][]{subsection.10.2.2}{10.2.2 Graph Laplacian}{section.10.2}% 105
+\BOOKMARK [2][]{subsection.10.2.3}{10.2.3 Spectral Clustering Algorithms}{section.10.2}% 106
+\BOOKMARK [2][]{subsection.10.2.4}{10.2.4 NCut and RatioCut Approximations}{section.10.2}% 107
+\BOOKMARK [2][]{subsection.10.2.5}{10.2.5 Random Walk Viewpoint}{section.10.2}% 108
+\BOOKMARK [0][]{chapter.11}{11 Graphical Models}{}% 109
+\BOOKMARK [1][]{section.11.1}{11.1 Graph Definitions}{chapter.11}% 110
+\BOOKMARK [2][]{subsection.11.1.1}{11.1.1 Graph}{section.11.1}% 111
+\BOOKMARK [2][]{subsection.11.1.2}{11.1.2 Directed Graph}{section.11.1}% 112
+\BOOKMARK [2][]{subsection.11.1.3}{11.1.3 Undirected Graph}{section.11.1}% 113
+\BOOKMARK [2][]{subsection.11.1.4}{11.1.4 Connectivity}{section.11.1}% 114
+\BOOKMARK [2][]{subsection.11.1.5}{11.1.5 Connectedness}{section.11.1}% 115
+\BOOKMARK [1][]{section.11.2}{11.2 Belief Networks}{chapter.11}% 116
+\BOOKMARK [2][]{subsection.11.2.1}{11.2.1 Definition}{section.11.2}% 117
+\BOOKMARK [2][]{subsection.11.2.2}{11.2.2 Uncertain Evidence}{section.11.2}% 118
+\BOOKMARK [2][]{subsection.11.2.3}{11.2.3 Independence}{section.11.2}% 119
+\BOOKMARK [2][]{subsection.11.2.4}{11.2.4 General Rule for Independence in Belief Networks}{section.11.2}% 120
+\BOOKMARK [2][]{subsection.11.2.5}{11.2.5 Markov Equivalence}{section.11.2}% 121
+\BOOKMARK [1][]{section.11.3}{11.3 Markov Networks}{chapter.11}% 122
+\BOOKMARK [2][]{subsection.11.3.1}{11.3.1 Definition}{section.11.3}% 123
+\BOOKMARK [2][]{subsection.11.3.2}{11.3.2 Examples}{section.11.3}% 124
+\BOOKMARK [2][]{subsection.11.3.3}{11.3.3 Independence}{section.11.3}% 125
+\BOOKMARK [2][]{subsection.11.3.4}{11.3.4 Expressiveness of Markov and Belief Networks}{section.11.3}% 126
+\BOOKMARK [2][]{subsection.11.3.5}{11.3.5 Factor Graphs}{section.11.3}% 127
+\BOOKMARK [1][]{section.11.4}{11.4 Markov Models}{chapter.11}% 128
+\BOOKMARK [2][]{subsection.11.4.1}{11.4.1 Basic Model}{section.11.4}% 129
+\BOOKMARK [2][]{subsection.11.4.2}{11.4.2 Markov Chains}{section.11.4}% 130
+\BOOKMARK [2][]{subsection.11.4.3}{11.4.3 Hidden Markov Models \(HMM\)}{section.11.4}% 131
+\BOOKMARK [1][]{section.11.5}{11.5 Inference}{chapter.11}% 132
+\BOOKMARK [2][]{subsection.11.5.1}{11.5.1 Sum-Product Algorithm}{section.11.5}% 133
+\BOOKMARK [2][]{subsection.11.5.2}{11.5.2 Max-Product Algorithm}{section.11.5}% 134
+\BOOKMARK [2][]{subsection.11.5.3}{11.5.3 The Junction Tree Algorithm}{section.11.5}% 135
+\BOOKMARK [2][]{subsection.11.5.4}{11.5.4 Graph Cut}{section.11.5}% 136
+\BOOKMARK [0][]{chapter.12}{12 Approximate Inference}{}% 137
+\BOOKMARK [1][]{section.12.1}{12.1 Sampling}{chapter.12}% 138
+\BOOKMARK [2][]{subsection.12.1.1}{12.1.1 Basic Monte Carlo}{section.12.1}% 139
+\BOOKMARK [2][]{subsection.12.1.2}{12.1.2 Importance Sampling}{section.12.1}% 140
+\BOOKMARK [2][]{subsection.12.1.3}{12.1.3 Rejection Sampling}{section.12.1}% 141
+\BOOKMARK [2][]{subsection.12.1.4}{12.1.4 Markov Chain Monte Carlo \(MCMC\)}{section.12.1}% 142
+\BOOKMARK [1][]{section.12.2}{12.2 Expectation Maximization}{chapter.12}% 143
+\BOOKMARK [2][]{subsection.12.2.1}{12.2.1 The EM Algorithm}{section.12.2}% 144
+\BOOKMARK [2][]{subsection.12.2.2}{12.2.2 EM Algorithm for Mixture Models}{section.12.2}% 145
+\BOOKMARK [1][]{section.12.3}{12.3 Variational Inference}{chapter.12}% 146
+\BOOKMARK [2][]{subsection.12.3.1}{12.3.1 Mean Field Approximation}{section.12.3}% 147
+\BOOKMARK [2][]{subsection.12.3.2}{12.3.2 Variational Autoencoders}{section.12.3}% 148
 \BOOKMARK [0][]{appendix.A}{A Bayesian Statistics}{}% 149
 \BOOKMARK [1][]{section.A.1}{A.1 Bayesian Inference}{appendix.A}% 150
 \BOOKMARK [1][]{section.A.2}{A.2 Prior Distributions}{appendix.A}% 151
