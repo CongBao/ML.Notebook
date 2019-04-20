@@ -70,7 +70,7 @@ Let $y\in\{0,1\}$ be an auxiliary binary variable and define $q(x,y)=q(x)q(y|x)$
 
 Consider the conditional distribution $q(x^{l+1}|x^l)$. If we are given an initial sample $x^1$, then we can recursively generate samples $x^1,x^2,\dotsc,x^L$. After a long time $L\gg 1$, the samples are from the unique stationary distribution $q_\infty(x)$ which is defined as
 \begin{align*}
-q_\infty(x')&=\int_xq(x'|x)q_\infty(x)dx \\
+q_\infty(x')&=\int q(x'|x)q_\infty(x)dx \\
 q_\infty(x')&=\sum_xq(x'|x)q_\infty(x)
 \end{align*}
 for continuous and discrete variable respectively. The idea in MCMC is, for a given distribution $p(x)$, to find a transition $q(x'|x)$ which has $p(x)$ as its stationary distribution. If we can do so, then we can draw samples from the Markov chain by forward sampling and take these as samples from $p(x)$ as the chain converges towards its stationary distribution.
@@ -93,19 +93,207 @@ Sometimes we cannot sample from the conditionals. The idea of Metropolis algorit
 
 
 
-\section{Expectation Maximization}
+\section{Expectation Maximization (EM)}
 
-\subsection{The EM Algorithm}
+\subsection{Hidden Variables}
+
+In many models some variables are not directly observed, but are latent or ``hidden''. For hidden variables $h$, and visible variables $v$ we still have a well defined likelihood
+\begin{align*}
+	\p{v|\th}&=\int\p{v,h|\th}dh \\
+	\p{v|\th}&=\sum_h\p{v,h|\th}
+\end{align*}
+for continuous and discrete variable respectively. Our task is to find the parameters $\th$ that optimize $\p{v|\th}$. This task is more numerically complex than in the case when all the variables are visible. Nevertheless, we can perform numerical optimization using any routine we wish to find $\th$.
+
+\subsection{Variational EM}
+
+\paragraph{Lower Bound}
+
+The key feature of the EM algorithm is to form an alternative objective function for which the parameter coupling effect discussed is removed, meaning that individual parameter updates can be achieved, akin to the case of fully observed data. The way this works is to replace the marginal likelihood with a lower bound -- it is this lower bound that has the decoupled form. Consider the KL divergence (which is always non-negative) between a ``variational'' distribution $q(h|v)$ and the parametric model $p(h|v,\th)$.
+\begin{align*}
+	\KL{q(h|v)}{p(h|v,\th)}\equiv\vecx{\log q(h|v)-\log p(h|v,\th)}_{q(h|v)}\geq 0
+\end{align*}
+The term ``variational'' refers to the fact that this distribution will be a parameter of an optimization problem. Using $p(h|v,\th)=\pfrac{p(h,v|\th)}{p(v|\th)}$ and the fact that $p(v|\th)$ does not depend on $h$,
+\begin{align*}
+	\KL{q(h|v)}{p(h|v,\th)}=\vecx{\log q(h|v)}_{q(h|v)}-\vecx{\log p(h,v|\th)}_{q(h|v)}+\log p(v|\th)\geq 0
+\end{align*}
+Rearranging, we obtain a bound on the marginal likelihood
+\begin{align*}
+	\log p(v|\th)\geq\ub{-\vecx{\log q(h|v)}_{q(h|v)}}{\text{Entropy}}+\ub{\vecx{\log p(h,v|\th)}_{q(h|v)}}{\text{Energy}}
+\end{align*}
+The bound is potentially useful since the energy is similar in form to the fully observed case, except that terms with missing data have their log likelihood weighted by a prefactor.
+
+We could rewrite the likelihood introducing auxillary variational distribution $q(h)$:
+\begin{align*}
+	\log p(v|\th)&=\log\sum_hp(v,h|\th)=\log\sum_h\frac{q(h)}{q(h)}p(v,h|\th)=\log\vecx{\frac{p(v,h|\th)}{q(h)}}_{q(h)} \\
+	&\geq\vecx{\log\frac{p(v,h|\th)}{q(h)}}_{q(h)}=\vecx{\log p(v,h|\th)}_{q(h)}+\H{q}
+\end{align*}
+The inequality sign is achieved due to Jensen's inequality. The final formula is called \emph{evidence lower bound (ELBO)} or \emph{variational free energy}. It is a function $B(q,\th)$ of the parameters of the model and the variational distribution:
+\begin{align*}
+	B(q,\th)=\vecx{\log p(v,h|\th)}_{q(h)}+\H{q}
+\end{align*}
+
+\paragraph{The EM Algorithm}
+
+The EM algorithm is such an approach that we start from some initial guess $\th_0,q_0*h$ and repeat the following steps until convergence:
+\begin{enumerate}
+	\item E-step: $q_{new}=\argmax_qB(q,\th_{old})$
+	\item M-step: $\th_{new}=\argmax_\th B(q_{new},\th)$
+\end{enumerate}
+In E-step, we can rewrite free energy like this
+\begin{align*}
+	B(q,\th)=\vecx{\log\frac{p(v,h|\th)}{q(h)}}_{q(h)}=\vecx{\log\frac{p(h|v,\th)p(v|\th)}{q(h)}}_{q(h)}=\log p(v|\th)-\KL{q(h)}{p(h|v,\th)}
+\end{align*}
+This means that the optimal setting is $q(h)=p(h|v,\th)$, which is also the case that Jensen's inequality reaches the equivalence condition. In M-step we optimize for the new parameters of the model
+\begin{align*}
+	\th_{new}=\argmax_\th\vecx{\log p(v,h|\th)}_{q(h)}+\H{q}=\argmax_\th\vecx{\log p(v,h|\th)}_{q(h)}
+\end{align*}
+where $q(h)=p(h|v,\th_{old})$. This means that we are only interested in computing expectations under posterior (rather than the full posterior itself).
+
+We can show that the EM algorithm increases the likelihood. We use $\th'$ for the new parameters, and $\th$ for the previous parameters in two consecutive iterations. Using $q(h)=p(h|v,\th)$ we see that as a function of the parameters, the lower bound depends on $\th$ and $\th'$:
+\begin{align*}
+	B(\th'|\th)&\equiv-\vecx{\log p(h|v,\th)}_{p(h|v,\th)}+\vecx{\log p(h,v|\th')}_{p(h|v,\th)} \\
+	\log p(v|\th')&=B(\th'|\th)+\KL{p(h|v,\th)}{p(h|v,\th')} \\
+	\log p(v|\th)&=B(\th|\th)+\ub{\KL{p(h|v,\th)}{p(h|v,\th)}}{0}
+\end{align*}
+Hence
+\begin{align*}
+	\log p(v|\th')-\log p(v|\th)=\ub{B(\th'|\th)-B(\th|\th)}{\geq 0}+\ub{\KL{p(h|v,\th)}{p(h|v,\th')}}{\geq 0}\geq 0
+\end{align*}
+The first assertion is true since, by definition of the M-step, we search for a $\th'$ which has a higher value for the bound than our starting value $\th$.
 
 \subsection{EM Algorithm for Mixture Models}
 
-\paragraph{Mixture of Gaussians}
+\paragraph{Mixture of Gaussians (MoG)}
 
-\paragraph{t-distributions}
+The pdf of MoG is
+\begin{align*}
+	\P{\vec{x}|\vec{\th}}=\sum_{k=1}^K\la_k\Norm_{\vec{x}}[\vec{\mu}_k,\mat{\Si}_k]
+\end{align*}
+We can rewrite it as a marginalization form that
+\begin{align*}
+	\P{\vec{x}|\vec{\th}}&=\sum_{k=1}^K\P{\vec{x},h=k|\vec{\th}} \\
+	&=\sum_{k=1}^K\P{\vec{x}|h=k,\vec{\th}}\P{h=k|\vec{\th}}
+\end{align*}
+And define the distributions
+\begin{align*}
+	\P{\vec{x}|h,\vec{\th}}&=\Norm_{\vec{x}}[\vec{\mu}_h,\mat{\Si}_h] \\
+	\P{h|\vec{\th}}&=\Cat_h[\vec{\la}]
+\end{align*}
+E-Step -- Maximize bound w.r.t. distribution $q(h)$.
+\begin{align*}
+	\hat{q}_i(h_i=k)&=\P{h_i=k|\vec{x}_i,\vec{\th}^{(t)}} \\
+	&=\frac{\P{\vec{x}_i|h_i=k,\vec{\th}^{(t)}}\P{h_i=k|\vec{\th}^{(t)}}}{\P{\vec{x}_i|\vec{\th}^{(t)}}} \\
+	&=\frac{\P{\vec{x}_i|h_i=k,\vec{\th}^{(t)}}\P{h_i=k|\vec{\th}^{(t)}}}{\sum_{j=1}^K\P{\vec{x}_i|h_i=j,\vec{\th}^{(t)}}\P{h_i=j|\vec{\th}^{(t)}}} \\
+	&=\frac{\la_k\Norm_{\vec{x}_i}[\vec{\mu}_k,\mat{\Si}_k]}{\sum_{j=1}^K\la_j\Norm_{\vec{x}_i}[\vec{\mu}_j,\mat{\Si}_j]} \\
+	&=r_{ik}
+\end{align*}
+We call $r_{ik}$ the responsibility of the $k\nth$ Gaussian for the $i\nth$ data point. \\
+M-Step -- Maximize bound w.r.t. parameters $\vec{\th}$.
+\begin{align*}
+	\hat{\vec{\th}}^{(t+1)}&=\argmax_{\vec{\th}}\left(\sum_{i=1}^N\sum_{k=1}^K\hat{q}_i(h_i=k)\log\P{\vec{x}_i,h_i=k|\vec{\th}}\right) \\
+	&=\argmax_{\vec{\th}}\left(\sum_{i=1}^N\sum_{k=1}^Kr_{ik}\log\left(\la_k\Norm_{\vec{x}_i}[\vec{\mu}_k,\mat{\Si}_k]\right)\right)
+\end{align*}
+Take derivative, equate to zero and solve
+\begin{align*}
+	\la_k^{(t+1)}&=\frac{\sum_{i=1}^Nr_{ik}}{\sum_{j=1}^K\sum_{i=1}^Nr_{ij}} \\
+	\vec{\mu}_k^{(t+1)}&=\frac{\sum_{i=1}^Nr_{ik}\vec{x}_i}{\sum_{i=1}^Nr_{ik}} \\
+	\mat{\Si}_k^{(t+1)}&=\frac{\sum_{i=1}^Nr_{ik}\left(\vec{x}_i-\vec{\mu}_k^{(t+1)}\right)\left(\vec{x}_i-\vec{\mu}_k^{(t+1)}\right)\TT}{\sum_{i=1}^Nr_{ik}}
+\end{align*}
+
+\paragraph{Student t-distributions}
+
+The pdf of multivariate t-distribution is
+\begin{align*}
+	\P{\vec{x}|\vec{\th}}&=\Stud_{\vec{x}}[\vec{\mu},\mat{\Si},\nu] \\
+	&=\frac{\Ga\left(\frac{\nu+D}{2}\right)}{(\nu\pi)^{\frac{D}{2}}\det{\mat{\Si}}^\half\Ga\left(\frac{\nu}{2}\right)}\left(1+\frac{(\vec{x}-\vec{\mu})\TT\mat{\Si}\inv(\vec{x}-\vec{\mu})}{\nu}\right)^{-\frac{\nu+D}{2}}
+\end{align*}
+We can rewrite it as a marginalization form that
+\begin{align*}
+	\P{\vec{x}|\vec{\th}}&=\int\P{\vec{x},h|\vec{\th}}dh \\
+	&=\int\P{\vec{x}|h,\vec{\th}}\P{h|\vec{\th}}dh
+\end{align*}
+And define the distributions
+\begin{align*}
+	\P{\vec{x}|h,\vec{\th}}&=\Norm_{\vec{x}}[\vec{\mu},\pfrac{\mat{\Si}}{h}] \\
+	\P{h|\vec{\th}}&=\Gam_h[\pfrac{\nu}{2},\pfrac{\nu}{2}]
+\end{align*}
+E-Step -- Maximize bound w.r.t. distributions $q(h_i)$.
+\begin{align*}
+	\hat{q}_i(h_i)&=\P{h_i|\vec{x}_i,\vec{\th}^{(t)}} \\
+	&=\frac{\P{\vec{x}_i|h_i,\vec{\th}^{(t)}}\P{h_i|\vec{\th}^{(t)}}}{\P{\vec{x}_i|\vec{\th}^{(t)}}} \\
+	&=\frac{\Norm_{\vec{x}_i}[\vec{\mu},\mat{\Si}/h_i]\Gam_{h_i}[\nu/2,\nu/2]}{\P{\vec{x}_i|\vec{\th}^{(t)}}} \\
+	&=\Gam_{h_i}\left[\frac{\nu+1}{2},\half(\vec{x}_i-\vec{\mu})\TT\mat{\Si}\inv(\vec{x}_i-\vec{\mu})+\frac{\nu}{2}\right]
+\end{align*}
+Extract expectations
+\begin{align*}
+	\E{h_i}&=\frac{\nu+D}{\nu+(\vec{x}_i-\vec{\mu})\TT\mat{\Si}\inv(\vec{x}_i-\vec{\mu})} \\
+	\E{\log h_i}&=\Ps\left(\frac{\nu+D}{2}\right)-\log\left(\frac{\nu+(\vec{x}_i-\vec{\mu})\TT\mat{\Si}\inv(\vec{x}_i-\vec{\mu})}{2}\right)
+\end{align*}
+M-Step -- Maximize bound w.r.t. parameters $\vec{\th}$.
+\begin{align*}
+	\hat{\vec{\th}}^{(t+1)}&=\argmax_{\vec{\th}}\sum_{i=1}^N\int\hat{q}_i(h_i)\log\P{\vec{x}_i,h_i|\vec{\th}}dh_i \\
+	&=\argmax_{\vec{\th}}\sum_{i=1}^N\int\hat{q}_i(h_i)\left(\log\P{\vec{x}_i|h_i,\vec{\th}}+\log\P{h_i}\right)dh_i \\
+	&=\argmax_{\vec{\th}}\sum_{i=1}^N\int\P{h_i|\vec{x}_i,\vec{\th}^{(t)}}\left(\log\P{\vec{x}_i|h_i,\vec{\th}_i}+\log\P{h_i}\right)dh_i \\
+	&=\argmax_{\vec{\th}}\sum_{i=1}^N\E{\log\P{\vec{x}_i|h_i,\vec{\th}}}+\E{\log\P{h_i}}
+\end{align*}
+where
+\begin{align*}
+	\E{\log\P{\vec{x}_i|h_i,\vec{\th}}}&=-\frac{D\log 2\pi+\log\det{\mat{\Si}}+\E{\log h_i}+(\vec{x}_i-\vec{\mu})\TT\mat{\Si}\inv(\vec{x}_i-\vec{\mu})\E{h_i}}{2} \\
+	\E{\log\P{h_i}}&=\frac{\nu}{2}\log\frac{\nu}{2}-\log\Ga\left(\frac{\nu}{2}\right)+\left(\frac{\nu}{2}-1\right)\E{\log h_i}-\frac{\nu}{2}\E{h_i}
+\end{align*}
+The updates are
+\begin{align*}
+	\vec{\mu}^{(t+1)}&=\frac{\sum_{i=1}^N\E{h_i}\vec{x}_i}{\sum_{i=1}^N\E{h_i}} \\
+	\mat{\Si}^{(t+1)}&=\frac{\sum_{i=1}^N\E{h_i}\left(\vec{x}_i-\mu^{(t+1)}\right)\left(\vec{x}_i-\mu^{(t+1)}\right)\TT}{\sum_{i=1}^N\E{h_i}}
+\end{align*}
+There is no closed form solution for $\nu$. One must optimize bound -- since it is only one number we can optimize by just evaluating with a fine grid of values and picking the best.
 
 \paragraph{Factor Analysis}
 
-
+We want to compromise between full covariance matrix (desirable but many parameters) and diagonal covariance matrix (no modeling of covariance). We model full covariance in a subspace $\mat{\Ph}$ and mops everything else up with diagonal component $\mat{\Si}$:
+\begin{align*}
+	\P{\vec{x}|\vec{\th}}=\Norm_{\vec{x}}[\vec{\mu},\mat{\Ph}\mat{\Ph}\TT+\mat{\Si}]
+\end{align*}
+We can rewrite it as a marginalization form that
+\begin{align*}
+	\P{\vec{x}|\vec{\th}}&=\int\P{\vec{x},\vec{h}|\vec{\th}}d\vec{h} \\
+	&=\int\P{\vec{x}|\vec{h},\vec{\th}}\P{\vec{h}|\vec{\th}}d\vec{h}
+\end{align*}
+And define the distributions
+\begin{align*}
+	\P{\vec{x}|\vec{h},\vec{\th}}&=\Norm_{\vec{x}}[\vec{\mu}+\mat{\Ph}\vec{h},\mat{\Si}] \\
+	\P{\vec{h}}&=\Norm_{\vec{h}}[\vec{0},\mat{I}]
+\end{align*}
+E-Step -- Maximize bound w.r.t. distribution $q(\vec{h}_i)$.
+\begin{align*}
+	\hat{q}_i(\vec{h}_i)&=\P{\vec{h}_i|\vec{x}_i,\vec{\th}^{(t)}} \\
+	&=\frac{\P{\vec{x}_i|\vec{h}_i,\vec{\th}^{(t)}}\P{\vec{h}_i|\vec{\th}^{(t)}}}{\P{\vec{x}_i|\vec{\th}^{(t)}}} \\
+	&=\frac{\Norm_{\vec{x}_i}[\vec{\mu}+\mat{\Ph}\vec{h}_i,\mat{\Si}]\Norm_{\vec{h}_i}[\vec{0},\mat{I}]}{\P{\vec{x}_i|\vec{\th}^{(t)}}} \\
+	&=\Norm_{\vec{h_i}}\left[\left(\mat{\Ph}\TT\mat{\Si}\inv\mat{\Ph}+\mat{I}\right)\inv\mat{\Ph}\TT\mat{\Si}\inv(\vec{x}_i-\vec{\mu}),\mat{\Ph}\TT\mat{\Si}\inv\mat{\Ph}+\mat{I}\right]
+\end{align*}
+Extract expectations
+\begin{align*}
+	\E{\vec{h}_i}&=\left(\mat{\Ph}\TT\mat{\Si}\inv\mat{\Ph}+\mat{I}\right)\inv\mat{\Ph}\TT\mat{\Si}\inv(\vec{x}_i-\vec{\mu}) \\
+	\E{\vec{h_i}\vec{h_i}\TT}&=\E{(\vec{h}_i-\E{\vec{h}_i})(\vec{h}_i-\E{\vec{h}_i})\TT}+\E{\vec{h}_i}\E{\vec{h}_i}\TT \\
+	&=\left(\mat{\Ph}\TT\mat{\Si}\inv\mat{\Ph}+\mat{I}\right)\inv+\E{h_i}\E{h_i}\TT
+\end{align*}
+M-Step -- Maximize bound w.r.t. parameters $\vec{\th}$.
+\begin{align*}
+	\hat{\vec{\th}}^{(t+1)}&=\argmax_{\vec{\th}}\sum_{i=1}^N\int\hat{q}_i(\vec{h}_i)\log\P{\vec{x},\vec{h}_i|\vec{\th}}d\vec{h}_i \\
+	&=\argmax_{\vec{\th}}\sum_{i=1}^N\int\hat{q}_i(\vec{h}_i)\left(\log\P{\vec{x}|\vec{h}_i,\vec{\th}}+\log\P{\vec{h}_i}\right)d\vec{h}_i \\
+	&=\argmax_{\vec{\th}}\sum_{i=1}^N\int\hat{q}_i(\vec{h}_i)\log\P{\vec{x}|\vec{h}_i,\vec{\th}}d\vec{h}_i \\
+	&=\argmax_{\vec{\th}}\sum_{i=1}^N\E{\P{\vec{x}|\vec{h}_i,\vec{\th}}}
+\end{align*}
+where
+\begin{align*}
+	\log\P{\vec{x}_i|\vec{h}_i}=-\frac{D\log 2\pi+\log\det{\mat{\Si}}+(\vec{x}_i-\vec{\mu}-\mat{\Ph}\vec{h}_i)\TT\mat{\Si}\inv(\vec{x}_i-\vec{\mu}-\mat{\Ph}\vec{h_i})}{2}
+\end{align*}
+The solutions are
+\begin{align*}
+	\hat{\vec{\mu}}&=\frac{\sum_{i=1}^N\vec{x}_i}{\mat{I}} \\
+	\hat{\mat{\Ph}}&=\left(\sum_{i=1}^N(\vec{x}_i-\hat{\vec{\mu}})\E{\vec{h}_i}\TT\right)\left(\sum_{i=1}^N\E{\vec{h}_i\vec{h}_i\TT}\right)\inv \\
+	\hat{\mat{\Si}}&=\frac{1}{\mat{I}}\sum_{i=1}diag\left[(\vec{x}_i-\hat{\vec{\mu}})\TT(\vec{x}_i-\hat{\vec{\mu}})-\hat{\mat{\Ph}}\E{\vec{h}_i}\vec{x}\TT\right]
+\end{align*}
 
 \section{Variational Inference}
 
